@@ -20,7 +20,10 @@ aliases:
 > ✅ 已建笔记　❗ 重难点
 
 ## 知识树
-
+- **前置复习**
+    - [[High School Electricity Review|高中电学复习]] ✅
+- **数学工具**
+    - [[Complex Numbers and Euler's Formula|复数与欧拉公式]] ✅ ❗
 - **理论基础**
     - [[Maxwell's Equations|麦克斯韦方程组]] ✅ ❗
     - [[Lumped Matter Discipline|集总事物理论 (LMD)]] ✅ ❗
@@ -35,5 +38,3 @@ aliases:
     - [[Superposition Theorem|叠加原理]] ✅ ❗
     - [[Thevenin's Theorem|戴维南定理]] ✅ ❗
     - [[Norton's Theorem|诺顿定理]] ✅ ❗
-- **数学工具**
-    - [[Complex Numbers and Euler's Formula|复数与欧拉公式]] ✅ ❗

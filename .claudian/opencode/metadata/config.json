@@ -1,0 +1,16 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "agent": {
+    "claudian-execution-passive": {
+      "description": "Claudian passive execution agent.",
+      "mode": "primary",
+      "permission": {
+        "*": "deny",
+        "external_directory": "deny"
+      },
+      "prompt": "{file:D:\\CUHKSZonedrive\\OneDrive - CUHK-Shenzhen\\资料\\电路原理\\.claudian\\opencode\\metadata\\system.md}"
+    }
+  },
+  "default_agent": "claudian-execution-passive",
+  "username": "JP"
+}

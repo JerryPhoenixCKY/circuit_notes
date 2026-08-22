@@ -97,6 +97,5 @@ $$v = v_1 + v_2 = \frac{V_1 R_2 + V_2 R_1}{R_1 + R_2}$$
 
 ## 相关笔记
 
-- [[cs6.002x.1开头]] —— 电路基础概念与基本定律（主笔记，其中已引用本文）
 - [[Maxwell's Equations]] —— 电磁学基础
 - [[Lumped Matter Discipline]] —— 集总事物理论（KCL/KVL 的理论来源）

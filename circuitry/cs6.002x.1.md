@@ -38,3 +38,5 @@ aliases:
     - [[Superposition Theorem|叠加原理]] ✅ ❗
     - [[Thevenin's Theorem|戴维南定理]] ✅ ❗
     - [[Norton's Theorem|诺顿定理]] ✅ ❗
+- **非线性电路分析**
+    - [[Small Signal Analysis|小信号分析]] ✅ ❗

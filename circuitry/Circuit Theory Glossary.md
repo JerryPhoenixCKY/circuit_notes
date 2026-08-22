@@ -124,7 +124,16 @@ aliases:
 | Operating Point | 工作点 | 同 Bias Point |
 | Quiescent Point | 静态工作点 | 无信号输入时器件的直流状态点 |
 | Load Line | 负载线 | 负载约束下器件的工作点轨迹 |
-| Small Signal Analysis | 小信号分析 | 在工作点附近将非线性器件线性化的分析方法 |
+| [[Small Signal Analysis]] | 小信号分析 | 在工作点附近将非线性器件线性化的分析方法 |
+| Small-Signal Conductance | 小信号电导 | 二极管工作点处的导数 $g_D = I_{DQ}/V_T$，单位西门子 (S) |
+| Small-Signal Resistance | 小信号电阻 | 二极管工作点处的交流电阻 $r_d = V_T/I_{DQ}$ |
+| Transconductance | 跨导 | 器件输出电流对输入电压的敏感度 $g_m = \partial i_{out}/\partial v_{in}$，单位西门子 |
+| Input Resistance | 输入电阻 | 从放大器输入端看进去的小信号电阻 $R_{in}$ |
+| Output Resistance | 输出电阻 | 从放大器输出端看进去的小信号电阻 $R_{out}$ |
+| Voltage Gain | 电压增益 | 放大器输出电压与输入电压之比 $A_v = v_{out}/v_{in}$ |
+| Current Gain | 电流增益 | 放大器输出电流与输入电流之比 $A_i = i_{out}/i_{in}$ |
+| Bias Circuit | 偏置电路 | 为非线性器件建立稳定直流工作点的电路 |
+| Thermal Voltage | 热电压 | $V_T = kT/q \approx 26\text{ mV}$（室温），小信号模型的核心参数 |
 
 ## 8. Signals & Response（信号与响应）
 

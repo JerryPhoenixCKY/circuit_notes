@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "c443df6790a0712c",
+        "id": "a73f0758c9c51808",
         "type": "tabs",
         "children": [
           {
-            "id": "f4fec3fcf7a0ae36",
+            "id": "05bbee95bb0a1b40",
             "type": "leaf",
             "state": {
-              "type": "split-diff-view",
+              "type": "markdown",
               "state": {
-                "aFile": ".obsidian/plugins/obsidian-git/data.json",
-                "bFile": ".obsidian/plugins/obsidian-git/data.json",
-                "aRef": ""
+                "file": "circuitry/Superposition Theorem.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "diff",
-              "title": "Diff: data.json  (Working Tree)"
+              "icon": "lucide-file",
+              "title": "Superposition Theorem"
             }
           }
         ]
@@ -78,6 +78,16 @@
               "icon": "lucide-bookmark",
               "title": "书签"
             }
+          },
+          {
+            "id": "156cf5b44ae797ff",
+            "type": "leaf",
+            "state": {
+              "type": "quiet-outline",
+              "state": {},
+              "icon": "lines-of-text",
+              "title": "Quiet Outline"
+            }
           }
         ]
       }
@@ -93,16 +103,6 @@
         "id": "a9cb808865c928e4",
         "type": "tabs",
         "children": [
-          {
-            "id": "ce876346964b99a8",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "关系图谱"
-            }
-          },
           {
             "id": "46aa23c207b9619d",
             "type": "leaf",
@@ -171,7 +171,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "circuitry/Maxwell's Equations.md",
+                "file": "circuitry/Superposition Theorem.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -191,21 +191,35 @@
             }
           },
           {
-            "id": "206c0882ff615cc4",
+            "id": "e165ab8b3239dd6a",
             "type": "leaf",
             "state": {
-              "type": "claudian-view",
+              "type": "graph",
               "state": {},
-              "icon": "bot",
-              "title": "Claudian"
+              "icon": "lucide-git-fork",
+              "title": "关系图谱"
+            }
+          },
+          {
+            "id": "597ed6bb9bbd4ce4",
+            "type": "leaf",
+            "state": {
+              "type": "webviewer",
+              "state": {
+                "url": "http://127.0.0.1:3080/",
+                "title": "DeepSeek Harness",
+                "mode": "webview"
+              },
+              "icon": "globe-2",
+              "title": "DeepSeek Harness"
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 443.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -217,23 +231,49 @@
       "command-palette:打开命令面板": false,
       "bases:新建数据库": false,
       "obsidian-git:Open Git source control": false,
-      "realclaudian:Open Claudian": false,
       "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "obsidian-kanban:Create new board": false
+      "obsidian-kanban:Create new board": false,
+      "omnisearch:Omnisearch": false
     }
   },
-  "active": "f4fec3fcf7a0ae36",
+  "active": "8d8aabcb9d679de9",
   "lastOpenFiles": [
-    "circuitry/Maxwell's Equations.md",
-    "circuitry/High School Electricity Review.md",
-    "circuitry/Lumped Matter Discipline.md",
-    "circuitry/Kirchhoff's Laws.md",
+    "circuitry/Superposition Theorem.md",
+    "copilot/skills/obsidian-cli/SKILL.md",
+    "copilot/skills/obsidian-cli/LICENSE",
+    "copilot/skills/obsidian-cli",
+    "copilot/skills/json-canvas/SKILL.md",
+    "copilot/skills/json-canvas/LICENSE",
+    "copilot/skills/json-canvas/references/EXAMPLES.md",
+    "copilot/skills/json-canvas/references",
+    "copilot/skills/json-canvas",
+    "copilot/skills/obsidian-bases/SKILL.md",
+    "copilot/skills/obsidian-bases/LICENSE",
+    "copilot/skills/obsidian-bases/references/EXAMPLES.md",
+    "copilot/skills/obsidian-bases/references/FUNCTIONS_REFERENCE.md",
+    "copilot/skills/obsidian-bases/references",
+    "copilot/skills/obsidian-bases",
+    "copilot/skills/obsidian-markdown/SKILL.md",
+    "copilot/skills/obsidian-markdown/LICENSE",
+    "copilot/skills/obsidian-markdown/references/PROPERTIES.md",
+    "copilot/skills/obsidian-markdown/references/EMBEDS.md",
+    "copilot/skills/obsidian-markdown/references/CALLOUTS.md",
+    "copilot/skills/obsidian-markdown/references",
+    "copilot/skills/symposium-publish/SKILL.md",
+    "copilot/skills/copilot-fetch-x/SKILL.md",
+    "copilot/skills/copilot-youtube-transcript/SKILL.md",
+    "copilot/skills/copilot-read-pdf/SKILL.md",
+    "copilot/skills/copilot-web-fetch/SKILL.md",
+    "copilot/skills/copilot-web-search/SKILL.md",
     "circuitry/cs6.002x.1.md",
+    "circuitry/Kirchhoff's Laws.md",
+    "circuitry/Small Signal Analysis.md",
+    "circuitry/Norton's Theorem.md",
+    "circuitry/Maxwell's Equations.md",
+    "circuitry/Lumped Matter Discipline.md",
     "小信号分析.md",
-    "cs6.002x.1开头.md",
-    "Obsidian 入门材料.pdf",
-    "未命名.canvas",
-    "2026-08-18.md",
-    "circuitry/Complex Numbers and Euler's Formula.md"
+    "circuitry/High School Electricity Review.md",
+    "markdown速查手册.md",
+    "未命名.canvas"
   ]
 }

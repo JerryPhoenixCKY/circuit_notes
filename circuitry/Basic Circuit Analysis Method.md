@@ -18,7 +18,7 @@ aliases:
   - Basic Circuit Analysis Method
 ---
 
-# Basic Circuit Analysis Method
+# Basic Circuit Analysis *Method*
 
 > [!NOTE] 定位 (Positioning)
 > MIT 6.002x **Lecture 2** 的核心内容：当电路给定后，如何**系统地求出每一个元件的电压 $v$ 与电流 $i$**。

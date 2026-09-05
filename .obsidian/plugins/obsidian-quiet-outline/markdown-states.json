@@ -153,28 +153,28 @@
     "expandedKeys": [],
     "cursor": {
       "from": {
-        "line": 15,
-        "ch": 0
+        "line": 35,
+        "ch": 29
       },
       "to": {
-        "line": 15,
-        "ch": 0
+        "line": 35,
+        "ch": 29
       }
     },
-    "scroll": 103.84147135416667
+    "scroll": 0
   },
   "circuitry/Thevenin's Theorem.md": {
     "cursor": {
       "from": {
-        "line": 121,
+        "line": 31,
         "ch": 0
       },
       "to": {
-        "line": 121,
+        "line": 31,
         "ch": 0
       }
     },
-    "scroll": 104.493490472519
+    "scroll": 27.518377253814148
   },
   "circuitry/Complex Numbers and Euler's Formula.md": {
     "cursor": {
@@ -205,14 +205,14 @@
   "circuitry/Basic Circuit Analysis Method.md": {
     "cursor": {
       "from": {
-        "line": 150,
-        "ch": 9
+        "line": 212,
+        "ch": 0
       },
       "to": {
-        "line": 150,
-        "ch": 9
+        "line": 212,
+        "ch": 0
       }
     },
-    "scroll": 0
+    "scroll": 225.91080729166666
   }
 }

@@ -171,7 +171,6 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "circuitry/Basic Circuit Analysis Method.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -188,16 +187,6 @@
               "state": {},
               "icon": "git-pull-request",
               "title": "Source Control"
-            }
-          },
-          {
-            "id": "e165ab8b3239dd6a",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "关系图谱"
             }
           },
           {
@@ -221,6 +210,16 @@
         "id": "bcf49f11f2563dff",
         "type": "tabs",
         "children": [
+          {
+            "id": "e165ab8b3239dd6a",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "关系图谱"
+            }
+          },
           {
             "id": "05bbee95bb0a1b40",
             "type": "leaf",
@@ -256,20 +255,31 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "86cafb7858fd2cf6",
+  "active": "8d8aabcb9d679de9",
   "lastOpenFiles": [
-    "circuitry/Thevenin's Theorem.md",
+    "circuitry/Basic Circuit Analysis Method.md",
+    "circuitry/Circuit Theory Glossary.md",
     "circuitry/Superposition Theorem.md",
+    "circuitry/Thevenin's Theorem.md",
+    "circuitry/Small Signal Analysis.md",
+    "circuitry/Lumped Matter Discipline.md",
+    "circuitry/Complex Numbers and Euler's Formula.md",
+    "circuitry/assets/avd_element.png",
+    "circuitry/assets/avd_element.svg",
+    "circuitry/assets/thevenin_rth.png",
+    "circuitry/assets/thevenin_rth.svg",
+    "circuitry/assets/thevenin_original.png",
+    "circuitry/assets/thevenin_original.svg",
+    "circuitry/assets/method2_example.png",
+    "circuitry/assets/method2_example.svg",
+    "circuitry/assets/old_faithful.png",
+    "circuitry/assets/old_faithful.svg",
+    "circuitry/assets",
     "circuitry/Kirchhoff's Laws.md",
     "circuitry/Foundations of Analog and Digital Electronic Circuits (Anant Agarwal and Jeffrey H. Lang) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
     "circuitry/Maxwell's Equations.md",
-    "circuitry/Circuit Theory Glossary.md",
     "circuitry/cs6.002x.1.md",
-    "circuitry/Basic Circuit Analysis Method.md",
-    "circuitry/Complex Numbers and Euler's Formula.md",
     "circuitry/High School Electricity Review.md",
-    "circuitry/Lumped Matter Discipline.md",
-    "circuitry/Small Signal Analysis.md",
     "circuitry/Norton's Theorem.md",
     "markdown速查手册.md",
     "Obsidian 入门材料.pdf",
@@ -287,7 +297,6 @@
     "copilot/skills/obsidian-bases/references/EXAMPLES.md",
     "copilot/skills/obsidian-bases/references/FUNCTIONS_REFERENCE.md",
     "copilot/skills/obsidian-bases/references",
-    "copilot/skills/obsidian-bases",
     "copilot/skills/obsidian-markdown/SKILL.md",
     "copilot/skills/obsidian-markdown/references/PROPERTIES.md",
     "copilot/skills/obsidian-markdown/references/EMBEDS.md",

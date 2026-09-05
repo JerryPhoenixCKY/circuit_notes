@@ -44,7 +44,7 @@ aliases:
 | Capacitance | 电容值 | 电容元件存储电荷能力的量度 $C$ |
 | Inductance | 电感值 | 电感元件存储磁通能力的量度 $L$ |
 | Voltage Source | 电压源 | 提供恒定电压的电源 |
-| Current Source | 电流源 | 提供恒定电流的电源 |
+| [[Superposition Theorem|Current Source]] | 电流源 | 提供恒定电流的电源，叠加时置零（开路）；独立源与受控源之分；并联叠加，禁止不同值串联 |
 | Independent Source | 独立源 | 值由自身决定的电源 |
 | Dependent Source | 受控源 | 值由电路中其他电压/电流控制的电源 |
 | Lumped Elements | 集总元件 | 尺寸远小于波长、可视为"点"的元件 |
@@ -80,6 +80,13 @@ aliases:
 | Homogeneity | 齐次性 | 输入放大 k 倍，输出也放大 k 倍 |
 | Additivity | 可加性 | 多个输入之和的响应 = 各自响应之和 |
 | Lenz's Law | 楞次定律 | 感应效应总是反抗引起它的磁通变化 |
+| [[Basic Circuit Analysis Method\|Node Analysis]] | 节点法 / 节点分析法 / Nodal Analysis | 以节点电压为主未知数、对非参考节点写 KCL 的系统分析法，是 KVL/KCL 法的特例 |
+| Node Voltage | 节点电压 | 某节点相对参考节点（地）的电势，节点法的主未知数 |
+| Reference Node | 参考节点 / 地 (Ground) | 电压测量的基准点，电势定义为 0 |
+| Conductance | 电导 (G) | 电阻的倒数 $G=1/R$，单位西门子 (S)，节点法中的核心变量 |
+| Associated Variables Discipline | 关联变量约定 (AVD) | 电流定义为从元件正电压端流入；此时 $p=vi$ 为吸收功率 |
+| Element Combination Rules | 元件组合规则 | 串并联等效化简（串联 $R$ 相加、并联 $G$ 相加、源串并联），配合叠加可解复杂电路 |
+| Basic KVL/KCL Method | 基本 KVL/KCL 方法 / 暴力法 | 写全部元件关系 + 全部 KCL + 全部 KVL 后求解，通用但方程数爆炸 |
 
 ## 5. Maxwell's Equations & Field Theory（麦克斯韦方程组与场论）
 

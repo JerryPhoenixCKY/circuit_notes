@@ -36,7 +36,11 @@ aliases:
     - 欧姆定律 (Ohm's Law)
     - [[Kirchhoff's Laws|基尔霍夫定律 (KCL / KVL)]] ✅ ❗
     - [[Superposition Theorem|叠加原理]] ✅ ❗
+        - 含电流源 (Current Source) 分类、串并联规则、叠加处理
     - [[Thevenin's Theorem|戴维南定理]] ✅ ❗
     - [[Norton's Theorem|诺顿定理]] ✅ ❗
+- **电路分析方法**
+    - [[Basic Circuit Analysis Method|基本电路分析法 (KVL-KCL 方法 / 节点法)]] ✅ ❗
+        - 含暴力法 (Basic KVL/KCL)、元件组合规则 (Combination Rules)、节点法 (Node Analysis)
 - **非线性电路分析**
     - [[Small Signal Analysis|小信号分析]] ✅ ❗

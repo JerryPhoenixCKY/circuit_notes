@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "a73f0758c9c51808",
+        "id": "0278c26d5ad4d21b",
         "type": "tabs",
         "children": [
           {
-            "id": "05bbee95bb0a1b40",
+            "id": "86cafb7858fd2cf6",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "circuitry/Superposition Theorem.md",
+                "file": "circuitry/Basic Circuit Analysis Method.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Superposition Theorem"
+              "title": "Basic Circuit Analysis Method"
             }
           }
         ]
@@ -55,7 +55,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:6.002x",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -85,15 +85,15 @@
             "state": {
               "type": "quiet-outline",
               "state": {},
-              "icon": "lines-of-text",
-              "title": "Quiet Outline"
+              "icon": "lucide-ghost",
+              "title": "quiet-outline"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 257
   },
   "right": {
     "id": "7bfc66cea6d4f626",
@@ -171,7 +171,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "circuitry/Superposition Theorem.md",
+                "file": "circuitry/Basic Circuit Analysis Method.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -216,10 +216,30 @@
           }
         ],
         "currentTab": 5
+      },
+      {
+        "id": "bcf49f11f2563dff",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "05bbee95bb0a1b40",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "circuitry/Basic Circuit Analysis Method.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Basic Circuit Analysis Method"
+            }
+          }
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 443.5
+    "width": 324
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -236,9 +256,24 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "8d8aabcb9d679de9",
+  "active": "86cafb7858fd2cf6",
   "lastOpenFiles": [
+    "circuitry/Thevenin's Theorem.md",
     "circuitry/Superposition Theorem.md",
+    "circuitry/Kirchhoff's Laws.md",
+    "circuitry/Foundations of Analog and Digital Electronic Circuits (Anant Agarwal and Jeffrey H. Lang) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+    "circuitry/Maxwell's Equations.md",
+    "circuitry/Circuit Theory Glossary.md",
+    "circuitry/cs6.002x.1.md",
+    "circuitry/Basic Circuit Analysis Method.md",
+    "circuitry/Complex Numbers and Euler's Formula.md",
+    "circuitry/High School Electricity Review.md",
+    "circuitry/Lumped Matter Discipline.md",
+    "circuitry/Small Signal Analysis.md",
+    "circuitry/Norton's Theorem.md",
+    "markdown速查手册.md",
+    "Obsidian 入门材料.pdf",
+    "小信号分析.md",
     "copilot/skills/obsidian-cli/SKILL.md",
     "copilot/skills/obsidian-cli/LICENSE",
     "copilot/skills/obsidian-cli",
@@ -254,26 +289,10 @@
     "copilot/skills/obsidian-bases/references",
     "copilot/skills/obsidian-bases",
     "copilot/skills/obsidian-markdown/SKILL.md",
-    "copilot/skills/obsidian-markdown/LICENSE",
     "copilot/skills/obsidian-markdown/references/PROPERTIES.md",
     "copilot/skills/obsidian-markdown/references/EMBEDS.md",
     "copilot/skills/obsidian-markdown/references/CALLOUTS.md",
-    "copilot/skills/obsidian-markdown/references",
     "copilot/skills/symposium-publish/SKILL.md",
-    "copilot/skills/copilot-fetch-x/SKILL.md",
-    "copilot/skills/copilot-youtube-transcript/SKILL.md",
-    "copilot/skills/copilot-read-pdf/SKILL.md",
-    "copilot/skills/copilot-web-fetch/SKILL.md",
-    "copilot/skills/copilot-web-search/SKILL.md",
-    "circuitry/cs6.002x.1.md",
-    "circuitry/Kirchhoff's Laws.md",
-    "circuitry/Small Signal Analysis.md",
-    "circuitry/Norton's Theorem.md",
-    "circuitry/Maxwell's Equations.md",
-    "circuitry/Lumped Matter Discipline.md",
-    "小信号分析.md",
-    "circuitry/High School Electricity Review.md",
-    "markdown速查手册.md",
     "未命名.canvas"
   ]
 }

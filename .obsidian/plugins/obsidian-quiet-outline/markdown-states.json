@@ -6,15 +6,15 @@
     "expandedKeys": [],
     "cursor": {
       "from": {
-        "line": 0,
-        "ch": 0
+        "line": 2,
+        "ch": 82
       },
       "to": {
-        "line": 0,
-        "ch": 0
+        "line": 2,
+        "ch": 82
       }
     },
-    "scroll": 0
+    "scroll": 39.45302325581395
   },
   "circuitry/Lumped Matter Discipline.md": {
     "expandedKeys": [
@@ -69,15 +69,15 @@
     ],
     "cursor": {
       "from": {
-        "line": 23,
-        "ch": 49
+        "line": 41,
+        "ch": 39
       },
       "to": {
-        "line": 23,
-        "ch": 49
+        "line": 41,
+        "ch": 39
       }
     },
-    "scroll": 29.36145648312611
+    "scroll": 40.544108940201305
   },
   "circuitry/Kirchhoff's Laws.md": {
     "expandedKeys": [
@@ -174,7 +174,7 @@
         "ch": 13
       }
     },
-    "scroll": 16
+    "scroll": 28.616536458333332
   },
   "circuitry/Complex Numbers and Euler's Formula.md": {
     "cursor": {
@@ -187,20 +187,20 @@
         "ch": 0
       }
     },
-    "scroll": 158.66471354166666
+    "scroll": 151.72200520833334
   },
   "circuitry/Circuit Theory Glossary.md": {
     "cursor": {
       "from": {
-        "line": 36,
-        "ch": 14
+        "line": 226,
+        "ch": 0
       },
       "to": {
-        "line": 36,
-        "ch": 14
+        "line": 226,
+        "ch": 0
       }
     },
-    "scroll": 0
+    "scroll": 219.3612290115053
   },
   "circuitry/Basic Circuit Analysis Method.md": {
     "cursor": {
@@ -213,7 +213,7 @@
         "ch": 0
       }
     },
-    "scroll": 183.32077125328658
+    "scroll": 2.4856164383561645
   },
   "circuitry/The Digital Abstraction.md": {
     "cursor": {
@@ -236,6 +236,115 @@
       },
       "to": {
         "line": 11,
+        "ch": 0
+      }
+    },
+    "scroll": 0
+  },
+  "Trigonometric Functions and Identities.md": {
+    "scroll": 0
+  },
+  "Solving Simultaneous Linear Equations.md": {
+    "scroll": 0
+  },
+  "The Circuit Abstraction.md": {
+    "scroll": 0
+  },
+  "Practical Two-Terminal Elements.md": {
+    "scroll": 0
+  },
+  "circuitry/Trigonometric Functions and Identities.md": {
+    "scroll": 0
+  },
+  "circuitry/Solving Simultaneous Linear Equations.md": {
+    "scroll": 0
+  },
+  "circuitry/The Circuit Abstraction.md": {
+    "cursor": {
+      "from": {
+        "line": 13,
+        "ch": 0
+      },
+      "to": {
+        "line": 13,
+        "ch": 0
+      }
+    },
+    "scroll": 30.489399941314552
+  },
+  "circuitry/Combinational Logic.md": {
+    "cursor": {
+      "from": {
+        "line": 11,
+        "ch": 0
+      },
+      "to": {
+        "line": 11,
+        "ch": 0
+      }
+    },
+    "scroll": 0
+  },
+  "circuitry/Two-Terminal Element Laws.md": {
+    "cursor": {
+      "from": {
+        "line": 18,
+        "ch": 0
+      },
+      "to": {
+        "line": 18,
+        "ch": 0
+      }
+    },
+    "scroll": 13.232142857142858
+  },
+  "circuitry/Practical Two-Terminal Elements.md": {
+    "cursor": {
+      "from": {
+        "line": 22,
+        "ch": 0
+      },
+      "to": {
+        "line": 22,
+        "ch": 0
+      }
+    },
+    "scroll": 0
+  },
+  "circuitry/Ohm's Law.md": {
+    "cursor": {
+      "from": {
+        "line": 14,
+        "ch": 0
+      },
+      "to": {
+        "line": 14,
+        "ch": 0
+      }
+    },
+    "scroll": 105.58845324078416
+  },
+  "circuitry/Maximum Power Transfer Theorem.md": {
+    "cursor": {
+      "from": {
+        "line": 14,
+        "ch": 0
+      },
+      "to": {
+        "line": 14,
+        "ch": 0
+      }
+    },
+    "scroll": 0
+  },
+  "circuitry/Resistive Networks.md": {
+    "cursor": {
+      "from": {
+        "line": 89,
+        "ch": 0
+      },
+      "to": {
+        "line": 89,
         "ch": 0
       }
     },

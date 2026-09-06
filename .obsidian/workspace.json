@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "circuitry/The Digital Abstraction.md",
+                "file": "circuitry/Thevenin's Theorem.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "The Digital Abstraction"
+              "title": "Thevenin's Theorem"
             }
           }
         ]
@@ -172,6 +172,7 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "circuitry/Thevenin's Theorem.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -258,12 +259,21 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "8d8aabcb9d679de9",
+  "active": "86cafb7858fd2cf6",
   "lastOpenFiles": [
+    "circuitry/cs6.002x.1.md",
+    "circuitry/Thevenin's Theorem.md",
+    "circuitry/Maxwell's Equations.md",
+    "circuitry/Norton's Theorem.md",
+    "circuitry/Superposition Theorem.md",
+    "circuitry/Static Discipline.md",
+    "circuitry/Small Signal Analysis.md",
+    "circuitry/assets/superposition_decomp.png",
+    "circuitry/assets/superposition_decomp.svg",
+    "circuitry/assets/source_equivalence_iv.svg",
+    "circuitry/assets/source_equivalence_iv.png",
     "circuitry/The Digital Abstraction.md",
     "circuitry/Combinational Logic.md",
-    "circuitry/Static Discipline.md",
-    "circuitry/cs6.002x.1.md",
     "circuitry/assets/logic_gates.png",
     "circuitry/assets/logic_gates.svg",
     "circuitry/assets/static_discipline_vtc.svg",
@@ -271,10 +281,6 @@
     "circuitry/High School Electricity Review.md",
     "circuitry/assets/method2_example.png",
     "circuitry/assets/old_faithful.svg",
-    "circuitry/assets/thevenin_original.png",
-    "circuitry/assets/thevenin_rth.png",
-    "circuitry/assets/thevenin_rth.svg",
-    "circuitry/assets/old_faithful.png",
     "Foundations of Analog and Digital Electronic Circuits (Anant Agarwal and Jeffrey H. Lang) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
     "The Digital Abstraction.pdf",
     "Inside the Digital Gate.pdf",
@@ -284,18 +290,13 @@
     "A First Course in Real Analysis (Undergraduate Texts in -- Axler, S_;Gehring, F_ W_;Ribet, K_ A -- 2nd edition, 1991 -- Springer New York _ Imprint _ -- isbn13 9780387974378 -- 91cfa404c3766ff7af63ec0d5306aa69 -- Anna’s .pdf",
     "Superposition, Thévenin and Norton.pdf",
     "circuitry/Basic Circuit Analysis Method.md",
-    "circuitry/Small Signal Analysis.md",
-    "circuitry/Norton's Theorem.md",
     "Unconfirmed 398424.crdownload",
     "小信号分析.md",
-    "circuitry/Thevenin's Theorem.md",
     "circuitry/Circuit Theory Glossary.md",
-    "circuitry/Superposition Theorem.md",
     "circuitry/Lumped Matter Discipline.md",
     "circuitry/Complex Numbers and Euler's Formula.md",
     "circuitry/assets",
     "circuitry/Kirchhoff's Laws.md",
-    "circuitry/Maxwell's Equations.md",
     "markdown速查手册.md",
     "copilot/skills/obsidian-cli/SKILL.md",
     "copilot/skills/json-canvas/SKILL.md",
@@ -305,7 +306,6 @@
     "copilot/skills/obsidian-bases/references/FUNCTIONS_REFERENCE.md",
     "copilot/skills/obsidian-markdown/SKILL.md",
     "copilot/skills/obsidian-markdown/references/PROPERTIES.md",
-    "copilot/skills/obsidian-markdown/references/EMBEDS.md",
     "未命名.canvas"
   ]
 }

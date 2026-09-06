@@ -47,7 +47,7 @@
         "ch": 0
       }
     },
-    "scroll": 0
+    "scroll": 17.853617557492388
   },
   "小信号分析.md": {
     "expandedKeys": [],
@@ -77,7 +77,7 @@
         "ch": 49
       }
     },
-    "scroll": 28.755180580224984
+    "scroll": 29.36145648312611
   },
   "circuitry/Kirchhoff's Laws.md": {
     "expandedKeys": [
@@ -166,15 +166,15 @@
   "circuitry/Thevenin's Theorem.md": {
     "cursor": {
       "from": {
-        "line": 31,
-        "ch": 0
+        "line": 92,
+        "ch": 13
       },
       "to": {
-        "line": 31,
-        "ch": 0
+        "line": 92,
+        "ch": 13
       }
     },
-    "scroll": 27.518377253814148
+    "scroll": 16
   },
   "circuitry/Complex Numbers and Euler's Formula.md": {
     "cursor": {
@@ -223,6 +223,19 @@
       },
       "to": {
         "line": 9,
+        "ch": 0
+      }
+    },
+    "scroll": 0
+  },
+  "circuitry/Static Discipline.md": {
+    "cursor": {
+      "from": {
+        "line": 11,
+        "ch": 0
+      },
+      "to": {
+        "line": 11,
         "ch": 0
       }
     },

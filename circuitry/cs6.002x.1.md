@@ -44,3 +44,10 @@ aliases:
         - 含暴力法 (Basic KVL/KCL)、元件组合规则 (Combination Rules)、节点法 (Node Analysis)
 - **非线性电路分析**
     - [[Small Signal Analysis|小信号分析]] ✅ ❗
+- **数字抽象 (Digital Abstraction)**
+    - [[The Digital Abstraction|数字抽象概述]] ✅ ❗
+        - 动机：模拟噪声问题 → 取值离散化 → 数字系统模型 → 电压阈值与禁区
+    - [[Static Discipline|静态纪律 (Static Discipline)]] ✅ ❗
+        - 四阈值 V_OH/V_IH/V_IL/V_OL、噪声容限 NM_H/NM_L、VTC、增益再生
+    - [[Combinational Logic|组合逻辑 (Combinational Logic)]] ✅ ❗
+        - 布尔逻辑、门电路 (AND/OR/NOT/NAND)、真值表、组合门抽象、布尔恒等式

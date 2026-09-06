@@ -167,6 +167,25 @@ aliases:
 | [[Complex Numbers and Euler's Formula\|Magnitude]] | 模     | 复数的长度 $r = \|z\|$ |
 | [[Complex Numbers and Euler's Formula\|Phase]] | 相角    | 复数的辐角 $\theta = \arg z$ |
 
+## 10. Digital Abstraction（数字抽象）
+
+| English | 中文 | 解释 |
+| :--- | :--- | :--- |
+| [[The Digital Abstraction\|Digital Abstraction]] | 数字抽象 | 把连续取值离散为 0/1 的抽象层，建立在集总电路抽象之上 |
+| Value Discretization | 取值离散化 | 仅允许信号取两种值（HIGH/LOW ↔ 1/0 ↔ TRUE/FALSE） |
+| [[The Digital Abstraction\|Digital System]] | 数字系统 | 发送端→带噪声导线→接收端，靠阈值判读还原 0/1 |
+| Noise | 噪声 | 叠加在信号上的不期望电压波动，模拟系统的精度杀手 |
+| [[Static Discipline\|Static Discipline]] | 静态纪律 | 输入合法 ⇒ 输出合法；用四阈值量化噪声容限 |
+| [[Static Discipline\|Noise Margin]] | 噪声容限 | 信号变非法前能容忍的最大噪声：$NM_H=V_{OH}-V_{IH},\ NM_L=V_{IL}-V_{OL}$ |
+| Voltage Threshold | 电压阈值 | 判读逻辑值的门槛电压 |
+| [[Static Discipline\|Voltage Transfer Characteristic (VTC)]] | 电压传输特性 | $V_{out}$ 对 $V_{in}$ 的曲线，过渡区高增益实现信号再生 |
+| Forbidden Region | 禁区 / 无主之地 | 发送/接收都不使用的电压间隙，即噪声容限的物理载体 |
+| [[Combinational Logic\|Combinational Logic]] | 组合逻辑 | 输出仅为当前输入函数的数字逻辑（无记忆） |
+| [[Combinational Logic\|Logic Gate]] | 逻辑门 | AND/OR/NOT/NAND 等实现布尔运算的电路单元 |
+| Boolean Algebra | 布尔代数 | 以 0/1 为变量的代数体系，逻辑门的理论基础 |
+| Truth Table | 真值表 | 枚举全部 $2^n$ 输入组合以定义组合函数 |
+| Combinational Gate Abstraction | 组合门抽象 | 门作为黑箱：遵守静态纪律、输出仅依赖输入 |
+
 ---
 
 ## 相关笔记

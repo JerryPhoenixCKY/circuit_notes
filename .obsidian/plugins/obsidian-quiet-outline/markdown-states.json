@@ -77,7 +77,7 @@
         "ch": 49
       }
     },
-    "scroll": 19.942350099758478
+    "scroll": 28.755180580224984
   },
   "circuitry/Kirchhoff's Laws.md": {
     "expandedKeys": [
@@ -161,7 +161,7 @@
         "ch": 29
       }
     },
-    "scroll": 0
+    "scroll": 29.046450482033304
   },
   "circuitry/Thevenin's Theorem.md": {
     "cursor": {
@@ -213,6 +213,19 @@
         "ch": 0
       }
     },
-    "scroll": 225.91080729166666
+    "scroll": 183.32077125328658
+  },
+  "circuitry/The Digital Abstraction.md": {
+    "cursor": {
+      "from": {
+        "line": 9,
+        "ch": 0
+      },
+      "to": {
+        "line": 9,
+        "ch": 0
+      }
+    },
+    "scroll": 0
   }
 }

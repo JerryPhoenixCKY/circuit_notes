@@ -69,15 +69,15 @@
     ],
     "cursor": {
       "from": {
-        "line": 41,
-        "ch": 39
+        "line": 109,
+        "ch": 62
       },
       "to": {
-        "line": 41,
-        "ch": 39
+        "line": 109,
+        "ch": 62
       }
     },
-    "scroll": 40.544108940201305
+    "scroll": 100.79348837209302
   },
   "circuitry/Kirchhoff's Laws.md": {
     "expandedKeys": [
@@ -123,15 +123,15 @@
     ],
     "cursor": {
       "from": {
-        "line": 26,
+        "line": 124,
         "ch": 0
       },
       "to": {
-        "line": 26,
+        "line": 124,
         "ch": 0
       }
     },
-    "scroll": 27.258266818700115
+    "scroll": 313.2720599085141
   },
   "circuitry/Maxwell's Equations.md": {
     "expandedKeys": [
@@ -213,7 +213,7 @@
         "ch": 0
       }
     },
-    "scroll": 2.4856164383561645
+    "scroll": 254.67785150870165
   },
   "circuitry/The Digital Abstraction.md": {
     "cursor": {
@@ -226,7 +226,7 @@
         "ch": 0
       }
     },
-    "scroll": 0
+    "scroll": 62.93914701803051
   },
   "circuitry/Static Discipline.md": {
     "cursor": {
@@ -283,7 +283,7 @@
         "ch": 0
       }
     },
-    "scroll": 0
+    "scroll": 87.85879218472469
   },
   "circuitry/Two-Terminal Element Laws.md": {
     "cursor": {
@@ -348,6 +348,104 @@
         "ch": 0
       }
     },
+    "scroll": 38.176606601817895
+  },
+  "circuitry/Signal Representation.md": {
+    "cursor": {
+      "from": {
+        "line": 18,
+        "ch": 0
+      },
+      "to": {
+        "line": 18,
+        "ch": 0
+      }
+    },
     "scroll": 0
+  },
+  "circuitry/Analysis of Nonlinear Circuits.md": {
+    "scroll": 0,
+    "cursor": {
+      "from": {
+        "line": 16,
+        "ch": 0
+      },
+      "to": {
+        "line": 16,
+        "ch": 0
+      }
+    }
+  },
+  "The MOSFET Switch.md": {
+    "scroll": 0
+  },
+  "The MOSFET Amplifier.md": {
+    "scroll": 0,
+    "cursor": {
+      "from": {
+        "line": 0,
+        "ch": 0
+      },
+      "to": {
+        "line": 0,
+        "ch": 0
+      }
+    }
+  },
+  "circuitry/The MOSFET Switch.md": {
+    "cursor": {
+      "from": {
+        "line": 16,
+        "ch": 0
+      },
+      "to": {
+        "line": 16,
+        "ch": 0
+      }
+    },
+    "scroll": 203.04091539528432
+  },
+  "Sinusoidal Steady State.md": {
+    "scroll": 0
+  },
+  "circuitry/First-Order Transients.md": {
+    "cursor": {
+      "from": {
+        "line": 24,
+        "ch": 0
+      },
+      "to": {
+        "line": 24,
+        "ch": 0
+      }
+    },
+    "scroll": 0
+  },
+  "circuitry/Inductor.md": {
+    "cursor": {
+      "from": {
+        "line": 14,
+        "ch": 0
+      },
+      "to": {
+        "line": 14,
+        "ch": 0
+      }
+    }
+  },
+  "circuitry/Resonance.md": {
+    "scroll": 0
+  },
+  "circuitry/Diode.md": {
+    "cursor": {
+      "from": {
+        "line": 34,
+        "ch": 0
+      },
+      "to": {
+        "line": 34,
+        "ch": 0
+      }
+    }
   }
 }

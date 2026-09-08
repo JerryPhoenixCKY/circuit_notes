@@ -4,35 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "0278c26d5ad4d21b",
+        "id": "de5ee9ddb7ba4dbb",
         "type": "tabs",
         "children": [
           {
-            "id": "86cafb7858fd2cf6",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "关系图谱"
-            }
-          },
-          {
-            "id": "e165ab8b3239dd6a",
+            "id": "d465abca1fbfe0d5",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "circuitry/Resistive Networks.md",
+                "file": "circuitry/cs6.002x.1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Resistive Networks"
+              "title": "cs6.002x.1"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -182,7 +171,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "circuitry/Resistive Networks.md",
+                "file": "circuitry/cs6.002x.1.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -208,11 +197,11 @@
               "type": "webviewer",
               "state": {
                 "url": "http://127.0.0.1:3080/",
-                "title": "DeepSeek Harness",
+                "title": "127.0.0.1:3080",
                 "mode": "webview"
               },
               "icon": "globe-2",
-              "title": "DeepSeek Harness"
+              "title": "127.0.0.1:3080"
             }
           }
         ],
@@ -253,43 +242,45 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "e165ab8b3239dd6a",
+  "active": "05bbee95bb0a1b40",
   "lastOpenFiles": [
     "circuitry/cs6.002x.1.md",
-    "circuitry/Ohm's Law.md",
-    "circuitry/Maximum Power Transfer Theorem.md",
-    "circuitry/assets/voltage_current_divider.png",
-    "circuitry/assets/voltage_current_divider.svg",
-    "circuitry/assets/series_parallel.png",
-    "circuitry/assets/series_parallel.svg",
+    "The MOSFET Amplifier.md",
+    "Sinusoidal Steady State.md",
+    "circuitry/Diode.md",
+    "circuitry/assets/opamp_active_filter.svg",
+    "circuitry/assets/zener_regulator.svg",
+    "circuitry/assets/rectifier.svg",
+    "circuitry/assets/diode_clipping.svg",
+    "circuitry/assets/diode_iv.svg",
+    "circuitry/assets/opamp_basic_circuits.svg",
+    "circuitry/Operational Amplifier.md",
+    "circuitry/assets/opamp_symbol.svg",
+    "circuitry/Resonance.md",
+    "Amplifiers and Feedback.md",
+    "circuitry/Filters.md",
+    "circuitry/Frequency Response.md",
+    "circuitry/Impedance.md",
+    "circuitry/Sinusoidal Steady State.md",
+    "circuitry/assets/impedance_frequency.svg",
+    "circuitry/assets/parallel_resonance.svg",
+    "circuitry/assets/series_resonance.svg",
+    "circuitry/Inductor.md",
+    "circuitry/First-Order Transients.md",
+    "circuitry/Second-Order Transients.md",
+    "circuitry/Energy and Power in Digital Circuits.md",
+    "part4_tmp",
+    "circuitry/Capacitor.md",
+    "circuitry/Energy and Charge Conservation.md",
+    "circuitry/assets/__probe_test.txt",
     "circuitry/Basic Circuit Analysis Method.md",
-    "markdown速查手册.md",
-    "circuitry/assets/piecewise_linear.png",
-    "circuitry/assets/piecewise_linear.svg",
-    "circuitry/assets/load_line.png",
-    "circuitry/assets/load_line.svg",
-    "circuitry/assets/max_power_curve.png",
-    "circuitry/assets/max_power_curve.svg",
     "circuitry/Analysis of Nonlinear Circuits.md",
-    "circuitry/Resistive Networks.md",
-    "circuitry/Practical Two-Terminal Elements.md",
-    "circuitry/The Circuit Abstraction.md",
-    "circuitry/Two-Terminal Element Laws.md",
+    "circuitry/The MOSFET Switch.md",
+    "The MOSFET Switch.md",
     "circuitry/Combinational Logic.md",
-    "circuitry/Complex Numbers and Euler's Formula.md",
-    "circuitry/Circuit Theory Glossary.md",
-    "circuitry/Signal Representation.md",
-    "circuitry/Ideal Two-Terminal Elements.md",
-    "circuitry/Solving Simultaneous Linear Equations.md",
-    "circuitry/Trigonometric Functions and Identities.md",
-    "circuitry/Thevenin's Theorem.md",
-    "circuitry/Maxwell's Equations.md",
-    "circuitry/Norton's Theorem.md",
-    "circuitry/High School Electricity Review.md",
-    "circuitry/MOSFET.md",
     "circuitry/Static Discipline.md",
-    "circuitry/Superposition Theorem.md",
     "circuitry/The Digital Abstraction.md",
+    "circuitry/Small Signal Analysis.md",
     "Incremental Analysis.pdf",
     "Unconfirmed 452597.crdownload",
     "Nonlinear Analysis.pdf",
@@ -298,8 +289,6 @@
     "The Digital Abstraction.pdf",
     "Inside the Digital Gate.pdf",
     "Basic Circuit Analysis Method (KVL and KCL method).pdf",
-    "Unconfirmed 21612.crdownload",
-    "Unconfirmed 769171.crdownload",
     "未命名.canvas"
   ]
 }

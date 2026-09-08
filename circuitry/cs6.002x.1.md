@@ -65,56 +65,50 @@ aliases:
     - [[The Digital Abstraction|数字抽象概述]] ✅ ❗
     - [[Static Discipline|静态纪律 (Static Discipline)]] ✅ ❗
     - [[Combinational Logic|组合逻辑 (Combinational Logic)]] ✅ ❗
-    - 时序逻辑 / 存储器 (Sequential Logic / Memory) ⚠️
+    - [[Sequential Logic|时序逻辑 / 存储器 (Sequential Logic)]] ✅（双稳态 / SR 锁存器 / D 触发器 / 时钟同步 / 存储层次）
 - **MOSFET 开关 (The MOSFET Switch) — Ch.6**
-    - [[MOSFET|MOSFET 场效应管]] ⚠️（结构 / 符号 / 三种工作区）
-    - [[The MOSFET Switch|MOSFET 开关]] ⚠️（SRC 模型、开关电阻、导通/截止）
+    - [[MOSFET|MOSFET 场效应管]] ✅（结构 / 符号 / 三种工作区）
+    - [[The MOSFET Switch|MOSFET 开关]] ✅（S/SR 模型、开关电阻、门电路、导通/截止、静态约束）
 - **MOSFET 放大器 (The MOSFET Amplifier) — Ch.7**
-    - [[The MOSFET Amplifier|MOSFET 放大器]] ⚠️（大信号分析、负载线、偏置）
-    - 大信号模型 (Large-Signal Model) ⚠️
+    - [[The MOSFET Amplifier|MOSFET 放大器]] ✅ ❗（CS / CD / CG 三种组态、Q 点、增益、阻抗）
+    - [[Large-Signal Model|大信号模型 (Large-Signal Model)]] ✅（Q 点 / 负载线 / 三区方程 / 沟道调制 / 偏置电路）
 - **小信号模型 (The Small-Signal Model) — Ch.8**
-    - [[Small Signal Analysis|小信号分析]] ✅ ❗（与 Ch.4 共用）
-    - 小信号电路表示、输入/输出电阻、增益 (Gain) ⚠️
+    - [[Small Signal Analysis|小信号分析]] ✅ ❗（与 Ch.4 共用，BJT 参数 $g_m$、$r_\pi$、$r_o$）
+    - [[Small Signal Circuit Representation|小信号电路表示 (Small Signal Circuit Representation)]] ✅（$g_m$/$r_o$、CS 增益 $A_v=-g_mR_D$、密勒效应）
 - **能量存储元件 (Energy Storage Elements) — Ch.9**
-    - [[Capacitor|电容 (Capacitor)]] ⚠️（ constituent law $q=Cv$、串并联）
-    - [[Inductor|电感 (Inductor)]] ⚠️（ constituent law $\phi=Li$、串并联）
-    - 能量/电荷/磁通守恒 ⚠️
-    - MOS 栅电容 / 绕组电感 / 变压器 ⚠️
+    - [[Capacitor|电容 (Capacitor)]] ✅（本构关系 $q=Cv$、$i=C\dv/dt$、串并联、储能 $E_C=\frac12Cv^2$）
+    - [[Inductor|电感 (Inductor)]] ✅（本构关系 $\phi=Li$、$v=L\di/dt$、串并联、储能 $E_L=\frac12Li^2$）
+    - [[Energy and Charge Conservation|能量 / 电荷 / 磁通守恒 (Energy and Charge Conservation)]] ✅（KCL ← 电荷守恒、KVL ← 能量守恒、LC 振荡）
+    - [[Capacitive and Magnetic Devices|电容与磁器件 (Capacitive and Magnetic Devices)]] ✅（MOS 栅电容 $C_{ox}=\varepsilon/t_{ox}$、绕组电感 $L=N^2\mu A/\ell$、互感 $M=k\sqrt{L_1L_2}$、变压器）
 
 ### Part 4 · 动态电路（一阶/二阶与时域）
 - **一阶暂态 (First-Order Transients) — Ch.10**
-    - [[First-Order Transients|一阶暂态电路]] ⚠️（RC / RL 阶跃、放电、方波、直觉分析）
-    - 状态与状态变量 (State Variables) ⚠️
-    - 传播延迟与数字抽象 (Propagation Delay) ⚠️
+    - [[First-Order Transients|一阶暂态电路]] ✅ ❗（RC / RL 阶跃、放电、方波、直觉分析、状态变量、传播延迟 $t_{pd}\sim R_{ON}C_L$）
+    - 状态与状态变量 (State Variables) ✅（归入 First-Order Transients §二）
+    - 传播延迟与数字抽象 (Propagation Delay) ✅（归入 First-Order Transients §七）
 - **数字电路的能耗与功率 (Energy & Power) — Ch.11**
-    - [[Energy and Power in Digital Circuits|数字电路的能量与功率]] ⚠️（RC 平均功率、逻辑门功耗、NMOS/CMOS）
+    - [[Energy and Power in Digital Circuits|数字电路的能量与功率]] ✅ ❗（RC 充电 50% 损耗、$P_{dyn}=\alpha CV^2f$、NMOS 静态功耗、CMOS 零静态、DVFS）
 - **二阶暂态 (Second-Order Circuits) — Ch.12**
-    - [[Second-Order Transients|二阶暂态电路]] ⚠️（LC / RLC 欠/过/临界阻尼、串联/并联、状态变量法）
-    - 直觉分析、双电容/双电感电路 ⚠️
+    - [[Second-Order Transients|二阶暂态电路]] ✅ ❗（LC 无阻尼振荡、串联/并联 RLC 欠/过/临界阻尼、$\zeta$/$\omega_0$、状态变量法、双电容/双电感）
 
 ### Part 5 · 正弦稳态与频域
 - **正弦稳态：阻抗与频率响应 (Impedance) — Ch.13**
-    - [[Sinusoidal Steady State|正弦稳态]] ⚠️（复指数激励、齐次/特解、完整解）
-    - [[Impedance|阻抗 (Impedance)]] ⚠️（电阻/电容/电感阻抗、分压频域分析）
-    - [[Frequency Response|频率响应]] ⚠️（幅频/相频、Bode 图、滤波器）
-    - [[Filters|滤波器 (Filters)]] ⚠️（低通/高通/带通/陷波、分频网络）
+    - [[Sinusoidal Steady State|正弦稳态]] ✅（复指数激励、相量法、齐次+特解完整解、KCL/KVL 相量形式）
+    - [[Impedance|阻抗 (Impedance)]] ✅（$Z_R=R,\ Z_C=1/j\omega C,\ Z_L=j\omega L$、分压/分流、功率因数、戴维南交流等效）
+    - [[Frequency Response|频率响应]] ✅（$H(j\omega)$、Bode 图 $-20$/$-40$ dB/dec、$-3$ dB、极点/零点、带宽 $BW=\omega_0/Q$）
+    - [[Filters|滤波器 (Filters)]] ✅（LP/HP/BP/Notch 传递函数、一阶 $-20$ dB/dec、二阶 $-40$ dB/dec、Butterworth/Chebyshev）
 - **正弦稳态：谐振 (Resonance) — Ch.14**
-    - [[Resonance|谐振 (Resonance)]] ⚠️（并联/串联 RLC 频率响应、Bode、滤波器实例、储能）
+    - [[Resonance|谐振 (Resonance)]] ✅（串联 $Z_{\min}=R$、并联 $Z_{\max}=R$、$\omega_0=1/\sqrt{LC}$、$Q=\omega_0L/R$、$BW=\omega_0/Q$、谐振峰）
 
 ### Part 6 · 有源器件与整流
 - **运算放大器抽象 (Operational Amplifier) — Ch.15**
-    - [[Operational Amplifier|运算放大器 (Op Amp)]] ⚠️（理想模型、虚短虚断、输入/输出电阻）
-    - 基本运放电路 ⚠️（同相/反相/电压跟随器/加法器/减法器）
-    - 运放 RC 电路 ⚠️（积分器/微分器/Sallen-Key 有源滤波）
-    - 饱和 / 正反馈 / RC 振荡器 / 二端口 ⚠️
-- **二极管 (Diodes) — Ch.16**
-    - [[Diode|二极管 (Diode)]] ⚠️（特性、假设状态法、钳位/削波/限幅/整流桥/Zener 稳压）
+    - [[Operational Amplifier|运算放大器 (Op Amp)]] ✅（理想模型、虚短虚断、五参数、七种基本电路、积分器/微分器/Sallen-Key、饱和、正反馈、RC振荡器、二端口）
 
-### 附录（Appendices）
-- **附录 A** Maxwell's Equations & LMD（已并入 [[Maxwell's Equations]] / [[Lumped Matter Discipline]]）
-- **附录 B** [[Trigonometric Functions and Identities|三角恒等式]] ⚠️
-- **附录 C** [[Complex Numbers and Euler's Formula|复数]] ✅（已建独立笔记）
-- **附录 D** [[Solving Simultaneous Linear Equations|线性方程组求解]] ⚠️
+
+
+- **二极管 (Diodes) — Ch.16**
+    - [[Diode|二极管 (Diode)]] ✅（I-V 特性、状态假设法、整流、削波钳位、Zener 稳压、LED/Schottky/Varactor）
+
 
 ---
 

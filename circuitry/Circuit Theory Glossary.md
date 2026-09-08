@@ -160,8 +160,8 @@ aliases:
 | Value Discretization | 取值离散化 | 把连续取值映射为有限离散电平的过程，数字抽象的核心，见 [[Signal Representation|信号表示]] |
 | Time Domain | 时域 | 以时间为自变量的分析视角 |
 | Frequency Domain | 频域 | 以频率为自变量的分析视角 |
-| Transient Response | 瞬态响应 | 电路从初始状态过渡到稳态期间的响应 |
-| Time Constant | 时间常数 | 一阶电路响应变化的特征时间 $\tau = RC$ 或 $\tau = L/R$ |
+| [[First-Order Transients\|Transient Response]] | 瞬态响应 | 电路从初始状态过渡到稳态期间的响应 |
+| [[First-Order Transients\|Time Constant]] | 时间常数 | 一阶电路响应变化的特征时间 $\tau = RC$ 或 $\tau = L/R$ |
 | Impedance | 阻抗 | 交流下的广义电阻 $Z = R + jX$ |
 | Filter | 滤波器 | 按频率选择性通过/衰减信号的电路 |
 
@@ -191,10 +191,89 @@ aliases:
 | [[Static Discipline\|Voltage Transfer Characteristic (VTC)]] | 电压传输特性 | $V_{out}$ 对 $V_{in}$ 的曲线，过渡区高增益实现信号再生 |
 | Forbidden Region | 禁区 / 无主之地 | 发送/接收都不使用的电压间隙，即噪声容限的物理载体 |
 | [[Combinational Logic\|Combinational Logic]] | 组合逻辑 | 输出仅为当前输入函数的数字逻辑（无记忆） |
-| [[Combinational Logic\|Logic Gate]] | 逻辑门 | AND/OR/NOT/NAND 等实现布尔运算的电路单元 |
+| [[Sequential Logic]] ✅                   | 时序逻辑 / 存储器   | Ch.5：双稳态、SR 锁存器、D 触发器、时钟同步、存储层次 |
 | Boolean Algebra | 布尔代数 | 以 0/1 为变量的代数体系，逻辑门的理论基础 |
 | Truth Table | 真值表 | 枚举全部 $2^n$ 输入组合以定义组合函数 |
 | Combinational Gate Abstraction | 组合门抽象 | 门作为黑箱：遵守静态纪律、输出仅依赖输入 |
+
+## 12. Sinusoidal Steady State（正弦稳态）
+
+| English | 中文 | 解释 |
+| :--- | :--- | :--- |
+| [[Sinusoidal Steady State]] ✅             | 正弦稳态       | 线性电路在正弦激励下的稳态响应，同频率正弦波 |
+| [[Impedance]] ✅                           | 阻抗          | $Z=\tilde{V}/\tilde{I}$，$Z_R=R,\ Z_C=1/j\omega C,\ Z_L=j\omega L$ |
+| Impedance (Complex) | 复阻抗        | $Z=R+jX$，实部电阻、虚部电抗 |
+| Admittance | 导纳          | $Y=1/Z=G+jB$，单位西门子 (S) |
+| [[Frequency Response]] ✅                 | 频率响应        | Ch.13：传递函数 $H(j\omega)$、Bode 图、极点/零点、$-3$ dB、带宽 |
+| Transfer Function | 传递函数       | $H(j\omega)=\tilde{V}_{out}/\tilde{V}_{in}$ |
+| Bode Plot | Bode 图       | 对数坐标下的幅频/相频图，斜率 $\pm 20/\pm 40$ dB/dec |
+| Pole | 极点          | $H(s)$ 分母为零的点，稳定系统极点在左半平面 (LHP) |
+| Zero | 零点          | $H(s)$ 分子为零的点 |
+| Cutoff Frequency | 截止频率       | $|H|=1/\sqrt{2}$（$-3$ dB）处的频率 |
+| Bandwidth (BW) | 带宽          | $|H|$ 下降至 $-3$ dB 的频率范围 |
+| Quality Factor | 品质因数 $Q$   | $Q=\omega_0/BW$，谐振回路频率选择性的量度 |
+| [[Filters]] ✅                             | 滤波器         | LP / HP / BP / Notch 四种频率选择网络 |
+| [[Resonance]] ✅                          | 谐振          | Ch.14：串联 $Z_{\min}=R$、并联 $Z_{\max}=R$、$\omega_0=1/\sqrt{LC}$、$Q=\omega_0L/R$、$BW$ |
+| Low-Pass Filter | 低通滤波器      | 通过 $\omega<\omega_c$，衰减 $\omega>\omega_c$ |
+| High-Pass Filter | 高通滤波器      | 通过 $\omega>\omega_c$，衰减 $\omega<\omega_c$ |
+| Band-Pass Filter | 带通滤波器      | 通过 $\omega_0\pm BW/2$，阻断其他频率 |
+| Notch Filter | 陷波滤波器      | 阻断 $\omega\approx\omega_0$，通过其他频率 |
+| [[Resonance]] ✅                          | 谐振          | $\omega=\omega_0=1/\sqrt{LC}$ 时阻抗极值、电流/电压极大 |
+| Series Resonance | 串联谐振       | $\omega_0$ 处 $Z_{\min}=R$，电流最大 |
+| Parallel Resonance | 并联谐振       | $\omega_0$ 处 $Z_{\max}=R$，电压最大 |
+| Resonant Frequency | 谐振频率       | $\omega_0=1/\sqrt{LC}$，电感与电容能量交换的固有频率 |
+| Phasor | 相量          | $\tilde{V}=V_m\angle\phi$，旋转矢量（长度=幅值，角度=相位）|
+| Phasor Method | 相量法         | 用相量把微分方程变为复数代数方程的分析方法 |
+| Complex Exponential | 复指数         | $e^{j\omega t}=\cos\omega t+j\sin\omega t$ |
+| Euler's Formula | 欧拉公式        | $e^{j\theta}=\cos\theta+j\sin\theta$，相量法的数学基础 |
+| Decibel (dB) | 分贝          | $20\log_{10}|H|$，对数幅度单位 |
+| $-3$ dB Point | $-3$ dB 点     | 半功率点 $|H|=1/\sqrt{2}$，截止频率定义 |
+| Decoupling Capacitor | 去耦电容       | 高频旁路电容，为交流提供低阻抗通路（见 [[Filters]]）|
+
+## 13. Operational Amplifiers（运算放大器）
+
+| English | 中文 | 解释 |
+| :--- | :--- | :--- |
+| [[Operational Amplifier]] ✅                 | 运算放大器       | 差分输入、单端输出、高增益有源器件，线性反馈核心 |
+| Virtual Short | 虚短           | 负反馈运放：$v_+\approx v_-$（两输入端电压相等）|
+| Virtual Open | 虚断           | 运放输入端不汲取电流：$i_+=i_-\approx 0$ |
+| Non-Inverting Amplifier | 同相放大器     | $A_v=1+R_f/R_1$，$R_{\text{in}}\approx\infty$ |
+| Inverting Amplifier | 反相放大器       | $A_v=-R_f/R_1$，$R_{\text{in}}=R_1$，虚地 $v_-\approx 0$ |
+| Voltage Follower | 电压跟随器        | $A_v=1$，单位增益缓冲，$R_{\text{in}}=\infty,\ R_{\text{out}}\approx 0$ |
+| Summing Amplifier | 加法器           | $v_{\text{out}}=-\sum R_f/R_n\cdot v_n$，虚地原理 |
+| Differential Amplifier | 差分放大器       | $v_{\text{out}}=R_f/R_1(v_2-v_1)$（$R_1=R_2,\ R_f=R_g$）|
+| Op-Amp Integrator | 积分器           | $H(s)=-1/(sRC)$，低通特性（见 [[Filters]]）|
+| Op-Amp Differentiator | 微分器           | $H(s)=-sRC$，高通特性（高频噪声敏感）|
+| Sallen-Key Filter | Sallen-Key 有源滤波 | 二阶有源滤波，$H_{\text{LP}}=\omega_0^2/(s^2+s\omega_0/Q+\omega_0^2)$ |
+| Saturation | 饱和            | 输出被电源轨夹断，$|v_{\text{out}}|\ge V_{\text{SAT}}$，失真 |
+| Positive Feedback | 正反馈           | $v_+=\beta v_{\text{out}}$，导致振荡或迟滞比较器 |
+| Barkhausen Condition | 巴克豪森振荡条件   | $|A\beta|=1,\ \angle A+\beta=0^\circ$ |
+| Slew Rate | 转换速率          | $SR=\max |dv_{\text{out}}/dt|$，大信号响应限制 |
+| GBW (Gain-Bandwidth Product) | 增益带宽积   | $A\cdot f_{-3\text{dB}}=\text{GBW}$（常数），增益越高带宽越窄 |
+| Input Offset Voltage | 输入失调电压      | $V_{OS}$，零输入时的输出直流偏移 |
+| Common-Mode Rejection Ratio | 共模抑制比  | $CMRR=20\log_{10}|A_d/A_cm|$（dB），差分放大器质量指标 |
+| Two-Port Model | 二端口模型        | $R_{\text{in,cl}}, R_{\text{out,cl}}, A_v$ 闭环参数 |
+| [[Diode]] ✅                              | 二极管          | 单向导电的半导体 PN 结器件 |
+| PN Junction | PN 结            | P 型与 N 型半导体接触面，形成耗尽层 |
+| Forward Bias | 正向偏置          | $V_D>0.6$–$0.7$ V 时导通，电流指数增长 |
+| Reverse Bias | 反向偏置          | $V_D<0$ 时截止，漏电流 $I\approx I_S$ |
+| Shockley Diode Equation | 肖克利二极管方程 | $i_D=I_S(e^{v_D/nV_T}-1)$，$V_T=kT/q\approx 26$ mV |
+| Assumed-State Method | 状态假设法        | 先假设导通/截止，验证自洽，逐步求解二极管电路 |
+| Knee Voltage | 导通阈值          | $V_{\text{knee}}\approx 0.6$–$0.7$ V（Si）|
+| Reverse Recovery Time | 反向恢复时间      | 二极管从导通切换到截止所需时间（Schottky 更快）|
+| Half-Wave Rectifier | 半波整流         | 只通过正半周期，纹波频率 $=f_{\text{in}}$ |
+| Full-Wave Rectifier | 全波整流         | 通过正负半周期，纹波频率 $=2f_{\text{in}}$ |
+| Bridge Rectifier | 桥式整流         | 4 只二极管，无需中心抽头，$v_{\text{out}}=|v_{\text{in}}|-2V_D$ |
+| Smoothing Capacitor | 滤波电容         | 整流后并联电容，$\Delta v\approx I_{\text{load}}/(f\cdot C)$ |
+| Ripple Voltage | 纹波电压          | 电容放电造成的输出电压波动（见 [[Capacitor]]）|
+| Clipper / Limiter | 削波/限幅器       | 截断波形顶部或底部，保护电路 |
+| Clamper | 钳位器            | 整体上移/下移波形直流电平，不改变波形形状 |
+| Zener Diode | 齐纳二极管         | 反向击穿区 $V_Z$ 恒定，用于稳压 |
+| Zener Regulator | 齐纳稳压器        | $V_{\text{out}}\approx V_Z$，$R_s=(V_{\text{in}}-V_Z)/(I_{\text{load}}+I_Z)$ |
+| LED (Light-Emitting Diode) | 发光二极管   | $V_F\approx 1.8$–$3.5$ V（波长决定），光功率 $\propto I_F$ |
+| Schottky Diode | 肖特基二极管        | 金属-半导体结，$V_F\approx 0.2$–$0.4$ V，高速 |
+| Varactor (Varicap) | 变容二极管        | 反向偏置时电容 $\propto 1/V_R$，调谐电路 |
+| TVS Diode | 瞬态电压抑制二极管    | 瞬态过压钳位（防雷、ESD）|
 
 ## 11. Upcoming Topics（后续章节专题 · 框架占位）
 
@@ -214,27 +293,55 @@ aliases:
 | [[Analysis of Nonlinear Circuits]] ✅        | 非线性电路分析     | Ch.4：分段线性化、工作点求解、负载线、图解法 |
 | [[MOSFET]]                                 | MOSFET 场效应管 | Ch.6：结构 / 符号 / 截止-饱和-线性三区       |
 | [[The MOSFET Switch]]                      | MOSFET 开关   | Ch.6：SRC 模型、开关电阻、导通/截止          |
-| [[The MOSFET Amplifier]]                   | MOSFET 放大器  | Ch.7：大信号分析、负载线、偏置               |
-| Large-Signal Model                         | 大信号模型       | Ch.7：含器件非线性的完整 v–i 模型           |
-| Gain                                       | 增益          | Ch.8：电压/电流/功率增益 $A_v, A_i$      |
-| [[Capacitor]]                              | 电容          | Ch.9：本构关系 $q=Cv$、串并联、储能         |
-| [[Inductor]]                               | 电感          | Ch.9：本构关系 $\phi=Li$、串并联、储能      |
-| Energy Charge Flux Conservation            | 能量/电荷/磁通守恒  | Ch.9：电容电感的能量与守恒关系               |
-| [[First-Order Transients]]                 | 一阶暂态电路      | Ch.10：RC/RL 阶跃、放电、方波、直觉分析       |
-| State Variables                            | 状态变量        | Ch.10：描述动态系统所需的最小变量集            |
-| Propagation Delay                          | 传播延迟        | Ch.10：数字信号沿导线的延迟 $t_{pd}$       |
-| [[Energy and Power in Digital Circuits]]   | 数字电路的能量与功率  | Ch.11：RC 平均功率、逻辑门功耗、NMOS/CMOS   |
-| [[Second-Order Transients]]                | 二阶暂态电路      | Ch.12：LC/RLC 欠/过/临界阻尼、状态变量法     |
-| [[Sinusoidal Steady State]]                | 正弦稳态        | Ch.13：复指数激励、齐次/特解、完整解           |
-| [[Impedance]]                              | 阻抗          | Ch.13：电阻/电容/电感阻抗、分压频域分析         |
-| [[Frequency Response]]                     | 频率响应        | Ch.13：幅频/相频、Bode 图、滤波器          |
-| [[Filters]]                                | 滤波器         | Ch.13–14：低通/高通/带通/陷波、分频网络       |
-| [[Resonance]]                              | 谐振          | Ch.14：并联/串联 RLC 频率响应、Bode、储能    |
-| [[Operational Amplifier]]                  | 运算放大器       | Ch.15：理想模型、虚短虚断、输入/输出电阻         |
-| Op Amp Circuits                            | 运放电路        | Ch.15：同相/反相/跟随器/加法器/减法器         |
-| Op Amp RC Circuits                         | 运放 RC 电路    | Ch.15：积分器/微分器/Sallen-Key 有源滤波   |
-| [[Diode]]                                  | 二极管         | Ch.16：特性、假设状态法、钳位/削波/整流桥/Zener  |
+| [[The MOSFET Amplifier]] ✅             | MOSFET 放大器  | Ch.7：CS / CD / CG 三种组态、Q 点、增益、阻抗 |
+| [[Large-Signal Model]] ✅                | 大信号模型       | Ch.7：Q 点 / 负载线 / 三区方程 / 沟道调制 / 偏置电路 |
+| [[Small Signal Circuit Representation]] ✅ | 小信号电路表示    | Ch.8：$g_m$/$r_o$、CS 增益 $A_v=-g_mR_D$、密勒效应 |
+| [[Capacitor]] ✅                         | 电容          | Ch.9：本构关系 $q=Cv$、$i=C\dv/dt$、串并联、储能 |
+| [[Inductor]] ✅                           | 电感          | Ch.9：本构关系 $\phi=Li$、$v=L\di/dt$、串并联、耦合电感 |
+| [[Capacitive and Magnetic Devices]] ✅    | 电容与磁器件     | Ch.9：MOS 栅电容 $C_{ox}=\varepsilon/t_{ox}$、绕组电感 $L=N^2\mu A/\ell$、互感 $M=k\sqrt{L_1L_2}$、变压器 |
+| [[Energy and Charge Conservation]] ✅     | 能量 / 电荷 / 磁通守恒 | Ch.9：KCL ← 电荷守恒、KVL ← 能量守恒、LC 振荡 |
+| [[First-Order Transients]] ✅               | 一阶暂态电路      | Ch.10：RC/RL 阶跃、放电、方波、直觉分析、状态变量、传播延迟 $t_{pd}\sim R_{ON}C_L$ |
+| State Variables ✅                          | 状态变量        | Ch.10：$v_C$ / $i_L$，编码储能元件的全部历史（归入 [[First-Order Transients]] §二） |
+| Propagation Delay ✅                        | 传播延迟        | Ch.10：$t_{pd}\approx 0.69\,R_{ON}C_L$，数字门翻转延迟（归入 [[First-Order Transients]] §七） |
+| [[Energy and Power in Digital Circuits]] ✅  | 数字电路的能量与功率  | Ch.11：RC 充电 50% 损耗、$P_{dyn}=\alpha CV^2f$、NMOS 静态功耗、CMOS 零静态、DVFS |
+| [[Second-Order Transients]] ✅               | 二阶暂态电路      | Ch.12：LC 无阻尼振荡、串联/并联 RLC 欠/过/临界阻尼、$\zeta$/$\omega_0$、状态变量法 |
+| [[Sinusoidal Steady State]] ✅                | 正弦稳态        | Ch.13：复指数激励、齐次/特解、完整解           |
+| [[Impedance]] ✅                              | 阻抗          | Ch.13：$Z_R=R,\ Z_C=1/j\omega C,\ Z_L=j\omega L$、分压/分流、功率因数 |
+| [[Frequency Response]] ✅                    | 频率响应        | Ch.13：传递函数 $H(j\omega)$、Bode 图、$-3$ dB、极点/零点、带宽 $BW$ |
+| [[Filters]] ✅                               | 滤波器         | Ch.13–14：LP/HP/BP/Notch 传递函数、一阶 $-20$ dB/dec、二阶 $-40$ dB/dec |
+| [[Operational Amplifier]] ✅                  | 运算放大器       | Ch.15：理想模型、虚短虚断、七种基本电路、积分器/微分器/Sallen-Key、饱和、正反馈、振荡器         |
+| [[Diode]] ✅                                  | 二极管         | Ch.16：I-V 特性、状态假设法、整流、削波钳位、Zener 稳压、LED/Schottky/Varactor  |
 
+
+---
+
+## 12. Dynamic Circuits（动态电路与暂态分析）
+
+| English | 中文 | 解释 |
+| :--- | :--- | :--- |
+| [[First-Order Transients\|Transient Response]] | 暂态响应 | 电路从初始状态过渡到稳态期间的响应，由储能元件的"记忆"引起 |
+| [[First-Order Transients\|Steady State]] | 稳态 | $t\to\infty$ 后电路达到的稳定状态（直流稳态下电容开路、电感短路） |
+| [[First-Order Transients\|Switching Theorem]] | 换路定则 | 换路瞬间状态变量不变：$v_C(0^+)=v_C(0^-)$、$i_L(0^+)=i_L(0^-)$ |
+| [[First-Order Transients\|Time Constant]] | 时间常数 $\tau$ | 一阶电路响应的特征时间：$\tau=RC$（RC）或 $\tau=L/R$（RL）；$t=\tau$ 时到达终值 63.2% |
+| [[First-Order Transients\|Zero-Input Response]] | 零输入响应 | 无外加激励、仅由初始储能引起的响应（自然衰减） |
+| [[First-Order Transients\|Zero-State Response]] | 零状态响应 | 初始储能为零、仅由外加激励引起的响应 |
+| [[First-Order Transients\|Step Response]] | 阶跃响应 | 电路对单位阶跃输入的响应 |
+| [[First-Order Transients\|Intuitive Analysis]] | 直觉分析 | 三步法求一阶全响应：$x(t)=x(\infty)+[x(0)-x(\infty)]e^{-t/\tau}$ |
+| [[First-Order Transients\|Propagation Delay]] | 传播延迟 $t_{pd}$ | 数字门输出越过判定阈值的时间，$\sim 0.69\,R_{ON}C_L$ |
+| [[Energy and Power in Digital Circuits\|Dynamic Power]] | 动态功耗 $P_{dyn}$ | 充放电负载电容引起的功耗：$P_{dyn}=\alpha C V_{DD}^2 f$ |
+| [[Energy and Power in Digital Circuits\|Static Power]] | 静态功耗 $P_{static}$ | 不翻转时的功耗：NMOS 为 $V^2/(R_L+R_{ON})$，CMOS 为泄漏电流 $V_{DD}I_{leak}$ |
+| [[Energy and Power in Digital Circuits\|Activity Factor]] | 活动因子 $\alpha$ | 每时钟周期内实际发生翻转的节点比例（典型 0.1–0.5） |
+| [[Energy and Power in Digital Circuits\|Power-Delay Product]] | 功耗延迟积 PDP | $P\times t_{pd}$，衡量开关一次的能效 |
+| [[Energy and Power in Digital Circuits\|DVFS]] | 动态电压频率调节 | 降低 $V_{DD}$ 和 $f$ 以减少功耗（$P\propto V^2$） |
+| [[Second-Order Transients\|Natural Frequency]] | 自然频率 $\omega_0$ | 二阶电路的固有振荡频率：$\omega_0=1/\sqrt{LC}$ |
+| [[Second-Order Transients\|Damping Ratio]] | 阻尼比 $\zeta$ | 表征阻尼强弱的无量纲量：$\zeta>1$ 过阻尼、$=1$ 临界、$<1$ 欠阻尼 |
+| [[Second-Order Transients\|Damped Natural Frequency]] | 阻尼自然频率 $\omega_d$ | 欠阻尼下的实际振荡频率：$\omega_d=\omega_0\sqrt{1-\zeta^2}$ |
+| [[Second-Order Transients\|Overdamped]] | 过阻尼 | $\zeta>1$，两个负实根，单调衰减无振荡 |
+| [[Second-Order Transients\|Critically Damped]] | 临界阻尼 | $\zeta=1$，重根，最快无振荡衰减 |
+| [[Second-Order Transients\|Underdamped]] | 欠阻尼 | $\zeta<1$，共轭复根，衰减振荡 |
+| [[Second-Order Transients\|Characteristic Impedance]] | 特征阻抗 $Z_0$ | LC 回路的阻抗参数：$Z_0=\sqrt{L/C}$，决定振荡电流幅度 |
+| [[Second-Order Transients\|State Variable Method]] | 状态变量法 | 用 $n$ 个状态变量的一阶 ODE 组替代 $n$ 阶 ODE 的系统化方法 |
+| [[Second-Order Transients\|Envelope]] | 包络线 | 衰减振荡的幅值上界 $e^{-\zeta\omega_0 t}$ |
 
 ---
 

@@ -27,12 +27,12 @@ aliases:
 
 ### 1.1 非线性器件的现实困境
 
-[[Kirchhoff's Laws|KCL/KVL]] 和我们熟悉的欧姆定律只对**线性元件**（电阻、电容、电感）直接成立。但现实电路中大量使用**非线性器件**，如：
+[[Kirchhoff's Laws|KCL/KVL]] 对线性与非线性元件**都成立**（它们只约束网络拓扑），但欧姆定律、叠加、戴维南等**线性解析工具**只对线性元件直接可用。现实电路中大量使用**非线性器件**，如：
 
 | 非线性器件 | 典型 $I$–$V$ 特性 | 应用场景 |
 | :--- | :--- | :--- |
-| [[Circuit Theory Glossary#Devices Nonlinear Analysis\|Diode 二极管]] | $i = I_S(e^{v/V_T} - 1)$ | 整流、检波 |
-| [[Circuit Theory Glossary#Devices Nonlinear Analysis\|Transistor 晶体管]] | $i_C = I_S e^{v_{BE}/V_T}$ | 放大、开关 |
+| [[Diode\|Diode 二极管]] | $i = I_S(e^{v/V_T} - 1)$ | 整流、检波 |
+| [[MOSFET\|Transistor 晶体管]] | $i_C = I_S e^{v_{BE}/V_T}$（BJT）/ 平方律（MOSFET） | 放大、开关 |
 | LED、光电二极管、热敏电阻…… | 非指数即幂律 | 传感器 |
 
 这些元件的 $I$–$V$ 关系是**指数函数或幂函数**，直接列 KCL/KVL 方程会得到超越方程，无法手算解析解。
@@ -56,7 +56,7 @@ aliases:
 > [!NOTE] 二极管方程 (Diode Equation)
 > $$i_D = I_S \left( e^{v_D / V_T} - 1 \right)$$
 > - $I_S$：反向饱和电流（典型值：硅二极管 $\approx 10^{-12}\text{–}10^{-15}\text{ A}$）
-> - $V_T = \dfrac{kT}{q} \approx 26\text{ mV}$（常温热电压）
+> - $V_T = \frac{kT}{q} \approx 26\text{ mV}$（常温热电压）
 
 ### 2.2 直流工作点 $Q$ 的确定
 
@@ -66,7 +66,7 @@ $$I_{DQ} = I_S \left( e^{V_{DQ} / V_T} - 1 \right) \approx I_S e^{V_{DQ} / V_T} 
 
 > [!TIP] 图解法：负载线 (Load Line)
 > 也可以用**负载线法**在二极管的 $I$–$V$ 曲线上确定 $Q$ 点：
-> - 电路约束：$i_D = \dfrac{V_{CC} - v_D}{R}$（直流回路方程）——一条斜率为 $-1/R$ 的直线
+> - 电路约束：$i_D = \frac{V_{CC} - v_D}{R}$（直流回路方程）——一条斜率为 $-1/R$ 的直线
 > - 元件特性：$i_D = f(v_D)$（指数曲线）
 > - 交点即为 $Q$ 点 $(V_{DQ}, I_{DQ})$
 
@@ -88,7 +88,7 @@ $$I_{DQ} = I_S \left( e^{V_{DQ} / V_T} - 1 \right) \approx I_S e^{V_{DQ} / V_T} 
 > $$\boxed{r_d = \frac{V_T}{I_{DQ}}}$$
 >
 > - $V_T \approx 26\text{ mV}$（常温）
-> - $I_{DQ}$ 以 mA 为单位时，$r_d \approx \dfrac{26\text{ mV}}{I_{DQ}\text{ (mA)}}$ Ω
+> - $I_{DQ}$ 以 mA 为单位时，$r_d \approx \frac{26\text{ mV}}{I_{DQ}\text{ (mA)}}$ Ω
 >
 > | $I_{DQ}$ | $r_d$ 近似值 |
 > | :---: | :---: |
@@ -147,7 +147,7 @@ graph LR
 >
 > | 典型值 | 说明 |
 > | :---: | :---: |
-> | $g_m \approx 40\text{ S}$（$I_{CQ} = 1\text{ mA}$） | $V_T \approx 26\text{ mV}$ 时 |
+> | $g_m \approx 40\text{ mS}$（$I_{CQ} = 1\text{ mA}$） | $V_T \approx 26\text{ mV}$ 时 |
 
 ### 3.3 输入电阻 $r_\pi$
 
@@ -161,10 +161,10 @@ graph LR
 ```mermaid
 graph LR
     B["B (基极)"] -->|"v_be"| rpi["r_π<br/>β/g_m"]
-    B -->|"v_be"| gm["g_m v_be"]
-    rpi --> C["C (集电极)"]
-    gm -->|"i_c = g_m v_be"| C
-    E["E (发射极)"] -->|"接地"| GND["地"]
+    rpi --> E["E (发射极)"]
+    C["C (集电极)"] -->|"i_c = g_m v_be"| gm["g_m v_be<br/>受控电流源"]
+    gm --> E
+    E -->|"接地"| GND["地"]
     style gm fill:#fff3e0
     style rpi fill:#e8f4f8
 ```
@@ -199,18 +199,19 @@ $$I_{DS} = \frac{1}{2} \mu_n C_{ox} \frac{W}{L} (V_{GS} - V_{th})^2 = \frac{1}{2
 > | 特点 | 说明 |
 > | :---: | :---: |
 > | $g_m \propto \sqrt{I_{DQ}}$ | 电流越大，跨导越大 |
-> | $g_m$ 与 $\beta$ 成正比 | $K = \mu_n C_{ox} W/(2L)$ |
+> | $g_m \propto$ 尺寸参数 $W/L$ | $K = \mu_n C_{ox} W/L$（与 §4.1 一致） |
 
 ### 4.3 MOSFET 小信号等效电路（低频）
 
 ```mermaid
 graph LR
-    G["G (栅极)"] -->|"v_gs"| gm["g_m v_gs"]
-    G -->|"v_gs"| rgs["r_gs (极大)"]
-    gm -->|"i_d = g_m v_gs"| D["D (漏极)"]
-    rgs --> D
-    S["S (源极)"] --> GND["地"]
+    G["G (栅极)"] -->|"v_gs"| rgs["r_gs (极大)"]
+    rgs --> S["S (源极)"]
+    D["D (漏极)"] -->|"i_d = g_m v_gs"| gm["g_m v_gs<br/>受控电流源"]
+    gm --> S
+    S --> GND["地"]
     style gm fill:#fff3e0
+    style rgs fill:#e8f4f8
 ```
 
 ---
@@ -293,7 +294,7 @@ $$v_{total} = V_Q + \Delta v, \qquad i_{total} = I_Q + \Delta i$$
 ## 七、频率响应初步（承前启后）
 
 > [!TIP] 从时域到频域
-> 上述小信号模型默认所有电容、电感的阻抗为：**直流下开路（隔直）/ 短路（耦合）**。这是低频近似。
+> 上述低频小信号模型隐含两个近似：**电容在直流/低频下开路（隔直），电感在直流下短路**；**耦合电容在信号频率足够高时近似短路**。
 >
 > 在更高频率下：
 > - **耦合电容**、**旁路电容**的阻抗不可忽略（高频衰减）

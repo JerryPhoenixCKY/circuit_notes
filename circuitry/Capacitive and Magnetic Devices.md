@@ -70,8 +70,8 @@ $$C_{gg} = C_{ox}\,W\,L = \frac{\varepsilon_{ox}WL}{t_{ox}}$$
 
 > [!NOTE] 三种电容分量
 > 实际 MOSFET 有三个电容：
-> - $C_{gs}$：栅–源交叠电容（**Miller 效应的输入端贡献**）
-> - $C_{gd}$：栅–漏交叠电容（**Miller 效应的关键来源**）
+> - $C_{gs}$：栅–源电容（输入电容的直接组成部分，**不受**密勒放大）
+> - $C_{gd}$：栅–漏电容（跨接在反相放大器输入输出之间，**Miller 效应的关键来源**：等效输入电容 $\approx (1+|A_v|)C_{gd}$）
 > - $C_{gb}$：栅–体（衬底）电容（弱反型时显著）
 >
 > 这三个电容直接决定[[Small Signal Circuit Representation|MOSFET 小信号]]的**高频性能**（密勒效应）。
@@ -107,7 +107,7 @@ $$\boxed{L = \frac{N^2\mu A}{\ell} \quad \text{[H]}}$$
 
 ### 3.3 寄生参数（非理想电感）
 
-$$\boxed{L_{\text{真实}} = L_{\text{理想}} \parallel C_{\text{寄生}} + R_{\text{DC}}}$$
+真实电感的等效结构：**$R_{\text{DC}}$ 与 $L_{\text{理想}}$ 串联**，整体再与 $C_{\text{寄生}}$ **并联**。
 
 - $R_{\text{DC}}$：线圈铜耗（直流电阻）
 - $C_{\text{寄生}}$：匝间电容（与 $N^2$ 相关，高频下导致**自谐振**）
@@ -181,7 +181,7 @@ $$\boxed{v_2 = M\,\frac{di_1}{dt}}$$
 | MOS 栅电容 $C_{ox}$ | 输入电容、密勒效应、MOS 电容性负载 | [[Small Signal Circuit Representation]] |
 | 绕组电感 $L$ | 开关电源、滤波、谐振 | [[Inductor]] / [[Resonance]] |
 | 耦合电感 $M$ | 隔离变压器、阻抗匹配 | [[Inductor]] §6 |
-| 变压器 | 电力传输、AC-DC 整流前级、音频耦合 | [[Resonance]] |
+| 变压器 | 电力传输、AC-DC 整流前级、音频耦合 | [[Inductor]] §6 |
 
 ---
 

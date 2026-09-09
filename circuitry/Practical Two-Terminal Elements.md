@@ -33,8 +33,6 @@ aliases:
 
 真实电池**不是**理想电压源——它有内阻 $R_{int}$。工程模型 = 一个理想电压源 $V_s$ **串联**内阻 $R_{int}$，再接负载 $R_L$：
 
-![[practical_source.svg]]
-
 列回路方程（设电流 $i$ 顺时针）：
 
 $$V_s = i\,R_{int} + i\,R_L = i(R_{int}+R_L)$$

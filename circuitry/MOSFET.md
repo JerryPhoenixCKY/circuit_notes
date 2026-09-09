@@ -41,7 +41,7 @@ MOSFET（以 NMOS 增强型为例）自顶向下四层：
 > [!IMPORTANT] NMOS 与 PMOS 的对称性
 > 一切 NMOS 公式把电压取负、电流反向即得到 PMOS（衬底接最高电位）。下文本笔记以 **NMOS 增强型** 为基准推导。
 
-## 三、三个工作区（大信号 SRC 模型）
+## 三、三个工作区（大信号模型）
 
 NMOS 增强型，令 $v_{DS}\ge 0$，定义 **过驱电压 (overdrive)** $v_{OV}=v_{GS}-V_T$，**饱和电压 (saturation voltage)** $v_{DS,sat}=v_{OV}=v_{GS}-V_T$。
 
@@ -54,7 +54,7 @@ K\big[(v_{GS}-V_T)v_{DS}-\tfrac{1}{2}v_{DS}^{2}\big], & V_T\le v_{GS},\; 0\le v_
 \end{cases}
 $$
 
-其中 $K=\dfrac{1}{2}\mu_n C_{ox}\dfrac{W}{L}$（跨导参数，单位 mA/V² 量级），与工艺、宽长比 $W/L$ 相关。
+其中 $K=\mu_n C_{ox}\dfrac{W}{L}$（跨导参数，单位 mA/V² 量级），与工艺、宽长比 $W/L$ 相关。注意本套公式中三极管区系数为 $K$、饱和区为 $K/2$，两者配套使用。
 
 > [!NOTE] 三区物理含义
 > - **截止 Cutoff**：$v_{GS}<V_T$，无反型沟道，$i_{DS}=0$（开关断开）。

@@ -65,19 +65,20 @@
   },
   "circuitry/cs6.002x.1.md": {
     "expandedKeys": [
-      "item-1-0"
+      "item-1-0",
+      "item-2-1"
     ],
     "cursor": {
       "from": {
-        "line": 109,
-        "ch": 62
+        "line": 28,
+        "ch": 10
       },
       "to": {
-        "line": 109,
-        "ch": 62
+        "line": 28,
+        "ch": 10
       }
     },
-    "scroll": 100.79348837209302
+    "scroll": 34.879218472468914
   },
   "circuitry/Kirchhoff's Laws.md": {
     "expandedKeys": [
@@ -200,20 +201,20 @@
         "ch": 0
       }
     },
-    "scroll": 219.3612290115053
+    "scroll": 0
   },
   "circuitry/Basic Circuit Analysis Method.md": {
     "cursor": {
       "from": {
-        "line": 212,
+        "line": 73,
         "ch": 0
       },
       "to": {
-        "line": 212,
+        "line": 73,
         "ch": 0
       }
     },
-    "scroll": 254.67785150870165
+    "scroll": 15.833333333333334
   },
   "circuitry/The Digital Abstraction.md": {
     "cursor": {
@@ -262,15 +263,18 @@
   "circuitry/The Circuit Abstraction.md": {
     "cursor": {
       "from": {
-        "line": 13,
+        "line": 21,
         "ch": 0
       },
       "to": {
-        "line": 13,
+        "line": 21,
         "ch": 0
       }
     },
-    "scroll": 30.489399941314552
+    "scroll": 77.29488372093023,
+    "expandedKeys": [
+      "item-1-0"
+    ]
   },
   "circuitry/Combinational Logic.md": {
     "cursor": {
@@ -301,15 +305,18 @@
   "circuitry/Practical Two-Terminal Elements.md": {
     "cursor": {
       "from": {
-        "line": 22,
-        "ch": 0
+        "line": 67,
+        "ch": 20
       },
       "to": {
-        "line": 22,
-        "ch": 0
+        "line": 67,
+        "ch": 20
       }
     },
-    "scroll": 0
+    "scroll": 51.115885416666664,
+    "expandedKeys": [
+      "item-1-0"
+    ]
   },
   "circuitry/Ohm's Law.md": {
     "cursor": {
@@ -447,5 +454,57 @@
         "ch": 0
       }
     }
+  },
+  "circuitry/Circuit Analysis Methods in Practice.md": {
+    "cursor": {
+      "from": {
+        "line": 290,
+        "ch": 0
+      },
+      "to": {
+        "line": 290,
+        "ch": 0
+      }
+    },
+    "scroll": 375.3474808516619,
+    "expandedKeys": [
+      "item-1-0"
+    ]
+  },
+  "circuitry/Amplifiers and Feedback.md": {
+    "expandedKeys": [
+      "item-1-0",
+      "item-2-1",
+      "item-2-5"
+    ],
+    "cursor": {
+      "from": {
+        "line": 19,
+        "ch": 0
+      },
+      "to": {
+        "line": 19,
+        "ch": 0
+      }
+    },
+    "scroll": 0
+  },
+  "circuitry/Wheatstone Bridge and Wye-Delta Transformation.md": {
+    "cursor": {
+      "from": {
+        "line": 109,
+        "ch": 0
+      },
+      "to": {
+        "line": 109,
+        "ch": 0
+      }
+    },
+    "expandedKeys": [
+      "item-1-0",
+      "item-2-2",
+      "item-2-6"
+    ],
+    "scroll": 106.5147114060348
   }
 }

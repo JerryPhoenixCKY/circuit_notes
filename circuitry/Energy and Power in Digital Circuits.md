@@ -31,7 +31,7 @@ aliases:
 ## 一、RC 充电的能量分析
 
 > [!IMPORTANT] 经典结论：50% 能量损耗
-> 给电容 $C$ 从 0 充到 $V_{DD}$，电压源 $V_S$ 提供 $CV_S^2$ 的能量，电容只存了 $\frac{1}{2}CV_S^2$，另外 $\frac{1}{2}CV_S^2$ 全被电阻 $R$ 消耗——**与 $R$ 的大小无关**。
+> 给电容 $C$ 从 0 充到 $V_S$，电压源提供 $CV_S^2$ 的能量，电容只存了 $\frac{1}{2}CV_S^2$，另外 $\frac{1}{2}CV_S^2$ 全被电阻 $R$ 消耗——**与 $R$ 的大小无关**。
 
 ### 1.1 推导
 
@@ -64,7 +64,7 @@ $$E_{\text{cycle}} = \frac{1}{2}CV_S^2 + \frac{1}{2}CV_S^2 = CV_S^2$$
 ## 二、动态功耗 (Dynamic Power)
 
 > [!IMPORTANT] 动态功耗公式
-> 每次完整翻转（0→1→0 或 1→0→0）消耗 $CV_{DD}^2$。若时钟频率为 $f$，则平均动态功耗：
+> 每次完整翻转（0→1→0 或 1→0→1）消耗 $CV_{DD}^2$。若时钟频率为 $f$，则平均动态功耗：
 > $$\boxed{P_{\text{dyn}} = \alpha\, C\, V_{DD}^2\, f}$$
 > 其中 $\alpha$ 是**活动因子 (activity factor)**——每个时钟周期内实际发生翻转的节点比例（典型 $0.1\sim 0.5$）。
 
@@ -85,7 +85,7 @@ $$E_{\text{cycle}} = \frac{1}{2}CV_S^2 + \frac{1}{2}CV_S^2 = CV_S^2$$
 $$\text{PDP} = P_{\text{dyn}} \times t_{pd} \approx \alpha C V_{DD}^2 f \cdot R_{ON} C_L$$
 
 > [!NOTE] PDP 的物理含义
-> PDP（Power-Delay Product）≈ 每次翻转消耗的能量 $\times$ 延迟——衡量"开关一次的能效"。理想的逻辑门应同时低功耗、低延迟。PDP 不随频率变化（$f$ 消去），是工艺/设计的内在指标。
+> PDP（Power-Delay Product）= 平均功率 × 延迟（量纲为能量），衡量"开关一次的能效"。理想的逻辑门应同时低功耗、低延迟。通常在电路最高翻转率（$f \sim 1/(2t_{pd})$，此时 $f \cdot t_{pd} \approx$ 常数）下评估，PDP 才与频率无关，成为反映工艺/设计水平的内在指标。
 
 ---
 
@@ -207,7 +207,7 @@ graph TD
 > 1. [[Capacitor|电容]] 储存 $\frac{1}{2}Cv^2$ 的电场能——这是动态功耗的物理载体。
 > 2. [[First-Order Transients|一阶暂态]] 分析 RC 充放电的 $v(t)$、$i(t)$——由此积分出能量损耗。
 > 3. [[The MOSFET Switch|MOSFET 开关]] 的 SR model 给出 $R_{ON}$，与 $C_L$ 构成 RC 延迟与功耗。
-> 4. [[Energy and Charge Conservation|能量守恒]] 在含电阻电路中不再守恒——电阻把电能转化为热能，这正是功耗的来源。
+> 4. [[Energy and Charge Conservation|能量守恒]] 永远成立，但电路储能元件中的电磁能在含电阻电路中不再守恒——电阻把电能转化为热能，这正是功耗的来源。
 > 5. [[Static Discipline|静态纪律]] 的阈值限制了 $V_{DD}$ 不能太低——太低则噪声容限不足。
 
 ---

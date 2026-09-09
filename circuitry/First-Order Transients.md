@@ -57,8 +57,8 @@ graph LR
 
 | 储能元件 | 状态变量 | 连续性 | 本构关系 |
 | :--- | :--- | :--- | :--- |
-| 电容 Capacitor | $v_C$ | $v_C(0^+)=v_C(0^-)$ | $i = C\,\dfrac{dv}{dt}$ |
-| 电感 Inductor | $i_L$ | $i_L(0^+)=i_L(0^-)$ | $v = L\,\dfrac{di}{dt}$ |
+| 电容 Capacitor | $v_C$ | $v_C(0^+)=v_C(0^-)$ | $i = C\,\frac{dv}{dt}$ |
+| 电感 Inductor | $i_L$ | $i_L(0^+)=i_L(0^-)$ | $v = L\,\frac{di}{dt}$ |
 
 > [!TIP] 换路定则 (Switching Theorem)
 > 换路瞬间（$t=0$），**状态变量不变**——这就是求解一阶暂态初始条件的核心法则。物理上，能量不能突变（$E_C=\frac{1}{2}Cv^2$、$E_L=\frac{1}{2}Li^2$ 是连续函数），否则功率趋于无穷大。
@@ -71,7 +71,7 @@ $$R_{Th}\,C\,\frac{dv_C}{dt} + v_C = V_{Th}$$
 
 这是一阶线性常系数 ODE，通解为指数形式。对含一个电感的电路同理：
 
-$$\frac{L}{R_{Th}}\,\frac{di_L}{dt} + i_L = I_{Th}$$
+$$\frac{L}{R_{Th}}\,\frac{di_L}{dt} + i_L = \frac{V_{Th}}{R_{Th}} = I_N \quad\text{（诺顿等效电流）}$$
 
 > [!NOTE] 状态变量法的核心思想
 > 选状态变量 $x$（$v_C$ 或 $i_L$），写出一阶 ODE $\dot{x} = f(x, t)$，再解。这种方法自然推广到二阶（两个状态变量），见 [[Second-Order Transients]]。
@@ -87,7 +87,7 @@ $$\frac{L}{R_{Th}}\,\frac{di_L}{dt} + i_L = I_{Th}$$
 $$R\,C\,\frac{dv_C}{dt} + v_C = 0 \qquad\Longrightarrow\qquad \boxed{v_C(t) = V_0\, e^{-t/\tau}, \quad \tau = RC}$$
 
 - $v_C$ 从 $V_0$ 指数衰减到 0。
-- 放电电流 $i(t) = \dfrac{V_0}{R}\,e^{-t/\tau}$。
+- 放电电流 $i(t) = \frac{V_0}{R}\,e^{-t/\tau}$。
 - 电容储能 $E_C(t) = \frac{1}{2}CV_0^2\,e^{-2t/\tau}$，全部被电阻消耗殆尽。
 
 ### 3.2 阶跃响应 (Step Response)
@@ -97,7 +97,7 @@ $V_S$ 通过 $R$ 给零初始电容充电（$v_C(0)=0$）：
 $$RC\,\frac{dv_C}{dt} + v_C = V_S \qquad\Longrightarrow\qquad \boxed{v_C(t) = V_S\left(1 - e^{-t/\tau}\right), \quad \tau = RC}$$
 
 - $v_C$ 从 0 指数上升趋向 $V_S$（新稳态）。
-- 充电电流 $i(t) = \dfrac{V_S}{R}\,e^{-t/\tau}$，$t=0$ 时最大（电容"看起来像短路"），之后衰减。
+- 充电电流 $i(t) = \frac{V_S}{R}\,e^{-t/\tau}$，$t=0$ 时最大（电容"看起来像短路"），之后衰减。
 
 ![[rc_first_order.svg|500]]
 
@@ -122,14 +122,14 @@ $$v_C(t) = \underbrace{V_0\, e^{-t/\tau}}_{\text{零输入响应}} + \underbrace
 
 ## 四、RL 电路暂态 (RL Transients)
 
-RL 电路与 RC 电路**完全对偶**：把 $v_C \leftrightarrow i_L$，$C \leftrightarrow L$，$R$ 不变，$V \leftrightarrow I$：
+RL 电路与 RC 电路**完全对偶**：把 $v_C \leftrightarrow i_L$，$C \leftrightarrow L$，$R \leftrightarrow G$（电阻 ↔ 电导），$V \leftrightarrow I$：
 
 | 性质 | RC | RL |
 | :--- | :--- | :--- |
 | 状态变量 | $v_C$ | $i_L$ |
 | 时间常数 | $\tau = RC$ | $\tau = L/R$ |
 | 零输入衰减 | $v_C = V_0\,e^{-t/\tau}$ | $i_L = I_0\,e^{-t/\tau}$ |
-| 阶跃上升 | $v_C = V_S(1-e^{-t/\tau})$ | $i_L = \dfrac{V_S}{R}(1-e^{-t/\tau})$ |
+| 阶跃上升 | $v_C = V_S(1-e^{-t/\tau})$ | $i_L = \frac{V_S}{R}(1-e^{-t/\tau})$ |
 | 直流稳态 | 电容**开路** | 电感**短路** |
 | $t=0$ 瞬态 | 电容"像短路"（$v$ 不变但 $i$ 跳变） | 电感"像开路"（$i$ 不变但 $v$ 跳变） |
 
@@ -147,8 +147,8 @@ RL 电路与 RC 电路**完全对偶**：把 $v_C \leftrightarrow i_L$，$C \lef
 ![[rc_square_wave.svg|500]]
 
 > [!IMPORTANT] 方波响应的两个关键条件
-> - **$\tau \ll T$（快充快放）**：输出接近方波（电容跟踪输入），用于**耦合 / 高通**。
-> - **$\tau \gg T$（慢充慢放）**：输出接近输入的**积分**（三角波），用于**积分器**。
+> - **$\tau \ll T$（快充快放）**：输出（电容电压）接近方波（电容跟踪输入），用于**低通 / 直通**。
+> - **$\tau \gg T$（慢充慢放）**：电容电压接近输入的**积分**（三角波），用于**积分器**；若输出取自电阻，则为**耦合 / 高通**（$v_R \approx$ 输入的交流分量，直流被电容隔断）。
 > - 稳态下，电容电压在 $V_{min}$ 与 $V_{max}$ 之间摆动，稳态平均值等于输入直流分量（电荷平衡）。
 
 > [!NOTE] "稳态"不等于"直流"
@@ -206,7 +206,7 @@ $$V_{out}(t_{pd}) = V_{IH} \quad\text{或}\quad V_{IL}$$
 
 ```mermaid
 graph TD
-    A["MOSFET SR Model<br/>R_ON"] -->|"| B["Load Capacitor C_L"]
+    A["MOSFET SR Model<br/>R_ON"] -->|"驱动 C_L"| B["Load Capacitor C_L"]
     B -->|"\tau = R_ON \cdot C_L"| C["RC First-Order Transient"]
     C -->|"t_pd \approx 0.69 \tau"| D["Propagation Delay<br/>Digital Speed Limit"]
     style C fill:#fff3e0
@@ -215,7 +215,7 @@ graph TD
 > [!TIP] 优化方向
 > 1. 减小 $R_{ON}$：增大 $W/L$（更大晶体管 → 更强驱动）。
 > 2. 减小 $C_L$：更小器件、更短走线、更少扇出。
-> 3. 这就是为什么先进工艺（更小节点）速度更快——$C_{ox}$ 随 $t_{ox}$ 减小而减小，$C_L$ 整体下降。
+> 3. 这就是为什么先进工艺（更小节点）速度更快——虽然 $t_{ox}$ 减小使单位面积 $C_{ox}=\varepsilon_{ox}/t_{ox}$ 增大，但器件面积（$W \cdot L$）缩小占主导，总栅电容 $C_g = C_{ox}WL$ 即 $C_L$ 整体下降。
 
 ---
 

@@ -67,7 +67,7 @@ $$I_D = \frac{K}{2}(V_{GS} - V_t)^2$$
 
 ### 2.3 小信号参数（饱和区）
 
-$$g_m = \frac{\partial i_D}{\partial v_{GS}}\Big|_Q = 2K(V_{GS}-V_t) = \frac{2I_D}{V_{GS}-V_t} = \sqrt{2KI_D}$$
+$$g_m = \frac{\partial i_D}{\partial v_{GS}}\Big|_Q = K(V_{GS}-V_t) = \frac{2I_D}{V_{GS}-V_t} = \sqrt{2KI_D}$$
 
 $$r_o = \frac{1}{\lambda I_D} \quad(\text{沟道长度调制，}\lambda\neq 0\text{ 时保留})$$
 
@@ -90,7 +90,7 @@ $C_{gd}$（栅–漏电容）在反向放大器中等效放大：
 $$C_{\text{Miller}} = C_{gd}(1+|A_v|)$$
 
 - 限制了输入端的高频响应
-- 解决：[[Small Signal Circuit Representation#五-密勒效应]] 中用 **CG 共栅** 或 **cascode** 抑制密勒效应
+- 解决：[[Small Signal Circuit Representation]] 中用 **CG 共栅** 或 **cascode** 抑制密勒效应
 
 ---
 
@@ -108,15 +108,16 @@ $$C_{\text{Miller}} = C_{gd}(1+|A_v|)$$
 
 ### 3.2 直流分析
 
-$$V_{DD} = I_D R_S + V_{DS} + V_{GS} \quad(\text{源极有电阻 } R_S)$$
+源极跟随器漏极接 $V_{DD}$，两条独立回路方程：
+$$V_{DD} = I_D R_S + V_{DS} \quad(\text{漏回路})， \qquad V_G = V_{GS} + I_D R_S \quad(\text{栅回路})$$
 
-简化（无 $R_S$，$V_{DS}=V_{DD}-V_{GS}$）：
-$$I_D = \frac{K}{2}(V_{GS} - V_t)^2, \quad V_{DS} = V_{DD} - V_{GS}$$
+简化（理想电流源偏置、$I_D$ 已知时）：
+$$I_D = \frac{K}{2}(V_{GS} - V_t)^2, \quad V_{DS} = V_{DD} - V_G + V_{GS}$$
 
 ### 3.3 小信号增益
 
 从源极输出的小信号方程：
-$$\boxed{A_v \approx \frac{g_m R_S \| r_o}{1 + g_m R_S \| r_o} \approx 1 \quad (\text{当 } g_m R_S \gg 1\text{)})}$$
+$$\boxed{A_v \approx \frac{g_m\,(R_S \| r_o)}{1 + g_m\,(R_S \| r_o)} \approx 1 \quad (\text{当 } g_m R_S \gg 1\text{)}}$$
 
 > [!TIP] "源极跟随器"的名称来源
 > $v_{\text{out}} = v_S \approx v_G - V_t$——输出电压"跟随"输入电压（低 $V_t$ 偏移），且**同相**（无反相）。
@@ -124,7 +125,7 @@ $$\boxed{A_v \approx \frac{g_m R_S \| r_o}{1 + g_m R_S \| r_o} \approx 1 \quad (
 ### 3.4 输入 / 输出电阻
 
 $$\boxed{R_{in} = \infty \quad (\text{绝缘栅})}$$
-$$\boxed{R_{out} = \frac{1}{g_m} \| R_S \approx \frac{1}{g_m} \quad (\text{低输出阻抗})}$$
+$$\boxed{R_{out} = \frac{1}{g_m} \| R_S \| r_o \approx \frac{1}{g_m} \quad (\text{低输出阻抗})}$$
 
 > [!NOTE] 阻抗变换的物理
 > $R_{out}=1/g_m$ 典型值约 100Ω–1kΩ（$g_m=1$–$10\text{mS}$）。这比 $R_D$（通常 kΩ–10kΩ）小得多，能驱动更重的负载。
@@ -171,19 +172,16 @@ $$R_{in} \approx \frac{1}{g_m} \quad (\text{源极看进去的阻抗很低})$$
 ```mermaid
 graph TD
     VDD["VDD"] --> RD["RD"]
-    RD --> M2["M2 (CG)"]
-    M2 --> M1["M1 (CS)"]
+    RD --> OUT["vout（M2 漏极输出）"]
+    OUT --> M2["M2 (CG，栅极接偏置/AC 地)"]
+    M2 --> MID["中间节点"]
+    MID --> M1["M1 (CS)"]
     M1 --> SS["VSS / GND"]
-    subgraph ""
-    G1["vin → G1"]
-    S1["→ S1 (output)"]
-    end
-    M2 -.-> G1
-    M1 -.-> S1
+    VIN["vin"] -.->|"接 M1 栅极"| M1
 ```
 
 **Cascode 的好处：**
-1. M2 的 $V_{DS}$ 几乎恒定（抑制密勒效应）——$C_{gd}$ 不再放大
+1. M1（CS 管）的 $V_{DS}$（即中间节点电位）几乎恒定——$M1$ 的 $C_{gd}$ 两端不再有大摆幅，密勒效应被抑制
 2. M1 的 $V_{DS}$ 由 M2 偏置决定，更稳定
 3. 高增益（CS 的 $g_m$ × CG 的高输出阻抗）
 
@@ -215,7 +213,7 @@ $$V_{GS} = V_{GG} - I_D R_S$$
 | 通用电压放大 | CS（共源） | 高增益、适中 $R_{in}$ |
 | 阻抗变换 / 缓冲 | CD（源极跟随器） | 高 $R_{in}$、低 $R_{out}$ |
 | 高频 / 无密勒 | CG（共栅）或 Cascode | 无 $C_{gd}$ 放大 |
-| 电流放大 | CG（共栅） | $R_{in}\approx 1/g_m$，可直接电流驱动 |
+| 电流缓冲 | CG（共栅） | 电流增益 $\approx 1$，$R_{in}\approx 1/g_m$ 可直接电流驱动 |
 
 > [!NOTE] 模拟电路的"工具箱"
 > CS / CD / CG 各有优劣，工程师根据需求组合使用。cascode（CS+CG）是最经典的组合之一——CS 提供增益，CG 提供高输出阻抗和抑制密勒效应。

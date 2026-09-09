@@ -27,8 +27,8 @@ tags: [电路原理, 数字电路, 6.002]
 | 门 | 布尔式 | 语义 |
 | :--- | :--- | :--- |
 | AND | $Z = X \cdot Y$ | 仅当 $X=1$ 且 $Y=1$ 时 $Z=1$（两者皆真） |
-| OR | $Z = A + B$ | 任一为 1 则 $Z=1$（至少一真） |
-| NOT (Inverter) | $Z = \overline{A}$ | 取反：$A=0\Rightarrow Z=1$，$A=1\Rightarrow Z=0$ |
+| OR | $Z = X + Y$ | 任一为 1 则 $Z=1$（至少一真） |
+| NOT (Inverter) | $Z = \overline{X}$ | 取反：$X=0\Rightarrow Z=1$，$X=1\Rightarrow Z=0$ |
 | NAND | $Z = \overline{X \cdot Y}$ | AND 后再取反（「非与」） |
 
 > [!NOTE] 符号约定

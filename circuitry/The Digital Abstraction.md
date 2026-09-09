@@ -54,7 +54,7 @@ flowchart LR
 
 「1」与「0」并非单点电压，而是**电压区间**（课件第 9–10 页）：
 
-- 设电源电压 5V、阈值 2.5V：则 $V \ge 2.5\text{V} \Rightarrow 1$，$V \le 2.5\text{V} \Rightarrow 0$。此时高/低噪声容限各 2.5V。
+- 设电源电压 5V、阈值 2.5V：则 $V > 2.5\text{V} \Rightarrow 1$，$V < 2.5\text{V} \Rightarrow 0$（边界 2.5V 本身归入禁区）。此时高/低噪声容限各 2.5V。
 - 更稳健：为 1 设区间 $V_H \in [3\text{V}, 5\text{V}]$，为 0 设区间 $V_L \in [0\text{V}, 2\text{V}]$，中间 $2\text{V}\sim3\text{V}$ 划为 **forbidden region（禁区 / 无主之地）**。
 
 > [!IMPORTANT] 禁区是「容错缓冲区」

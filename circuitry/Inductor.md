@@ -107,7 +107,7 @@ $$\text{总电磁能量：}\quad E_{\text{tot}} = \tfrac12 C v^2 + \tfrac12 L i^
 
 $$v_2 = M\,\frac{di_1}{dt}, \qquad M = k\sqrt{L_1 L_2}$$
 
-其中 $k\in[0,1]$ 是**耦合系数**，$k=1$ 为理想全耦合（[[transformer|变压器]]）。
+其中 $k\in[0,1]$ 是**耦合系数**，$k=1$ 为理想全耦合（[[Capacitive and Magnetic Devices|变压器]]）。
 
 > [!NOTE] 变压器是耦合电感的直接应用
 > 见 [[Capacitive and Magnetic Devices|电容与磁器件]]。

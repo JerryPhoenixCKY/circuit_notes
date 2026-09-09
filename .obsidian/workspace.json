@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "circuitry/cs6.002x.1.md",
+                "file": "circuitry/Wheatstone Bridge and Wye-Delta Transformation.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "cs6.002x.1"
+              "title": "Wheatstone Bridge and Wye-Delta Transformation"
             }
           }
         ]
@@ -85,15 +85,31 @@
             "state": {
               "type": "quiet-outline",
               "state": {},
-              "icon": "lucide-ghost",
-              "title": "quiet-outline"
+              "icon": "lines-of-text",
+              "title": "Quiet Outline"
+            }
+          }
+        ]
+      },
+      {
+        "id": "1174677e26969330",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8d8aabcb9d679de9",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 257
+    "width": 251.5
   },
   "right": {
     "id": "7bfc66cea6d4f626",
@@ -102,14 +118,30 @@
       {
         "id": "a9cb808865c928e4",
         "type": "tabs",
+        "dimension": 55.370177267987486,
         "children": [
+          {
+            "id": "09cc0095fc8be172",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "circuitry/Wheatstone Bridge and Wye-Delta Transformation.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "大纲"
+            }
+          },
           {
             "id": "46aa23c207b9619d",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "circuitry/Maxwell's Equations.md",
+                "file": "circuitry/Wheatstone Bridge and Wye-Delta Transformation.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -128,7 +160,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "circuitry/Maxwell's Equations.md",
+                "file": "circuitry/Wheatstone Bridge and Wye-Delta Transformation.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -166,31 +198,6 @@
             }
           },
           {
-            "id": "09cc0095fc8be172",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {
-                "file": "circuitry/cs6.002x.1.md",
-                "followCursor": false,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-list",
-              "title": "大纲"
-            }
-          },
-          {
-            "id": "8d8aabcb9d679de9",
-            "type": "leaf",
-            "state": {
-              "type": "git-view",
-              "state": {},
-              "icon": "git-pull-request",
-              "title": "Source Control"
-            }
-          },
-          {
             "id": "597ed6bb9bbd4ce4",
             "type": "leaf",
             "state": {
@@ -204,12 +211,12 @@
               "title": "127.0.0.1:3080"
             }
           }
-        ],
-        "currentTab": 5
+        ]
       },
       {
         "id": "a782142972c8c8d6",
         "type": "tabs",
+        "dimension": 44.629822732012514,
         "children": [
           {
             "id": "05bbee95bb0a1b40",
@@ -225,7 +232,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 403.5
+    "width": 434
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -242,45 +249,46 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "05bbee95bb0a1b40",
+  "active": "d465abca1fbfe0d5",
   "lastOpenFiles": [
     "circuitry/cs6.002x.1.md",
+    "circuitry/Circuit Analysis Methods in Practice.md",
+    "circuitry/The Circuit Abstraction.md",
+    "circuitry/Practical Two-Terminal Elements.md",
+    "circuitry/Amplifiers and Feedback.md",
+    "circuitry/assets/two_mesh_circuit.svg",
+    "circuitry/Wheatstone Bridge and Wye-Delta Transformation.md",
+    "circuitry/assets/wye_delta_transform.png",
+    "circuitry/assets/wye_delta_transform.svg",
+    "circuitry/assets/wheatstone_bridge.png",
+    "circuitry/assets/wheatstone_bridge.svg",
+    "circuitry/Basic Circuit Analysis Method.md",
+    "circuitry/Circuit Theory Glossary.md",
+    "circuitry/assets/two_mesh_circuit.png",
+    "part4_tmp/two_mesh_circuit.png",
+    "part4_tmp/two_mesh_circuit.svg",
+    "part4_tmp",
+    "circuitry/DC-DC Converter.md",
+    "circuitry/Power Supplies.md",
+    "circuitry/Current Sources and Mirrors.md",
     "The MOSFET Amplifier.md",
     "Sinusoidal Steady State.md",
     "circuitry/Diode.md",
     "circuitry/assets/opamp_active_filter.svg",
     "circuitry/assets/zener_regulator.svg",
-    "circuitry/assets/rectifier.svg",
-    "circuitry/assets/diode_clipping.svg",
-    "circuitry/assets/diode_iv.svg",
-    "circuitry/assets/opamp_basic_circuits.svg",
     "circuitry/Operational Amplifier.md",
-    "circuitry/assets/opamp_symbol.svg",
     "circuitry/Resonance.md",
     "Amplifiers and Feedback.md",
     "circuitry/Filters.md",
     "circuitry/Frequency Response.md",
     "circuitry/Impedance.md",
     "circuitry/Sinusoidal Steady State.md",
-    "circuitry/assets/impedance_frequency.svg",
-    "circuitry/assets/parallel_resonance.svg",
-    "circuitry/assets/series_resonance.svg",
     "circuitry/Inductor.md",
     "circuitry/First-Order Transients.md",
     "circuitry/Second-Order Transients.md",
     "circuitry/Energy and Power in Digital Circuits.md",
-    "part4_tmp",
     "circuitry/Capacitor.md",
-    "circuitry/Energy and Charge Conservation.md",
     "circuitry/assets/__probe_test.txt",
-    "circuitry/Basic Circuit Analysis Method.md",
-    "circuitry/Analysis of Nonlinear Circuits.md",
-    "circuitry/The MOSFET Switch.md",
-    "The MOSFET Switch.md",
-    "circuitry/Combinational Logic.md",
-    "circuitry/Static Discipline.md",
-    "circuitry/The Digital Abstraction.md",
-    "circuitry/Small Signal Analysis.md",
     "Incremental Analysis.pdf",
     "Unconfirmed 452597.crdownload",
     "Nonlinear Analysis.pdf",

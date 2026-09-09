@@ -115,4 +115,5 @@ $$I_1 = I\,\frac{R_2}{R_1 + R_2} = I\,\frac{G_1}{G_1 + G_2}$$
 - [[Practical Two-Terminal Elements]] —— 实际电阻与理想电阻、AVD 约定
 - [[Analysis of Nonlinear Circuits]] —— 非线性元件为何不服从欧姆定律
 - [[Superposition Theorem]] —— 功率 $p\propto i^2/v^2$ 不能叠加
+- [[Wheatstone Bridge and Wye-Delta Transformation]] —— 分压/分流思想的进阶舞台：惠斯通电桥与 Y-Δ 变换
 - [[cs6.002x.1]] —— 电路原理知识树（主笔记）

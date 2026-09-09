@@ -140,4 +140,5 @@ graph LR
 - [[Superposition Theorem]] —— 线性网络的叠加性质
 - [[Maximum Power Transfer Theorem]] —— 电阻网络上的功率优化
 - [[Analysis of Nonlinear Circuits]] —— 当电阻不再"线性"
+- [[Wheatstone Bridge and Wye-Delta Transformation]] —— 惠斯通电桥与 Y-Δ 变换：串并联失效的桥式网络如何化简
 - [[cs6.002x.1]] —— 电路原理知识树（主笔记）

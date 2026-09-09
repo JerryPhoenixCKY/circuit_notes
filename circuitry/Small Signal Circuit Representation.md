@@ -19,7 +19,7 @@ aliases:
 # Small Signal Circuit Representation（小信号电路表示）
 
 > [!NOTE] 本笔记定位
-> 放大器分析的**第二阶段**：在 [[Large-Signal Model|大规模信号模型]] 确定直流工作点 (Q point) 后，把**小扰动**叠加在直流偏置上，对电路做**线性化**，得到小信号参数（$g_m$、$r_\pi$、$r_o$）与关键性能指标（增益 $A_v$、输入电阻 $R_{in}$、输出电阻 $R_{out}$）。
+> 放大器分析的**第二阶段**：在 [[Large-Signal Model|大信号模型]] 确定直流工作点 (Q point) 后，把**小扰动**叠加在直流偏置上，对电路做**线性化**，得到小信号参数（$g_m$、$r_\pi$、$r_o$）与关键性能指标（增益 $A_v$、输入电阻 $R_{in}$、输出电阻 $R_{out}$）。
 > 与 [[Small Signal Analysis]]（BJT 侧）互为补充；与 [[The MOSFET Amplifier]] 直接关联。
 > 与 [[cs6.002x.1|知识树]] 互链。
 
@@ -29,10 +29,10 @@ aliases:
 
 当输入信号足够小（相对于直流偏置的线性范围）时，可以把放大器**在 Q 点附近线性化**：
 
-$$i_D(v_{GS}) \approx I_D(Q) + g_m\,(v_{gs}) + \frac{v_{gs}}{r_o}$$
+$$i_D(v_{GS}, v_{DS}) \approx I_D(Q) + g_m\,v_{gs} + \frac{v_{ds}}{r_o}$$
 
 - **直流分量**：由 [[Large-Signal Model|大信号模型]] 决定工作点 $I_D(Q)$
-- **交流分量（小信号）**：线性关系 $g_m v_{gs}$（一阶近似）
+- **交流分量（小信号）**：$g_m v_{gs}$（栅压控制，一阶近似）$+\; v_{ds}/r_o$（漏压对电流的微弱影响，沟道长度调制）
 
 > [!IMPORTANT] 线性化的意义
 > 线性化之后，**叠加原理（[[Superposition Theorem]]）可以直接使用**——每个源（直流、交流、信号源）单独作用的结果可以代数相加。这使得电路分析大大简化。
@@ -49,21 +49,22 @@ MOSFET 在饱和区（$v_{DS}>v_{GS}-V_t$）的小信号线性模型：
 
 | 参数 | 名称 | 定义 | 物理含义 |
 | :--- | :--- | :--- | :--- |
-| $g_m$ | **跨导 (transconductance)** | $g_m = \dfrac{\partial i_D}{\partial v_{GS}}\big|_{Q}$ | 栅压对漏极电流的控制能力 |
-| $r_o$ | **输出电阻 (output resistance)** | $r_o = \dfrac{\partial v_{DS}}{\partial i_D}\big|_{Q}$ | 沟道长度调制效应（有限输出阻抗） |
+| $g_m$ | **跨导 (transconductance)** | $g_m = \frac{\partial i_D}{\partial v_{GS}}\big|_{Q}$ | 栅压对漏极电流的控制能力 |
+| $r_o$ | **输出电阻 (output resistance)** | $r_o = \frac{\partial v_{DS}}{\partial i_D}\big|_{Q}$ | 沟道长度调制效应（有限输出阻抗） |
 
 **饱和区平方律公式：**
-$$g_m = 2K(V_{GS}-V_t) \quad\text{或}\quad g_m = \frac{2I_D}{V_{GS}-V_t}$$
+$$g_m = K(V_{GS}-V_t) \quad\text{或}\quad g_m = \frac{2I_D}{V_{GS}-V_t}$$
 $$r_o = \frac{1}{\lambda I_D} \quad(\lambda:\text{沟道长度调制系数})$$
 
 > [!TIP] $g_m$ 的两个等价表达式
-> 从 $I_D = \frac12 K (V_{GS}-V_t)^2$ 求偏导：
-> - 用过驱电压表示：$g_m = 2K(V_{GS}-V_t) = \frac{2I_D}{V_{GS}-V_t}$（常用于电路设计）
+> 从 $I_D = \frac{1}{2}K (V_{GS}-V_t)^2$ 求偏导：
+> - 用过驱电压表示：$g_m = K(V_{GS}-V_t) = \frac{2I_D}{V_{GS}-V_t}$（常用于电路设计）
 > - 用 $I_D$ 表示：$g_m = \sqrt{2KI_D}$（常用于已知 $I_D$ 时）
 
 ### 2.2 完整小信号模型（含 $r_o$）
 
-$$\boxed{y\text{-参数矩阵形式：}\;\begin{bmatrix}i_d\\v_{ds}\end{bmatrix} = \begin{bmatrix}g_m & 0\\0 & 1/r_o\end{bmatrix}\begin{bmatrix}v_{gs}\\i_d\end{bmatrix}}$$
+漏极小信号电流由两部分组成——栅压控制的受控源 $g_m v_{gs}$ 与漏压决定的 $v_{ds}/r_o$：
+$$\boxed{i_d = g_m\,v_{gs} + \frac{v_{ds}}{r_o}}$$
 
 实际电路中 $r_o$ 常被忽略（当 $r_o \gg R_D$ 时），但**共源共栅 (cascode)** 等结构必须保留 $r_o$ 才能正确分析。
 
@@ -93,7 +94,9 @@ $$\Rightarrow \boxed{A_v = \frac{v_{\text{out}}}{v_{\text{in}}} = -g_m\,(R_D \| 
 ### 3.3 输入电阻 $R_{in}$
 
 MOSFET 栅极与源极之间是**绝缘的氧化层**，输入电阻**理论上无限大**：
-$$\boxed{R_{in} = \infty \quad\text{(理想 MOSFET)}$$
+
+$$\boxed{R_{in} = \infty \quad\text{(理想 MOSFET)}}$$
+
 实际中受到 **$C_{gd}, C_{gs}$ 容性负载**限制（高频时 $Z_{in}=1/(j\omega C_{in})$）。
 
 ### 3.4 输出电阻 $R_{out}$
@@ -146,10 +149,13 @@ $$f_{-3\text{dB}} = \frac{1}{2\pi\,R_{\text{source}} C_{\text{Miller}}}$$
 | :--- | :--- | :--- | :--- |
 | 高电流偏置 | 大 | 大 | 高（但功耗也大） |
 | 低电流偏置 | 小 | 小 | 低（功耗也低） |
-| 固定 $V_{GS}$，$R_D$ 增大 | 略增 | 略增 | 增大（主因是 $R_D$） |
+| 固定 $V_{GS}$，$R_D$ 增大 | 不变 | 不变 | 增大（主因是 $R_D$） |
+
+> [!WARNING] $R_D$ 增大的前提是保持饱和
+> 饱和区 $I_D=\frac{K}{2}(V_{GS}-V_t)^2$ 只由 $V_{GS}$ 决定，与 $R_D$ 无关；但 $R_D$ 过大会压低 $V_{DS}=V_{DD}-I_DR_D$，把器件推出饱和区进入三极管区，此时 $I_D$ 反而下降、增益不再提高。
 
 > [!TIP] 增益-带宽折中
-> $g_m = 2K(V_{GS}-V_t)$ 表明：增大过驱电压可以提高 $g_m$，但同时会改变 Q 点位置、增加功耗。**增益 $g_mR_D$ 与带宽**之间存在经典折中（类似 [[Maximum Power Transfer Theorem|最大功率传输]] 中的效率折中）。
+> $g_m = K(V_{GS}-V_t)$ 表明：增大过驱电压可以提高 $g_m$，但同时会改变 Q 点位置、增加功耗。**增益 $g_mR_D$ 与带宽**之间存在经典折中（类似 [[Maximum Power Transfer Theorem|最大功率传输]] 中的效率折中）。
 
 ---
 
@@ -166,7 +172,7 @@ graph TD
 ```
 
 > [!NOTE] 重要约束
-> 小信号模型**只在线性区有效**。当输入信号摆幅过大（使器件离开饱和区进入三极管或截止区），小信号模型失效，**失真 (distortion)** 出现。这是 [[Large-Signal Model]] 中"大信号非线性"分析的范畴。
+> 小信号模型**只在 Q 点附近的线性化范围内有效**（放大器须偏置在饱和区）。当输入信号摆幅过大（使器件离开饱和区进入三极管或截止区），小信号模型失效，**失真 (distortion)** 出现。这是 [[Large-Signal Model]] 中"大信号非线性"分析的范畴。
 
 ---
 
@@ -178,5 +184,5 @@ graph TD
 - [[MOSFET]] —— 器件物理与饱和区平方律
 - [[Superposition Theorem]] —— 小信号线性化的理论基础
 - [[First-Order Transients]] —— 密勒效应与高频时间常数的物理（$RC$ 延迟）
-- [[Energy and Charge Conservation]] —— 储能（$C$ 充放电、$L$ 充磁）与增益/带宽的关系
+- [[Frequency Response]] —— 增益/带宽折中的频域视角
 - [[cs6.002x.1]] —— 电路原理知识树（主笔记）

@@ -16,7 +16,7 @@ aliases:
   - Large Signal
 ---
 
-# Large-Signal Model（大规模信号模型）
+# Large-Signal Model（大信号模型）
 
 > [!NOTE] 本笔记定位
 > 放大器分析的**第一阶段**：器件在大电压/电流摆幅下的**完整非线性模型**——不是"线性化的小信号"，而是**分段定义的物理方程**（[[MOSFET]] 的 Cutoff / Triode / Saturation 三段）。目标是确定**直流工作点 (Q 点)**，为 [[Small Signal Circuit Representation|小信号分析]] 提供线性化的"基准"。
@@ -44,7 +44,9 @@ aliases:
 
 ### 2.1 分段本构方程
 
-$$I_D = \begin{cases} \text{Cutoff（截止）:} & 0, & v_{GS} < V_t \\[4pt] \text{Triode（线性/三极管）:} & K\bigl[2(v_{GS}-V_t)v_{DS} - v_{DS}^2\bigr], & v_{DS} < v_{GS} - V_t \\[6pt] \text{Saturation（饱和）:} & \dfrac{K}{2}(v_{GS} - V_t)^2(1+\lambda v_{DS}), & v_{DS} > v_{GS} - V_t \end{cases}$$
+$$I_D = \begin{cases} 0, & \text{Cutoff（截止）}:\; v_{GS} < V_t \\[4pt] \dfrac{K}{2}\bigl[2(v_{GS}-V_t)v_{DS} - v_{DS}^2\bigr], & \text{Triode（线性/三极管）}:\; v_{DS} < v_{GS} - V_t \\[6pt] \dfrac{K}{2}(v_{GS} - V_t)^2(1+\lambda v_{DS}), & \text{Saturation（饱和）}:\; v_{DS} \ge v_{GS} - V_t \end{cases}$$
+
+其中 $K = \mu_n C_{ox} W/L$。验证边界连续性：$v_{DS}=v_{GS}-V_t$ 处，三极管区给 $\frac{K}{2}(v_{GS}-V_t)^2$，与饱和区一致 ✓。
 
 | 工作区 | 条件 | 物理含义 | 典型应用 |
 | :--- | :--- | :--- | :--- |
@@ -130,16 +132,17 @@ $$V_{GS}=V_{GG}=\text{固定直流}, \quad I_D=\frac{K}{2}(V_{GG}-V_t)^2$$
 ### 5.2 电流源偏置（工程实用）
 
 用[[Current Sources and Mirrors|电流镜]]提供恒定 $I_{REF}$，镜像到放大管：
-$$I_D = I_{REF} = \frac{K}{2}(V_{GS}-V_t)^2 \quad\Longrightarrow\quad I_D \text{ 与 } V_t\text{、}K\text{ 无关（相对稳定）}$$
+$$\frac{I_D}{I_{REF}} = \frac{(W/L)_2}{(W/L)_1} \quad\Longrightarrow\quad I_D \text{ 的比例只取决于镜像管几何比，与绝对 } V_t\text{、}K\text{ 基本解耦}$$
 
 > [!TIP] 电流镜偏置是模拟 IC 的"灵魂"
 > 几乎所有实用放大器都用电流镜偏置——它把 $I_D$ 与绝对工艺参数解耦，只依赖于**电流镜管的相对比例**（版图匹配好时精度高）。
 
 ### 5.3 分压偏置（source degeneration）
 
-$$V_{GS} = V_{DD}\frac{R_2}{R_1+R_2},\quad I_D = \frac{V_{DD}-V_{GS}}{R_S}$$
+栅极分压给出 $V_G$，源极电阻 $R_S$ 引入负反馈：
+$$V_G = V_{DD}\frac{R_2}{R_1+R_2},\qquad V_{GS} = V_G - I_D R_S,\qquad I_D = \frac{K}{2}(V_{GS}-V_t)^2$$
 
-加入 $R_S$ 源极负反馈后，$I_D$ 对 $V_t$ 变化的敏感性降低（负反馈原理）。
+联立求解（$V_t$ 变大 → $I_D$ 下降 → $V_S$ 下降 → $V_{GS}$ 回升，部分抵消 $V_t$ 变化），$I_D$ 对 $V_t$ 变化的敏感性降低（负反馈原理）。
 
 ---
 
@@ -148,7 +151,7 @@ $$V_{GS} = V_{DD}\frac{R_2}{R_1+R_2},\quad I_D = \frac{V_{DD}-V_{GS}}{R_S}$$
 | Q 点参数 | 物理量 | 对小信号参数的影响 |
 | :--- | :--- | :--- |
 | $I_D$ | 漏极直流电流 | $g_m = \sqrt{2KI_D}$（$I_D$ 大则 $g_m$ 大） |
-| $V_{GS}-V_t$ | 过驱电压 | $g_m = 2K(V_{GS}-V_t)$ |
+| $V_{GS}-V_t$ | 过驱电压 | $g_m = K(V_{GS}-V_t)$ |
 | $V_{DS}$ | 漏源直流电压 | 决定是否在饱和区、$r_o$ 大小 |
 | $R_D$ | 负载电阻 | $A_v = -g_m(R_D\|r_o)$，$V_{DS}=V_{DD}-I_DR_D$ |
 

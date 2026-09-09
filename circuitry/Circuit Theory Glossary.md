@@ -74,14 +74,16 @@ aliases:
 | Parallel | 并联 | 元件两端共接节点，电压相同 |
 | Short Circuit | 短路 | 两端直接相连，电压为 0，等效导线 |
 | Open Circuit | 开路 | 电路断开，电流为 0 |
+| [[Wheatstone Bridge and Wye-Delta Transformation\|Wheatstone Bridge]] | 惠斯通电桥 | 四臂桥式测阻电路：调节标准电阻使检流计零偏，平衡时 $R_x = R_2R_3/R_1$（零示法，精度只取决于电阻比） |
+| [[Wheatstone Bridge and Wye-Delta Transformation\|Y-Δ Transformation]] | 星角变换 / Y-Δ 变换 | 三端 Δ(Π) 与 Y(T) 电阻网络的等效互换：$R_a = R_{ab}R_{ca}/\sum R_\Delta$，$R_{ab} = \sum R_aR_b/R_c$；化简非串并联（桥式）网络 |
 
 ## 4. Laws & Theorems（基本定律与定理）
 
 | English | 中文 | 解释 |
 | :--- | :--- | :--- |
 | Ohm's Law | 欧姆定律 | $V = IR$，线性电阻的电压-电流关系 |
-| [[Kirchhoff's Current Law (KCL)|Kirchhoff's Current Law (KCL)]] | 基尔霍夫电流定律 | 节点处电流代数和为 0（电荷守恒） |
-| [[Kirchhoff's Voltage Law (KVL)|Kirchhoff's Voltage Law (KVL)]] | 基尔霍夫电压定律 | 回路中电压代数和为 0（能量守恒） |
+| [[Kirchhoff's Laws|KCL]] | 基尔霍夫电流定律 | 节点处电流代数和为 0（电荷守恒） |
+| [[Kirchhoff's Laws|KVL]] | 基尔霍夫电压定律 | 回路中电压代数和为 0（能量守恒） |
 | [[Superposition Theorem]] | 叠加原理 / 叠加定理 | 线性电路中响应 = 各独立源单独作用之和 |
 | [[Thevenin's Theorem]] | 戴维南定理 / 戴维南等效 | 线性二端网络可等效为电压源串联电阻 |
 | [[Norton's Theorem]] | 诺顿定理 / 诺顿等效 | 线性二端网络可等效为电流源并联电阻 |
@@ -89,13 +91,18 @@ aliases:
 | Homogeneity | 齐次性 | 输入放大 k 倍，输出也放大 k 倍 |
 | Additivity | 可加性 | 多个输入之和的响应 = 各自响应之和 |
 | Lenz's Law | 楞次定律 | 感应效应总是反抗引起它的磁通变化 |
-| [[Basic Circuit Analysis Method\|Node Analysis]] | 节点法 / 节点分析法 / Nodal Analysis | 以节点电压为主未知数、对非参考节点写 KCL 的系统分析法，是 KVL/KCL 法的特例 |
+| [[Basic Circuit Analysis Method|Node Analysis]] | 节点法 / 节点分析法 / Nodal Analysis | 以节点电压为主未知数、对非参考节点写 KCL 的系统分析法，是 KVL/KCL 法的特例 |
 | Node Voltage | 节点电压 | 某节点相对参考节点（地）的电势，节点法的主未知数 |
 | Reference Node | 参考节点 / 地 (Ground) | 电压测量的基准点，电势定义为 0 |
 | Conductance | 电导 (G) | 电阻的倒数 $G=1/R$，单位西门子 (S)，节点法中的核心变量 |
 | Associated Variables Discipline | 关联变量约定 (AVD) | 电流定义为从元件正电压端流入；此时 $p=vi$ 为吸收功率 |
 | Element Combination Rules | 元件组合规则 | 串并联等效化简（串联 $R$ 相加、并联 $G$ 相加、源串并联），配合叠加可解复杂电路 |
 | Basic KVL/KCL Method | 基本 KVL/KCL 方法 / 暴力法 | 写全部元件关系 + 全部 KCL + 全部 KVL 后求解，通用但方程数爆炸 |
+| [[Circuit Analysis Methods in Practice\|Mesh Current Method]] | 网孔电流法 | 对每个网孔设假想回路电流、只写 KVL 的分析法，自动满足 KCL |
+| [[Circuit Analysis Methods in Practice\|Branch Current Method]] | 支路电流法 | 每条支路设一个电流、KCL + KVL 联立求解的原始方法 |
+| [[Circuit Analysis Methods in Practice\|Supernode]] | 超节点 | 跨在 floating voltage source 两端的两个节点视为一个整体写 KCL |
+| Self-Resistance | 自阻 $R_{kk}$ | 网孔法电阻矩阵对角元素 = 网孔 $k$ 内所有电阻之和（恒正） |
+| Mutual Resistance | 互阻 $R_{kj}$ | 网孔法电阻矩阵非对角元素 = 网孔 $k$ 与 $j$ 共享电阻之和的负值 |
 
 ## 5. Maxwell's Equations & Field Theory（麦克斯韦方程组与场论）
 
@@ -119,7 +126,7 @@ aliases:
 
 | English | 中文 | 解释 |
 | :--- | :--- | :--- |
-| [[Lumped Matter Discipline\|Lumped Matter Discipline (LMD)]] | 集总事物理论 | 使电路可用代数方程描述的约束假设 |
+| [[Lumped Matter Discipline|Lumped Matter Discipline (LMD)]] | 集总事物理论 | 使电路可用代数方程描述的约束假设 |
 | Constitutive Relation | 本构关系 | 元件自身的电压-电流关系（如 $V=IR$） |
 | Quasi-static Assumption | 准静态假设 | 电路尺寸远小于波长，传播视为瞬时 |
 | Wavelength | 波长 | 电磁波一个周期的空间长度 $\lambda$ |
@@ -160,8 +167,8 @@ aliases:
 | Value Discretization | 取值离散化 | 把连续取值映射为有限离散电平的过程，数字抽象的核心，见 [[Signal Representation|信号表示]] |
 | Time Domain | 时域 | 以时间为自变量的分析视角 |
 | Frequency Domain | 频域 | 以频率为自变量的分析视角 |
-| [[First-Order Transients\|Transient Response]] | 瞬态响应 | 电路从初始状态过渡到稳态期间的响应 |
-| [[First-Order Transients\|Time Constant]] | 时间常数 | 一阶电路响应变化的特征时间 $\tau = RC$ 或 $\tau = L/R$ |
+| [[First-Order Transients|Transient Response]] | 瞬态响应 | 电路从初始状态过渡到稳态期间的响应 |
+| [[First-Order Transients|Time Constant]] | 时间常数 | 一阶电路响应变化的特征时间 $\tau = RC$ 或 $\tau = L/R$ |
 | Impedance | 阻抗 | 交流下的广义电阻 $Z = R + jX$ |
 | Filter | 滤波器 | 按频率选择性通过/衰减信号的电路 |
 
@@ -169,28 +176,28 @@ aliases:
 
 | English                | 中文    | 解释                                       |
 | :--------------------- | :---- | :--------------------------------------- |
-| [[Complex Numbers and Euler's Formula\|Euler's Formula]] | 欧拉公式  | $e^{j\theta} = \cos\theta + j\sin\theta$ |
-| [[Complex Numbers and Euler's Formula\|Euler's Identity]] | 欧拉恒等式 | $e^{j\pi} + 1 = 0$                       |
-| [[Complex Numbers and Euler's Formula\|Inverse Euler Formula]] | 反欧拉公式 | 用复指数表示三角函数 |
-| [[Complex Numbers and Euler's Formula\|Complex Number]] | 复数    | $z = x + jy$，含实部与虚部 |
-| [[Complex Numbers and Euler's Formula\|Complex Representation]] | 复数表示  | 代数/三角/极坐标三种等价形式 |
-| [[Complex Numbers and Euler's Formula\|Magnitude]] | 模     | 复数的长度 $r = \|z\|$ |
-| [[Complex Numbers and Euler's Formula\|Phase]] | 相角    | 复数的辐角 $\theta = \arg z$ |
+| [[Complex Numbers and Euler's Formula|Euler's Formula]] | 欧拉公式  | $e^{j\theta} = \cos\theta + j\sin\theta$ |
+| [[Complex Numbers and Euler's Formula|Euler's Identity]] | 欧拉恒等式 | $e^{j\pi} + 1 = 0$                       |
+| [[Complex Numbers and Euler's Formula|Inverse Euler Formula]] | 反欧拉公式 | 用复指数表示三角函数 |
+| [[Complex Numbers and Euler's Formula|Complex Number]] | 复数    | $z = x + jy$，含实部与虚部 |
+| [[Complex Numbers and Euler's Formula|Complex Representation]] | 复数表示  | 代数/三角/极坐标三种等价形式 |
+| [[Complex Numbers and Euler's Formula|Magnitude]] | 模     | 复数的长度 $r = \|z\|$ |
+| [[Complex Numbers and Euler's Formula|Phase]] | 相角    | 复数的辐角 $\theta = \arg z$ |
 
 ## 10. Digital Abstraction（数字抽象）
 
 | English | 中文 | 解释 |
 | :--- | :--- | :--- |
-| [[The Digital Abstraction\|Digital Abstraction]] | 数字抽象 | 把连续取值离散为 0/1 的抽象层，建立在集总电路抽象之上 |
+| [[The Digital Abstraction|Digital Abstraction]] | 数字抽象 | 把连续取值离散为 0/1 的抽象层，建立在集总电路抽象之上 |
 | Value Discretization | 取值离散化 | 仅允许信号取两种值（HIGH/LOW ↔ 1/0 ↔ TRUE/FALSE） |
-| [[The Digital Abstraction\|Digital System]] | 数字系统 | 发送端→带噪声导线→接收端，靠阈值判读还原 0/1 |
+| [[The Digital Abstraction|Digital System]] | 数字系统 | 发送端→带噪声导线→接收端，靠阈值判读还原 0/1 |
 | Noise | 噪声 | 叠加在信号上的不期望电压波动，模拟系统的精度杀手 |
-| [[Static Discipline\|Static Discipline]] | 静态纪律 | 输入合法 ⇒ 输出合法；用四阈值量化噪声容限 |
-| [[Static Discipline\|Noise Margin]] | 噪声容限 | 信号变非法前能容忍的最大噪声：$NM_H=V_{OH}-V_{IH},\ NM_L=V_{IL}-V_{OL}$ |
+| [[Static Discipline|Static Discipline]] | 静态纪律 | 输入合法 ⇒ 输出合法；用四阈值量化噪声容限 |
+| [[Static Discipline|Noise Margin]] | 噪声容限 | 信号变非法前能容忍的最大噪声：$NM_H=V_{OH}-V_{IH},\ NM_L=V_{IL}-V_{OL}$ |
 | Voltage Threshold | 电压阈值 | 判读逻辑值的门槛电压 |
-| [[Static Discipline\|Voltage Transfer Characteristic (VTC)]] | 电压传输特性 | $V_{out}$ 对 $V_{in}$ 的曲线，过渡区高增益实现信号再生 |
+| [[Static Discipline|Voltage Transfer Characteristic (VTC)]] | 电压传输特性 | $V_{out}$ 对 $V_{in}$ 的曲线，过渡区高增益实现信号再生 |
 | Forbidden Region | 禁区 / 无主之地 | 发送/接收都不使用的电压间隙，即噪声容限的物理载体 |
-| [[Combinational Logic\|Combinational Logic]] | 组合逻辑 | 输出仅为当前输入函数的数字逻辑（无记忆） |
+| [[Combinational Logic|Combinational Logic]] | 组合逻辑 | 输出仅为当前输入函数的数字逻辑（无记忆） |
 | [[Sequential Logic]] ✅                   | 时序逻辑 / 存储器   | Ch.5：双稳态、SR 锁存器、D 触发器、时钟同步、存储层次 |
 | Boolean Algebra | 布尔代数 | 以 0/1 为变量的代数体系，逻辑门的理论基础 |
 | Truth Table | 真值表 | 枚举全部 $2^n$ 输入组合以定义组合函数 |
@@ -275,6 +282,11 @@ aliases:
 | Varactor (Varicap) | 变容二极管        | 反向偏置时电容 $\propto 1/V_R$，调谐电路 |
 | TVS Diode | 瞬态电压抑制二极管    | 瞬态过压钳位（防雷、ESD）|
 
+| [[Amplifiers and Feedback]] ✅              | 放大器与反馈       | 反馈方程 $A/(1+A\beta)$、负反馈四大好处、Barkhausen 振荡条件、四拓扑 |
+| [[Current Sources and Mirrors]] ✅          | 电流源与电流镜     | 偏置/有源负载、基本镜/Wilson/Cascode、$I_{\text{out}}=I_{\text{ref}}\cdot(W/L)_2/(W/L)_1$ |
+| [[Power Supplies]] ✅                      | 电源            | 线性稳压/LDO、开关 Buck/Boost/Buck-Boost、基准电压源、效率 |
+| [[DC-DC Converter]] ✅                     | DC-DC 变换器     | Buck $V_o=DV_i$、Boost $V_o=V_i/(1-D)$、PWM/PFM、纹波/效率 |
+
 ## 11. Upcoming Topics（后续章节专题 · 框架占位）
 
 > [!NOTE] 说明
@@ -291,8 +303,8 @@ aliases:
 | [[Ohm's Law]] ✅                             | 欧姆定律        | Ch.2：线性电阻 $V=IR$ 的电压-电流关系、功率、分压分流 |
 | [[Maximum Power Transfer Theorem]] ✅        | 最大功率传输定理    | Ch.3：负载获最大功率的条件 $R_L=R_{Th}$    |
 | [[Analysis of Nonlinear Circuits]] ✅        | 非线性电路分析     | Ch.4：分段线性化、工作点求解、负载线、图解法 |
-| [[MOSFET]]                                 | MOSFET 场效应管 | Ch.6：结构 / 符号 / 截止-饱和-线性三区       |
-| [[The MOSFET Switch]]                      | MOSFET 开关   | Ch.6：SRC 模型、开关电阻、导通/截止          |
+| [[MOSFET]] ✅                                 | MOSFET 场效应管 | Ch.6：结构 / 符号 / 截止-饱和-线性三区       |
+| [[The MOSFET Switch]] ✅                      | MOSFET 开关   | Ch.6：SRC 模型、开关电阻、导通/截止          |
 | [[The MOSFET Amplifier]] ✅             | MOSFET 放大器  | Ch.7：CS / CD / CG 三种组态、Q 点、增益、阻抗 |
 | [[Large-Signal Model]] ✅                | 大信号模型       | Ch.7：Q 点 / 负载线 / 三区方程 / 沟道调制 / 偏置电路 |
 | [[Small Signal Circuit Representation]] ✅ | 小信号电路表示    | Ch.8：$g_m$/$r_o$、CS 增益 $A_v=-g_mR_D$、密勒效应 |
@@ -319,29 +331,29 @@ aliases:
 
 | English | 中文 | 解释 |
 | :--- | :--- | :--- |
-| [[First-Order Transients\|Transient Response]] | 暂态响应 | 电路从初始状态过渡到稳态期间的响应，由储能元件的"记忆"引起 |
-| [[First-Order Transients\|Steady State]] | 稳态 | $t\to\infty$ 后电路达到的稳定状态（直流稳态下电容开路、电感短路） |
-| [[First-Order Transients\|Switching Theorem]] | 换路定则 | 换路瞬间状态变量不变：$v_C(0^+)=v_C(0^-)$、$i_L(0^+)=i_L(0^-)$ |
-| [[First-Order Transients\|Time Constant]] | 时间常数 $\tau$ | 一阶电路响应的特征时间：$\tau=RC$（RC）或 $\tau=L/R$（RL）；$t=\tau$ 时到达终值 63.2% |
-| [[First-Order Transients\|Zero-Input Response]] | 零输入响应 | 无外加激励、仅由初始储能引起的响应（自然衰减） |
-| [[First-Order Transients\|Zero-State Response]] | 零状态响应 | 初始储能为零、仅由外加激励引起的响应 |
-| [[First-Order Transients\|Step Response]] | 阶跃响应 | 电路对单位阶跃输入的响应 |
-| [[First-Order Transients\|Intuitive Analysis]] | 直觉分析 | 三步法求一阶全响应：$x(t)=x(\infty)+[x(0)-x(\infty)]e^{-t/\tau}$ |
-| [[First-Order Transients\|Propagation Delay]] | 传播延迟 $t_{pd}$ | 数字门输出越过判定阈值的时间，$\sim 0.69\,R_{ON}C_L$ |
-| [[Energy and Power in Digital Circuits\|Dynamic Power]] | 动态功耗 $P_{dyn}$ | 充放电负载电容引起的功耗：$P_{dyn}=\alpha C V_{DD}^2 f$ |
-| [[Energy and Power in Digital Circuits\|Static Power]] | 静态功耗 $P_{static}$ | 不翻转时的功耗：NMOS 为 $V^2/(R_L+R_{ON})$，CMOS 为泄漏电流 $V_{DD}I_{leak}$ |
-| [[Energy and Power in Digital Circuits\|Activity Factor]] | 活动因子 $\alpha$ | 每时钟周期内实际发生翻转的节点比例（典型 0.1–0.5） |
-| [[Energy and Power in Digital Circuits\|Power-Delay Product]] | 功耗延迟积 PDP | $P\times t_{pd}$，衡量开关一次的能效 |
-| [[Energy and Power in Digital Circuits\|DVFS]] | 动态电压频率调节 | 降低 $V_{DD}$ 和 $f$ 以减少功耗（$P\propto V^2$） |
-| [[Second-Order Transients\|Natural Frequency]] | 自然频率 $\omega_0$ | 二阶电路的固有振荡频率：$\omega_0=1/\sqrt{LC}$ |
-| [[Second-Order Transients\|Damping Ratio]] | 阻尼比 $\zeta$ | 表征阻尼强弱的无量纲量：$\zeta>1$ 过阻尼、$=1$ 临界、$<1$ 欠阻尼 |
-| [[Second-Order Transients\|Damped Natural Frequency]] | 阻尼自然频率 $\omega_d$ | 欠阻尼下的实际振荡频率：$\omega_d=\omega_0\sqrt{1-\zeta^2}$ |
-| [[Second-Order Transients\|Overdamped]] | 过阻尼 | $\zeta>1$，两个负实根，单调衰减无振荡 |
-| [[Second-Order Transients\|Critically Damped]] | 临界阻尼 | $\zeta=1$，重根，最快无振荡衰减 |
-| [[Second-Order Transients\|Underdamped]] | 欠阻尼 | $\zeta<1$，共轭复根，衰减振荡 |
-| [[Second-Order Transients\|Characteristic Impedance]] | 特征阻抗 $Z_0$ | LC 回路的阻抗参数：$Z_0=\sqrt{L/C}$，决定振荡电流幅度 |
-| [[Second-Order Transients\|State Variable Method]] | 状态变量法 | 用 $n$ 个状态变量的一阶 ODE 组替代 $n$ 阶 ODE 的系统化方法 |
-| [[Second-Order Transients\|Envelope]] | 包络线 | 衰减振荡的幅值上界 $e^{-\zeta\omega_0 t}$ |
+| [[First-Order Transients|Transient Response]] | 暂态响应 | 电路从初始状态过渡到稳态期间的响应，由储能元件的"记忆"引起 |
+| [[First-Order Transients|Steady State]] | 稳态 | $t\to\infty$ 后电路达到的稳定状态（直流稳态下电容开路、电感短路） |
+| [[First-Order Transients|Switching Theorem]] | 换路定则 | 换路瞬间状态变量不变：$v_C(0^+)=v_C(0^-)$、$i_L(0^+)=i_L(0^-)$ |
+| [[First-Order Transients|Time Constant]] | 时间常数 $\tau$ | 一阶电路响应的特征时间：$\tau=RC$（RC）或 $\tau=L/R$（RL）；$t=\tau$ 时到达终值 63.2% |
+| [[First-Order Transients|Zero-Input Response]] | 零输入响应 | 无外加激励、仅由初始储能引起的响应（自然衰减） |
+| [[First-Order Transients|Zero-State Response]] | 零状态响应 | 初始储能为零、仅由外加激励引起的响应 |
+| [[First-Order Transients|Step Response]] | 阶跃响应 | 电路对单位阶跃输入的响应 |
+| [[First-Order Transients|Intuitive Analysis]] | 直觉分析 | 三步法求一阶全响应：$x(t)=x(\infty)+[x(0)-x(\infty)]e^{-t/\tau}$ |
+| [[First-Order Transients|Propagation Delay]] | 传播延迟 $t_{pd}$ | 数字门输出越过判定阈值的时间，$\sim 0.69\,R_{ON}C_L$ |
+| [[Energy and Power in Digital Circuits|Dynamic Power]] | 动态功耗 $P_{dyn}$ | 充放电负载电容引起的功耗：$P_{dyn}=\alpha C V_{DD}^2 f$ |
+| [[Energy and Power in Digital Circuits|Static Power]] | 静态功耗 $P_{static}$ | 不翻转时的功耗：NMOS 为 $V^2/(R_L+R_{ON})$，CMOS 为泄漏电流 $V_{DD}I_{leak}$ |
+| [[Energy and Power in Digital Circuits|Activity Factor]] | 活动因子 $\alpha$ | 每时钟周期内实际发生翻转的节点比例（典型 0.1–0.5） |
+| [[Energy and Power in Digital Circuits|Power-Delay Product]] | 功耗延迟积 PDP | $P\times t_{pd}$，衡量开关一次的能效 |
+| [[Energy and Power in Digital Circuits|DVFS]] | 动态电压频率调节 | 降低 $V_{DD}$ 和 $f$ 以减少功耗（$P\propto V^2$） |
+| [[Second-Order Transients|Natural Frequency]] | 自然频率 $\omega_0$ | 二阶电路的固有振荡频率：$\omega_0=1/\sqrt{LC}$ |
+| [[Second-Order Transients|Damping Ratio]] | 阻尼比 $\zeta$ | 表征阻尼强弱的无量纲量：$\zeta>1$ 过阻尼、$=1$ 临界、$<1$ 欠阻尼 |
+| [[Second-Order Transients|Damped Natural Frequency]] | 阻尼自然频率 $\omega_d$ | 欠阻尼下的实际振荡频率：$\omega_d=\omega_0\sqrt{1-\zeta^2}$ |
+| [[Second-Order Transients|Overdamped]] | 过阻尼 | $\zeta>1$，两个负实根，单调衰减无振荡 |
+| [[Second-Order Transients|Critically Damped]] | 临界阻尼 | $\zeta=1$，重根，最快无振荡衰减 |
+| [[Second-Order Transients|Underdamped]] | 欠阻尼 | $\zeta<1$，共轭复根，衰减振荡 |
+| [[Second-Order Transients|Characteristic Impedance]] | 特征阻抗 $Z_0$ | LC 回路的阻抗参数：$Z_0=\sqrt{L/C}$，决定振荡电流幅度 |
+| [[Second-Order Transients|State Variable Method]] | 状态变量法 | 用 $n$ 个状态变量的一阶 ODE 组替代 $n$ 阶 ODE 的系统化方法 |
+| [[Second-Order Transients|Envelope]] | 包络线 | 衰减振荡的幅值上界 $e^{-\zeta\omega_0 t}$ |
 
 ---
 

@@ -30,7 +30,7 @@ aliases:
 
 与 [[Two-Terminal Element Laws|二端元件定律]] 中线性电阻的直线不同，非线性元件的 $i$–$v$ 是曲线：
 
-- **平方律器件 (Square-Law Device)**：如 MOSFET 饱和区 $i_{DS} = \dfrac{K}{2}(v_{DS}-V_T)^2$（$v_{DS}>V_T$），低于阈值 $V_T$ 则 $i=0$（死区）；
+- **平方律器件 (Square-Law Device)**：如 MOSFET 饱和区 $i_{DS} = \frac{K}{2}(v_{GS}-V_T)^2$（$v_{GS}\ge V_T$ 且 $v_{DS}\ge v_{GS}-V_T$），低于阈值 $V_T$ 则 $i=0$（死区）；
 - **指数器件（二极管）**：$i = I_s\big(e^{v/V_T}-1\big)$，电压稍增电流剧增。
 
 这些曲线无法用单一常数 $R$ 描述——电阻"随工作点变化"。

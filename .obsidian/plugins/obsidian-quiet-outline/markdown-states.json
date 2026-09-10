@@ -78,7 +78,7 @@
         "ch": 10
       }
     },
-    "scroll": 34.879218472468914
+    "scroll": 66.82770870337478
   },
   "circuitry/Kirchhoff's Laws.md": {
     "expandedKeys": [
@@ -193,15 +193,18 @@
   "circuitry/Circuit Theory Glossary.md": {
     "cursor": {
       "from": {
-        "line": 226,
-        "ch": 0
+        "line": 237,
+        "ch": 22
       },
       "to": {
-        "line": 226,
-        "ch": 0
+        "line": 237,
+        "ch": 22
       }
     },
-    "scroll": 0
+    "scroll": 38.49165175323015,
+    "expandedKeys": [
+      "item-1-0"
+    ]
   },
   "circuitry/Basic Circuit Analysis Method.md": {
     "cursor": {
@@ -431,14 +434,19 @@
   "circuitry/Inductor.md": {
     "cursor": {
       "from": {
-        "line": 14,
+        "line": 127,
         "ch": 0
       },
       "to": {
-        "line": 14,
+        "line": 127,
         "ch": 0
       }
-    }
+    },
+    "expandedKeys": [
+      "item-1-0",
+      "item-2-2"
+    ],
+    "scroll": 118.51880663361258
   },
   "circuitry/Resonance.md": {
     "scroll": 0
@@ -492,19 +500,20 @@
   "circuitry/Wheatstone Bridge and Wye-Delta Transformation.md": {
     "cursor": {
       "from": {
-        "line": 109,
-        "ch": 0
+        "line": 162,
+        "ch": 22
       },
       "to": {
-        "line": 109,
-        "ch": 0
+        "line": 162,
+        "ch": 22
       }
     },
     "expandedKeys": [
       "item-1-0",
       "item-2-2",
-      "item-2-6"
+      "item-2-6",
+      "item-2-11"
     ],
-    "scroll": 106.5147114060348
+    "scroll": 162.74462552011096
   }
 }

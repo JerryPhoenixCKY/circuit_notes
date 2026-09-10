@@ -205,37 +205,37 @@ aliases:
 
 ## 12. Sinusoidal Steady State（正弦稳态）
 
-| English | 中文 | 解释 |
-| :--- | :--- | :--- |
-| [[Sinusoidal Steady State]] ✅             | 正弦稳态       | 线性电路在正弦激励下的稳态响应，同频率正弦波 |
-| [[Impedance]] ✅                           | 阻抗          | $Z=\tilde{V}/\tilde{I}$，$Z_R=R,\ Z_C=1/j\omega C,\ Z_L=j\omega L$ |
-| Impedance (Complex) | 复阻抗        | $Z=R+jX$，实部电阻、虚部电抗 |
-| Admittance | 导纳          | $Y=1/Z=G+jB$，单位西门子 (S) |
-| [[Frequency Response]] ✅                 | 频率响应        | Ch.13：传递函数 $H(j\omega)$、Bode 图、极点/零点、$-3$ dB、带宽 |
-| Transfer Function | 传递函数       | $H(j\omega)=\tilde{V}_{out}/\tilde{V}_{in}$ |
-| Bode Plot | Bode 图       | 对数坐标下的幅频/相频图，斜率 $\pm 20/\pm 40$ dB/dec |
-| Pole | 极点          | $H(s)$ 分母为零的点，稳定系统极点在左半平面 (LHP) |
-| Zero | 零点          | $H(s)$ 分子为零的点 |
-| Cutoff Frequency | 截止频率       | $|H|=1/\sqrt{2}$（$-3$ dB）处的频率 |
-| Bandwidth (BW) | 带宽          | $|H|$ 下降至 $-3$ dB 的频率范围 |
-| Quality Factor | 品质因数 $Q$   | $Q=\omega_0/BW$，谐振回路频率选择性的量度 |
-| [[Filters]] ✅                             | 滤波器         | LP / HP / BP / Notch 四种频率选择网络 |
-| [[Resonance]] ✅                          | 谐振          | Ch.14：串联 $Z_{\min}=R$、并联 $Z_{\max}=R$、$\omega_0=1/\sqrt{LC}$、$Q=\omega_0L/R$、$BW$ |
-| Low-Pass Filter | 低通滤波器      | 通过 $\omega<\omega_c$，衰减 $\omega>\omega_c$ |
-| High-Pass Filter | 高通滤波器      | 通过 $\omega>\omega_c$，衰减 $\omega<\omega_c$ |
-| Band-Pass Filter | 带通滤波器      | 通过 $\omega_0\pm BW/2$，阻断其他频率 |
-| Notch Filter | 陷波滤波器      | 阻断 $\omega\approx\omega_0$，通过其他频率 |
-| [[Resonance]] ✅                          | 谐振          | $\omega=\omega_0=1/\sqrt{LC}$ 时阻抗极值、电流/电压极大 |
-| Series Resonance | 串联谐振       | $\omega_0$ 处 $Z_{\min}=R$，电流最大 |
-| Parallel Resonance | 并联谐振       | $\omega_0$ 处 $Z_{\max}=R$，电压最大 |
-| Resonant Frequency | 谐振频率       | $\omega_0=1/\sqrt{LC}$，电感与电容能量交换的固有频率 |
-| Phasor | 相量          | $\tilde{V}=V_m\angle\phi$，旋转矢量（长度=幅值，角度=相位）|
-| Phasor Method | 相量法         | 用相量把微分方程变为复数代数方程的分析方法 |
-| Complex Exponential | 复指数         | $e^{j\omega t}=\cos\omega t+j\sin\omega t$ |
-| Euler's Formula | 欧拉公式        | $e^{j\theta}=\cos\theta+j\sin\theta$，相量法的数学基础 |
-| Decibel (dB) | 分贝          | $20\log_{10}|H|$，对数幅度单位 |
-| $-3$ dB Point | $-3$ dB 点     | 半功率点 $|H|=1/\sqrt{2}$，截止频率定义 |
-| Decoupling Capacitor | 去耦电容       | 高频旁路电容，为交流提供低阻抗通路（见 [[Filters]]）|
+| English                       | 中文        | 解释                                                                                |     |                           |
+| :---------------------------- | :-------- | :-------------------------------------------------------------------------------- | --- | ------------------------- |
+| [[Sinusoidal Steady State]] ✅ | 正弦稳态      | 线性电路在正弦激励下的稳态响应，同频率正弦波                                                            |     |                           |
+| [[Impedance]] ✅               | 阻抗        | $Z=\tilde{V}/\tilde{I}$，$Z_R=R,\ Z_C=1/j\omega C,\ Z_L=j\omega L$                 |     |                           |
+| Impedance (Complex)           | 复阻抗       | $Z=R+jX$，实部电阻、虚部电抗                                                                |     |                           |
+| Admittance                    | 导纳        | $Y=1/Z=G+jB$，单位西门子 (S)                                                            |     |                           |
+| [[Frequency Response]] ✅      | 频率响应      | Ch.13：传递函数 $H(j\omega)$、Bode 图、极点/零点、$-3$ dB、带宽                                   |     |                           |
+| Transfer Function             | 传递函数      | $H(j\omega)=\tilde{V}_{out}/\tilde{V}_{in}$                                       |     |                           |
+| Bode Plot                     | Bode 图    | 对数坐标下的幅频/相频图，斜率 $\pm 20/\pm 40$ dB/dec                                            |     |                           |
+| Pole                          | 极点        | $H(s)$ 分母为零的点，稳定系统极点在左半平面 (LHP)                                                   |     |                           |
+| Zero                          | 零点        | $H(s)$ 分子为零的点                                                                     |     |                           |
+| Cutoff Frequency              | 截止频率      | $                                                                                 | H   | =1/\sqrt{2}$（$-3$ dB）处的频率 |
+| Bandwidth (BW)                | 带宽        | $                                                                                 | H   | $ 下降至 $-3$ dB 的频率范围       |
+| Quality Factor                | 品质因数 $Q$  | $Q=\omega_0/BW$，谐振回路频率选择性的量度                                                      |     |                           |
+| [[Filters]] ✅                 | 滤波器       | LP / HP / BP / Notch 四种频率选择网络                                                     |     |                           |
+| [[Resonance]] ✅               | 谐振        | Ch.14：串联 $Z_{\min}=R$、并联 $Z_{\max}=R$、$\omega_0=1/\sqrt{LC}$、$Q=\omega_0L/R$、$BW$ |     |                           |
+| Low-Pass Filter               | 低通滤波器     | 通过 $\omega<\omega_c$，衰减 $\omega>\omega_c$                                         |     |                           |
+| High-Pass Filter              | 高通滤波器     | 通过 $\omega>\omega_c$，衰减 $\omega<\omega_c$                                         |     |                           |
+| Band-Pass Filter              | 带通滤波器     | 通过 $\omega_0\pm BW/2$，阻断其他频率                                                      |     |                           |
+| Notch Filter                  | 陷波滤波器     | 阻断 $\omega\approx\omega_0$，通过其他频率                                                 |     |                           |
+| [[Resonance]] ✅               | 谐振        | $\omega=\omega_0=1/\sqrt{LC}$ 时阻抗极值、电流/电压极大                                       |     |                           |
+| Series Resonance              | 串联谐振      | $\omega_0$ 处 $Z_{\min}=R$，电流最大                                                    |     |                           |
+| Parallel Resonance            | 并联谐振      | $\omega_0$ 处 $Z_{\max}=R$，电压最大                                                    |     |                           |
+| Resonant Frequency            | 谐振频率      | $\omega_0=1/\sqrt{LC}$，电感与电容能量交换的固有频率                                             |     |                           |
+| Phasor                        | 相量        | $\tilde{V}=V_m\angle\phi$，旋转矢量（长度=幅值，角度=相位）                                       |     |                           |
+| Phasor Method                 | 相量法       | 用相量把微分方程变为复数代数方程的分析方法                                                             |     |                           |
+| Complex Exponential           | 复指数       | $e^{j\omega t}=\cos\omega t+j\sin\omega t$                                        |     |                           |
+| Euler's Formula               | 欧拉公式      | $e^{j\theta}=\cos\theta+j\sin\theta$，相量法的数学基础                                     |     |                           |
+| Decibel (dB)                  | 分贝        | $20\log_{10}                                                                      | H   | $，对数幅度单位                  |
+| $-3$ dB Point                 | $-3$ dB 点 | 半功率点 $                                                                            | H   | =1/\sqrt{2}$，截止频率定义       |
+| Decoupling Capacitor          | 去耦电容      | 高频旁路电容，为交流提供低阻抗通路（见 [[Filters]]）                                                  |     |                           |
 
 ## 13. Operational Amplifiers（运算放大器）
 

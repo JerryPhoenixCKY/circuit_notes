@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "circuitry/Wheatstone Bridge and Wye-Delta Transformation.md",
+                "file": "circuitry/Inductor.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Wheatstone Bridge and Wye-Delta Transformation"
+              "title": "Inductor"
             }
           }
         ]
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "circuitry/Wheatstone Bridge and Wye-Delta Transformation.md",
+                "file": "circuitry/Inductor.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -141,7 +141,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "circuitry/Wheatstone Bridge and Wye-Delta Transformation.md",
+                "file": "circuitry/Inductor.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -160,7 +160,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "circuitry/Wheatstone Bridge and Wye-Delta Transformation.md",
+                "file": "circuitry/Inductor.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -252,18 +252,18 @@
   "active": "d465abca1fbfe0d5",
   "lastOpenFiles": [
     "circuitry/cs6.002x.1.md",
+    "circuitry/Circuit Theory Glossary.md",
+    "circuitry/Wheatstone Bridge and Wye-Delta Transformation.md",
     "circuitry/Circuit Analysis Methods in Practice.md",
     "circuitry/The Circuit Abstraction.md",
     "circuitry/Practical Two-Terminal Elements.md",
     "circuitry/Amplifiers and Feedback.md",
     "circuitry/assets/two_mesh_circuit.svg",
-    "circuitry/Wheatstone Bridge and Wye-Delta Transformation.md",
     "circuitry/assets/wye_delta_transform.png",
     "circuitry/assets/wye_delta_transform.svg",
     "circuitry/assets/wheatstone_bridge.png",
     "circuitry/assets/wheatstone_bridge.svg",
     "circuitry/Basic Circuit Analysis Method.md",
-    "circuitry/Circuit Theory Glossary.md",
     "circuitry/assets/two_mesh_circuit.png",
     "part4_tmp/two_mesh_circuit.png",
     "part4_tmp/two_mesh_circuit.svg",

@@ -78,7 +78,7 @@
         "ch": 10
       }
     },
-    "scroll": 66.82770870337478
+    "scroll": 43.361979166666664
   },
   "circuitry/Kirchhoff's Laws.md": {
     "expandedKeys": [
@@ -514,6 +514,23 @@
       "item-2-6",
       "item-2-11"
     ],
-    "scroll": 162.74462552011096
+    "scroll": 86.35384114583333
+  },
+  "circuitry/Capacitor.md": {
+    "cursor": {
+      "from": {
+        "line": 15,
+        "ch": 0
+      },
+      "to": {
+        "line": 15,
+        "ch": 0
+      }
+    },
+    "expandedKeys": [
+      "item-1-0",
+      "item-2-2"
+    ],
+    "scroll": 48.785807291666664
   }
 }

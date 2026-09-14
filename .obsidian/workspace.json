@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "circuitry/Inductor.md",
+                "file": "circuitry/Wheatstone Bridge and Wye-Delta Transformation.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Inductor"
+              "title": "Wheatstone Bridge and Wye-Delta Transformation"
             }
           }
         ]
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "circuitry/Inductor.md",
+                "file": "circuitry/Wheatstone Bridge and Wye-Delta Transformation.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -141,7 +141,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "circuitry/Inductor.md",
+                "file": "circuitry/Capacitor.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -160,7 +160,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "circuitry/Inductor.md",
+                "file": "circuitry/Capacitor.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -252,6 +252,8 @@
   "active": "d465abca1fbfe0d5",
   "lastOpenFiles": [
     "circuitry/cs6.002x.1.md",
+    "circuitry/Capacitor.md",
+    "circuitry/Inductor.md",
     "circuitry/Circuit Theory Glossary.md",
     "circuitry/Wheatstone Bridge and Wye-Delta Transformation.md",
     "circuitry/Circuit Analysis Methods in Practice.md",
@@ -283,11 +285,9 @@
     "circuitry/Frequency Response.md",
     "circuitry/Impedance.md",
     "circuitry/Sinusoidal Steady State.md",
-    "circuitry/Inductor.md",
     "circuitry/First-Order Transients.md",
     "circuitry/Second-Order Transients.md",
     "circuitry/Energy and Power in Digital Circuits.md",
-    "circuitry/Capacitor.md",
     "circuitry/assets/__probe_test.txt",
     "Incremental Analysis.pdf",
     "Unconfirmed 452597.crdownload",

@@ -78,7 +78,7 @@
         "ch": 10
       }
     },
-    "scroll": 43.361979166666664
+    "scroll": 42.002960331557134
   },
   "circuitry/Kirchhoff's Laws.md": {
     "expandedKeys": [
@@ -193,15 +193,15 @@
   "circuitry/Circuit Theory Glossary.md": {
     "cursor": {
       "from": {
-        "line": 237,
-        "ch": 22
+        "line": 241,
+        "ch": 2
       },
       "to": {
-        "line": 237,
-        "ch": 22
+        "line": 241,
+        "ch": 2
       }
     },
-    "scroll": 38.49165175323015,
+    "scroll": 241.28659393393076,
     "expandedKeys": [
       "item-1-0"
     ]
@@ -209,15 +209,15 @@
   "circuitry/Basic Circuit Analysis Method.md": {
     "cursor": {
       "from": {
-        "line": 73,
+        "line": 19,
         "ch": 0
       },
       "to": {
-        "line": 73,
+        "line": 19,
         "ch": 0
       }
     },
-    "scroll": 15.833333333333334
+    "scroll": 83.07182610521895
   },
   "circuitry/The Digital Abstraction.md": {
     "cursor": {
@@ -474,7 +474,7 @@
         "ch": 0
       }
     },
-    "scroll": 375.3474808516619,
+    "scroll": 121.70268471266918,
     "expandedKeys": [
       "item-1-0"
     ]
@@ -514,7 +514,7 @@
       "item-2-6",
       "item-2-11"
     ],
-    "scroll": 86.35384114583333
+    "scroll": 121.69214506423809
   },
   "circuitry/Capacitor.md": {
     "cursor": {

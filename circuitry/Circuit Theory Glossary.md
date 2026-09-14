@@ -239,48 +239,48 @@ aliases:
 
 ## 13. Operational Amplifiers（运算放大器）
 
-| English | 中文 | 解释 |
-| :--- | :--- | :--- |
-| [[Operational Amplifier]] ✅                 | 运算放大器       | 差分输入、单端输出、高增益有源器件，线性反馈核心 |
-| Virtual Short | 虚短           | 负反馈运放：$v_+\approx v_-$（两输入端电压相等）|
-| Virtual Open | 虚断           | 运放输入端不汲取电流：$i_+=i_-\approx 0$ |
-| Non-Inverting Amplifier | 同相放大器     | $A_v=1+R_f/R_1$，$R_{\text{in}}\approx\infty$ |
-| Inverting Amplifier | 反相放大器       | $A_v=-R_f/R_1$，$R_{\text{in}}=R_1$，虚地 $v_-\approx 0$ |
-| Voltage Follower | 电压跟随器        | $A_v=1$，单位增益缓冲，$R_{\text{in}}=\infty,\ R_{\text{out}}\approx 0$ |
-| Summing Amplifier | 加法器           | $v_{\text{out}}=-\sum R_f/R_n\cdot v_n$，虚地原理 |
-| Differential Amplifier | 差分放大器       | $v_{\text{out}}=R_f/R_1(v_2-v_1)$（$R_1=R_2,\ R_f=R_g$）|
-| Op-Amp Integrator | 积分器           | $H(s)=-1/(sRC)$，低通特性（见 [[Filters]]）|
-| Op-Amp Differentiator | 微分器           | $H(s)=-sRC$，高通特性（高频噪声敏感）|
-| Sallen-Key Filter | Sallen-Key 有源滤波 | 二阶有源滤波，$H_{\text{LP}}=\omega_0^2/(s^2+s\omega_0/Q+\omega_0^2)$ |
-| Saturation | 饱和            | 输出被电源轨夹断，$|v_{\text{out}}|\ge V_{\text{SAT}}$，失真 |
-| Positive Feedback | 正反馈           | $v_+=\beta v_{\text{out}}$，导致振荡或迟滞比较器 |
-| Barkhausen Condition | 巴克豪森振荡条件   | $|A\beta|=1,\ \angle A+\beta=0^\circ$ |
-| Slew Rate | 转换速率          | $SR=\max |dv_{\text{out}}/dt|$，大信号响应限制 |
-| GBW (Gain-Bandwidth Product) | 增益带宽积   | $A\cdot f_{-3\text{dB}}=\text{GBW}$（常数），增益越高带宽越窄 |
-| Input Offset Voltage | 输入失调电压      | $V_{OS}$，零输入时的输出直流偏移 |
-| Common-Mode Rejection Ratio | 共模抑制比  | $CMRR=20\log_{10}|A_d/A_cm|$（dB），差分放大器质量指标 |
-| Two-Port Model | 二端口模型        | $R_{\text{in,cl}}, R_{\text{out,cl}}, A_v$ 闭环参数 |
-| [[Diode]] ✅                              | 二极管          | 单向导电的半导体 PN 结器件 |
-| PN Junction | PN 结            | P 型与 N 型半导体接触面，形成耗尽层 |
-| Forward Bias | 正向偏置          | $V_D>0.6$–$0.7$ V 时导通，电流指数增长 |
-| Reverse Bias | 反向偏置          | $V_D<0$ 时截止，漏电流 $I\approx I_S$ |
-| Shockley Diode Equation | 肖克利二极管方程 | $i_D=I_S(e^{v_D/nV_T}-1)$，$V_T=kT/q\approx 26$ mV |
-| Assumed-State Method | 状态假设法        | 先假设导通/截止，验证自洽，逐步求解二极管电路 |
-| Knee Voltage | 导通阈值          | $V_{\text{knee}}\approx 0.6$–$0.7$ V（Si）|
-| Reverse Recovery Time | 反向恢复时间      | 二极管从导通切换到截止所需时间（Schottky 更快）|
-| Half-Wave Rectifier | 半波整流         | 只通过正半周期，纹波频率 $=f_{\text{in}}$ |
-| Full-Wave Rectifier | 全波整流         | 通过正负半周期，纹波频率 $=2f_{\text{in}}$ |
-| Bridge Rectifier | 桥式整流         | 4 只二极管，无需中心抽头，$v_{\text{out}}=|v_{\text{in}}|-2V_D$ |
-| Smoothing Capacitor | 滤波电容         | 整流后并联电容，$\Delta v\approx I_{\text{load}}/(f\cdot C)$ |
-| Ripple Voltage | 纹波电压          | 电容放电造成的输出电压波动（见 [[Capacitor]]）|
-| Clipper / Limiter | 削波/限幅器       | 截断波形顶部或底部，保护电路 |
-| Clamper | 钳位器            | 整体上移/下移波形直流电平，不改变波形形状 |
-| Zener Diode | 齐纳二极管         | 反向击穿区 $V_Z$ 恒定，用于稳压 |
-| Zener Regulator | 齐纳稳压器        | $V_{\text{out}}\approx V_Z$，$R_s=(V_{\text{in}}-V_Z)/(I_{\text{load}}+I_Z)$ |
-| LED (Light-Emitting Diode) | 发光二极管   | $V_F\approx 1.8$–$3.5$ V（波长决定），光功率 $\propto I_F$ |
-| Schottky Diode | 肖特基二极管        | 金属-半导体结，$V_F\approx 0.2$–$0.4$ V，高速 |
-| Varactor (Varicap) | 变容二极管        | 反向偏置时电容 $\propto 1/V_R$，调谐电路 |
-| TVS Diode | 瞬态电压抑制二极管    | 瞬态过压钳位（防雷、ESD）|
+| English                      | 中文              | 解释                                                                          |                    |                              |
+| :--------------------------- | :-------------- | :-------------------------------------------------------------------------- | ------------------ | ---------------------------- |
+| [[Operational Amplifier]] ✅  | 运算放大器           | 差分输入、单端输出、高增益有源器件，线性反馈核心                                                    |                    |                              |
+| Virtual Short                | 虚短              | 负反馈运放：$v_+\approx v_-$（两输入端电压相等）                                            |                    |                              |
+| Virtual Open                 | 虚断              | 运放输入端不汲取电流：$i_+=i_-\approx 0$                                               |                    |                              |
+| Non-Inverting Amplifier      | 同相放大器           | $A_v=1+R_f/R_1$，$R_{\text{in}}\approx\infty$                                |                    |                              |
+| Inverting Amplifier          | 反相放大器           | $A_v=-R_f/R_1$，$R_{\text{in}}=R_1$，虚地 $v_-\approx 0$                        |                    |                              |
+| Voltage Follower             | 电压跟随器           | $A_v=1$，单位增益缓冲，$R_{\text{in}}=\infty,\ R_{\text{out}}\approx 0$             |                    |                              |
+| Summing Amplifier            | 加法器             | $v_{\text{out}}=-\sum R_f/R_n\cdot v_n$，虚地原理                                |                    |                              |
+| Differential Amplifier       | 差分放大器           | $v_{\text{out}}=R_f/R_1(v_2-v_1)$（$R_1=R_2,\ R_f=R_g$）                      |                    |                              |
+| Op-Amp Integrator            | 积分器             | $H(s)=-1/(sRC)$，低通特性（见 [[Filters]]）                                         |                    |                              |
+| Op-Amp Differentiator        | 微分器             | $H(s)=-sRC$，高通特性（高频噪声敏感）                                                    |                    |                              |
+| Sallen-Key Filter            | Sallen-Key 有源滤波 | 二阶有源滤波，$H_{\text{LP}}=\omega_0^2/(s^2+s\omega_0/Q+\omega_0^2)$              |                    |                              |
+| Saturation                   | 饱和              | 输出被电源轨夹断，$                                                                  | v_{\text{out}}     | \ge V_{\text{SAT}}$，失真       |
+| Positive Feedback            | 正反馈             | $v_+=\beta v_{\text{out}}$，导致振荡或迟滞比较器                                       |                    |                              |
+| Barkhausen Condition         | 巴克豪森振荡条件        | $                                                                           | A\beta             | =1,\ \angle A+\beta=0^\circ$ |
+| Slew Rate                    | 转换速率            | $SR=\max                                                                    | dv_{\text{out}}/dt | $，大信号响应限制                    |
+| GBW (Gain-Bandwidth Product) | 增益带宽积           | $A\cdot f_{-3\text{dB}}=\text{GBW}$（常数），增益越高带宽越窄                            |                    |                              |
+| Input Offset Voltage         | 输入失调电压          | $V_{OS}$，零输入时的输出直流偏移                                                        |                    |                              |
+| Common-Mode Rejection Ratio  | 共模抑制比           | $CMRR=20\log_{10}                                                           | A_d/A_cm           | $（dB），差分放大器质量指标              |
+| Two-Port Model               | 二端口模型           | $R_{\text{in,cl}}, R_{\text{out,cl}}, A_v$ 闭环参数                             |                    |                              |
+| [[Diode]] ✅                  | 二极管             | 单向导电的半导体 PN 结器件                                                             |                    |                              |
+| PN Junction                  | PN 结            | P 型与 N 型半导体接触面，形成耗尽层                                                        |                    |                              |
+| Forward Bias                 | 正向偏置            | $V_D>0.6$–$0.7$ V 时导通，电流指数增长                                                |                    |                              |
+| Reverse Bias                 | 反向偏置            | $V_D<0$ 时截止，漏电流 $I\approx I_S$                                              |                    |                              |
+| Shockley Diode Equation      | 肖克利二极管方程        | $i_D=I_S(e^{v_D/nV_T}-1)$，$V_T=kT/q\approx 26$ mV                           |                    |                              |
+| Assumed-State Method         | 状态假设法           | 先假设导通/截止，验证自洽，逐步求解二极管电路                                                     |                    |                              |
+| Knee Voltage                 | 导通阈值            | $V_{\text{knee}}\approx 0.6$–$0.7$ V（Si）                                    |                    |                              |
+| Reverse Recovery Time        | 反向恢复时间          | 二极管从导通切换到截止所需时间（Schottky 更快）                                                |                    |                              |
+| Half-Wave Rectifier          | 半波整流            | 只通过正半周期，纹波频率 $=f_{\text{in}}$                                               |                    |                              |
+| Full-Wave Rectifier          | 全波整流            | 通过正负半周期，纹波频率 $=2f_{\text{in}}$                                              |                    |                              |
+| Bridge Rectifier             | 桥式整流            | 4 只二极管，无需中心抽头，$v_{\text{out}}=                                              | v_{\text{in}}      | -2V_D$                       |
+| Smoothing Capacitor          | 滤波电容            | 整流后并联电容，$\Delta v\approx I_{\text{load}}/(f\cdot C)$                        |                    |                              |
+| Ripple Voltage               | 纹波电压            | 电容放电造成的输出电压波动（见 [[Capacitor]]）                                              |                    |                              |
+| Clipper / Limiter            | 削波/限幅器          | 截断波形顶部或底部，保护电路                                                              |                    |                              |
+| Clamper                      | 钳位器             | 整体上移/下移波形直流电平，不改变波形形状                                                       |                    |                              |
+| Zener Diode                  | 齐纳二极管           | 反向击穿区 $V_Z$ 恒定，用于稳压                                                         |                    |                              |
+| Zener Regulator              | 齐纳稳压器           | $V_{\text{out}}\approx V_Z$，$R_s=(V_{\text{in}}-V_Z)/(I_{\text{load}}+I_Z)$ |                    |                              |
+| LED (Light-Emitting Diode)   | 发光二极管           | $V_F\approx 1.8$–$3.5$ V（波长决定），光功率 $\propto I_F$                            |                    |                              |
+| Schottky Diode               | 肖特基二极管          | 金属-半导体结，$V_F\approx 0.2$–$0.4$ V，高速                                         |                    |                              |
+| Varactor (Varicap)           | 变容二极管           | 反向偏置时电容 $\propto 1/V_R$，调谐电路                                                |                    |                              |
+| TVS Diode                    | 瞬态电压抑制二极管       | 瞬态过压钳位（防雷、ESD）                                                              |                    |                              |
 
 | [[Amplifiers and Feedback]] ✅              | 放大器与反馈       | 反馈方程 $A/(1+A\beta)$、负反馈四大好处、Barkhausen 振荡条件、四拓扑 |
 | [[Current Sources and Mirrors]] ✅          | 电流源与电流镜     | 偏置/有源负载、基本镜/Wilson/Cascode、$I_{\text{out}}=I_{\text{ref}}\cdot(W/L)_2/(W/L)_1$ |

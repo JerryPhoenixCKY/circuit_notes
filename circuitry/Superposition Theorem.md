@@ -22,13 +22,29 @@ aliases:
 
 ## 一、适用前提：线性电路 (Linear Circuit)
 
-叠加原理**只对线性电路成立**。线性电路需满足：
+叠加原理**只对线性电路成立**。课件把"线性系统"从一个抽象系统讲起：
 
-1. **齐次性 (Homogeneity)**：输入放大 $k$ 倍，输出也放大 $k$ 倍（$f(kx) = kf(x)$）。
-2. **可加性 (Additivity)**：多个输入共同作用 = 各自单独作用之和（$f(x_1 + x_2) = f(x_1) + f(x_2)$）。
+| | 数学表述 |
+| :--- | :--- |
+| **齐次性 Homogeneity (scaling)** | $f(ax) = a\,f(x)$ |
+| **可加性 Additivity** | $f(x_1+x_2) = f(x_1)+f(x_2)$ |
 
-> [!NOTE] 为什么"线性"是关键
-> 由电阻 (Resistor)、电容 (Capacitor)、电感 (Inductor) 与**线性受控源**构成的电路，其电压/电流关系都是线性方程（KCL/KVL 是线性方程组），因此满足叠加。而含二极管、晶体管等**非线性元件**的电路不适用（除非先做小信号分析 (Small Signal Analysis) 线性化）。
+![[l3_linearity_system.png]]
+
+**多输入（向量）形式** —— 这是叠加原理的标准写法。把各个独立源看成激励向量 $\mathbf{x}=(x_1,\dots,x_n)$，若已知单位激励 $\mathbf{e}_k$ 的响应，则任一组激励的响应为：
+
+$$
+f(\mathbf{x}) = x_1 f(\mathbf{e}_1) + x_2 f(\mathbf{e}_2) + \cdots + x_n f(\mathbf{e}_n)
+$$
+
+![[l3_linearity_multi.jpeg]]
+
+> [!IMPORTANT] 这条式子的分量
+> 它不只是"叠加原理的表述"，而是**整个 Lecture 3 的技术源头**：
+> 把 $f(\mathbf{e}_k)$ 记成系数，就得到 §1.1 的节点方程线性视角、
+> [[Source Transformation|电源变换]] 的仿射形式、以及
+> [[Thevenin's Theorem|戴维南]]/[[Norton's Theorem|诺顿]] 定理的完整推导
+> （见 [[Thevenin's Theorem|戴维南定理]] 的"用叠加推导"一节）。
 
 ### 1.1 节点方程的线性视角 (Lecture 3)
 
@@ -37,8 +53,9 @@ $$\mathbf{G}\,\mathbf{e} = \mathbf{S}$$
 其中 $\mathbf{G}$ 是**电导矩阵**（对称、由电阻决定），$\mathbf{e}$ 是节点电压向量，$\mathbf{S}$ 是**独立源**的线性组合（每个独立源按系数进入右端项）。
 
 因为 $\mathbf{e} = \mathbf{G}^{-1}\mathbf{S}$，而 $\mathbf{S}$ 对各个独立源是**线性**的（齐次 + 可加），所以节点电压（进而任意支路电压/电流）也对各独立源**线性叠加**：
-\[ e = \underbrace{\alpha_V V}_{\text{仅 }V\text{ 作用}} + \underbrace{\beta_I I}_{\text{仅 }I\text{ 作用}} + \cdots \]
+$$e = \underbrace{\alpha_V V}_{\text{仅 }V\text{ 作用}} + \underbrace{\beta_I I}_{\text{仅 }I\text{ 作用}} + \cdots $$
 这就是叠加原理的数学本质——**线性 ⇒ 响应可分解为各独立源单独贡献之和**。
+
 
 > [!TIP] 分解示意图
 > 下面把"原电路 = 各独立源单独作用之和"画成三幅图：先保留全部源（Original），再把电流源置零（开路）得到 V-only 子电路，最后把电压源置零（短路）得到 I-only 子电路，两子电路的响应相加即总响应。
@@ -49,6 +66,15 @@ $$\mathbf{G}\,\mathbf{e} = \mathbf{S}$$
 > 设电路有 $m$ 个独立电压源 $V_m$ 与 $n$ 个独立电流源 $I_n$，则任意响应（电压或电流）$r$ 可写成
 > $$ r = \sum_{m} \alpha_m V_m + \sum_{n} \beta_n I_n $$
 > 其中系数 $\alpha_m$ **无量纲**（分压/分流比），$\beta_n$ **具有电阻量纲**（与电压源置零后从端口看入的等效电阻相关）。若电路还含有独立源以外的固定偏置项（如已线性化后的小信号等效中的静态工作点项），会多出一个常数项 $R\cdot i$，该项与当前激励无关。
+
+> [!TIP] 叠加原理的直接推论：等效判据
+> 课件把叠加性用到"**两个电路何时等效**"上，得到三条判据（详见 [[Source Transformation|电源变换 §三]]）：
+> 1. 独立源置零后端口**等效电阻**相同；
+> 2. 端口**短路电流**相同；**或** 3. 端口**开路电压**相同。
+>
+> **任意满足两条即可**——端口 $v$–$i$ 关系是一条直线，直线上两个点唯一确定它。
+> 这三条判据统摄了全库所有"等效"操作：串并联、Y-Δ、[[Source Transformation|电源变换]]、
+> [[Thevenin's Theorem|戴维南]] / [[Norton's Theorem|诺顿]]。
 
 ---
 
@@ -175,6 +201,24 @@ graph TD
 2. **分别求解**：用 [[Kirchhoff's Laws|KCL/KVL]]、欧姆定律等，求出目标元件在该源单独作用下的响应（电压或电流）。
 3. **代数求和**：把所有响应按**参考方向一致**的原则**代数相加**（注意正负号，不是简单绝对值和）。
 4. **注意**：多个独立源也可以**分组**处理，不必严格"一次只留一个"，只要保证每组叠加覆盖所有源即可。
+
+**课件原文的三步表述**（对照记忆）：
+
+> [!NOTE] Steps to Apply Superposition Principle（课件原文）
+> 1. **Turn off all independent sources except one source.** Find the output (voltage or current) due to that active source.
+> 2. **Repeat step 1 for each of the other independent sources.**
+> 3. **Find the total contribution by adding algebraically** all the contributions due to the independent sources.
+>
+> 注意三条里的两个关键词：**"independent"**（只有独立源能置零）与 **"algebraically"**（代数和，带符号）。
+
+**课件给出的分解图示**：原图被拆成"只留电流源"与"只留电压源"两幅子图，两幅子图各自求响应后相加。
+
+![[l3_superposition_split.png]]
+
+> [!NOTE] 关于这张图
+> 这是课件原图（**深色底截图**，与笔记的浅色主题不同，属正常现象）。
+> 图中左侧为"**移除独立电流源 = 开路 (i=0)**"，右侧为"**移除独立电压源 = 短路 (v=0)**"，
+> 与上面表格的置零规则逐一对应。
 
 ---
 

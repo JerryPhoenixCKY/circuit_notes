@@ -65,6 +65,8 @@ aliases:
 | Branch | 支路 | 两个节点之间的一段电路 |
 | Loop | 回路 | 从某节点出发沿支路回到原点的闭合路径 |
 | Mesh | 网孔 | 内部不含其他回路的回路（平面电路） |
+| Essential Node | 基本节点 | 连接三条及以上支路的节点；节点分析只需对基本节点列 KCL（非基本节点只是导线上的点） |
+| Essential Branch | 基本支路 | 连接两个基本节点且中间不经过其他基本节点的支路（可包含多个串联元件） |
 | Voltage Divider | 分压器 | 串联电阻按阻值瓜分总电压：$V_{out}=V_{in}\dfrac{R_2}{R_1+R_2}$，见 [[Ohm's Law|欧姆定律 §三]] |
 | Current Divider | 分流器 | 并联电阻按电导瓜分总电流：$I_1=I\dfrac{R_2}{R_1+R_2}$，见 [[Ohm's Law|欧姆定律 §三]] |
 | Equivalent Resistance | 等效电阻 | 把网络化简为端口单电阻 $R_{eq}$（串联相加 / 并联取倒数和），见 [[Resistive Networks|电阻网络 §四]] |
@@ -85,11 +87,20 @@ aliases:
 | [[Kirchhoff's Laws|KCL]] | 基尔霍夫电流定律 | 节点处电流代数和为 0（电荷守恒） |
 | [[Kirchhoff's Laws|KVL]] | 基尔霍夫电压定律 | 回路中电压代数和为 0（能量守恒） |
 | [[Superposition Theorem]] | 叠加原理 / 叠加定理 | 线性电路中响应 = 各独立源单独作用之和 |
+| [[Source Transformation\|Source Transformation]] | 电源变换 / 电源等效变换 | 电压源串电阻 $\Leftrightarrow$ 电流源并同一电阻（$i_s=v_s/R$），端口 i–v 特性不变；可级联使用，是化简电路的通用手法 |
+| [[Source Transformation\|Equivalent Circuit]] | 等效电路 | 对外端口 i–v 特性完全相同的替换电路；"只对外等效，对内不等效" |
 | [[Thevenin's Theorem]] | 戴维南定理 / 戴维南等效 | 线性二端网络可等效为电压源串联电阻 |
 | [[Norton's Theorem]] | 诺顿定理 / 诺顿等效 | 线性二端网络可等效为电流源并联电阻 |
+| [[Source Transformation\|Conditions for Equivalence]] | 等效的判据（三条件） | ① 独立源置零后端口电阻相同；② 短路电流相同；③ 开路电压相同。**任两条即可**（端口 i–v 是一条直线，两点定线） |
+| [[Source Transformation\|Input Resistance]] | 输入电阻 $R_{in}$ | 端口看进去的等效电阻（独立源置零后），$R_{in}=R_{Th}$ |
 | Linearity | 线性 | 系统满足齐次性与可加性的性质 |
 | Homogeneity | 齐次性 | 输入放大 k 倍，输出也放大 k 倍 |
 | Additivity | 可加性 | 多个输入之和的响应 = 各自响应之和 |
+| [[Source Transformation\|Affine System]] | 仿射系统 | $y=ax+b$：含独立源的线性电路严格说是仿射系统（有常数偏置项，直线不过原点）；正比关系只对增量成立 |
+| [[Source Transformation\|Excitation]] | 激励 / 输入 | 加到系统上的独立源量（电压或电流） |
+| [[Source Transformation\|Response]] | 响应 / 输出 | 由激励引起的电路量（节点电压、支路电流） |
+| [[Source Transformation\|Negative Resistance]] | 负电阻 / 负 $R_{Th}$ | 含受控源时戴维南电阻可为负：电路向端口**提供**功率而非消耗；是振荡器与负阻器件的电路基础 |
+| [[Source Transformation\|Dependent Source Handling]] | 受控源变换注意点 | 受控源也可做电源变换，但变换后须检查**控制量是否仍在电路中**，否则会丢失约束 |
 | Lenz's Law | 楞次定律 | 感应效应总是反抗引起它的磁通变化 |
 | [[Basic Circuit Analysis Method|Node Analysis]] | 节点法 / 节点分析法 / Nodal Analysis | 以节点电压为主未知数、对非参考节点写 KCL 的系统分析法，是 KVL/KCL 法的特例 |
 | Node Voltage | 节点电压 | 某节点相对参考节点（地）的电势，节点法的主未知数 |
@@ -101,6 +112,8 @@ aliases:
 | [[Circuit Analysis Methods in Practice\|Mesh Current Method]] | 网孔电流法 | 对每个网孔设假想回路电流、只写 KVL 的分析法，自动满足 KCL |
 | [[Circuit Analysis Methods in Practice\|Branch Current Method]] | 支路电流法 | 每条支路设一个电流、KCL + KVL 联立求解的原始方法 |
 | [[Circuit Analysis Methods in Practice\|Supernode]] | 超节点 | 跨在 floating voltage source 两端的两个节点视为一个整体写 KCL |
+| [[Circuit Analysis Methods in Practice\|Supermesh]] | 超网孔 | 共享电流源的两个网孔合并为一个大回路写 KVL，再补 KCL 电流约束 |
+| [[Basic Circuit Analysis Method\|Cramer's Rule]] | 克莱姆法则 | 用行列式解线性方程组 $A\mathbf{x}=\mathbf{b}$：$x_i=\det(A_i)/\det(A)$，节点法/网孔法手算的标准工具 |
 | Self-Resistance | 自阻 $R_{kk}$ | 网孔法电阻矩阵对角元素 = 网孔 $k$ 内所有电阻之和（恒正） |
 | Mutual Resistance | 互阻 $R_{kj}$ | 网孔法电阻矩阵非对角元素 = 网孔 $k$ 与 $j$ 共享电阻之和的负值 |
 
@@ -357,7 +370,63 @@ aliases:
 
 ---
 
+## 14. Communication Interfaces & PCB Signal Integrity（通信接口与 PCB 信号完整性）
+
+> [!NOTE] 说明
+> 工程向词汇。**协议概念**指向 [[Hardware Communication Interfaces|通信接口]] 对应章节；
+> **信号完整性概念**指向背后的电路理论笔记（这样查术语时能顺势复习原理）。
+> 章节编号说明：§11–13 已存在重号，本节顺延为 §14，不动既有编号以免破坏链接引用。
+
+### 14.1 接口与协议 (Interfaces & Protocols)
+
+| English | 中文 | 解释 |
+| :--- | :--- | :--- |
+| [[Hardware Communication Interfaces\|UART]] | 通用异步收发器 | 异步全双工、**无时钟线**，仅 TX/RX 两根数据线（+共地），靠约定波特率取样；帧 = 起始位+数据位+校验+停止位。两端时钟精度须优于约 ±2%。见 [[Hardware Communication Interfaces\|通信接口 §4.1]] |
+| [[Hardware Communication Interfaces\|I2C]] | 集成电路总线 | 同步半双工、**开漏两线**（SDA 数据线 + SCL 时钟线），一主多从靠地址寻址；必须外接上拉 $R_p$，上升时间 $t_r\approx0.8473R_pC_b\le0.3T$。见 [[Hardware Communication Interfaces\|通信接口 §4.2]] |
+| [[Hardware Communication Interfaces\|SPI]] | 串行外设接口 | 同步全双工、**推挽四线**（SCLK / MOSI / MISO / CS），无寻址靠片选；无需上拉，速率高于 I²C；由 CPOL×CPHA 分 4 种模式。见 [[Hardware Communication Interfaces\|通信接口 §4.3]] |
+| [[Hardware Communication Interfaces\|CAN Bus]] | 控制器局域网总线 | **差分多主总线**（CAN_H/CAN_L），非破坏性仲裁，抗干扰极强；**两端各 120 Ω 端接**（并联 60 Ω）；汽车电子与工业控制。见 [[Hardware Communication Interfaces\|通信接口 §4.4]] |
+| [[Hardware Communication Interfaces\|USB]] | 通用串行总线 | USB 2.0 为 D+/D− 单差分对（半双工）；3.x/4 增加 SuperSpeed 收发对实现全双工；$Z_{diff}$ = 90 Ω（2.0/3.x）或 85 Ω（USB4）；含 VBUS 供电与热插拔枚举 |
+| [[Hardware Communication Interfaces\|PCIe]] | 外设组件互连高速通道 | 高速**点对点**串行，每 lane = 2 对差分（TX+RX），嵌入式时钟（CDR）+ 100 MHz 差分参考时钟；$Z_{diff}$ = 85 Ω；TX 侧 AC 耦合电容；用于 GPU / NVMe |
+| [[Hardware Communication Interfaces\|Ethernet]] | 以太网 | 变压器隔离 + 差分对（TX±/RX±），$Z_{diff}$ = 100 Ω；1000BASE-T 起 4 对全双工双向；PHY–变压器–RJ45 三段均为差分，隔离带下方禁布线 |
+| [[Hardware Communication Interfaces\|HDMI]] | 高清多媒体接口 | 4 对 **TMDS** 差分（3 数据 + 1 时钟）+ DDC/CEC/HPD，$Z_{diff}$ = 100 Ω；2.1 版改用 FRL，总带宽最高 48 Gbps |
+| [[Hardware Communication Interfaces\|MIPI]] | 移动产业处理器接口 | 移动/嵌入式摄像头 (CSI) 与屏幕 (DSI) 高速接口；D-PHY 差分 100 Ω，C-PHY 三线一组；对内偏斜要求苛刻，常用屏蔽 FPC |
+| [[Hardware Communication Interfaces\|DisplayPort]] | 显示接口 | 主链路 1–4 lane 差分（8b/10b）+ AUX 双向低速通道；$Z_{diff}$ 典型 100 Ω |
+
+### 14.2 信号完整性与 PCB 概念 (Signal Integrity & PCB)
+
+| English | 中文 | 解释 |
+| :--- | :--- | :--- |
+| [[Hardware Communication Interfaces\|Single-Ended Signaling]] | 单端信号 | 一根线对**地**的电压承载信息，需公共参考地，抗干扰弱、易辐射；UART/I²C/SPI 属此类 |
+| [[Hardware Communication Interfaces\|Differential Signaling]] | 差分信号 | 两根线电压差承载信息：$V_{diff}=V_+-V_-$，共模 $V_{cm}=(V_++V_-)/2$；共模噪声相减抵消，抗干扰强、辐射小 |
+| [[Hardware Communication Interfaces\|Transmission Line]] | 传输线 | 当传播延迟与上升时间可比拟时，导线须按分布参数处理；判据 $l>t_r v_p/6$（FR-4 中 $v_p\approx15$ cm/ns ≈ 6 in/ns） |
+| [[Hardware Communication Interfaces\|Characteristic Impedance]] | 特征阻抗 $Z_0$ | 传输线固有阻抗 $Z_0=\sqrt{L'/C'}$，由几何与材料决定、与长度无关；微带线 $Z_0\approx\frac{87}{\sqrt{\epsilon_r+1.41}}\ln\frac{5.98H}{0.8W+T}$ |
+| [[Hardware Communication Interfaces\|Differential Impedance]] | 差分阻抗 $Z_{diff}$ | 差分对的等效阻抗，$Z_{diff}=2Z_{se}(1-0.48e^{-0.96S/H})$；间距 S 越大越接近 $2Z_{se}$，故"拉开间距即改变阻抗" |
+| [[Hardware Communication Interfaces\|Propagation Velocity]] | 传播速度 $v_p$ | 信号在介质中的速度 $v_p=c/\sqrt{\epsilon_{eff}}$；FR-4 微带约 15 cm/ns，是计算长度与时序的基础 |
+| [[Hardware Communication Interfaces\|Reflection Coefficient]] | 反射系数 $\Gamma$ | $\Gamma=(Z_L-Z_0)/(Z_L+Z_0)$；开路 +1、短路 −1、匹配 0。端接的目的就是令 $\Gamma\to0$ |
+| [[Hardware Communication Interfaces\|Termination]] | 端接 | 为消除反射而加的吸收网络。形式：串联/并联/戴维南/AC/差分/分裂/片内 (ODT)；CAN 在**两端**各 120 Ω，串联端接须放**源端** |
+| [[Hardware Communication Interfaces\|Reference Plane]] | 参考平面 | 紧贴信号线、承载返回电流的完整铜面（优选 GND）；**高速线下方严禁跨分割** |
+| [[Hardware Communication Interfaces\|Return Path]] | 回流路径 | 信号返回源端的路径，由电磁场决定并紧贴信号线下方；回流断裂 = 环路面积剧增 = 辐射与串扰恶化 |
+| [[Hardware Communication Interfaces\|Stitching Via]] | 地缝合孔 | 换层时在信号过孔旁补的地过孔，为回流提供短路径；经验值距信号过孔 ≤ 30 mil，每对差分至少 2 个 |
+| [[Hardware Communication Interfaces\|Crosstalk]] | 串扰 | 相邻走线经互容 $C_m$、互感 $L_m$ 耦合能量；近端 (NEXT) 靠加间距/护线改善，远端 (FEXT) 与平行长度成正比 |
+| [[Hardware Communication Interfaces\|Guard Trace]] | 接地护线 | 高速线之间的接地走线，需每隔约 200 mil 打地孔才有效，否则自身成为天线 |
+| [[Hardware Communication Interfaces\|Skew]] | 偏斜 | 差分对或总线各线之间的到达时间差。**对内偏斜 (intra-pair skew)** 要求最严，25–32 Gbps 下需 < 5 mil（Gen6/112G 约 3 mil） |
+| [[Hardware Communication Interfaces\|Eye Diagram]] | 眼图 | 叠加多比特波形得到的"眼睛"张开度，反映噪声、抖动与损耗的综合裕量 |
+| [[Hardware Communication Interfaces\|Insertion Loss]] | 插入损耗 | 信号经通道后的衰减，来自导体损耗（趋肤效应，$\propto\sqrt f$）与介质损耗（$\propto f$，由 $D_f$ 决定） |
+| [[Hardware Communication Interfaces\|Via Stub]] | 过孔残桩 | 通孔未使用部分形成的开路短截线，在 $f_{res}=c/(4l\sqrt{\epsilon_r})$ 处谐振；对策：背钻 (back-drilling)、盲埋孔、HDI |
+| [[Hardware Communication Interfaces\|Back Drilling]] | 背钻 | 钻孔去除过孔残桩的工艺，残余残桩可控制到 < 5 mil，10 Gbps 以上必备 |
+| [[Hardware Communication Interfaces\|AC Coupling Capacitor]] | 交流耦合电容 | 串在差分线上的隔直电容（典型 100 nF），位置须**靠近发送端**、两线对称等长 |
+| [[Hardware Communication Interfaces\|Common-Mode Choke]] | 共模扼流圈 | 对差分信号透明、对共模高阻的磁性元件，用于抑制共模噪声与辐射（CAN/USB/HDMI/MIPI 常用） |
+| [[Hardware Communication Interfaces\|ESD Protection]] | 静电放电保护 | 接口防护器件，须紧贴连接器；高速线上必须选低电容型（< 0.5 pF 级），否则破坏信号完整性 |
+| [[Hardware Communication Interfaces\|Open-Drain]] | 开漏输出 | 器件只能拉低、不能拉高的输出结构，须外接上拉；I²C 的多主仲裁与时钟同步都由"线与"天然实现 |
+| [[Hardware Communication Interfaces\|Series Termination Resistor]] | 串联端接电阻 | 源端串接 $R\approx Z_0-R_{out}$（如 SPI 时钟串 22–33 Ω），抑制过冲与振铃且无静态功耗 |
+| [[Hardware Communication Interfaces\|Bob Smith Termination]] | Bob Smith 端接 | 以太网 RJ45 各对中心抽头经 75 Ω + 高压电容到机壳地，泄放共模能量 |
+| [[Hardware Communication Interfaces\|Isolation Barrier]] | 隔离带 | 以太网变压器等隔离器件的初/次级分界，两侧地平面须分开且**下方所有层掏空**、满足安规爬电距离 |
+| [[Hardware Communication Interfaces\|SerDes]] | 串行器/解串器 | 芯片内完成并串/串并转换的模块，使高速接口可以用少量差分对实现极高带宽 |
+
+---
+
 ## 相关笔记
 
 - [[cs6.002x.1]] —— 电路原理知识树（主笔记）
+- [[Hardware Communication Interfaces]] —— 通信接口 × PCB 布线专题（§14 词条的展开）
 - [[Maxwell's Equations]] / [[Lumped Matter Discipline]] / [[Superposition Theorem]] —— 已建专题笔记

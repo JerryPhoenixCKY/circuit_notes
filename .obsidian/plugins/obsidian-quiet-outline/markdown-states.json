@@ -6,15 +6,15 @@
     "expandedKeys": [],
     "cursor": {
       "from": {
-        "line": 2,
-        "ch": 82
+        "line": 172,
+        "ch": 0
       },
       "to": {
-        "line": 2,
-        "ch": 82
+        "line": 172,
+        "ch": 0
       }
     },
-    "scroll": 39.45302325581395
+    "scroll": 172.94954427083334
   },
   "circuitry/Lumped Matter Discipline.md": {
     "expandedKeys": [
@@ -39,15 +39,15 @@
     ],
     "cursor": {
       "from": {
-        "line": 128,
+        "line": 41,
         "ch": 0
       },
       "to": {
-        "line": 128,
+        "line": 41,
         "ch": 0
       }
     },
-    "scroll": 17.853617557492388
+    "scroll": 207.73833353430604
   },
   "小信号分析.md": {
     "expandedKeys": [],
@@ -70,15 +70,15 @@
     ],
     "cursor": {
       "from": {
-        "line": 28,
-        "ch": 10
+        "line": 46,
+        "ch": 35
       },
       "to": {
-        "line": 28,
-        "ch": 10
+        "line": 46,
+        "ch": 35
       }
     },
-    "scroll": 42.002960331557134
+    "scroll": 118.81968992248062
   },
   "circuitry/Kirchhoff's Laws.md": {
     "expandedKeys": [
@@ -132,7 +132,7 @@
         "ch": 0
       }
     },
-    "scroll": 313.2720599085141
+    "scroll": 29.597330729166668
   },
   "circuitry/Maxwell's Equations.md": {
     "expandedKeys": [
@@ -167,15 +167,15 @@
   "circuitry/Thevenin's Theorem.md": {
     "cursor": {
       "from": {
-        "line": 92,
-        "ch": 13
+        "line": 62,
+        "ch": 28
       },
       "to": {
-        "line": 92,
-        "ch": 13
+        "line": 62,
+        "ch": 28
       }
     },
-    "scroll": 28.616536458333332
+    "scroll": 96.60135992747054
   },
   "circuitry/Complex Numbers and Euler's Formula.md": {
     "cursor": {
@@ -201,7 +201,7 @@
         "ch": 2
       }
     },
-    "scroll": 241.28659393393076,
+    "scroll": 225.13671035331927,
     "expandedKeys": [
       "item-1-0"
     ]
@@ -209,15 +209,15 @@
   "circuitry/Basic Circuit Analysis Method.md": {
     "cursor": {
       "from": {
-        "line": 19,
-        "ch": 0
+        "line": 88,
+        "ch": 20
       },
       "to": {
-        "line": 19,
-        "ch": 0
+        "line": 88,
+        "ch": 20
       }
     },
-    "scroll": 83.07182610521895
+    "scroll": 80.38411458333333
   },
   "circuitry/The Digital Abstraction.md": {
     "cursor": {
@@ -374,15 +374,15 @@
     "scroll": 0
   },
   "circuitry/Analysis of Nonlinear Circuits.md": {
-    "scroll": 0,
+    "scroll": 109.36458333333333,
     "cursor": {
       "from": {
-        "line": 16,
-        "ch": 0
+        "line": 84,
+        "ch": 18
       },
       "to": {
-        "line": 16,
-        "ch": 0
+        "line": 84,
+        "ch": 18
       }
     }
   },
@@ -466,15 +466,15 @@
   "circuitry/Circuit Analysis Methods in Practice.md": {
     "cursor": {
       "from": {
-        "line": 290,
+        "line": 293,
         "ch": 0
       },
       "to": {
-        "line": 290,
+        "line": 293,
         "ch": 0
       }
     },
-    "scroll": 121.70268471266918,
+    "scroll": 284.11681482408915,
     "expandedKeys": [
       "item-1-0"
     ]
@@ -500,12 +500,12 @@
   "circuitry/Wheatstone Bridge and Wye-Delta Transformation.md": {
     "cursor": {
       "from": {
-        "line": 162,
-        "ch": 22
+        "line": 95,
+        "ch": 0
       },
       "to": {
-        "line": 162,
-        "ch": 22
+        "line": 95,
+        "ch": 0
       }
     },
     "expandedKeys": [
@@ -514,7 +514,7 @@
       "item-2-6",
       "item-2-11"
     ],
-    "scroll": 121.69214506423809
+    "scroll": 104.8759765625
   },
   "circuitry/Capacitor.md": {
     "cursor": {
@@ -532,5 +532,34 @@
       "item-2-2"
     ],
     "scroll": 48.785807291666664
+  },
+  "circuitry/Current Sources and Mirrors.md": {
+    "cursor": {
+      "from": {
+        "line": 21,
+        "ch": 0
+      },
+      "to": {
+        "line": 21,
+        "ch": 0
+      }
+    },
+    "scroll": 0
+  },
+  "屏幕截图 2026-09-16 154322.png.md": {
+    "scroll": 0
+  },
+  "circuitry/Hardware Communication Interfaces.md": {
+    "cursor": {
+      "from": {
+        "line": 432,
+        "ch": 0
+      },
+      "to": {
+        "line": 432,
+        "ch": 0
+      }
+    },
+    "scroll": 599.2845294809729
   }
 }

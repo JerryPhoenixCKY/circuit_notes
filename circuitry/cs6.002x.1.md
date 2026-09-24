@@ -53,10 +53,12 @@ aliases:
     - [[Circuit Analysis Methods in Practice|电路分析方法实战]] ✅ ❗（网孔法/节点法/支路法/叠加/戴维南对比、选型决策、完整例题）
     - [[Wheatstone Bridge and Wye-Delta Transformation|惠斯通电桥与星角变换]] ✅（ECE 2001 L1 扩展：电桥测阻/零示法/平衡条件 $R_x=R_2R_3/R_1$、Y-Δ/Δ-Y 等效变换、桥式网络化简例题）
 - **网络定理 (Network Theorems) — Ch.3**
-    - [[Superposition Theorem|叠加原理]] ✅ ❗
-    - [[Thevenin's Theorem|戴维南定理]] ✅ ❗
-    - [[Norton's Theorem|诺顿定理]] ✅ ❗
-    - 最大功率传输 (Maximum Power Transfer) ✅（[[Maximum Power Transfer Theorem|最大功率传输定理]]）
+    - [[Superposition Theorem|叠加原理]] ✅ ❗（含课件：齐次性/可加性、多输入向量形式、仿射系统、等效三条件）
+    - [[Source Transformation|电源变换]] ✅ ❗（Technique 2：电压源串 $R$ ⇄ 电流源并 $R$、等效三条件、受控源变换的坑、级联化简）
+    - [[Thevenin's Theorem|戴维南定理]] ✅ ❗（含课件新增：负 $R_{Th}$ / 负 $V_{Th}$、用叠加原理推导定理）
+    - [[Norton's Theorem|诺顿定理]] ✅ ❗（含用叠加原理推导，与戴维南对偶）
+    - 最大功率传输 (Maximum Power Transfer) ✅（[[Maximum Power Transfer Theorem|最大功率传输定理]]；课件：两种优化目标的区分）
+    - 电源建模 (Source Modeling) ✅（归入 [[Practical Two-Terminal Elements|实际二端元件]] §1.1）
 - **非线性电路分析 (Nonlinear Circuits) — Ch.4**
     - [[Analysis of Nonlinear Circuits|非线性电路分析]] ✅ ❗
         - 分段线性化 (Piecewise Linearization) / 工作点 (Operating Point)
@@ -116,9 +118,27 @@ aliases:
     - [[Power Supplies|电源]] ✅（线性稳压/LDO、开关 Buck/Boost/Buck-Boost、基准电压源）
     - [[DC-DC Converter|DC-DC 变换器]] ✅（Buck $V_o=D\cdot V_i$、Boost $V_o=V_i/(1-D)$、PWM/PFM、纹波/效率）
 
+### Part 7 · 硬件工程扩展（非教材章节 · 从"会算电路"到"能做硬件"）
+
+> [!NOTE] 这一分支的定位
+> 教材 (Agarwal & Lang) 教到"元件与网络"为止，而**真实硬件**要面对
+> "导线不再是理想导线"的世界：传输线、阻抗、回流、端接、串扰。
+> 本分支把 Ch.1–16 的理论**落到铜箔与介质上**，是硬件全栈能力的衔接层。
+
+- **通信接口与信号完整性 (Communication Interfaces & Signal Integrity)**
+    - [[Hardware Communication Interfaces|通信接口与 PCB 布线]] ✅ ❗（UART / I²C / SPI / CAN / USB / PCIe / 以太网 / HDMI·MIPI·DP 八类接口；传输线与 $Z_0$·$Z_{diff}$、反射与端接、参考面与回流、串扰、过孔残桩；逐接口 PCB 布线要点 + 通用规则速查 + 故障排查表）
+        - 分类框架：串行 vs 并行、同步 vs 异步、单端 vs 差分、拓扑与双工
+        - 与理论课的接口：LMD 失效判据 → 传输线；二阶暂态 → 振铃；RC → 上拉时间常数
+- **后续待建（框架占位）**
+    - ⚠️ 电源完整性 (Power Integrity)：去耦网络、PDN 阻抗、地弹
+    - ⚠️ EMC 与安规 (EMC & Safety)：辐射/传导发射、隔离与爬电距离
+    - ⚠️ 层叠与板材设计 (Stackup & Materials)：Dk/Df、阻抗计算、HDI
+    - ⚠️ 器件选型与降额 (Component Selection & Derating)
+
 
 ---
 
 > [!TIP] 学习路线建议（非强制，按教材顺序推进）
 > 前置/数学 → Ch.1–2 抽象与电阻网络 → Ch.3 网络定理 → Ch.4 非线性+小信号 → Ch.5 数字抽象 → Ch.6–9 器件(MOSFET/小信号/储能) → Ch.10–12 动态电路 → Ch.13–14 频域 → Ch.15–16 有源器件与二极管。
 > 已建 ✅ 的笔记可立即复习；⚠️ 为待建框架占位，学到对应章再填充正文。
+> **Part 7 是工程扩展分支**，与教材章节并行推进：学到差分与频域后即可读通信接口笔记（它把 LMD 失效判据、二阶阻尼、RC 时间常数都用上了）。

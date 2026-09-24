@@ -4,21 +4,35 @@
     "type": "split",
     "children": [
       {
-        "id": "de5ee9ddb7ba4dbb",
+        "id": "bea683bfd59163e4",
         "type": "tabs",
         "children": [
           {
-            "id": "d465abca1fbfe0d5",
+            "id": "b7dbc2870dd2b9ec",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "circuitry/Basic Circuit Analysis Method.md",
+                "file": "circuitry/Thevenin's Theorem.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Basic Circuit Analysis Method"
+              "title": "Thevenin's Theorem"
+            }
+          },
+          {
+            "id": "d28f46c75907a0a7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "circuitry/Circuit Analysis Methods in Practice.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Circuit Analysis Methods in Practice"
             }
           }
         ]
@@ -33,7 +47,7 @@
       {
         "id": "e48c5816abfd9fa8",
         "type": "tabs",
-        "dimension": 60.91703056768559,
+        "dimension": 57.36095965103599,
         "children": [
           {
             "id": "aee3d4760c7397fa",
@@ -95,7 +109,7 @@
       {
         "id": "1174677e26969330",
         "type": "tabs",
-        "dimension": 39.082969432314414,
+        "dimension": 42.639040348964016,
         "children": [
           {
             "id": "8d8aabcb9d679de9",
@@ -111,7 +125,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 251.5
+    "width": 255
   },
   "right": {
     "id": "7bfc66cea6d4f626",
@@ -120,7 +134,7 @@
       {
         "id": "a9cb808865c928e4",
         "type": "tabs",
-        "dimension": 55.370177267987486,
+        "dimension": 55.15350877192983,
         "children": [
           {
             "id": "09cc0095fc8be172",
@@ -128,7 +142,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "circuitry/Basic Circuit Analysis Method.md",
+                "file": "circuitry/Thevenin's Theorem.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -143,7 +157,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "circuitry/Capacitor.md",
+                "file": "circuitry/Hardware Communication Interfaces.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -162,7 +176,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "circuitry/Capacitor.md",
+                "file": "circuitry/Thevenin's Theorem.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -223,13 +237,12 @@
               "title": "History"
             }
           }
-        ],
-        "currentTab": 6
+        ]
       },
       {
         "id": "a782142972c8c8d6",
         "type": "tabs",
-        "dimension": 44.629822732012514,
+        "dimension": 44.84649122807017,
         "children": [
           {
             "id": "05bbee95bb0a1b40",
@@ -245,7 +258,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 434
+    "width": 335
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -262,53 +275,54 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "d465abca1fbfe0d5",
+  "active": "b7dbc2870dd2b9ec",
   "lastOpenFiles": [
-    "circuitry/Basic Circuit Analysis Method.md",
-    "circuitry/Circuit Analysis Methods in Practice.md",
-    "circuitry/assets/demo_bridge_geo.json",
-    "__pycache__/_gen_demo_bridge_avd.cpython-313.pyc",
-    "__pycache__",
-    "_solve_demo_bridge_layout.py",
-    "_gen_demo_bridge_avd.py",
-    "_check_demo_bridge_geom.py",
-    "_svg_meta.py",
-    "_svg_verify.py",
-    "_svg_map.py",
-    "_svg_geom.py",
-    "_check_demo_bridge.png",
+    "_final.py",
+    "_thev_check.py",
+    "circuitry/_thev_check.py",
+    "circuitry/Thevenin's Theorem.md~RF4d38371.TMP",
+    "circuitry/Hardware Communication Interfaces.md",
     "circuitry/cs6.002x.1.md",
+    "circuitry/Thevenin's Theorem.md",
+    "_l3_final_check.py",
+    "circuitry/assets/l3_thevenin_load.png",
+    "_l3_rerender.py",
+    "_l3_xcheck.py",
+    "_enc_check.py",
+    "circuitry/Source Transformation.md",
+    "circuitry/assets/l3_bridge_unbalanced.jpeg",
+    "circuitry/assets/l3_source_modeling.jpeg",
+    "circuitry/assets/l3_max_power_curve.jpeg",
+    "circuitry/assets/l3_derivation_norton.jpeg",
+    "circuitry/assets/l3_thevenin_direct.png",
+    "_l3_extract2.py",
+    "_l3_verify2.py",
+    "_l3_verify_imgs.py",
+    "circuitry/assets/l3_derivation_thevenin.jpeg",
+    "circuitry/assets/l3_norton_alt.jpeg",
+    "circuitry/assets/l3_norton_sub.jpeg",
+    "circuitry/assets/l3_norton_mesh.png",
+    "circuitry/Superposition Theorem.md",
+    "circuitry/Small Signal Analysis.md",
+    "circuitry/Analysis of Nonlinear Circuits.md",
+    "circuitry/Circuit Analysis Methods in Practice.md",
+    "屏幕截图 2026-09-16 154322.png.md",
     "circuitry/Circuit Theory Glossary.md",
+    "markdown速查手册.md",
+    "circuitry/Basic Circuit Analysis Method.md",
+    "circuitry/Current Sources and Mirrors.md",
     "circuitry/Wheatstone Bridge and Wye-Delta Transformation.md",
     "circuitry/Capacitor.md",
     "circuitry/Inductor.md",
     "circuitry/The Circuit Abstraction.md",
     "circuitry/Practical Two-Terminal Elements.md",
     "circuitry/Amplifiers and Feedback.md",
-    "circuitry/assets/two_mesh_circuit.svg",
-    "circuitry/assets/wye_delta_transform.png",
-    "circuitry/assets/wye_delta_transform.svg",
-    "circuitry/assets/wheatstone_bridge.png",
-    "circuitry/assets/wheatstone_bridge.svg",
-    "circuitry/assets/two_mesh_circuit.png",
-    "part4_tmp/two_mesh_circuit.png",
-    "part4_tmp/two_mesh_circuit.svg",
     "circuitry/DC-DC Converter.md",
     "circuitry/Power Supplies.md",
-    "circuitry/Current Sources and Mirrors.md",
     "The MOSFET Amplifier.md",
     "Sinusoidal Steady State.md",
     "circuitry/Diode.md",
-    "circuitry/assets/opamp_active_filter.svg",
     "circuitry/Operational Amplifier.md",
-    "circuitry/Resonance.md",
-    "Amplifiers and Feedback.md",
-    "circuitry/Filters.md",
-    "circuitry/Frequency Response.md",
-    "circuitry/Impedance.md",
-    "circuitry/Sinusoidal Steady State.md",
-    "circuitry/First-Order Transients.md",
-    "circuitry/Second-Order Transients.md",
     "未命名.canvas"
   ]
 }

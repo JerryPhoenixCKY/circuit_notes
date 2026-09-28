@@ -70,12 +70,12 @@
     ],
     "cursor": {
       "from": {
-        "line": 16,
-        "ch": 32
+        "line": 111,
+        "ch": 111
       },
       "to": {
-        "line": 16,
-        "ch": 32
+        "line": 111,
+        "ch": 111
       }
     },
     "scroll": 98.1747660187185
@@ -487,15 +487,15 @@
     ],
     "cursor": {
       "from": {
-        "line": 19,
-        "ch": 0
+        "line": 88,
+        "ch": 14
       },
       "to": {
-        "line": 19,
-        "ch": 0
+        "line": 88,
+        "ch": 14
       }
     },
-    "scroll": 0
+    "scroll": 77.417687531465
   },
   "circuitry/Wheatstone Bridge and Wye-Delta Transformation.md": {
     "cursor": {
@@ -561,5 +561,21 @@
       }
     },
     "scroll": 599.2845294809729
+  },
+  "L4 Op-amp 20260928.pdf.md": {
+    "scroll": 0
+  },
+  "circuitry/Operational Amplifier.md": {
+    "scroll": 35.412434895833336,
+    "cursor": {
+      "from": {
+        "line": 45,
+        "ch": 112
+      },
+      "to": {
+        "line": 45,
+        "ch": 112
+      }
+    }
   }
 }

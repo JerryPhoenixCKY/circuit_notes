@@ -110,7 +110,6 @@ aliases:
     - [[Operational Amplifier|运算放大器 (Operational Amplifier)]] ✅（受控源等效、线性区与饱和、虚短虚断、反相/同相/差分、级联）
     - [[Instrumentation Amplifier|仪表放大器 (Instrumentation Amplifier)]] ✅（三运放拓扑、差分增益、共模抑制）
     - [[Resistor-Weighted Digital-to-Analog Converter|电阻加权数模转换器 (Resistor-Weighted DAC)]] ✅（加权求和、4 bit 例题、位权误差）
-    - [[L4 Op-amp 20260928.pdf#page=1|EIE 2001 Lecture 4: Operational Amplifier 课件]]（本分支补充来源；PDF 页 1–48）
 
 
 

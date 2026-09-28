@@ -120,7 +120,6 @@
       {
         "id": "a9cb808865c928e4",
         "type": "tabs",
-        "dimension": 55.15350877192983,
         "children": [
           {
             "id": "09cc0095fc8be172",
@@ -224,23 +223,6 @@
             }
           }
         ]
-      },
-      {
-        "id": "a782142972c8c8d6",
-        "type": "tabs",
-        "dimension": 44.84649122807017,
-        "children": [
-          {
-            "id": "05bbee95bb0a1b40",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "关系图谱"
-            }
-          }
-        ]
       }
     ],
     "direction": "horizontal",
@@ -263,9 +245,12 @@
   },
   "active": "d28f46c75907a0a7",
   "lastOpenFiles": [
+    "circuitry/Operational Amplifier.md",
+    "L4 Op-amp 20260928.pdf.md",
+    "circuitry/Amplifiers and Feedback.md",
+    "circuitry/cs6.002x.1.md",
     "circuitry/Circuit Analysis Methods in Practice.md",
     "ECE2001/L4 Op-amp 20260928.pdf",
-    "circuitry/cs6.002x.1.md",
     "circuitry/assets/opamp_resistor_weighted_dac.svg",
     "circuitry/assets/opamp_instrumentation_three_stage.svg",
     "circuitry/Resistor-Weighted Digital-to-Analog Converter.md",
@@ -305,9 +290,7 @@
     "circuitry/Inductor.md",
     "circuitry/The Circuit Abstraction.md",
     "circuitry/Practical Two-Terminal Elements.md",
-    "circuitry/Amplifiers and Feedback.md",
     "circuitry/DC-DC Converter.md",
-    "circuitry/Power Supplies.md",
     "未命名.canvas"
   ]
 }

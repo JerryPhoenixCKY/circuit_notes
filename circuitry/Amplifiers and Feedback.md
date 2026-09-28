@@ -77,16 +77,16 @@ $$\boxed{|A\beta| = 1, \quad \angle A + \angle \beta = 0^\circ \ (\text{或 } 36
 
 $$V_H=+\beta V_{sat},\qquad V_L=-\beta V_{sat},\qquad \Delta V=V_H-V_L=2\beta V_{sat}.$$
 
-输出为 HIGH 时，只有 $v_i$ **上升穿过 $V_H$** 才翻到 LOW；输出为 LOW 时，只有 $v_i$ **下降穿过 $V_L$** 才翻回 HIGH。$V_L<v_i<V_H$ 区间内，输出取决于之前状态。这是“有记忆的阈值”，而非两个独立的普通比较器。推导对应 MIT 6.002 [[27776d035c056201a47d86d6d44f361a_6002_l21.pdf#page=8|Lecture 21，页 8–12]]。
+输出为 HIGH 时，只有 $v_i$ **上升穿过 $V_H$** 才翻到 LOW；输出为 LOW 时，只有 $v_i$ **下降穿过 $V_L$** 才翻回 HIGH。$V_L<v_i<V_H$ 区间内，输出取决于之前状态。这是“有记忆的阈值”，而非两个独立的普通比较器。
 
 若把反相端改接一个经 $R$ 从输出充放电的电容 $C$，电容电压在 $-\beta V_{sat}$ 与 $+\beta V_{sat}$ 之间往复，便形成松弛振荡器。假定理想对称饱和、无传播延迟，半周期和周期分别为
 
 $$t_{1/2}=RC\ln\!\frac{1+\beta}{1-\beta},\qquad
 T=2RC\ln\!\frac{1+\beta}{1-\beta}.$$
 
-这是**RC 充放电加迟滞阈值**产生的时钟，与上节的正弦 RC 相移振荡器不同；见 [[27776d035c056201a47d86d6d44f361a_6002_l21.pdf#page=13|Lecture 21，页 13–14]] 与 [[First-Order Transients]]。
+这是**RC 充放电加迟滞阈值**产生的时钟，与上节的正弦 RC 相移振荡器不同；RC 过程见 [[First-Order Transients]]。
 
-**课件的带偏置版本。** [[L4 Op-amp 20260928.pdf#page=23|EIE 2001 L4，PDF 页 23]]把待测 $v_i$ 接反相端；同相端的节点 $v_+$ 经 $R_1$ 接 $+V$、经 $R_2$ 接 $-V$、经 $R_f$ 接输出。输入电流忽略，输出先假定仅在 $+V$ 与 $-V$ 间切换。对 $v_+$ 列 KCL，得到两个**与当前输出状态相关**的阈值：
+**带偏置的施密特触发器。** 把待测 $v_i$ 接反相端；同相端的节点 $v_+$ 经 $R_1$ 接 $+V$、经 $R_2$ 接 $-V$、经 $R_f$ 接输出。输入电流忽略，输出先假定仅在 $+V$ 与 $-V$ 间切换。对 $v_+$ 列 KCL，得到两个**与当前输出状态相关**的阈值：
 
 $$V_H=-V+2V\frac{R_2}{(R_1\parallel R_f)+R_2}\quad(v_o=+V;\ v_i\uparrow\text{ 时翻为低}),$$
 $$V_L=-V+2V\frac{R_2\parallel R_f}{R_1+(R_2\parallel R_f)}\quad(v_o=-V;\ v_i\downarrow\text{ 时翻为高}).$$

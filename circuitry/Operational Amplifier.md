@@ -25,8 +25,6 @@ aliases:
 > 承上：[[Small Signal Circuit Representation]]（输入/输出电阻、增益）/ [[Impedance]]（阻抗）；启下：[[Diode]]（整流后的信号要用运放滤波/缓冲）/ [[Filters]]（有源滤波器）/ [[Amplifiers and Feedback]]（反馈理论）。
 > 与 [[cs6.002x.1|知识树]] 互链。
 
-本次课件补充依据：[[L4 Op-amp 20260928.pdf#page=1|EIE 2001 Basic Circuit Theory, Lecture 4: Operational Amplifier（PDF 页 1）]]。以下页码均指 PDF 页码；课件的电路是教学模型，真实器件的供电、输入范围、输出摆幅和带宽仍需查具体数据手册。
-
 ---
 
 ## 一、运放符号与端口
@@ -40,10 +38,10 @@ aliases:
 | **同相输入 $v_+$** | `+` | 输入电压与输出同相（$v_{\text{out}}\propto +v_+$）|
 | **反相输入 $v_-$** | `−` | 输入电压与输出反相（$v_{\text{out}}\propto -v_-$）|
 | **输出 $v_{\text{out}}$** | — | 放大后的电压输出 |
-| **正供电 $V_{S+}$** | — | 由具体器件及供电方案规定；课件例题采用 $+10$ V 等数值，不是通用上限 |
+| **正供电 $V_{S+}$** | — | 由具体器件及供电方案规定，不存在通用的 $+15$ V 上限 |
 | **负供电 $V_{S-}$** | — | 可以为负电压，也可以在允许单电源工作的器件中接地 |
 
-供电脚和信号输入脚的符号要区分：$V_{S+},V_{S-}$ 是电源，$v_+,v_-$ 是相对参考地测得的输入电位。课件所示 741 封装还出现失调调零脚与未连接脚；这不是所有运放的通用引脚定义，布线按器件数据手册核对。见[[L4 Op-amp 20260928.pdf#page=4|课件 PDF 页 4–5]]。
+供电脚和信号输入脚的符号要区分：$V_{S+},V_{S-}$ 是电源，$v_+,v_-$ 是相对参考地测得的输入电位。有些器件封装还有失调调零脚或未连接脚；这些不是所有运放的通用引脚定义，布线按器件数据手册核对。
 
 ---
 
@@ -66,26 +64,26 @@ aliases:
 | **输入偏置电流 $I_B$** | $0$ | 由输入级及温度决定 | 经源电阻产生直流误差 |
 | **输入失调电压 $V_{OS}$** | $0$ | 由器件及温度决定 | 零差分输入时的输出偏移 |
 
-前三项构成课件的基本等效电路：一个电压控制电压源（voltage-controlled voltage source, VCVS）给出内部电压 $v_x=A(v_+-v_-)$，输入端之间接 $R_i$，输出串联 $R_o$。它是[[Dependent Sources|受控源]]模型；负载电流经过 $R_o$ 时，端口电压 $v_o$ 可以不同于 $v_x$。理想运放取 $A\to\infty, R_i\to\infty, R_o\to0$，见[[L4 Op-amp 20260928.pdf#page=7|课件 PDF 页 7、14–15]]。
+前三项构成一个基本等效电路：电压控制电压源（voltage-controlled voltage source, VCVS）给出内部电压 $v_x=A(v_+-v_-)$，输入端之间接 $R_i$，输出串联 $R_o$。它是[[Dependent Sources|受控源]]模型；负载电流经过 $R_o$ 时，端口电压 $v_o$ 可以不同于 $v_x$。理想运放取 $A\to\infty, R_i\to\infty, R_o\to0$。
 
 ### 2.2 开环传输特性
 
 $$v_o=A(v_+-v_-)\qquad\text{（开环、未饱和、输出无负载的简化式）}$$
 
 - 若闭环使 $v_o$ 保持有限且在线性区，$A\to\infty$ 才推出 $v_+-v_-\to0$。
-- **饱和**（voltage saturation）：当线性式要求的电压超出输出摆幅范围，实际输出被限制在 $V_{OL}$ 与 $V_{OH}$ 之间。课件常以 $V_{OL}=V_{S-}, V_{OH}=V_{S+}$ 作理想化；真实限幅由器件、供电和负载决定。
+- **饱和**（voltage saturation）：当线性式要求的电压超出输出摆幅范围，实际输出被限制在 $V_{OL}$ 与 $V_{OH}$ 之间。简化模型可取 $V_{OL}=V_{S-}, V_{OH}=V_{S+}$；真实限幅由器件、供电和负载决定。
 
 > [!NOTE] 饱和的物理含义
-> 输出接近其可达的正/负摆幅边界时，线性受控源式不再适用，虚短也须重新检查。若采用简化对称限幅 $\pm V_{sat}$，可写 $v_o=\operatorname{clip}(A(v_+-v_-),-V_{sat},+V_{sat})$；这是电路分析模型，不是任意运放的精确数据手册曲线。见[[L4 Op-amp 20260928.pdf#page=8|课件 PDF 页 8]]。
+> 输出接近其可达的正/负摆幅边界时，线性受控源式不再适用，虚短也须重新检查。若采用简化对称限幅 $\pm V_{sat}$，可写 $v_o=\operatorname{clip}(A(v_+-v_-),-V_{sat},+V_{sat})$；这是电路分析模型，不是任意运放的精确数据手册曲线。
 
 ### 2.3 有限增益为什么仍可用虚短近似
 
-课件的反相电路取 $v_s=2\,\mathrm V$，输入电阻 $10\,\mathrm{k}\Omega$，反馈电阻 $20\,\mathrm{k}\Omega$；运放等效参数为 $A=2\times10^5$、$R_i=2\,\mathrm{M}\Omega$、$R_o=50\,\Omega$。同相端接地，令反相端电位为 $v_n$，内部受控源电压为 $-Av_n$，KCL 为
+以一个反相电路为例：取 $v_s=2\,\mathrm V$，输入电阻 $10\,\mathrm{k}\Omega$，反馈电阻 $20\,\mathrm{k}\Omega$；运放等效参数为 $A=2\times10^5$、$R_i=2\,\mathrm{M}\Omega$、$R_o=50\,\Omega$。同相端接地，令反相端电位为 $v_n$，内部受控源电压为 $-Av_n$，KCL 为
 
 $$\frac{v_s-v_n}{10\,\mathrm{k}\Omega}=\frac{v_n-v_o}{20\,\mathrm{k}\Omega}+\frac{v_n}{2\,\mathrm{M}\Omega},\qquad
 \frac{v_n-v_o}{20\,\mathrm{k}\Omega}=\frac{v_o+Av_n}{50\,\Omega}.$$
 
-联立得 $v_n\approx20.05\,\mathrm{\mu V}$、$v_o\approx-3.99994\,\mathrm V$，所以闭环增益约 $-1.99997$，与理想结果 $-20/10=-2$ 很接近。若反馈电流正方向定义为**求和节点 $\to$ 输出**，则 $i_f=(v_n-v_o)/(20\,\mathrm{k}\Omega)\approx+0.200\,\mathrm{mA}$；若反向定义则为 $-0.200\,\mathrm{mA}$。课件 PDF 页 12–13 的电流符号应结合参考箭头判断，不应把两个方向混用。见[[L4 Op-amp 20260928.pdf#page=12|课件 PDF 页 12–13]]。
+联立得 $v_n\approx20.05\,\mathrm{\mu V}$、$v_o\approx-3.99994\,\mathrm V$，所以闭环增益约 $-1.99997$，与理想结果 $-20/10=-2$ 很接近。若反馈电流正方向定义为**求和节点 $\to$ 输出**，则 $i_f=(v_n-v_o)/(20\,\mathrm{k}\Omega)\approx+0.200\,\mathrm{mA}$；若反向定义则为 $-0.200\,\mathrm{mA}$。列式时须始终使用同一电流参考方向。
 
 ---
 
@@ -122,7 +120,7 @@ $$\boxed{A_v = \frac{v_{\text{out}}}{v_{\text{in}}} = -\frac{R_f}{R_1}}$$
 > [!NOTE] 虚地
 > 反相放大器中 $v_+=0$（接地），虚短 $\Rightarrow v_-\approx 0$。因此 $v_-$ 是一个"虚假的接地"，称为**虚地 (Virtual Ground)**。输入电流 $i_{\text{in}} = v_{\text{in}}/R_1$，全部流入 $R_f$。
 
-若把电压源和 $R_1$ 换成**注入反相求和节点的电流源** $i_{in}$，同一 KCL 给出 $v_o=-i_{in}R_f$：这是跨阻放大器（transimpedance amplifier）的理想关系，单位检查为 $\mathrm A\cdot\Omega=\mathrm V$。输入电流方向若改为从节点流出，输出符号也相反；见[[L4 Op-amp 20260928.pdf#page=28|课件 PDF 页 28]]。
+若把电压源和 $R_1$ 换成**注入反相求和节点的电流源** $i_{in}$，同一 KCL 给出 $v_o=-i_{in}R_f$：这是跨阻放大器（transimpedance amplifier）的理想关系，单位检查为 $\mathrm A\cdot\Omega=\mathrm V$。输入电流方向若改为从节点流出，输出符号也相反。
 
 ### 3.3 电压跟随器 (Voltage Follower / Buffer)
 
@@ -142,7 +140,7 @@ $$\boxed{A_v = 1 \qquad v_{\text{out}} = v_{\text{in}}}$$
 
 > 下排右图（减法器）
 
-按课件[[L4 Op-amp 20260928.pdf#page=38|PDF 页 38–40]]的标号：$R_1$ 从 $v_1$ 接反相端，$R_2$ 从输出反馈到反相端；$R_3$ 从 $v_2$ 接同相端，$R_4$ 从同相端接地。忽略输入电流并假设负反馈线性，则同相端电位 $v_b=R_4v_2/(R_3+R_4)$，反相端 $v_a=v_b$。对 $v_a$ 列 KCL 得
+对差分放大器取如下标号：$R_1$ 从 $v_1$ 接反相端，$R_2$ 从输出反馈到反相端；$R_3$ 从 $v_2$ 接同相端，$R_4$ 从同相端接地。忽略输入电流并假设负反馈线性，则同相端电位 $v_b=R_4v_2/(R_3+R_4)$，反相端 $v_a=v_b$。对 $v_a$ 列 KCL 得
 
 $$\boxed{v_o=\frac{R_4(R_1+R_2)}{R_1(R_3+R_4)}v_2-\frac{R_2}{R_1}v_1.}$$
 
@@ -162,7 +160,7 @@ $$v_{\text{out}} = -\frac{R_f}{R_1}v_1 - \frac{R_f}{R_2}v_2 - \frac{R_f}{R_3}v_3
 > [!EXAMPLE] 音频混音器
 > 三个音频信号 $v_1,v_2,v_3$ 按权重 $R_f/R_1$ 混合输出，实现混音效果。
 
-同一求和节点还可做电阻加权[[Resistor-Weighted Digital-to-Analog Converter|数模转换器]]；每路输入在 $0$ 和同一参考电压间切换，电阻比决定二进制权重，见[[L4 Op-amp 20260928.pdf#page=46|课件 PDF 页 46–47]]。
+同一求和节点还可做电阻加权[[Resistor-Weighted Digital-to-Analog Converter|数模转换器]]；每路输入在 $0$ 和同一参考电压间切换，电阻比决定二进制权重。
 
 ### 3.6 积分器 (Integrator)
 
@@ -180,7 +178,7 @@ $$v_{\text{out}}(t) = -RC\,\frac{dv_{\text{in}}}{dt}$$
 
 $$\boxed{v_o=\left(1+\frac{R_f}{R_{in}}\right)v_b-\frac{R_f}{R_{in}}v_a.}$$
 
-**步骤是先假设线性，再验算摆幅。** 课件例题取 $R_{in}=25\,\mathrm{k}\Omega$、$R_f=100\,\mathrm{k}\Omega$、供电 $\pm10\,\mathrm V$，故 $v_o=5v_b-4v_a$。当 $v_a=1\,\mathrm V$ 时，$v_b=0\,\mathrm V$ 给出 $v_o=-4\,\mathrm V$，$v_b=2\,\mathrm V$ 给出 $v_o=6\,\mathrm V$；两者都在教学模型的 $(-10,10)\,\mathrm V$ 线性范围内。当 $v_a=1.5\,\mathrm V$，要严格避免到达限幅边界，须 $-10<5v_b-6<10$，即 $-0.8\,\mathrm V<v_b<3.2\,\mathrm V$。端点对应理想化的限幅边界，实际器件还须留裕量。见[[L4 Op-amp 20260928.pdf#page=16|课件 PDF 页 16–17]]。
+**步骤是先假设线性，再验算摆幅。** 例如取 $R_{in}=25\,\mathrm{k}\Omega$、$R_f=100\,\mathrm{k}\Omega$、供电 $\pm10\,\mathrm V$，故 $v_o=5v_b-4v_a$。当 $v_a=1\,\mathrm V$ 时，$v_b=0\,\mathrm V$ 给出 $v_o=-4\,\mathrm V$，$v_b=2\,\mathrm V$ 给出 $v_o=6\,\mathrm V$；两者都在简化模型的 $(-10,10)\,\mathrm V$ 线性范围内。当 $v_a=1.5\,\mathrm V$，要严格避免到达限幅边界，须 $-10<5v_b-6<10$，即 $-0.8\,\mathrm V<v_b<3.2\,\mathrm V$。端点对应理想化的限幅边界，实际器件还须留裕量。
 
 ---
 
@@ -231,7 +229,7 @@ $$\boxed{H_{\text{LP}}(s)=\frac{K\omega_0^2}{s^2+s(\omega_0/Q)+\omega_0^2},\qqua
 
 ### 5.1 开环比较器与饱和
 
-在开环或比较器（comparator）应用中，输出通常由差分输入的**符号**决定，而非遵守虚短：若 $v_+>v_-$，趋向高电平 $V_{OH}$；若 $v_+<v_-$，趋向低电平 $V_{OL}$。接近阈值时，输入失调、噪声、传播延迟等会影响翻转。课件的低电压报警器把参考电压接同相端、待测电压接反相端：$v_{in}<v_{ref}$ 时输出趋向高电平，见[[L4 Op-amp 20260928.pdf#page=10|课件 PDF 页 10–11]]。实际比较用途应核查器件能否在相应输入范围与供电条件下工作，以及输出是否能驱动负载。
+在开环或比较器（comparator）应用中，输出通常由差分输入的**符号**决定，而非遵守虚短：若 $v_+>v_-$，趋向高电平 $V_{OH}$；若 $v_+<v_-$，趋向低电平 $V_{OL}$。接近阈值时，输入失调、噪声、传播延迟等会影响翻转。例如低电压报警器把参考电压接同相端、待测电压接反相端：$v_{in}<v_{ref}$ 时输出趋向高电平。实际比较用途应核查器件能否在相应输入范围与供电条件下工作，以及输出是否能驱动负载。
 
 > [!IMPORTANT] 输出限幅要按器件与负载核对
 > - 当线性模型要求的输出超出该器件在当前供电与负载下允许的输出摆幅时，输出接近电源轨并削顶；例如某些采用 $\pm15$ V 供电的运放可能只到约 $\pm14$ V，具体应查数据手册。
@@ -262,7 +260,7 @@ $$V_{\text{H}} = +\beta V_{sat}, \qquad V_{\text{L}} = -\beta V_{sat}.$$
 
 正反馈引入**滞回 (hysteresis)**：两个阈值 $V_H>V_L$，避免比较器在噪声附近反复切换（Schmitt Trigger）。状态转移方向及 RC 振荡应用见 [[Amplifiers and Feedback]]。
 
-课件 PDF 页 22–23 还给出**偏置阈值**版本：同相端由正、负电源分压，并经电阻从输出获得正反馈；阈值公式依接线和电阻位置而变，不能直接套用上式的对称 $\pm\beta V_{sat}$。拓扑、上下阈值及例子见[[Amplifiers and Feedback#3.2 迟滞比较器 (Schmitt Trigger)|反馈笔记]]。
+另一种**偏置阈值**版本让同相端由正、负电源分压，并经电阻从输出获得正反馈；阈值公式依接线和电阻位置而变，不能直接套用上式的对称 $\pm\beta V_{sat}$。拓扑、上下阈值及例子见[[Amplifiers and Feedback#3.2 迟滞比较器 (Schmitt Trigger)|反馈笔记]]。
 
 ---
 
@@ -290,7 +288,7 @@ $$\boxed{|A(j2\pi f)|\,f\approx\mathrm{GBW}.}$$
 
 ### 6.3 多级级联 (Cascaded Op Amps)
 
-理想缓冲条件下，两级串接且前一级输出直接驱动后一级输入，整体电压增益为 $A_{v,\mathrm{total}}=A_{v1}A_{v2}$；若三级则继续相乘。每一级的有限输入/输出阻抗、带宽、输出摆幅、失调和负载都可能改变乘积关系，应逐级验算，不能只检查最终输出。课件[[L4 Op-amp 20260928.pdf#page=44|PDF 页 44–45]]给出级联与例题。
+理想缓冲条件下，两级串接且前一级输出直接驱动后一级输入，整体电压增益为 $A_{v,\mathrm{total}}=A_{v1}A_{v2}$；若三级则继续相乘。每一级的有限输入/输出阻抗、带宽、输出摆幅、失调和负载都可能改变乘积关系，应逐级验算，不能只检查最终输出。
 
 ---
 

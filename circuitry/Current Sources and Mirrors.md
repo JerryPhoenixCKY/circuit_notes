@@ -40,7 +40,7 @@ aliases:
 | :--- | :--- | :--- |
 | 输出阻抗 $R_{\text{out}}$ | $\infty$ | $r_o = 1/(\lambda I_D)$（有限）|
 | 电流精度 | 精确 | 受工艺/温度偏差影响 |
-| 面积 | 0 | 晶体管面积 $\propto W/L$ |
+| 面积 | 理想模型不规定物理面积 | 器件面积取决于 $W$、$L$ 及版图结构，不能只用 $W/L$ 表示 |
 
 ---
 
@@ -53,12 +53,13 @@ aliases:
 $$\boxed{I_{\text{out}} = I_{\text{ref}} \cdot \frac{(W/L)_2}{(W/L)_1}}$$
 
 > [!NOTE] "二极管连接" (Diode-Connected MOSFET)
-> 把 $M_1$ 的栅极和漏极短接：$V_G = V_D \Rightarrow V_{GS} = V_{DS}$，使其永远工作在饱和区（$V_{DS} \ge V_{GS} - V_T$）。$M_1$ 的 $I_D$-$V_{GS}$ 关系等同于一个平方律"二极管"。
+> 把 $M_1$ 的栅极和漏极短接：$V_G=V_D\Rightarrow V_{GS}=V_{DS}$。在 $V_{GS}\ge V_T$ 且采用长沟道平方律模型时，导通后的 $M_1$ 满足饱和区条件；低于阈值时不能称其按饱和区平方律工作。
 
 ### 2.2 误差来源
 
 - **沟道长调制 $\lambda$**：$M_1$ 的 $V_{DS1} = V_{GS}$，$M_2$ 的 $V_{DS2}$ 由负载决定，$V_{DS1}\neq V_{DS2} \Rightarrow I_{\text{out}}\neq I_{\text{ref}}$
 - **器件失配**：$V_T$ 和 $K$ 的工艺偏差导致 $I_{\text{out}}$ 偏离 $I_{\text{ref}}$
+- **输出电压余量**：$M_2$ 需保持 $V_{DS2}\ge V_{GS}-V_T$（理想长沟道近似）；负载把输出电压拉得过低时，$M_2$ 进入三极管区，镜像比例不再成立。
 
 ---
 

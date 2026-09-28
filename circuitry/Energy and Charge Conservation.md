@@ -31,8 +31,8 @@ aliases:
 
 | 守恒律（场论） | 电路中的体现 | 对应定律 |
 | :--- | :--- | :--- |
-| **电荷守恒** (Charge Conservation) | 任一节点电荷不累积 ⇒ 流入=流出 | [[Kirchhoff's Laws#KCL\|KCL]] |
-| **能量守恒** (Energy Conservation) | 沿任一回路走一圈能量不增不减 ⇒ 电压代数和=0 | [[Kirchhoff's Laws#KVL\|KVL]] |
+| **电荷守恒** (Charge Conservation) | 任一节点电荷不累积 ⇒ 流入=流出 | [[Kirchhoff's Laws#一、KCL 基尔霍夫电流定律 (Kirchhoff's Current Law)\|KCL]] |
+| **能量守恒** (Energy Conservation) | 沿任一回路走一圈能量不增不减 ⇒ 电压代数和=0 | [[Kirchhoff's Laws#二、KVL 基尔霍夫电压定律 (Kirchhoff's Voltage Law)\|KVL]] |
 | **磁通 / 链路守恒** (Flux / Linkage) | 电感电流不能突变、耦合线圈的磁通链关系 | [[Inductor\|电感]] 的 $\phi=Li$、互感 |
 
 > [!IMPORTANT] 核心观点

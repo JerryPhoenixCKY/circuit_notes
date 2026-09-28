@@ -119,12 +119,12 @@ $$\tilde{V}_k = \tilde{V}_{\text{total}} \cdot \frac{Z_k}{Z_1+Z_2+\cdots}$$
 
 ### 3.2 分流公式
 
-并联导纳上，电流按导纳幅值比例分配：
+并联支路的**电流相量**按复数导纳比分配，不能先把导纳取幅值再相加：
 
 $$\tilde{I}_k = \tilde{I}_{\text{total}} \cdot \frac{Y_k}{Y_1+Y_2+\cdots} = \tilde{I}_{\text{total}} \cdot \frac{Z_{\text{eq}}}{Z_k}$$
 
 > [!EXAMPLE] 电阻 $R$ 与电容 $C$ 并联的分流
-> $\tilde{I}_R = \tilde{I}_{\text{total}} \cdot \dfrac{j\omega C}{1/R + j\omega C}$
+> $\tilde{I}_R = \tilde{I}_{\text{total}} \cdot \dfrac{1/R}{1/R + j\omega C}$；对应 $\tilde I_C=\tilde I_{\text{total}}\dfrac{j\omega C}{1/R+j\omega C}$。
 > - 低频（$\omega\to 0$）：$Y_C\to 0$ → 电流几乎全部流经 $R$
 > - 高频（$\omega\to\infty$）：$Y_C\to\infty$ → 电流几乎全部流经 $C$
 
@@ -140,23 +140,25 @@ $$Z = R + jX \quad\Longrightarrow\quad |Z| = \sqrt{R^2+X^2}, \quad \theta_Z = \a
 
 ### 4.2 复功率 (Complex Power)
 
-$$S = \tilde{V}\,\tilde{I}^* = P + jQ$$
+本库的 [[Sinusoidal Steady State|相量]] 用**峰值**表示，因此复功率须带 $1/2$：
+
+$$S = \frac12\tilde{V}\,\tilde{I}^* = P + jQ.$$
 
 | 量 | 定义 | 含义 |
 | :--- | :--- | :--- |
-| **复功率 $S$** | $\tilde{V}\,\tilde{I}^*$（VA） | 总视在功率 |
-| **有功功率 $P$** | $\Re\{S\}=|V||I|\cos\theta_Z$（W） | 实际消耗的功率（电阻耗能） |
-| **无功功率 $Q$** | $\Im\{S\}=|V||I|\sin\theta_Z$（VAR） | 储能元件来回交换的功率 |
+| **复功率 $S$** | $\tfrac12\tilde{V}\,\tilde{I}^*$（VA） | 复数功率；其幅值是视在功率 |
+| **有功功率 $P$** | $\Re\{S\}=\tfrac12|\tilde V||\tilde I|\cos\theta_Z$（W） | 平均耗散的功率 |
+| **无功功率 $Q$** | $\Im\{S\}=\tfrac12|\tilde V||\tilde I|\sin\theta_Z$（var） | 储能元件与电源交换能量的量度 |
 | **功率因数 $\cos\theta_Z$** | $P/|S|$ | 电压与电流相位差余弦 |
 
 > [!NOTE] 功率的物理分解
-> - **电阻**（$X=0$）：$P=|V||I|\cos 0 = |V||I|$，$Q=0$（全部转化为热能）
-> - **电容/电感**（$R=0$）：$P=0$，$Q=|V||I|$（功率在电源与储能元件之间来回交换，不消耗）
+> - **电阻**（$X=0$）：$P=\tfrac12|\tilde V||\tilde I|$，$Q=0$（峰值相量约定）。
+> - **理想电容/电感**（$R=0$）：$P=0$，$Q=\pm\tfrac12|\tilde V||\tilde I|$；容性为负、感性为正。
 
 > [!EXAMPLE] 计算 RC 串联电路的功率
 > $Z = R - j/(\omega C)$，$\theta_Z = -\arctan(1/(\omega RC))$
-> - $P = |V||I|\cos\theta_Z = |V|^2 \dfrac{R}{R^2+(1/\omega C)^2}$
-> - $Q = |V||I|\sin\theta_Z = -|V|^2 \dfrac{1/\omega C}{R^2+(1/\omega C)^2}$（负无功 = 容性）
+> - $P = \tfrac12|\tilde V|^2 \dfrac{R}{R^2+(1/\omega C)^2}$
+> - $Q = -\tfrac12|\tilde V|^2 \dfrac{1/\omega C}{R^2+(1/\omega C)^2}$（负无功 = 容性）
 
 ---
 
@@ -166,13 +168,17 @@ $$S = \tilde{V}\,\tilde{I}^* = P + jQ$$
 
 ### 5.1 戴维南等效
 
-$$\boxed{Z_{\text{Th}} = Z_{\text{oc}}/\tilde{I}_{\text{sc}}, \quad \tilde{V}_{\text{Th}} = \tilde{V}_{\text{oc}}}$$
+$$\boxed{Z_{\text{Th}} = \tilde{V}_{\text{oc}}/\tilde{I}_{\text{sc}}, \quad \tilde{V}_{\text{Th}} = \tilde{V}_{\text{oc}}}$$
 
 其中 $\tilde{V}_{\text{oc}}$ 是开路电压相量，$\tilde{I}_{\text{sc}}$ 是短路电流相量。
 
 ### 5.2 最大功率传输（交流）
 
-$$P_L = \frac{|\tilde{V}_{\text{Th}}|^2}{4R_{\text{Th}}}\quad\text{当 } R_L = R_{\text{Th}} \text{ 且 } X_L = -X_{\text{Th}}$$
+对 $R_{\text{Th}}>0$ 且负载实部和虚部均可自由调整的情形，峰值相量约定下：
+
+$$P_{L,\max} = \frac{|\tilde{V}_{\text{Th}}|^2}{8R_{\text{Th}}}\quad\text{当 } R_L = R_{\text{Th}} \text{ 且 } X_L = -X_{\text{Th}}.$$
+
+若改用 RMS 相量，上式分母为 $4R_{\text{Th}}$，复功率则无需 $1/2$。
 
 > [!IMPORTANT] 交流最大功率条件
 > 负载阻抗必须**共轭匹配**：$Z_L = Z_{\text{Th}}^*$（实部相等、虚部相反）

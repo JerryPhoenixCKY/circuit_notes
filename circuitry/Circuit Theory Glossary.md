@@ -49,7 +49,8 @@ aliases:
 | Voltage Source | 电压源 | 提供恒定电压的电源 |
 | [[Superposition Theorem|Current Source]] | 电流源 | 提供恒定电流的电源，叠加时置零（开路）；独立源与受控源之分；并联叠加，禁止不同值串联 |
 | Independent Source | 独立源 | 值由自身决定的电源 |
-| Dependent Source | 受控源 | 值由电路中其他电压/电流控制的电源 |
+| [[Dependent Sources|Dependent Source]] | 受控源 | 输出由另一端口电压/电流控制；小信号 MOSFET 可表示为 $i_d=g_mv_{gs}$ |
+| [[Dependent Sources|VCCS]] | 电压控制电流源 | $i_o=g v_c$，控制系数 $g$ 的单位为 S |
 | Constitutive Relation | 本构关系 | 描述元件物理量间固有约束的方程（如 $v=ir$、$q=Cv$、$\phi=Li$），见 [[Two-Terminal Element Laws|二端元件定律]] |
 | Associated Variables Discipline | 关联变量约定 (AVD) | 端口电流 i 取**流入 + 端**的方向，$p=vi$ 为吸收功率；见 [[Practical Two-Terminal Elements|实际二端元件]] |
 | Ideal Wire | 理想导线 | 无电阻、无寄生效应、两端等电位的导线 |
@@ -212,6 +213,7 @@ aliases:
 | Forbidden Region | 禁区 / 无主之地 | 发送/接收都不使用的电压间隙，即噪声容限的物理载体 |
 | [[Combinational Logic|Combinational Logic]] | 组合逻辑 | 输出仅为当前输入函数的数字逻辑（无记忆） |
 | [[Sequential Logic]] ✅                   | 时序逻辑 / 存储器   | Ch.5：双稳态、SR 锁存器、D 触发器、时钟同步、存储层次 |
+| [[Sequential Logic|Dynamic Memory]] | 动态存储 | 用电容电荷保持位值；读写须隔离，泄漏要求定期刷新 |
 | Boolean Algebra | 布尔代数 | 以 0/1 为变量的代数体系，逻辑门的理论基础 |
 | Truth Table | 真值表 | 枚举全部 $2^n$ 输入组合以定义组合函数 |
 | Combinational Gate Abstraction | 组合门抽象 | 门作为黑箱：遵守静态纪律、输出仅依赖输入 |
@@ -252,27 +254,32 @@ aliases:
 
 ## 13. Operational Amplifiers（运算放大器）
 
-| English                      | 中文              | 解释                                                                          |                    |                              |
-| :--------------------------- | :-------------- | :-------------------------------------------------------------------------- | ------------------ | ---------------------------- |
-| [[Operational Amplifier]] ✅  | 运算放大器           | 差分输入、单端输出、高增益有源器件，线性反馈核心                                                    |                    |                              |
-| Virtual Short                | 虚短              | 负反馈运放：$v_+\approx v_-$（两输入端电压相等）                                            |                    |                              |
-| Virtual Open                 | 虚断              | 运放输入端不汲取电流：$i_+=i_-\approx 0$                                               |                    |                              |
-| Non-Inverting Amplifier      | 同相放大器           | $A_v=1+R_f/R_1$，$R_{\text{in}}\approx\infty$                                |                    |                              |
-| Inverting Amplifier          | 反相放大器           | $A_v=-R_f/R_1$，$R_{\text{in}}=R_1$，虚地 $v_-\approx 0$                        |                    |                              |
-| Voltage Follower             | 电压跟随器           | $A_v=1$，单位增益缓冲，$R_{\text{in}}=\infty,\ R_{\text{out}}\approx 0$             |                    |                              |
-| Summing Amplifier            | 加法器             | $v_{\text{out}}=-\sum R_f/R_n\cdot v_n$，虚地原理                                |                    |                              |
-| Differential Amplifier       | 差分放大器           | $v_{\text{out}}=R_f/R_1(v_2-v_1)$（$R_1=R_2,\ R_f=R_g$）                      |                    |                              |
-| Op-Amp Integrator            | 积分器             | $H(s)=-1/(sRC)$，低通特性（见 [[Filters]]）                                         |                    |                              |
-| Op-Amp Differentiator        | 微分器             | $H(s)=-sRC$，高通特性（高频噪声敏感）                                                    |                    |                              |
-| Sallen-Key Filter            | Sallen-Key 有源滤波 | 二阶有源滤波，$H_{\text{LP}}=\omega_0^2/(s^2+s\omega_0/Q+\omega_0^2)$              |                    |                              |
-| Saturation                   | 饱和              | 输出被电源轨夹断，$                                                                  | v_{\text{out}}     | \ge V_{\text{SAT}}$，失真       |
-| Positive Feedback            | 正反馈             | $v_+=\beta v_{\text{out}}$，导致振荡或迟滞比较器                                       |                    |                              |
-| Barkhausen Condition         | 巴克豪森振荡条件        | $                                                                           | A\beta             | =1,\ \angle A+\beta=0^\circ$ |
-| Slew Rate                    | 转换速率            | $SR=\max                                                                    | dv_{\text{out}}/dt | $，大信号响应限制                    |
-| GBW (Gain-Bandwidth Product) | 增益带宽积           | $A\cdot f_{-3\text{dB}}=\text{GBW}$（常数），增益越高带宽越窄                            |                    |                              |
-| Input Offset Voltage         | 输入失调电压          | $V_{OS}$，零输入时的输出直流偏移                                                        |                    |                              |
-| Common-Mode Rejection Ratio  | 共模抑制比           | $CMRR=20\log_{10}                                                           | A_d/A_cm           | $（dB），差分放大器质量指标              |
-| Two-Port Model               | 二端口模型           | $R_{\text{in,cl}}, R_{\text{out,cl}}, A_v$ 闭环参数                             |                    |                              |
+| English | 中文 | 解释 |  |  |
+| :--- | :--- | :--- | :--- | :--- |
+| [[Operational Amplifier]] ✅ | 运算放大器 | 差分输入、单端输出的有源器件；在线性负反馈条件下可按闭环网络设计增益。 |  |  |
+| Virtual Short | 虚短 | 稳定负反馈且未饱和时，$v_+\approx v_-$；不代表输入端真实短接。 |  |  |
+| Virtual Open | 虚断 | 理想输入电阻无穷大，$i_+=i_-=0$；不依赖负反馈。 |  |  |
+| Comparator | 比较器 | 开环比较 $v_+-v_-$ 的符号，输出趋向允许的高/低电平；不能使用虚短。 |  |  |
+| Schmitt Trigger | 施密特触发器 | 正反馈产生 $V_H,V_L$ 两个翻转阈值，见 [[Amplifiers and Feedback]]。 |  |  |
+| Non-Inverting Amplifier | 同相放大器 | 线性理想模型下 $A_v=1+R_f/R_1$，输入端近似高阻。 |  |  |
+| Inverting Amplifier | 反相放大器 | 同相端接地时 $A_v=-R_f/R_1$，信号源看到约 $R_1$。 |  |  |
+| Voltage Follower | 电压跟随器 | 单位增益缓冲器；适用性仍受输入范围、负载与摆幅限制。 |  |  |
+| Transimpedance Amplifier | 跨阻放大器 | 输入电流注入反相求和节点时，理想关系 $v_o=-i_{in}R_f$。 |  |  |
+| Summing Amplifier | 求和放大器 | 反相结构：$v_o=-\sum_k (R_f/R_k)v_k$。 |  |  |
+| Differential Amplifier | 差分放大器 | 电阻比满足 $R_2/R_1=R_4/R_3$ 时，$v_o=(R_2/R_1)(v_2-v_1)$。 |  |  |
+| [[Instrumentation Amplifier]] ✅ | 仪表放大器 | 三运放结构以高输入阻抗放大差分信号；共模抑制受器件和电阻匹配限制。 |  |  |
+| [[Resistor-Weighted Digital-to-Analog Converter]] ✅ | 电阻加权数模转换器 | 反相求和节点按电阻比给二进制各位加权。 |  |  |
+| Op-Amp Integrator | 积分器 | $H(s)=-1/(sRC)$；直流失调可使理想积分器漂移至饱和。 |  |  |
+| Op-Amp Differentiator | 微分器 | $H(s)=-sRC$；高频噪声及带宽限制必须考虑。 |  |  |
+| Sallen-Key Filter | Sallen-Key 有源滤波器 | 二阶有源滤波；$Q$ 须由具体拓扑及元件比值决定。 |  |  |
+| Output Saturation | 输出饱和 | 线性模型要求的 $v_o$ 超出器件在该供电及负载下的输出摆幅。 |  |  |
+| Positive Feedback | 正反馈 | 某一频段内反馈增强误差信号，可用于迟滞与振荡；仍须分析动态。 |  |  |
+| Barkhausen Criterion | 巴克豪森判据 | 维持正弦振荡的环路条件之一：$\lvert A\beta\rvert=1$ 且相位为 $0^\circ$ 模 $360^\circ$。 |  |  |
+| Slew Rate | 转换速率 | $SR=\max\lvert dv_o/dt\rvert$，大信号变化速度上限。 |  |  |
+| Gain-Bandwidth Product | 增益带宽积 | 单主极点近似下 $\lvert A(j2\pi f)\rvert f\approx\mathrm{GBW}$。 |  |  |
+| Input Offset Voltage | 输入失调电压 | $V_{OS}$，导致零输入附近的输出偏移。 |  |  |
+| Common-Mode Rejection Ratio | 共模抑制比 | $\mathrm{CMRR}_{dB}=20\log_{10}\lvert A_d/A_{cm}\rvert$，见 [[Instrumentation Amplifier]]。 |  |  |
+| Cascaded Op Amps | 运放级联 | 理想隔离条件下总增益为各级增益之积；逐级验算摆幅。 |  |  |
 | [[Diode]] ✅                  | 二极管             | 单向导电的半导体 PN 结器件                                                             |                    |                              |
 | PN Junction                  | PN 结            | P 型与 N 型半导体接触面，形成耗尽层                                                        |                    |                              |
 | Forward Bias                 | 正向偏置            | $V_D>0.6$–$0.7$ V 时导通，电流指数增长                                                |                    |                              |
@@ -292,7 +299,7 @@ aliases:
 | Zener Regulator              | 齐纳稳压器           | $V_{\text{out}}\approx V_Z$，$R_s=(V_{\text{in}}-V_Z)/(I_{\text{load}}+I_Z)$ |                    |                              |
 | LED (Light-Emitting Diode)   | 发光二极管           | $V_F\approx 1.8$–$3.5$ V（波长决定），光功率 $\propto I_F$                            |                    |                              |
 | Schottky Diode               | 肖特基二极管          | 金属-半导体结，$V_F\approx 0.2$–$0.4$ V，高速                                         |                    |                              |
-| Varactor (Varicap)           | 变容二极管           | 反向偏置时电容 $\propto 1/V_R$，调谐电路                                                |                    |                              |
+| Varactor (Varicap)           | 变容二极管           | 反向偏置增大时结电容通常减小；精确 $C$–$V_R$ 关系依结型与器件而变，用于调谐电路             |                    |                              |
 | TVS Diode                    | 瞬态电压抑制二极管       | 瞬态过压钳位（防雷、ESD）                                                              |                    |                              |
 
 | [[Amplifiers and Feedback]] ✅              | 放大器与反馈       | 反馈方程 $A/(1+A\beta)$、负反馈四大好处、Barkhausen 振荡条件、四拓扑 |
@@ -300,10 +307,10 @@ aliases:
 | [[Power Supplies]] ✅                      | 电源            | 线性稳压/LDO、开关 Buck/Boost/Buck-Boost、基准电压源、效率 |
 | [[DC-DC Converter]] ✅                     | DC-DC 变换器     | Buck $V_o=DV_i$、Boost $V_o=V_i/(1-D)$、PWM/PFM、纹波/效率 |
 
-## 11. Upcoming Topics（后续章节专题 · 框架占位）
+## 11. 后续章节专题索引
 
 > [!NOTE] 说明
-> 以下词条对应教材 Ch.1–16 与附录的后续内容，双链为占位。其中 **Ch.1 五个专题笔记已建**（`[[The Circuit Abstraction]]`、`[[Practical Two-Terminal Elements]]`、`[[Ideal Two-Terminal Elements]]`、`[[Signal Representation]]`、`[[Two-Terminal Element Laws]]`，标记为 ✅），其余待建。学到对应章时再补正文并消除未解析链接。与 [[cs6.002x.1|知识树]] 同步维护。
+> 以下词条对应教材 Ch.1–16 与附录；带双链和 ✅ 的专题笔记已建，纯文本词条目前作为术语解释保留，未必需要单独建笔记。学到相应内容时可继续扩充，并与 [[cs6.002x.1|知识树]] 同步维护。
 
 | English                                    | 中文          | 解释                              |
 | :----------------------------------------- | :---------- | :------------------------------ |
@@ -328,7 +335,7 @@ aliases:
 | [[First-Order Transients]] ✅               | 一阶暂态电路      | Ch.10：RC/RL 阶跃、放电、方波、直觉分析、状态变量、传播延迟 $t_{pd}\sim R_{ON}C_L$ |
 | State Variables ✅                          | 状态变量        | Ch.10：$v_C$ / $i_L$，编码储能元件的全部历史（归入 [[First-Order Transients]] §二） |
 | Propagation Delay ✅                        | 传播延迟        | Ch.10：$t_{pd}\approx 0.69\,R_{ON}C_L$，数字门翻转延迟（归入 [[First-Order Transients]] §七） |
-| [[Energy and Power in Digital Circuits]] ✅  | 数字电路的能量与功率  | Ch.11：RC 充电 50% 损耗、$P_{dyn}=\alpha CV^2f$、NMOS 静态功耗、CMOS 零静态、DVFS |
+| [[Energy and Power in Digital Circuits]] ✅  | 数字电路的能量与功率  | Ch.11：理想阶跃 RC 充电耗能、$P_{dyn}=\alpha CV^2f$、NMOS 静态功耗、CMOS 漏电与动态功耗、DVFS |
 | [[Second-Order Transients]] ✅               | 二阶暂态电路      | Ch.12：LC 无阻尼振荡、串联/并联 RLC 欠/过/临界阻尼、$\zeta$/$\omega_0$、状态变量法 |
 | [[Sinusoidal Steady State]] ✅                | 正弦稳态        | Ch.13：复指数激励、齐次/特解、完整解           |
 | [[Impedance]] ✅                              | 阻抗          | Ch.13：$Z_R=R,\ Z_C=1/j\omega C,\ Z_L=j\omega L$、分压/分流、功率因数 |
@@ -381,8 +388,8 @@ aliases:
 
 | English | 中文 | 解释 |
 | :--- | :--- | :--- |
-| [[Hardware Communication Interfaces\|UART]] | 通用异步收发器 | 异步全双工、**无时钟线**，仅 TX/RX 两根数据线（+共地），靠约定波特率取样；帧 = 起始位+数据位+校验+停止位。两端时钟精度须优于约 ±2%。见 [[Hardware Communication Interfaces\|通信接口 §4.1]] |
-| [[Hardware Communication Interfaces\|I2C]] | 集成电路总线 | 同步半双工、**开漏两线**（SDA 数据线 + SCL 时钟线），一主多从靠地址寻址；必须外接上拉 $R_p$，上升时间 $t_r\approx0.8473R_pC_b\le0.3T$。见 [[Hardware Communication Interfaces\|通信接口 §4.2]] |
+| [[Hardware Communication Interfaces\|UART]] | 通用异步收发器 | 无时钟线，通常用 TX/RX 与共同参考，靠约定波特率和起始位同步；允许的总波特率误差与帧长、采样及抖动预算有关。见 [[Hardware Communication Interfaces\|通信接口 §4.1]] |
+| [[Hardware Communication Interfaces\|I2C]] | 集成电路总线 | SDA/SCL 开漏两线，支持寻址与多主仲裁；上升时间约 $t_r=0.8473R_pC_b$，须小于所用模式规定的 $t_{r,\max}$，同时检查灌电流。见 [[Hardware Communication Interfaces\|通信接口 §4.2]] |
 | [[Hardware Communication Interfaces\|SPI]] | 串行外设接口 | 同步全双工、**推挽四线**（SCLK / MOSI / MISO / CS），无寻址靠片选；无需上拉，速率高于 I²C；由 CPOL×CPHA 分 4 种模式。见 [[Hardware Communication Interfaces\|通信接口 §4.3]] |
 | [[Hardware Communication Interfaces\|CAN Bus]] | 控制器局域网总线 | **差分多主总线**（CAN_H/CAN_L），非破坏性仲裁，抗干扰极强；**两端各 120 Ω 端接**（并联 60 Ω）；汽车电子与工业控制。见 [[Hardware Communication Interfaces\|通信接口 §4.4]] |
 | [[Hardware Communication Interfaces\|USB]] | 通用串行总线 | USB 2.0 为 D+/D− 单差分对（半双工）；3.x/4 增加 SuperSpeed 收发对实现全双工；$Z_{diff}$ = 90 Ω（2.0/3.x）或 85 Ω（USB4）；含 VBUS 供电与热插拔枚举 |
@@ -406,17 +413,17 @@ aliases:
 | [[Hardware Communication Interfaces\|Termination]] | 端接 | 为消除反射而加的吸收网络。形式：串联/并联/戴维南/AC/差分/分裂/片内 (ODT)；CAN 在**两端**各 120 Ω，串联端接须放**源端** |
 | [[Hardware Communication Interfaces\|Reference Plane]] | 参考平面 | 紧贴信号线、承载返回电流的完整铜面（优选 GND）；**高速线下方严禁跨分割** |
 | [[Hardware Communication Interfaces\|Return Path]] | 回流路径 | 信号返回源端的路径，由电磁场决定并紧贴信号线下方；回流断裂 = 环路面积剧增 = 辐射与串扰恶化 |
-| [[Hardware Communication Interfaces\|Stitching Via]] | 地缝合孔 | 换层时在信号过孔旁补的地过孔，为回流提供短路径；经验值距信号过孔 ≤ 30 mil，每对差分至少 2 个 |
+| [[Hardware Communication Interfaces\|Stitching Via]] | 地缝合孔 | 信号换参考层时为返回电流提供就近路径；数量与位置按层叠、连接方式和信号完整性设计确定 |
 | [[Hardware Communication Interfaces\|Crosstalk]] | 串扰 | 相邻走线经互容 $C_m$、互感 $L_m$ 耦合能量；近端 (NEXT) 靠加间距/护线改善，远端 (FEXT) 与平行长度成正比 |
-| [[Hardware Communication Interfaces\|Guard Trace]] | 接地护线 | 高速线之间的接地走线，需每隔约 200 mil 打地孔才有效，否则自身成为天线 |
-| [[Hardware Communication Interfaces\|Skew]] | 偏斜 | 差分对或总线各线之间的到达时间差。**对内偏斜 (intra-pair skew)** 要求最严，25–32 Gbps 下需 < 5 mil（Gen6/112G 约 3 mil） |
+| [[Hardware Communication Interfaces\|Guard Trace]] | 接地护线 | 接地且适当缝合的屏蔽走线；效果取决于参考面、间距、频率和缝合方式，须检查对阻抗的影响 |
+| [[Hardware Communication Interfaces\|Skew]] | 偏斜 | 差分对或总线各线之间的到达时间差；允许值须从具体接口的总时序预算分配，不能用统一的 mil 数 |
 | [[Hardware Communication Interfaces\|Eye Diagram]] | 眼图 | 叠加多比特波形得到的"眼睛"张开度，反映噪声、抖动与损耗的综合裕量 |
 | [[Hardware Communication Interfaces\|Insertion Loss]] | 插入损耗 | 信号经通道后的衰减，来自导体损耗（趋肤效应，$\propto\sqrt f$）与介质损耗（$\propto f$，由 $D_f$ 决定） |
 | [[Hardware Communication Interfaces\|Via Stub]] | 过孔残桩 | 通孔未使用部分形成的开路短截线，在 $f_{res}=c/(4l\sqrt{\epsilon_r})$ 处谐振；对策：背钻 (back-drilling)、盲埋孔、HDI |
-| [[Hardware Communication Interfaces\|Back Drilling]] | 背钻 | 钻孔去除过孔残桩的工艺，残余残桩可控制到 < 5 mil，10 Gbps 以上必备 |
-| [[Hardware Communication Interfaces\|AC Coupling Capacitor]] | 交流耦合电容 | 串在差分线上的隔直电容（典型 100 nF），位置须**靠近发送端**、两线对称等长 |
-| [[Hardware Communication Interfaces\|Common-Mode Choke]] | 共模扼流圈 | 对差分信号透明、对共模高阻的磁性元件，用于抑制共模噪声与辐射（CAN/USB/HDMI/MIPI 常用） |
-| [[Hardware Communication Interfaces\|ESD Protection]] | 静电放电保护 | 接口防护器件，须紧贴连接器；高速线上必须选低电容型（< 0.5 pF 级），否则破坏信号完整性 |
+| [[Hardware Communication Interfaces\|Back Drilling]] | 背钻 | 钻孔去除过孔残桩的工艺；是否需要及残余长度目标取决于过孔结构和信道预算 |
+| [[Hardware Communication Interfaces\|AC Coupling Capacitor]] | 交流耦合电容 | 串在需隔直的高速通道上的电容；数值、放置侧和位置按接口及器件规范确定，两线应保持对称 |
+| [[Hardware Communication Interfaces\|Common-Mode Choke]] | 共模扼流圈 | 抑制共模噪声的磁性元件，也会引入差模寄生参数；使用前须核查插损与眼图预算 |
+| [[Hardware Communication Interfaces\|ESD Protection]] | 静电放电保护 | 接口防护器件；在保护效果与信号完整性之间选择合适的寄生电容、封装及放置位置 |
 | [[Hardware Communication Interfaces\|Open-Drain]] | 开漏输出 | 器件只能拉低、不能拉高的输出结构，须外接上拉；I²C 的多主仲裁与时钟同步都由"线与"天然实现 |
 | [[Hardware Communication Interfaces\|Series Termination Resistor]] | 串联端接电阻 | 源端串接 $R\approx Z_0-R_{out}$（如 SPI 时钟串 22–33 Ω），抑制过冲与振铃且无静态功耗 |
 | [[Hardware Communication Interfaces\|Bob Smith Termination]] | Bob Smith 端接 | 以太网 RJ45 各对中心抽头经 75 Ω + 高压电容到机壳地，泄放共模能量 |

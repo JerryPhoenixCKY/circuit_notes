@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="480" viewBox="0 0 980 480" role="img" aria-labelledby="title desc">
+  <title id="title">Four-bit resistor-weighted DAC using an inverting summing amplifier</title>
+  <desc id="desc">Four bit-controlled voltages pass through R, 2R, 4R, and 8R into the inverting summing node N. The feedback resistor Rf equals R; the non-inverting input is grounded.</desc>
+  <rect width="980" height="480" fill="#fff"/>
+  <style>
+    .wire{fill:none;stroke:#334155;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+    .res{fill:none;stroke:#b45309;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+    .amp{fill:#eff6ff;stroke:#1d4ed8;stroke-width:3;stroke-linejoin:round}
+    .node{fill:#334155}
+    .port{fill:#fff;stroke:#dc2626;stroke-width:3}
+    .lbl{font:20px Arial, sans-serif;fill:#0f172a}
+    .small{font:17px Arial, sans-serif;fill:#475569}
+    .pin{font:bold 26px Arial, sans-serif;fill:#1d4ed8}
+  </style>
+  <text x="30" y="38" class="lbl">Four-bit resistor-weighted DAC</text>
+  <text x="30" y="70" class="small">Each bit input is switched between 0 V and Vref.</text>
+  <text x="680" y="70" class="small">b3 = MSB; b0 = LSB</text>
+
+  <!-- Bit-controlled source ports -->
+  <circle cx="110" cy="113" r="7" class="port"/>
+  <circle cx="260" cy="113" r="7" class="port"/>
+  <circle cx="410" cy="113" r="7" class="port"/>
+  <circle cx="560" cy="113" r="7" class="port"/>
+  <text x="76" y="101" class="lbl">b3 Vref</text>
+  <text x="226" y="101" class="lbl">b2 Vref</text>
+  <text x="376" y="101" class="lbl">b1 Vref</text>
+  <text x="526" y="101" class="lbl">b0 Vref</text>
+
+  <!-- Four weighted branches -->
+  <path class="wire" d="M110 120 V170 M110 232 V315 M260 120 V170 M260 232 V315 M410 120 V170 M410 232 V315 M560 120 V170 M560 232 V315 M110 315 H730"/>
+  <path class="res" d="M110 170 l-11 8 22 9 -22 9 22 9 -22 9 11 18"/>
+  <path class="res" d="M260 170 l-11 8 22 9 -22 9 22 9 -22 9 11 18"/>
+  <path class="res" d="M410 170 l-11 8 22 9 -22 9 22 9 -22 9 11 18"/>
+  <path class="res" d="M560 170 l-11 8 22 9 -22 9 22 9 -22 9 11 18"/>
+  <text x="130" y="210" class="lbl">R</text>
+  <text x="280" y="210" class="lbl">2R</text>
+  <text x="430" y="210" class="lbl">4R</text>
+  <text x="580" y="210" class="lbl">8R</text>
+  <circle cx="260" cy="315" r="5" class="node"/>
+  <circle cx="410" cy="315" r="5" class="node"/>
+  <circle cx="560" cy="315" r="5" class="node"/>
+  <circle cx="680" cy="315" r="5" class="node"/>
+  <text x="669" y="304" class="small">N</text>
+
+  <!-- Op-amp and feedback -->
+  <path class="amp" d="M730 275 L730 375 L855 325 Z"/>
+  <text x="747" y="324" class="pin">−</text>
+  <text x="747" y="363" class="pin">+</text>
+  <path class="wire" d="M855 325 H915 M680 315 V245 H745 M815 245 H895 V325 M680 355 H730 M680 355 V410"/>
+  <path class="res" d="M745 245 l9 -11 10 22 10 -22 10 22 10 -22 10 11 h11"/>
+  <text x="765" y="225" class="small">Rf = R</text>
+  <circle cx="895" cy="325" r="5" class="node"/>
+  <text x="922" y="333" class="lbl">Vo</text>
+  <path class="wire" d="M662 410 H698 M668 418 H692 M674 426 H686"/>
+  <text x="712" y="424" class="small">0 V</text>
+
+  <text x="30" y="455" class="small">Signal schematic: power and bit-switch circuits omitted; output polarity is inverted.</text>
+</svg>

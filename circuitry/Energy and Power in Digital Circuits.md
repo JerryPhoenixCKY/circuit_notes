@@ -51,7 +51,7 @@ $$E_S = \int_0^\infty V_S \cdot i\,dt = V_S \cdot CV_S = CV_S^2$$
 ![[rc_energy_loss.svg|500]]
 
 > [!WARNING] "与 R 无关"是物理本质，不是巧合
-> 无论用大电阻慢充还是小电阻快充，电阻都消耗掉 $\frac{1}{2}CV_S^2$。物理根源：电阻上的功率 $p_R = i^2R$，电阻越大电流越小但持续时间越长、电阻越小电流越大但持续时间越短——积分后结果恰好相同。能量被分配到"场"（电容）和"热"（电阻）的比例永远 50:50。
+> 对这里的**理想恒压阶跃、初始未充电电容和串联电阻**，无论 $R$ 大小，充电时电阻都消耗 $\tfrac12CV_S^2$。其他充电方式（例如缓慢变化的电源或能量回收电路）不一定是 50:50。
 
 ### 1.2 放电过程
 
@@ -66,7 +66,7 @@ $$E_{\text{cycle}} = \frac{1}{2}CV_S^2 + \frac{1}{2}CV_S^2 = CV_S^2$$
 > [!IMPORTANT] 动态功耗公式
 > 每次完整翻转（0→1→0 或 1→0→1）消耗 $CV_{DD}^2$。若时钟频率为 $f$，则平均动态功耗：
 > $$\boxed{P_{\text{dyn}} = \alpha\, C\, V_{DD}^2\, f}$$
-> 其中 $\alpha$ 是**活动因子 (activity factor)**——每个时钟周期内实际发生翻转的节点比例（典型 $0.1\sim 0.5$）。
+> 其中 $\alpha$ 是**活动因子 (activity factor)**——一个节点**每时钟周期平均发生的 0→1 次数**；多个节点合计时，对各自的 $\alpha_i C_i$ 求和。若把 0→1 和 1→0 都算作“翻转”，须先除以 2 才能沿用此式。$\alpha$ 依输入数据与时钟活动而变，不能把某个典型值当保证值。
 
 ### 2.1 各项的工程意义
 
@@ -85,7 +85,7 @@ $$E_{\text{cycle}} = \frac{1}{2}CV_S^2 + \frac{1}{2}CV_S^2 = CV_S^2$$
 $$\text{PDP} = P_{\text{dyn}} \times t_{pd} \approx \alpha C V_{DD}^2 f \cdot R_{ON} C_L$$
 
 > [!NOTE] PDP 的物理含义
-> PDP（Power-Delay Product）= 平均功率 × 延迟（量纲为能量），衡量"开关一次的能效"。理想的逻辑门应同时低功耗、低延迟。通常在电路最高翻转率（$f \sim 1/(2t_{pd})$，此时 $f \cdot t_{pd} \approx$ 常数）下评估，PDP 才与频率无关，成为反映工艺/设计水平的内在指标。
+> PDP = 指定工作负载下的**平均功率 × 传播延迟**，量纲为能量；它依赖活动因子 $\alpha$ 和频率 $f$，不能直接称作一次翻转的能量。对本节理想充放电模型，每发生一次 $0\to1\to0$ 循环消耗 $CV_{DD}^2$；若要比较不同电路的 PDP，必须固定输入活动、频率、负载和延迟的测量口径。
 
 ---
 
@@ -110,7 +110,7 @@ $$\text{PDP} = P_{\text{dyn}} \times t_{pd} \approx \alpha C V_{DD}^2 f \cdot R_
 
 ---
 
-## 四、CMOS 反相器：零静态功耗
+## 四、CMOS 反相器：理想模型无直流通路
 
 > [!IMPORTANT] CMOS 的核心优势
 > [[The MOSFET Switch|CMOS 反相器]] 用 pMOS 上拉 + nMOS 下拉，两管**不同时导通**——无论输出 "0" 还是 "1"，都没有 $V_{DD}$→GND 直流通路，**静态功耗≈0**（仅有亚阈值泄漏）。
@@ -128,10 +128,10 @@ $$P_{\text{CMOS}} \approx P_{\text{dyn}} = \alpha\, C_L\, V_{DD}^2\, f$$
 ![[digital_power_breakdown.svg|500]]
 
 > [!TIP] 为什么 CMOS 是数字 VLSI 的基石？
-> 在低频下，CMOS 几乎不耗电（$f\to 0$ 则 $P_{\text{dyn}}\to 0$）。只有在翻转时才耗能量。而 NMOS 即使闲着也烧电。这就是为什么 CMOS 赢了——在移动设备尤其关键（电池续航）。
+> 频率降低时，CMOS 的**电容充放电功耗**随 $f$ 降低；$f\to0$ 时仍有漏电。电阻负载 NMOS 若处于下拉状态，则即使不翻转也有从电源到地的静态通路。
 
 > [!NOTE] 深亚微米的泄漏问题
-> 随着工艺节点缩小到 90nm 以下，晶体管阈值降低、栅氧变薄，**亚阈值泄漏 (subthreshold leakage)** 和**栅泄漏 (gate leakage)** 重新引入了可观的静态功耗。现代 CMOS 的 $P_{\text{static}}$ 可占总功耗的 30%–50%！这就是为什么出现了**高-k 栅介质**、**多阈值工艺**等先进技术来抑制泄漏。
+> 真实 CMOS 有**亚阈值泄漏 (subthreshold leakage)**、栅泄漏及结漏电；静态功耗随工艺、温度、电源电压、器件尺寸和工作模式变化，不能用“零静态功耗”估算真实芯片。高-k 栅介质、多阈值器件和电源门控等技术可减轻部分泄漏，具体数值应从目标器件的资料或测量取得。
 
 ---
 
@@ -139,11 +139,11 @@ $$P_{\text{CMOS}} \approx P_{\text{dyn}} = \alpha\, C_L\, V_{DD}^2\, f$$
 
 $$\boxed{P_{\text{total}} = \underbrace{\alpha\, C\, V_{DD}^2\, f}_{\text{Dynamic}} + \underbrace{V_{DD}\, I_{\text{leak}}}_{\text{Static (leakage)}} + \underbrace{P_{\text{sc}}}_{\text{Short-circuit}}}$$
 
-| 项 | 来源 | 占比（现代芯片） |
+| 项 | 来源 | 估算所需信息 |
 | :--- | :--- | :--- |
-| $P_{\text{dyn}}$ | 充放电负载电容 | 40%–70% |
-| $P_{\text{leak}}$ | 亚阈值/栅泄漏 | 20%–40% |
-| $P_{\text{sc}}$ | 翻转瞬间 pMOS/nMOS 同时导通 | 5%–10% |
+| $P_{\text{dyn}}$ | 充放电负载电容 | 各节点的 $\alpha_i$、$C_i$、$V_{DD}$ 与 $f$ |
+| $P_{\text{leak}}$ | 亚阈值/栅/结漏电 | 工作模式、温度与器件漏电数据 |
+| $P_{\text{sc}}$ | 翻转瞬间 pMOS/nMOS 同时导通 | 输入边沿、输出负载与器件模型 |
 
 > [!NOTE] 短路功耗 $P_{\text{sc}}$ 的来源
 > 输入信号非理想阶跃——翻转过程中输入经过 $V_T$ 附近时，pMOS 和 nMOS **短暂同时导通**，形成 $V_{DD}$→pMOS→nMOS→GND 的瞬态短路电流。输入边沿越缓、$P_{\text{sc}}$ 越大。
@@ -192,12 +192,15 @@ graph TD
 > $$= 0.2 \times 50\times10^{-15} \times 1.44 \times 2\times10^9 = 28.8\,\mu\text{W}$$
 > 百万门芯片总动态功耗 $\approx 28.8\,\text{W}$（需散热设计！）。
 
+> [!EXAMPLE] 对照 MIT Lecture 23 的量级估算
+> 若每个门的等效负载电容 $C_L=1\,\mathrm{fF}$、供电 $V_{DD}=5\,\mathrm V$、频率 $f=100\,\mathrm{MHz}$，且每周期有一次 0→1（$\alpha=1$），则 $P=C_LV_{DD}^2f=2.5\,\mu\mathrm W$/门；一百万个门若都如此活动，共约 $2.5\,\mathrm W$。实际应使用每个节点的活动因子，并另外计入泄漏与短路功耗。课件：[[e91dbb295f31c6d799483e77c6b35cbe_6002_l23.pdf#page=9|Lecture 23，页 9–11]]；RC 充放电能量推导见 [[62cc78db14ad37dede55c361711ba2ae_6002_l22.pdf#page=6|Lecture 22，页 6–10]]。
+
 > [!EXAMPLE] NMOS vs CMOS 静态功耗对比
 > NMOS 反相器：$V_S = 5\,\text{V}$，$R_L = 10\,\text{k}\Omega$，$R_{ON} = 1\,\text{k}\Omega$。输出 "0" 时：
 > $$P_{\text{static}} = \frac{5^2}{10000+1000} = 2.27\,\text{mW}$$
-> CMOS 反相器同条件下：$P_{\text{static}} \approx 0$（仅泄漏电流 ~pA 级）。
+> 理想 CMOS 反相器同条件下没有直流通路；真实静态功耗为 $V_{DD}I_{\text{leak}}$，须按器件资料或测量估计。
 >
-> 百万门 NMOS：$2.27\,\text{kW}$（不可能散热）。CMOS 待机：< 1 W。
+> 若一百万个这样的 NMOS 门**同时处于该下拉状态**，静态功耗约 $2.27\,\text{kW}$；实际芯片需按状态分布计算，不能由本例推定 CMOS 的待机功耗。
 
 ---
 

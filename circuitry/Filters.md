@@ -81,7 +81,7 @@ aliases:
 > $$H(j\omega) = \frac{\tilde{V}_{\text{out}}}{\tilde{V}_{\text{in}}} = \frac{R}{R+1/j\omega C} = \frac{j\omega RC}{1+j\omega RC}$$
 > - **截止频率**：同样是 $\omega_c = 1/(RC)$
 > - **斜率**：低频上升 $+20$ dB/dec
-> - **相位**：$\angle H = +\arctan(\omega RC)$，从 $+90^\circ$（低频）到 $0^\circ$（高频）
+> - **相位**：$\angle H=90^\circ-\arctan(\omega RC)$，从 $+90^\circ$（低频）趋近 $0^\circ$（高频）。
 
 > [!NOTE] 耦合电容的滤波作用
 > 输入级之间的耦合电容（隔直电容）本质上就是高通滤波器——阻断直流偏置，只让交流信号通过。例如音频放大器的输入耦合电容阻止前级的直流电压偏移影响本级偏置。
@@ -92,13 +92,13 @@ aliases:
 
 ### 3.1 二阶低通 (LP) 滤波器
 
-> [!EXAMPLE] RLC 串联二阶 LP
+> [!EXAMPLE] RLC 串联二阶 LP（输出取电容两端）
 > $$H(j\omega) = \frac{1/(LC)}{s^2 + s(R/L) + 1/(LC)}\bigg|_{s=j\omega}, \quad \omega_0 = \frac{1}{\sqrt{LC}},\ Q = \frac{1}{R}\sqrt{\frac{L}{C}}$$
 > - **高频衰减**：$-40$ dB/dec（两阶 pole，斜率加倍）
 > - **谐振峰**：当 $Q>1/\sqrt{2}$ 时，在 $\omega_0$ 附近出现增益过冲
 > - **$Q$ 控制阻尼**：
 >   - $Q>0.707$：过冲（peaking）
->   - $Q=0.707$：**Butterworth（最大平坦）**（无过冲）
+>   - $Q=1/\sqrt2\approx0.707$：**Butterworth（幅频最大平坦）**；阶跃响应仍可有过冲
 >   - $Q<0.707$：单调下降
 
 ### 3.2 二阶带通 (BP) 滤波器
@@ -141,7 +141,7 @@ $$H(j\omega) = \left(1+\frac{R_f}{R_1}\right)\frac{1}{1+j\omega RC}$$
 | :--- | :--- | :--- | :--- |
 | 一阶 | $-20$ dB/dec | 宽 | 最简单，但选择性差 |
 | 二阶 | $-40$ dB/dec | 中 | $Q$ 控制谐振峰，常用 |
-| 三阶 | $-60$ dB/dec | 较窄 | 级联两个二阶（$\times$ 一阶）|
+| 三阶 | $-60$ dB/dec | 较窄 | 可由一个二阶节与一个一阶节级联 |
 | $n$ 阶 | $-20n$ dB/dec | 越窄越陡 | 滤波器阶数越高，选择性越好 |
 
 > [!NOTE] 滤波器设计的工程权衡
@@ -163,9 +163,9 @@ $$H(j\omega) = \begin{cases} 0 & \omega = \omega_0 \\ 1 & \text{otherwise} \end{
 ### 5.2 实际陷波滤波器
 
 > [!EXAMPLE] 并联 RLC 陷波（阻抗并联分流）
-> 在信号通路中并联一个 **LC 并联谐振电路**（[[Resonance]]）：
-> - 在 $\omega_0=1/\sqrt{LC}$ 处，LC 并联阻抗 $\to\infty$（开路）
-> - $\omega_0$ 频率被阻断，其他频率正常通过
+> 将一个**并联 LC 谐振支路串入信号通路**，并在其后接负载（[[Resonance]]）：
+> - 在理想 $\omega_0=1/\sqrt{LC}$ 处，并联 LC 阻抗 $\to\infty$，串联通路近似开路
+> - 该频率的负载电压被抑制；其他频率的通过程度仍取决于源、负载与支路阻抗
 > - 品质因数 $Q$ 决定陷波深度与宽度
 
 | 参数 | 对陷波特性的影响 |
@@ -196,9 +196,9 @@ $$H(j\omega) = \begin{cases} 0 & \omega = \omega_0 \\ 1 & \text{otherwise} \end{
 
 | 类型 | 特点 | 权衡 |
 | :--- | :--- | :--- |
-| **Butterworth** | 通带最大平坦 $|H|=1$（$\omega<\omega_c$）| 过渡带中等 |
-| **Chebyshev** | 通带/阻带有纹波，过渡带更陡 | 相位非线性，可能振铃 |
-| **Bessel** | 相位响应线性（群延迟恒定）| 过渡带最缓 |
+| **Butterworth** | 通带在 $\omega=0$ 附近最大平坦，增益随频率连续变化 | 过渡带中等 |
+| **Chebyshev** | I 型通带等纹波，II 型阻带等纹波 | 同阶下过渡带较陡，需接受纹波 |
+| **Bessel** | 通带群延迟近似平坦 | 同阶下幅频过渡较缓 |
 
 ---
 

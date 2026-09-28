@@ -145,11 +145,13 @@ $$R_a = \frac{R_{ab}R_{ca}}{R_{ab}+R_{bc}+R_{ca}}, \qquad R_b = \frac{R_{ab}R_{b
 
 ### 3.3 Y→Δ 公式（两两乘积和 / 对面电阻）
 
-$$R_{ab} = \frac{R_aR_b + R_bR_c + R_cR_a}{R_c}, \qquad R_{bc} = \frac{\sum R_aR_b}{R_a}, \qquad R_{ca} = \frac{\sum R_aR_b}{R_b}$$
+记 $S=R_aR_b+R_bR_c+R_cR_a$，则
+
+$$R_{ab}=\frac{S}{R_c},\qquad R_{bc}=\frac{S}{R_a},\qquad R_{ca}=\frac{S}{R_b}.$$
 
 > [!TIP] 记忆法
 > **Δ 的每个电阻 = Y 电阻两两乘积之和 ÷ 对面那个 Y 电阻**（$R_{ab}$ 对面是 $R_c$）。
-> 隐藏恒等式：记 $R_s = R_a+R_b+R_c$，则 $R_aR_b + R_bR_c + R_cR_a = \dfrac{R_aR_bR_c}{R_s}$——可用于快速验算。
+> 等价写法如 $R_{ab}=R_a+R_b+R_aR_b/R_c$，能直接检查量纲与极限情况。
 
 > [!NOTE] 对称性自检
 > 若 Δ 三臂相等（$R_{ab}=R_{bc}=R_{ca}=R_\Delta$），则 Y 三臂也相等：$R_Y = R_\Delta^2/3R_\Delta = R_\Delta/3$；反向 $R_\Delta = 3R_Y$。**对称结构变换后仍对称**，可作公式速查。

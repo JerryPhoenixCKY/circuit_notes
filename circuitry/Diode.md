@@ -138,10 +138,11 @@ $$v_{\text{out}} = \begin{cases} v_{\text{in}} - V_D & v_{\text{in}} > V_D \\ 0 
 
 ### 3.3 桥式整流 (Bridge Rectifier)
 
-$$v_{\text{out}} = |v_{\text{in}}| - 2V_D \quad (\text{两只二极管串联})$$
+对纯电阻负载、无滤波电容并采用恒定导通压降模型，
+$$v_{\text{out}}\approx\max\bigl(0,\,|v_{\text{in}}|-2V_D\bigr)\quad(\text{每个导通半周有两只二极管串联}).$$
 
 - **无需中心抽头**：4 只二极管构成电桥
-- **输出电压**：比半波/中心抽头低 $2V_D$（两只二极管压降）
+- **导通压降**：桥式每条导通路径约损失 $2V_D$；半波和中心抽头整流通常各约损失 $V_D$，比较输出还须使用相同的变压器次级电压定义。
 
 ### 3.4 滤波电容 (Smoothing Capacitor)
 

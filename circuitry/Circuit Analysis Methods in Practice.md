@@ -12,7 +12,6 @@ aliases:
   - Mesh Current Method
   - 超网孔
   - Supermesh
-  - 节点电压法
   - Node Voltage Method
   - 支路电流法
   - Branch Current Method
@@ -275,7 +274,7 @@ $$\begin{bmatrix} R_{11} & R_{12} & \cdots \\ R_{21} & R_{22} & \cdots \\ \vdots
 
 ### 4.2 实战要点
 
-详见 [[Basic Circuit Analysis Method#5. Method 3 — Node Analysis (节点法)|Method 3 节点法]] 的完整推导与 Old Faithful 例题。这里补充几个实战技巧：
+详见 [[Basic Circuit Analysis Method#5. Method 3 — Node Analysis (节点法) ★ 本课核心|Method 3 节点法]] 的完整推导与 Old Faithful 例题。这里补充几个实战技巧：
 
 > [!TIP] 电压源处理
 > - **一端接地**：直接令另一端 $e = V_S$，该节点不写 KCL（已知量不列方程）。
@@ -427,7 +426,7 @@ graph LR
 
 > [!TIP] 列式前的检查
 > 1. ✅ 画电路图，标好所有元件值和方向
-> 2. ✅ 采用 AVD（[[Basic Circuit Analysis Method#4. 关联变量约定 AVD|关联变量约定]]），统一正负号
+> 2. ✅ 采用 AVD（[[Basic Circuit Analysis Method#2. Associated Variables Discipline (AVD, 关联变量约定)|关联变量约定]]），统一正负号
 > 3. ✅ 确认电路是平面（能画在平面上无交叉）→ 可用网孔法
 > 4. ✅ 确认有无受控源 → 有则叠加/戴维南的源置零法要特别处理
 

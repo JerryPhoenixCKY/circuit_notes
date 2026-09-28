@@ -120,7 +120,7 @@ $$I_D = \frac{K}{2}(V_{GS} - V_t)^2, \quad V_{DS} = V_{DD} - V_G + V_{GS}$$
 $$\boxed{A_v \approx \frac{g_m\,(R_S \| r_o)}{1 + g_m\,(R_S \| r_o)} \approx 1 \quad (\text{当 } g_m R_S \gg 1\text{)}}$$
 
 > [!TIP] "源极跟随器"的名称来源
-> $v_{\text{out}} = v_S \approx v_G - V_t$——输出电压"跟随"输入电压（低 $V_t$ 偏移），且**同相**（无反相）。
+> 直流上 $V_S=V_G-V_{GS}=V_G-(V_t+V_{OV})$；在固定偏置附近，源极的小信号电压随栅极同相变化且增益略小于 1。不能把偏移一律近似为 $V_t$。
 
 ### 3.4 输入 / 输出电阻
 
@@ -191,7 +191,10 @@ graph TD
 
 ### 6.1 电流镜偏置（工业标准）
 
-$$I_{REF} = I_D = \frac{K_1}{2}(V_{GS}-V_t)^2 \quad\Longrightarrow\quad I_D \text{ 与绝对 } V_t/K \text{ 解耦（相对稳定）}$$
+匹配且都保持饱和、忽略沟道长度调制时，
+$$I_D\approx I_{REF}\frac{(W/L)_{\mathrm{out}}}{(W/L)_{\mathrm{ref}}}.$$
+
+镜像**比例**主要由尺寸比决定；$I_{REF}$ 的绝对值仍受参考电路、阈值、电源及温度影响。失配、输出管 $V_{DS}$ 变化和余量不足也会改变 $I_D$。
 
 详见 [[Current Sources and Mirrors]]。
 

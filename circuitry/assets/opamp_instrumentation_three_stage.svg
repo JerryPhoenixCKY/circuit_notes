@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="480" viewBox="0 0 1000 480" role="img" aria-labelledby="title desc">
+  <title id="title">Three-op-amp instrumentation amplifier</title>
+  <desc id="desc">Two non-inverting input amplifiers linked by Rgain, followed by a matched difference amplifier. Equal net labels N1 and N2 denote connected nodes.</desc>
+  <rect width="1000" height="480" fill="#fff"/>
+  <style>
+    .wire{fill:none;stroke:#334155;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+    .amp{fill:#eff6ff;stroke:#1d4ed8;stroke-width:3;stroke-linejoin:round}
+    .res{fill:none;stroke:#b45309;stroke-width:3;stroke-linejoin:round;stroke-linecap:round}
+    .node{fill:#334155}
+    .lbl{font:20px Arial, sans-serif;fill:#0f172a}
+    .small{font:17px Arial, sans-serif;fill:#475569}
+    .pin{font:bold 25px Arial, sans-serif;fill:#1d4ed8}
+  </style>
+  <text x="32" y="37" class="lbl">Three-op-amp instrumentation amplifier</text>
+  <text x="30" y="87" class="small">Input stage: high input impedance and adjustable differential gain</text>
+  <text x="560" y="87" class="small">Matched difference stage</text>
+
+  <!-- Upper input stage -->
+  <path class="amp" d="M130 110 L130 190 L240 150 Z"/>
+  <path class="wire" d="M55 130 H130 M95 170 H130 M240 150 H485 V220"/>
+  <text x="23" y="137" class="lbl">V1</text>
+  <text x="65" y="178" class="small">N1</text>
+  <text x="144" y="139" class="pin">+</text>
+  <text x="144" y="181" class="pin">−</text>
+  <text x="400" y="139" class="lbl">V1′</text>
+
+  <!-- Lower input stage -->
+  <path class="amp" d="M130 320 L130 400 L240 360 Z"/>
+  <path class="wire" d="M55 340 H130 M95 380 H130 M240 360 H520"/>
+  <text x="23" y="347" class="lbl">V2</text>
+  <text x="65" y="388" class="small">N2</text>
+  <text x="144" y="349" class="pin">+</text>
+  <text x="144" y="391" class="pin">−</text>
+  <text x="400" y="350" class="lbl">V2′</text>
+
+  <!-- Feedback-resistor ladder; same-name labels connect to the op-amp minus inputs -->
+  <path class="wire" d="M340 150 V168 M340 206 V250 M340 280 V305 M340 343 V360"/>
+  <path class="res" d="M340 168 l-11 5 22 6 -22 6 22 6 -22 6 11 9"/>
+  <path class="res" d="M340 250 l-11 5 22 5 -22 5 22 5 -11 10"/>
+  <path class="res" d="M340 305 l-11 5 22 6 -22 6 22 6 -22 6 11 8"/>
+  <circle cx="340" cy="150" r="5" class="node"/>
+  <circle cx="340" cy="235" r="5" class="node"/>
+  <circle cx="340" cy="295" r="5" class="node"/>
+  <circle cx="340" cy="360" r="5" class="node"/>
+  <text x="355" y="190" class="small">R1</text>
+  <text x="355" y="272" class="small">Rgain</text>
+  <text x="355" y="332" class="small">R1</text>
+  <text x="292" y="242" class="small">N1</text>
+  <text x="292" y="302" class="small">N2</text>
+
+  <!-- Difference stage -->
+  <path class="amp" d="M680 185 L680 315 L830 250 Z"/>
+  <path class="wire" d="M485 220 H520 M580 220 H680 M650 220 V120 H750 M810 120 H880 V250 M830 250 H920"/>
+  <path class="res" d="M520 220 l8 -11 9 22 9 -22 9 22 9 -22 8 11 h8"/>
+  <path class="res" d="M750 120 l8 -11 9 22 9 -22 9 22 9 -22 8 11 h8"/>
+  <text x="542" y="201" class="small">R2</text>
+  <text x="772" y="100" class="small">R3</text>
+  <text x="695" y="232" class="pin">−</text>
+  <text x="695" y="294" class="pin">+</text>
+  <text x="927" y="257" class="lbl">Vo</text>
+  <circle cx="650" cy="220" r="5" class="node"/>
+  <circle cx="880" cy="250" r="5" class="node"/>
+
+  <path class="wire" d="M520 360 M580 360 H590 V280 H680 M625 280 V309 M625 347 V389"/>
+  <path class="res" d="M520 360 l8 -11 9 22 9 -22 9 22 9 -22 8 11 h8"/>
+  <path class="res" d="M625 309 l-11 5 22 6 -22 6 22 6 -22 6 11 9"/>
+  <text x="542" y="342" class="small">R2</text>
+  <text x="642" y="335" class="small">R3</text>
+  <circle cx="625" cy="280" r="5" class="node"/>
+  <path class="wire" d="M607 389 H643 M613 397 H637 M619 405 H631"/>
+  <text x="651" y="401" class="small">0 V</text>
+
+  <text x="31" y="455" class="small">Signal schematic: supply pins omitted; N1/N2 are net labels, not open wires.</text>
+</svg>

@@ -9,7 +9,6 @@ aliases:
   - 电容器
   - Capacitor
   - Capacitance
-  - 本构关系
   - 隔直电容
   - 旁路电容
 ---

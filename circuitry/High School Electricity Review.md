@@ -92,7 +92,7 @@ $$y = \frac{1}{2}at^2 = \frac{qUL^2}{2mdv_0^2},\qquad \tan\theta = \frac{v_y}{v_
 
 ### 1. 电流 (Current) 与电动势 (EMF)
 
-- **电流**：$I = \dfrac{q}{t} = nqSv$（$n$ 为单位体积电荷数，$v$ 为漂移速度，$S$ 为横截面积），方向为正电荷定向移动方向。
+- **电流大小**：$I=|q|/t=n|q_c|Sv_d$（$n$ 为载流子数密度，$q_c$ 为单个载流子的带符号电荷，$v_d$ 为漂移速率，$S$ 为横截面积）；约定电流方向为正电荷运动方向。
 - **电动势 (EMF)** $\mathcal{E}$：电源将其他形式能量转化为电能的本领，$\mathcal{E} = \dfrac{W_{\text{非}}}{q}$，数值上等于断路电压。
 - **铭牌参数**：$1\ \text{A·h}=3600\ \text{C}$；$1\ \text{kWh}=3.6\times 10^6\ \text{J}$（**能量单位，不是电功单位**）。
 
@@ -223,7 +223,7 @@ $$\frac{R_1}{R_2} = \frac{R_3}{R_4} \quad\Leftrightarrow\quad U_{cd}=0,\ I_G=0$$
 
 ### 2. 磁感应强度
 
-$$B = \frac{F}{IL}\quad \text{（单位：特斯拉 T）}$$
+当直导线与磁场垂直时，$B=F/(IL)$；一般情形 $F=BIL\sin\theta$（单位：特斯拉 T）。
 
 方向：小磁针 N 极受力方向。
 
@@ -246,13 +246,13 @@ $$F_{\text{洛}} = qvB\sin\theta$$
 
 ### 5. 带电粒子在磁场中的运动
 
-仅受洛伦兹力 $\Rightarrow$ **匀速圆周运动**：
+仅受磁洛伦兹力且 $\mathbf v\perp\mathbf B$ 时，粒子作**匀速圆周运动**；若有平行速度分量，则叠加沿磁场方向的匀速运动，形成螺旋轨迹：
 
-$$qvB = \frac{mv^2}{r} \Rightarrow r = \frac{mv}{qB},\qquad T = \frac{2\pi r}{v} = \frac{2\pi m}{qB}$$
+$$|q|vB = \frac{mv^2}{r} \Rightarrow r = \frac{mv}{|q|B},\qquad T = \frac{2\pi r}{v} = \frac{2\pi m}{|q|B}$$
 
 > [!IMPORTANT] 周期与半径的特点
-> - **周期**：$T = \dfrac{2\pi m}{qB}$，**与速度 $v$ 无关**（速度大半径大，但周期相同）。
-> - **半径**：$r = \dfrac{mv}{qB}$，**与速度 $v$ 有关**（速度越大，半径越大）。
+> - **周期**：$T = \dfrac{2\pi m}{|q|B}$，在非相对论近似下**与速度 $v$ 无关**。
+> - **半径**：$r = \dfrac{mv}{|q|B}$，**与速度 $v$ 有关**；电荷符号决定弯曲方向，不决定半径大小。
 
 #### 几何关系（直线边界入射）
 
@@ -271,12 +271,12 @@ $$qvB = \frac{mv^2}{r} \Rightarrow r = \frac{mv}{qB},\qquad T = \frac{2\pi r}{v}
 ### 6. 霍尔效应 (Hall Effect)
 
 导体中电流方向与磁场垂直时，上下表面产生电势差：
-$$U = \frac{BI}{nqd}$$
+对单一载流子、几何方向明确的简单模型，霍尔电压的**大小**为 $|U_H|=BI/(n|q|d)$；符号由载流子类型及电流、磁场与测量端的参考方向共同决定。
 
 > [!NOTE] 霍尔效应的物理本质
 > 洛伦兹力使载流子偏转，在横向积累形成电场，直至 $F_{\text{洛}}=F_{\text{电}}$ 达到平衡。
-> - **导体**：载流子为电子，上表面积累**负电荷**。
-> - **半导体**：载流子为正电荷（空穴），上表面积累**正电荷**。
+> - 金属中通常由电子导电；半导体可能由电子或空穴主导，也可能两者都有。
+> - 哪一表面积累正/负电荷须先画出 $\mathbf v\times\mathbf B$ 的方向，不能只凭材料类型判断。
 
 ### 7. 三大电磁应用装置
 
@@ -291,24 +291,25 @@ $$\boxed{qE = qvB \Rightarrow v = \frac{E}{B}}$$
 #### 质谱仪
 
 加速电场使粒子获得初速度，再进入磁场偏转：
-$$r = \frac{mv}{qB} = \sqrt{\frac{2Um}{B^2q}} \propto \sqrt{\frac{m}{q}}$$
+若粒子从静止经电势差的**大小** $U$ 加速，$\tfrac12mv^2=|q|U$，因此
+$$r=\frac{mv}{|q|B}=\sqrt{\frac{2Um}{B^2|q|}}\propto\sqrt{\frac{m}{|q|}}.$$
 
 底片位置 $X=2r$，可测量**比荷** $q/m$。
 
 #### 回旋加速器
 
 - **最大动能**：$E_{\text{kmax}} = \dfrac{q^2B^2R^2}{2m}$（**与加速电压 $U$ 无关**！）。
-- **回旋频率**：$f = \dfrac{qB}{2\pi m}$（与粒子比荷相关，不同粒子需调整频率）。
+- **回旋频率**：$f = \dfrac{|q|B}{2\pi m}$（与粒子比荷的大小相关，不同粒子需调整频率）。
 - 粒子的螺旋轨迹半径逐渐增大，最终达到盒半径 $R$。
 
 > [!WARNING] 相对论效应
-> 当 $v$ 接近光速时，$m$ 增大，周期变化，回旋加速器失效——这就是**同步加速器**出现的原因（MIT 6.002x 中会涉及）。
+> 当速度接近光速时，相对论动量改变，固定频率经典回旋加速器的同步条件不再成立；需采用其他加速方案。
 
 ### 8. 磁聚焦与磁发散
 
 - **磁发散**：带电粒子从圆形磁场圆心入射，$r=R$ 时各方向发散。
 - **磁聚焦**：平行粒子束进入圆形磁场，$r=R$ 时汇聚于一点。
-- **螺距**（螺旋线轴向位移）：$\Delta x = v_x\cdot T = v_x\cdot\dfrac{2\pi m}{qB}$。
+- **螺距**（每周期轴向位移）：$\Delta x=v_xT=v_x\dfrac{2\pi m}{|q|B}$；$v_x$ 的符号表示沿轴方向。
 
 ### 9. 电磁组合场
 
@@ -331,7 +332,7 @@ $$\Phi = BS\cos\theta = BS_{\perp}$$
 
 ### 2. 法拉第电磁感应定律 (Faraday's Law)
 
-$$E = n\frac{\Delta\Phi}{\Delta t}$$
+若选定线圈绕行正方向与磁通正方向，感应电动势为 $\mathcal E=-n\,d\Phi/dt$；只求**大小**时 $|\mathcal E_{\text{avg}}|=n|\Delta\Phi|/\Delta t$。
 
 > [!IMPORTANT] 与大学课程的衔接
 > 高中法拉第定律是 [[Maxwell's Equations|麦克斯韦方程组]] 中**法拉第定律积分形式** $\oint\mathbf{E}\cdot d\mathbf{l} = -\dfrac{\partial\Phi_B}{\partial t}$ 的特例。[[Kirchhoff's Laws|KVL]] 由"磁通变化率为零"这一 [[Lumped Matter Discipline|LMD 假设]] 导出——高中法拉第定律是大学 KVL 的理论根源。
@@ -462,7 +463,7 @@ $$T = 2\pi\sqrt{LC}$$
 | 欧姆定律 $I=U/R$ | 一般本构关系 + 电容/电感动态关系 |
 | 串并联电阻 | 节点/网孔 + [[Kirchhoff's Laws\|KCL/KVL]] 系统分析 |
 | 左手定则 | 叉积 $\mathbf{F}=q\mathbf{v}\times\mathbf{B}$ |
-| 法拉第定律 $E=n\dfrac{\Delta\Phi}{\Delta t}$ | [[Maxwell's Equations\|麦克斯韦方程]] + KVL 理论根源 |
+| 法拉第定律 $\mathcal E=-n\,d\Phi/dt$（带符号） | [[Maxwell's Equations\|麦克斯韦方程]] + KVL 适用边界 |
 | 交流有效值 | [[Complex Numbers and Euler's Formula\|相量法 + 阻抗 + 频域分析]] |
 | 洛伦兹力永不做功 | $v$ 大则半径大、周期相同（回旋加速器基础） |
 | 电磁振荡 $T=2\pi\sqrt{LC}$ | [[Complex Numbers and Euler's Formula\|阻抗]] $Z_L=j\omega L$，$Z_C=1/j\omega C$ |

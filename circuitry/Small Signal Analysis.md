@@ -9,8 +9,6 @@ aliases:
   - 小信号分析
   - Small-Signal Analysis
   - Small Signal
-  - 小信号模型
-  - Small-Signal Model
   - 小信号近似
 ---
 

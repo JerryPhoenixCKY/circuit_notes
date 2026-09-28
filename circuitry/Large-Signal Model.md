@@ -46,7 +46,7 @@ aliases:
 
 $$I_D = \begin{cases} 0, & \text{Cutoff（截止）}:\; v_{GS} < V_t \\[4pt] \dfrac{K}{2}\bigl[2(v_{GS}-V_t)v_{DS} - v_{DS}^2\bigr], & \text{Triode（线性/三极管）}:\; v_{DS} < v_{GS} - V_t \\[6pt] \dfrac{K}{2}(v_{GS} - V_t)^2(1+\lambda v_{DS}), & \text{Saturation（饱和）}:\; v_{DS} \ge v_{GS} - V_t \end{cases}$$
 
-其中 $K = \mu_n C_{ox} W/L$。验证边界连续性：$v_{DS}=v_{GS}-V_t$ 处，三极管区给 $\frac{K}{2}(v_{GS}-V_t)^2$，与饱和区一致 ✓。
+其中 $K=\mu_nC_{ox}W/L$，上述近似限定于增强型 NMOS、$v_{DS}\ge0$，三极管区还须有 $v_{GS}\ge V_t$。在**忽略沟道长度调制（$\lambda=0$）**时，$v_{DS}=v_{GS}-V_t$ 处两式均给 $K(v_{GS}-V_t)^2/2$；只在饱和区乘上 $(1+\lambda v_{DS})$ 是局部近似模型，边界不再严格连续。
 
 | 工作区 | 条件 | 物理含义 | 典型应用 |
 | :--- | :--- | :--- | :--- |
@@ -55,7 +55,7 @@ $$I_D = \begin{cases} 0, & \text{Cutoff（截止）}:\; v_{GS} < V_t \\[4pt] \df
 | **Saturation** | $v_{GS}>V_t,\; v_{DS}>v_{GS}-V_t$ | 沟道夹断，电流与 $v_{DS}$ 几乎无关（恒流） | **放大器工作区** |
 
 > [!TIP] 记忆法
-> "截止=关"（无电流）、"三极管=变阻区"（电阻随 $v_{DS}$ 变化）、"饱和=恒流源"（电流稳定，不管 $v_{DS}$ 多大）。
+> "截止=关"（忽略漏电）、"三极管=变阻区"、"饱和=近似电流源"。饱和区电流仍随 $v_{DS}$ 略变，且超过器件额定值会损坏。
 
 ### 2.2 沟道长度调制 (Channel-Length Modulation)
 
@@ -127,7 +127,7 @@ $$\boxed{I_D = -\frac{1}{R_D}V_{DS} + \frac{V_{DD}}{R_D}}$$
 $$V_{GS}=V_{GG}=\text{固定直流}, \quad I_D=\frac{K}{2}(V_{GG}-V_t)^2$$
 
 > [!WARNING] 问题：工艺偏差 (process variation)
-> $V_t$、$K$ 在芯片上随位置变化可达 ±20%，固定 $V_{GS}$ 会导致 $I_D$ 变化 40%+——这个放大器无法实用。
+> $V_t$、$K$ 随工艺与温度变化；固定 $V_{GS}$ 时，$I_D\propto(V_{GS}-V_t)^2$，若过驱电压小，微小阈值偏差也可能造成明显电流偏差。具体百分比须由工艺模型和工作点计算。
 
 ### 5.2 电流源偏置（工程实用）
 
@@ -135,7 +135,7 @@ $$V_{GS}=V_{GG}=\text{固定直流}, \quad I_D=\frac{K}{2}(V_{GG}-V_t)^2$$
 $$\frac{I_D}{I_{REF}} = \frac{(W/L)_2}{(W/L)_1} \quad\Longrightarrow\quad I_D \text{ 的比例只取决于镜像管几何比，与绝对 } V_t\text{、}K\text{ 基本解耦}$$
 
 > [!TIP] 电流镜偏置是模拟 IC 的"灵魂"
-> 几乎所有实用放大器都用电流镜偏置——它把 $I_D$ 与绝对工艺参数解耦，只依赖于**电流镜管的相对比例**（版图匹配好时精度高）。
+> 电流镜常用于集成放大器偏置。良好匹配时，镜像**电流比例**主要由尺寸比决定；参考电流的绝对值、器件失配与输出电压余量仍影响最终偏置。
 
 ### 5.3 分压偏置（source degeneration）
 

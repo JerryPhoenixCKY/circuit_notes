@@ -32,6 +32,8 @@ aliases:
 
 ## 一、三种基本拓扑
 
+以下电压比均假设**理想元件、稳态、连续导通模式 (CCM)**，忽略二极管压降、开关损耗和电感电阻；轻载进入 DCM 时不能直接套用。
+
 ### 1.1 Buck（降压）
 
 $$\boxed{V_{\text{out}} = D \cdot V_{\text{in}}, \quad 0 < D < 1}$$
@@ -63,9 +65,9 @@ $$\boxed{V_{\text{out}} = -\frac{D}{1-D} V_{\text{in}}}$$
 | 参数 | 公式 / 说明 |
 | :--- | :--- |
 | **占空比 $D$** | $D = T_{\text{on}} / T_{\text{sw}}$（开关周期 $T_{\text{sw}} = 1/f_{\text{sw}}$）|
-| **电感纹波电流 $\Delta i_L$** | $\Delta i_L = V_L \cdot D \cdot T_{\text{sw}} / L$ |
-| **输出纹波电压 $\Delta v_{\text{out}}$** | $\Delta v_{\text{out}} \approx \Delta i_L / (8 f_{\text{sw}} C_{\text{out}})$ |
-| **效率 $\eta$** | $\eta = P_{\text{out}} / P_{\text{in}} \approx 85$–$95\%$ |
+| **电感峰峰纹波电流 $\Delta i_L$** | 导通段 $\Delta i_L=V_{L,\text{on}}D T_{\text{sw}}/L$，关断段应按对应 $V_{L,\text{off}}$ 与 $(1-D)T_{\text{sw}}$ 另算 |
+| **输出纹波电压 $\Delta v_{\text{out}}$** | 对理想 Buck 的三角形电容电流，忽略 ESR 时 $\Delta v_{\text{out}}\approx\Delta i_L/(8f_{\text{sw}}C_{\text{out}})$；其他拓扑需另推导 |
+| **效率 $\eta$** | $\eta=P_{\text{out}}/P_{\text{in}}$；具体值随负载、电压、器件与开关频率变化 |
 | **开关频率 $f_{\text{sw}}$** | 典型 $100$ kHz – $2$ MHz（越高→电感越小但开关损耗越大）|
 
 ---
@@ -79,7 +81,7 @@ $$\boxed{V_{\text{out}} = -\frac{D}{1-D} V_{\text{in}}}$$
 
 ### 3.2 PFM（脉频调制）
 
-- 固定占空比，调整开关频率（轻载时降频提高效率）
+- 通过改变脉冲重复频率、跳脉冲等方式调节平均能量；并非所有 PFM 控制器都固定占空比，轻载效率取决于具体控制方式。
 
 ---
 

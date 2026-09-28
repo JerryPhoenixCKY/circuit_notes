@@ -71,14 +71,14 @@ $$|H(j\omega)|_{\text{dB}} = 20\log_{10}|H(j\omega)|$$
 | $-20$ dB/dec | $0.1\times$ per decade | 每 10 倍频率衰减 10 倍 |
 
 > [!IMPORTANT] $-3$ dB = 半功率点
-> $|H(j\omega)| = 1/\sqrt{2}$ 时，输出功率为最大值的 $1/2$，称为**截止频率 (cutoff frequency)** 或 **$-3$ dB 频率**。
+> 当输出取自相同的电阻负载、输入幅度固定且通带增益归一为 1 时，$|H(j\omega)|=1/\sqrt2$ 对应负载功率降为通带值的一半，因此称为 **$-3$ dB 频率**。
 
 ### 2.2 相频响应（Phase Response）
 
 $$\angle H(\omega) = \arg(H(j\omega))$$
 
-- 正相角（$+90^\circ$）：输出**超前**输入（电流超前电压）
-- 负相角（$-90^\circ$）：输出**滞后**输入（电压滞后电流）
+- 正相角（例如 $+90^\circ$）：该输出量相对所选输入量**超前**。
+- 负相角（例如 $-90^\circ$）：该输出量相对所选输入量**滞后**。
 
 > [!NOTE] 相位的重要性
 > 音频系统中相位失真会影响声音的空间感；数字通信中相位误差会导致符号间干扰 (ISI)。
@@ -111,7 +111,7 @@ Bode 图是频率响应的**对数坐标图**，包括：
 | :--- | :--- | :--- |
 | 低频增益 | $0$ dB | $20\log_{10}\omega/\omega_c$（上升，斜率 $+20$ dB/dec） |
 | 高频增益 | $-20\log_{10}\omega/\omega_c$（下降，斜率 $-20$ dB/dec） | $0$ dB |
-| 截止频率 $\omega_c$ | $\omega_c = 1/RC$（LP）| $\omega_c = R/L$（HP） |
+| 截止频率 $\omega_c$ | $\omega_c = 1/RC$（图示 RC LP）| $\omega_c = 1/RC$（图示 RC HP） |
 | $-3$ dB 频率 | $\omega_c$ | $\omega_c$ |
 
 ### 3.3 二阶系统的 Bode 图（谐振峰）
@@ -120,14 +120,12 @@ Bode 图是频率响应的**对数坐标图**，包括：
 
 > ![[bode_second_order.svg]]
 > **串联 RLC 带通响应**：$H(j\omega) = \dfrac{j\omega/(Q\omega_0)}{1+j\omega/(Q\omega_0)+(j\omega/\omega_0)^2}$
-> - $Q\uparrow$（阻尼小）$\Rightarrow$ 谐振峰更高
+> - 对图示**电阻输出的串联 RLC 带通**，$|H(j\omega_0)|=1$ 与 $Q$ 无关；$Q\uparrow$ 使通带更窄、曲线更尖。若改测电感/电容端电压，谐振点幅值才为 $Q$。
 > - $Q$ 的定义与 [[Resonance]] 一致：$Q=\omega_0 L/R = 1/(R)\sqrt{L/C}$
 
-> [!IMPORTANT] 品质因数 $Q$ 与谐振峰
-> - $Q>1/\sqrt{2}\approx 0.707$：幅频曲线出现**谐振峰 (resonance peak)**
-> - $Q$ 越大（电阻越小），峰越尖锐
-> - $Q\to\infty$（无阻尼）：峰无穷大（理论上无限增益）
-> - $Q=0.707$：最大平坦（Butterworth 响应），无过冲
+> [!IMPORTANT] 先确认测量的是哪一种输出
+> 对**二阶低通** $H(s)=\omega_0^2/[s^2+(\omega_0/Q)s+\omega_0^2]$，$Q>1/\sqrt2$ 时幅频曲线在有限频率处出现高于直流增益的峰；$Q=1/\sqrt2$ 是幅频最大平坦的 Butterworth 情形，**阶跃响应仍可能有过冲**。
+> 对上图**串联 RLC 电阻输出带通**，谐振点峰值恒为 $1$，$Q$ 主要决定带宽 $BW=\omega_0/Q$。不要把低通峰值结论直接套到它上面。
 
 ---
 
@@ -141,8 +139,8 @@ $$H(s) = K\cdot\frac{(s-z_1)(s-z_2)\cdots(s-z_m)}{(s-p_1)(s-p_2)\cdots(s-p_n)}, 
 
 | 术语 | 定义 | 频率响应影响 |
 | :--- | :--- | :--- |
-| **零点 (Zero)** $z_k$ | 分子为零时 $s=z_k$ | $|H|$ 在 $z_k$ 处衰减，$\angle H$ 产生 $-90^\circ$ 跳变 |
-| **极点 (Pole)** $p_k$ | 分母为零时 $s=p_k$ | $|H|$ 在 $p_k$ 处增益无穷大（无阻尼），$\angle H$ 产生 $+90^\circ$ 跳变 |
+| **零点 (Zero)** $z_k$ | 分子为零时 $s=z_k$ | 左半平面实零点通常使 Bode 幅频渐近斜率增加 $20$ dB/dec、相位趋向增加 $90^\circ$；只有零点落在 $j\omega$ 轴上时该实频率的幅值才可为零 |
+| **极点 (Pole)** $p_k$ | 分母为零时 $s=p_k$ | 左半平面实极点通常使幅频渐近斜率减少 $20$ dB/dec、相位趋向减少 $90^\circ$；稳定极点不会让实频率响应无穷大 |
 | **左半平面 (LHP)** | $\Re\{p_k\}<0$ | 系统稳定 |
 | **右半平面 (RHP)** | $\Re\{p_k\}>0$ | 系统不稳定 |
 
@@ -164,7 +162,7 @@ $$H(s) = K\cdot\frac{(s-z_1)(s-z_2)\cdots(s-z_m)}{(s-p_1)(s-p_2)\cdots(s-p_n)}, 
 
 | 因子 | 低频（$\omega\ll\omega_c$）| 高频（$\omega\gg\omega_c$）|
 | :--- | :--- | :--- |
-| **常数 $K$** | $K$（dB）| $K$（dB）|
+| **常数 $K$** | $20\log_{10}|K|$ dB | $20\log_{10}|K|$ dB |
 | **一阶极点 $(1+j\omega/\omega_c)^{-1}$** | $0$ dB | $-20$ dB/dec 斜率 |
 | **一阶零点 $(1+j\omega/\omega_c)$** | $0$ dB | $+20$ dB/dec 斜率 |
 | **二阶极点 $(1+j\omega/\omega_0+(j\omega/\omega_0)^2)^{-1}$** | $0$ dB | $-40$ dB/dec 斜率 |
@@ -193,7 +191,7 @@ $$H(s) = K\cdot\frac{(s-z_1)(s-z_2)\cdots(s-z_m)}{(s-p_1)(s-p_2)\cdots(s-p_n)}, 
 
 $$BW = \omega_2 - \omega_1$$
 
-其中 $\omega_1$、$\omega_2$ 是 $|H(j\omega)|$ 下降到最大值的 $1/\sqrt{2}$（$-3$ dB）处的频率。
+对于带通响应，$\omega_1$、$\omega_2$ 是峰值幅度下降到 $1/\sqrt2$ 处的两个频率。对低通响应，通常从直流到上侧 $-3$ dB 频率定义带宽；不要强行套用两个正频率边界。
 
 > [!IMPORTANT] 带宽 ↔ 时间常数的对偶
 > - 时域：$\tau = RC \Rightarrow f_c = 1/(2\pi RC)$（一阶 $-3$ dB 频率）
@@ -202,7 +200,9 @@ $$BW = \omega_2 - \omega_1$$
 
 ### 6.2 频率选择性与 $Q$
 
-$$Q = \frac{\omega_0}{BW}$$
+对本库所讨论的理想二阶 RLC **带通**，
+
+$$Q=\frac{\omega_0}{BW}.$$
 
 - **$Q$ 大** $\Rightarrow$ 带宽窄 $\Rightarrow$ 频率选择性好（谐振峰尖锐）
 - **$Q$ 小** $\Rightarrow$ 带宽宽 $\Rightarrow$ 频率选择性差（平坦响应）
@@ -219,7 +219,7 @@ $$Q = \frac{\omega_0}{BW}$$
 
 > [!EXAMPLE] 共源 MOSFET 放大器的高频响应
 > 密勒效应：$C_{gd}$ 在输入端被放大为 $C_M = C_{gd}(1+|A_v|)$
-> 高频截止：$\omega_H = 1/(R_{\text{in}}\,C_M)$
+> 若该电容是主导极点，可粗略估计 $\omega_H\approx1/(R_{\text{drive}}C_{\text{total,in}})$，其中 $R_{\text{drive}}$ 是从输入电容看见的等效驱动电阻；实际还须计入 $C_{gs}$、输出极点及负载。不能把 MOS 栅极的近似无穷大输入电阻直接代入。
 > 详见 [[Small Signal Circuit Representation]] 与 [[The MOSFET Amplifier]]。
 
 ---

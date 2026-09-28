@@ -39,7 +39,7 @@ aliases:
 ### 1.1 什么是谐振？
 
 > [!NOTE] 谐振的定义
-> **谐振 (Resonance)**：外部激励频率等于系统**固有频率**时，系统响应达到极值的现象。
+> **谐振 (Resonance)**：在特定频率附近，储能元件的电抗或电纳相互抵消，使某些端口响应显著增强。实际有损电路的响应峰值频率可能偏离无损固有频率，取决于电路拓扑和所测输出量。
 > - 机械系统：音叉被同频声波激发（声音共鸣）
 > - 电路系统：LC 电路在 $\omega_0 = 1/\sqrt{LC}$ 处阻抗最小/最大
 
@@ -146,12 +146,12 @@ $$|I_L| = |I_C| = Q\,|I_s| \quad \text{其中 } Q = \frac{R}{Z_0} = R\sqrt{\frac
 | :--- | :--- | :--- |
 | **基本定义** | $Q = \dfrac{\omega_0 L}{R} = \dfrac{1}{R}\sqrt{\dfrac{L}{C}}$ | $Q = R\sqrt{\dfrac{C}{L}} = \dfrac{R}{\omega_0 L} = \omega_0 RC$ |
 | **物理含义** | $Q = 2\pi \dfrac{\text{最大磁能}}{\text{每周期耗能}}$ | $Q = 2\pi \dfrac{\text{最大电能}}{\text{每周期耗能}}$ |
-| **谐振峰表达** | $I_{\max}/I(\omega\neq\omega_0)$ | $V_{\max}/V(\omega\neq\omega_0)$ |
+| **谐振点内部放大** | $|V_L/V_s|=|V_C/V_s|=Q$ | $|I_L/I_s|=|I_C/I_s|=Q$ |
 | **带宽关系** | $BW = \dfrac{\omega_0}{Q} = \dfrac{R}{L}$ | $BW = \dfrac{\omega_0}{Q} = \dfrac{1}{RC}$ |
 
 > [!IMPORTANT] $Q$ 的统一表达式
 > $$\boxed{Q = \frac{\omega_0 \times \text{最大储能}}{\text{平均耗散功率}}}$$
-> 两种定义在数学上等价（因为串联和并联的 $Q$ 定义互为倒数）。
+> 两种电路都用「储能与每周期损耗之比」定义 $Q$。若把**相同的数值** $R,L,C$ 分别代入串联式与并联式，所得两式在代数上互为倒数；但它们描述的是**不同拓扑**，不能当作同一电路的两种等价定义。
 
 ### 4.2 $Q$ 对频率选择性的影响
 
@@ -177,19 +177,18 @@ $$H(j\omega) = \frac{\tilde{V}_R}{\tilde{V}_s} = \frac{R}{R + j(\omega L - 1/\om
 
 | 频率区间 | $|H|$ 特性 | $\angle H$ 特性 |
 | :--- | :--- | :--- |
-| $\omega\ll\omega_0$ | $\approx 1/(\omega RC)$（$-20$ dB/dec）| $\approx +90^\circ$（电容主导）|
-| $\omega\approx\omega_0$ | 峰值（$Q>1$ 时）| 快速穿越 $0^\circ$ |
+| $\omega\ll\omega_0$ | $\approx \omega RC$（$+20$ dB/dec）| $\approx +90^\circ$（电容主导）|
+| $\omega=\omega_0$ | 最大值 $1$ | $0^\circ$ |
 | $\omega\gg\omega_0$ | $\approx R/(\omega L)$（$-20$ dB/dec）| $\approx -90^\circ$（电感主导）|
 
-### 5.2 $Q$ 对谐振峰的影响
+### 5.2 输出取样位置与 $Q$
 
-$$|H(\omega_0)| = \frac{1}{R}\sqrt{\frac{L}{C}} = Q$$
+对上节的**电阻输出**，$|V_R/V_s|_{\omega_0}=1$；改为测量**电感或电容两端电压**时，谐振点有
 
-> [!IMPORTANT] 谐振峰增益 = $Q$
-> - $Q=1$：峰值 $|H|=1$（无过冲）
-> - $Q=2$：峰值 $|H|=2$（2 倍增益）
-> - $Q=10$：峰值 $|H|=10$（10 倍增益！）
-> - $Q\to\infty$：理论上增益无穷大（无阻尼理想 LC 振荡）
+$$\left|\frac{V_L}{V_s}\right|_{\omega_0}=\left|\frac{V_C}{V_s}\right|_{\omega_0}=\frac{\omega_0L}{R}=Q.$$
+
+> [!IMPORTANT] 不要混用两个输出
+> 串联 RLC 的电阻电压是带通输出，谐振点增益恒为 $1$；单独测量 $L$ 或 $C$ 时，谐振点的电压放大倍数才是 $Q$。当 $Q$ 很大，理想模型给出很高的内部电压，实际值受绕组电阻、ESR、负载和器件额定值限制。$V_L$、$V_C$ 各自的**全频峰值位置**一般不必恰在 $\omega_0$。
 
 > [!WARNING] 实际 $Q$ 受限因素
 > 电感绕组电阻 $R_L$、电容 ESR（等效串联电阻）、趋肤效应损耗限制了实际 $Q$：

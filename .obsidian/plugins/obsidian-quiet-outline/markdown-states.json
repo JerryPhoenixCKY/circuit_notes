@@ -70,15 +70,15 @@
     ],
     "cursor": {
       "from": {
-        "line": 46,
-        "ch": 35
+        "line": 16,
+        "ch": 32
       },
       "to": {
-        "line": 46,
-        "ch": 35
+        "line": 16,
+        "ch": 32
       }
     },
-    "scroll": 118.81968992248062
+    "scroll": 98.1747660187185
   },
   "circuitry/Kirchhoff's Laws.md": {
     "expandedKeys": [
@@ -154,15 +154,15 @@
     "expandedKeys": [],
     "cursor": {
       "from": {
-        "line": 35,
-        "ch": 29
+        "line": 119,
+        "ch": 0
       },
       "to": {
-        "line": 35,
-        "ch": 29
+        "line": 119,
+        "ch": 0
       }
     },
-    "scroll": 29.046450482033304
+    "scroll": 128.0787474810107
   },
   "circuitry/Thevenin's Theorem.md": {
     "cursor": {
@@ -175,7 +175,7 @@
         "ch": 28
       }
     },
-    "scroll": 96.60135992747054
+    "scroll": 125.24967447916667
   },
   "circuitry/Complex Numbers and Euler's Formula.md": {
     "cursor": {
@@ -474,7 +474,7 @@
         "ch": 0
       }
     },
-    "scroll": 284.11681482408915,
+    "scroll": 282.91648929510455,
     "expandedKeys": [
       "item-1-0"
     ]

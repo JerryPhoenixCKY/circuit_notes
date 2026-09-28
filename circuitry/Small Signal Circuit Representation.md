@@ -9,6 +9,7 @@ aliases:
   - Small Signal Circuit Representation
   - 小信号电路表示
   - 小信号模型
+  - Small-Signal Model
   - 小信号增益
   - Small Signal Gain
   - Input Resistance

@@ -65,5 +65,5 @@ aliases:
 - [[Ideal Two-Terminal Elements]] —— 理想元件的极限模型
 - [[Practical Two-Terminal Elements]] —— 实际元件（含内阻电池、AVD 约定）
 - [[Ohm's Law]] —— 欧姆定律详述
-- [[Capacitor]] / [[Inductor]] —— 储能元件专题（待建）
+- [[Capacitor]] / [[Inductor]] —— 已建的储能元件专题
 - [[cs6.002x.1]] —— 电路原理知识树（主笔记）

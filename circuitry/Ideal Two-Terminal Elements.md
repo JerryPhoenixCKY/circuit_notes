@@ -19,8 +19,6 @@ aliases:
   - Ideal Resistor
   - 理想电流源
   - Ideal Current Source
-  - 元件定律
-  - Element Laws
 ---
 
 # Ideal Two-Terminal Elements（理想二端元件）

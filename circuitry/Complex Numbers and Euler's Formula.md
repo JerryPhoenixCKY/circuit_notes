@@ -109,11 +109,11 @@ graph LR
 
 > [!NOTE] 定义
 > 复数的**模** (Magnitude/Modulus) 是它到原点的距离，**相角** (Phase/Argument) 是它与实轴正方向的夹角：
-> $$r = |z| = \sqrt{x^2 + y^2}, \qquad \theta = \arg z = \arctan\frac{y}{x}$$
+> $$r = |z| = \sqrt{x^2 + y^2}, \qquad \theta = \arg z = \operatorname{atan2}(y,x)\quad(z\ne0)$$
 
 - **模**：对应正弦量的**幅值**。
 - **相角**：对应正弦量的**初相位**。
-- 注意象限判断：$\theta$ 需根据 $(x, y)$ 所在的**象限**确定，不能只看 $\arctan\frac{y}{x}$（例如 $(-1, -1)$ 与 $(1, 1)$ 的 $\arctan$ 相同，但相角相差 $\pi$）。
+- $\operatorname{atan2}(y,x)$ 会按 $(x,y)$ 的象限给出主值；$z=0$ 时相角未定义。只用 $\arctan(y/x)$ 会丢失象限信息，且 $x=0$ 时无法计算。
 
 **共轭复数** (Conjugate)：$\bar{z} = x - jy$，模不变、相角取反。利用 $z \cdot \bar{z} = |z|^2$ 可进行复数除法。
 

@@ -10,7 +10,6 @@ aliases:
   - Inductor
   - Inductance
   - 磁通链
-  - 绕组电感
 ---
 
 # Inductor（电感）

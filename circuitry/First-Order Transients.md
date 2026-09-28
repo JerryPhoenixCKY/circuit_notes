@@ -185,24 +185,35 @@ RL 电路与 RC 电路**完全对偶**：把 $v_C \leftrightarrow i_L$，$C \lef
 ## 七、传播延迟与数字抽象 (Propagation Delay)
 
 > [!IMPORTANT] 从模拟到数字的桥梁
-> [[The MOSFET Switch|MOSFET 开关]] 中用 **SR model**（导通电阻 $R_{ON}$）建立了数字门的静态模型。但真实门在翻转时，输出端的**负载电容 $C_L$**（下级输入电容 + 寄生电容）需要通过 $R_{ON}$ 充放电——这正是**一阶 RC 暂态**！
+> [[The MOSFET Switch|MOSFET 开关]] 中用 **SR model**（导通电阻 $R_{ON}$）建立了数字门的静态模型。但真实门在翻转时，输出端的**负载电容 $C_L$**（下级输入电容 + 寄生电容）需要经上拉或下拉路径充放电——这正是**一阶 RC 暂态**！两条路径的等效电阻可能不同。
 
 ### 7.1 $R_{ON}C_L$ 延迟模型
 
-$$\tau_{gate} = R_{ON}\,C_L$$
+$$\tau_{gate} = R_{eq}\,C_L$$
 
-- 输出从 0 翻到 $V_{DD}$（或反向）：$v_{out}(t) = V_{DD}(1 - e^{-t/\tau_{gate}})$
-- 达到 50% 点（逻辑翻转阈值）的时间：
-$$t_{pd} \approx 0.69\, R_{ON}\, C_L$$
+- $R_{eq}$ 是**该次翻转路径**对 $C_L$ 的等效电阻；理想 CMOS 门可分别近似取上拉或下拉管的 $R_{ON}$。
+- 输出从 0 翻到 $V_{DD}$ 时：$v_{out}(t) = V_{DD}(1 - e^{-t/\tau_{gate}})$。
+- 对理想阶跃输入，输出达到终值 50% 的时间：
+$$t_{50\%} \approx 0.69\, R_{eq}\, C_L.$$
 
 > [!NOTE] 传播延迟 (Propagation Delay) 的定义
-> 传播延迟 $t_{pd}$ 是从输入翻转到输出越过判定阈值的时间。它是数字电路**速度**的核心指标——时钟频率 $f_{clk}$ 受限于最慢路径的 $t_{pd}$ 总和。
+> 传播延迟 $t_{pd}$ 是从输入的规定参考电平到输出的规定参考电平的时间差；常见定义用两者的 50% 电平。它是数字电路**速度**的核心指标——时钟频率 $f_{clk}$ 受限于最慢路径的延迟总和及建立时间等约束。
 
 ### 7.2 与 [[Static Discipline|静态纪律]] 的关系
 
-$$V_{out}(t_{pd}) = V_{IH} \quad\text{或}\quad V_{IL}$$
+**50% 传播延迟**与**保证输出有效所需的时间**是两个不同指标。上面的 $0.69\tau$ 只适用于单个指数、初终值分别为 0 与 $V_{DD}$、以 50% 电平计时的近似。若要保证后级看到合法 HIGH/LOW，应使用输出保证阈值 $V_{OH}$、$V_{OL}$，而 $V_{IH}$、$V_{IL}$ 是**后级输入**判定阈值；详见 [[Static Discipline]]。
 
-传播延迟就是 RC 响应到达 [[Static Discipline|静态纪律]] 阈值的时间——如果 $R_{ON}C_L$ 太大，翻转来不及在时钟周期内完成，电路出错。
+以电阻上拉、nMOS 下拉的反相器为例，输出电容为 $C_L$。输入从 HIGH 变 LOW 后，下拉管关断，输出从 $V_0=0$ 经 $R_L$ 向 $V_S$ 充电：
+
+$$v_o(t)=V_S(1-e^{-t/(R_LC_L)}),\qquad
+t_r=-R_LC_L\ln\!\left(1-\frac{V_{OH}}{V_S}\right).$$
+
+输入从 LOW 变 HIGH 后，下拉管导通；输出从 $V_0\approx V_S$ 向 $V_\infty=V_S R_{ON}/(R_L+R_{ON})$ 放电。令 $R_{eq}=R_L\parallel R_{ON}$，则
+
+$$v_o(t)=V_\infty+(V_0-V_\infty)e^{-t/(R_{eq}C_L)},\qquad
+t_f=R_{eq}C_L\ln\!\frac{V_0-V_\infty}{V_{OL}-V_\infty}.$$
+
+上述 $t_r,t_f$ 分别以到达 $V_{OH}$、$V_{OL}$ 为终点，要求 $0<V_{OH}<V_S$ 且 $V_\infty<V_{OL}<V_0$。例如 $V_S=5\,\mathrm V$、$R_L=1\,\mathrm{k}\Omega$、$R_{ON}=10\,\Omega$、$C_L=0.1\,\mathrm{pF}$、$V_{OH}=4\,\mathrm V$、$V_{OL}=1\,\mathrm V$，得 $t_r\approx161\,\mathrm{ps}$、$t_f\approx1.6\,\mathrm{ps}$：上拉慢、下拉快，与两条充放电路径的电阻差一致。来源：MIT 6.002 [[93f7f25de3c5baf4c514b8add531fa3f_6002_l13.pdf#page=3|Lecture 13，页 3–12]]。
 
 ```mermaid
 graph TD
@@ -235,11 +246,12 @@ graph TD
 > $$i_L(5\,\text{ms}) = 2\,e^{-1} = 0.736\,\text{A}$$
 > 电阻两端电压 $v_R = i_L \times R = 7.36\,\text{V}$。
 
-> [!EXAMPLE] 传播延迟估算
-> $R_{ON} = 1\,\text{k}\Omega$，$C_L = 10\,\text{pF}$，$V_{DD} = 5\,\text{V}$，阈值 $V_{IH} = 3.5\,\text{V}$，求 $t_{pd}$。
+> [!EXAMPLE] 输出跨越后级输入 HIGH 阈值的时间
+> 假设输出在 $t=0$ 从 $0$ V 开始指数上升，$R_{ON} = 1\,\text{k}\Omega$，$C_L = 10\,\text{pF}$，$V_{DD} = 5\,\text{V}$；后级输入阈值 $V_{IH} = 3.5\,\text{V}$。求输出首次达到该阈值的时间 $t_{IH}$。
 >
 > $\tau = R_{ON}C_L = 1\,\text{k}\Omega \times 10\,\text{pF} = 10\,\text{ns}$
-> $$t_{pd} = -\tau\ln\!\left(1 - \frac{V_{IH}}{V_{DD}}\right) = -10\ln(1 - 0.7) = -10\ln(0.3) \approx 12\,\text{ns}$$
+> $$t_{IH} = -\tau\ln\!\left(1 - \frac{V_{IH}}{V_{DD}}\right) = -10\ln(1 - 0.7) = -10\ln(0.3) \approx 12\,\text{ns}.$$
+> 此值是后级可判为 HIGH 的到达时间；若按输出 50% 电平定义本例的传播延迟，则为 $t_{50\%}=\tau\ln2\approx6.93\,\text{ns}$（还需按规定计入输入参考时刻）。
 
 ---
 

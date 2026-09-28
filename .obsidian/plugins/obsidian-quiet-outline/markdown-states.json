@@ -78,7 +78,7 @@
         "ch": 111
       }
     },
-    "scroll": 98.1747660187185
+    "scroll": 99.16589147286821
   },
   "circuitry/Kirchhoff's Laws.md": {
     "expandedKeys": [
@@ -566,15 +566,15 @@
     "scroll": 0
   },
   "circuitry/Operational Amplifier.md": {
-    "scroll": 35.412434895833336,
+    "scroll": 68.43695746527777,
     "cursor": {
       "from": {
-        "line": 45,
-        "ch": 112
+        "line": 91,
+        "ch": 0
       },
       "to": {
-        "line": 45,
-        "ch": 112
+        "line": 91,
+        "ch": 0
       }
     }
   }

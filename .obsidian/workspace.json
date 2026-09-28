@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "circuitry/cs6.002x.1.md",
+                "file": "circuitry/Operational Amplifier.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "cs6.002x.1"
+              "title": "Operational Amplifier"
             }
           }
         ]
@@ -127,7 +127,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "circuitry/cs6.002x.1.md",
+                "file": "circuitry/Operational Amplifier.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -245,10 +245,13 @@
   },
   "active": "d28f46c75907a0a7",
   "lastOpenFiles": [
+    "circuitry/assets/opamp_rc_sallen_key_schematics.svg",
+    "circuitry/assets/opamp_four_basic_schematics.svg",
+    "circuitry/assets/opamp_generic_symbol.svg",
+    "circuitry/cs6.002x.1.md",
     "circuitry/Operational Amplifier.md",
     "L4 Op-amp 20260928.pdf.md",
     "circuitry/Amplifiers and Feedback.md",
-    "circuitry/cs6.002x.1.md",
     "circuitry/Circuit Analysis Methods in Practice.md",
     "ECE2001/L4 Op-amp 20260928.pdf",
     "circuitry/assets/opamp_resistor_weighted_dac.svg",
@@ -275,8 +278,6 @@
     "circuitry/assets/l3_source_modeling.jpeg",
     "circuitry/assets/l3_max_power_curve.jpeg",
     "circuitry/assets/l3_derivation_norton.jpeg",
-    "circuitry/assets/l3_thevenin_direct.png",
-    "circuitry/assets/l3_derivation_thevenin.jpeg",
     "circuitry/Superposition Theorem.md",
     "circuitry/Small Signal Analysis.md",
     "circuitry/Analysis of Nonlinear Circuits.md",
@@ -290,7 +291,6 @@
     "circuitry/Inductor.md",
     "circuitry/The Circuit Abstraction.md",
     "circuitry/Practical Two-Terminal Elements.md",
-    "circuitry/DC-DC Converter.md",
     "未命名.canvas"
   ]
 }

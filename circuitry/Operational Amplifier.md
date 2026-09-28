@@ -29,9 +29,11 @@ aliases:
 
 ## 一、运放符号与端口
 
-![[opamp_symbol.svg]]
+![[opamp_generic_symbol.svg]]
 
 > **运放电路符号**（5 个功能端口）：同相输入 $v_+$、反相输入 $v_-$、输出 $v_o$、正供电 $V_{S+}$、负供电 $V_{S-}$。供电端在简化图中常省略，实际电路必须连接。
+
+图中是通用电路符号，不代表某一型号的封装脚位；实际供电脚和允许的输入、输出范围须按所选器件的数据手册确定。
 
 | 端口 | 符号 | 功能 |
 | :--- | :--- | :--- |
@@ -68,8 +70,6 @@ aliases:
 
 ### 2.2 开环传输特性
 
-$$v_o=A(v_+-v_-)\qquad\text{（开环、未饱和、输出无负载的简化式）}$$
-
 - 若闭环使 $v_o$ 保持有限且在线性区，$A\to\infty$ 才推出 $v_+-v_-\to0$。
 - **饱和**（voltage saturation）：当线性式要求的电压超出输出摆幅范围，实际输出被限制在 $V_{OL}$ 与 $V_{OH}$ 之间。简化模型可取 $V_{OL}=V_{S-}, V_{OH}=V_{S+}$；真实限幅由器件、供电和负载决定。
 
@@ -89,9 +89,9 @@ $$\frac{v_s-v_n}{10\,\mathrm{k}\Omega}=\frac{v_n-v_o}{20\,\mathrm{k}\Omega}+\fra
 
 ## 三、七种基本运放电路
 
-![[opamp_basic_circuits.svg]]
+![[opamp_four_basic_schematics.svg]]
 
-> **四种基本运放电路**：同相放大、反相放大、电压跟随器、差分放大器
+> **四种基本运放电路**：同相放大、反相放大、电压跟随器、差分放大器。图中电源引脚为便于读图而省略；所列增益关系以理想运放、负反馈稳定且输出未饱和为前提。交叉处的跨线弧表示两根导线不相连，实心圆点表示电气连接。
 
 ### 3.1 同相放大器 (Non-Inverting Amplifier)
 
@@ -184,9 +184,9 @@ $$\boxed{v_o=\left(1+\frac{R_f}{R_{in}}\right)v_b-\frac{R_f}{R_{in}}v_a.}$$
 
 ## 四、运放 RC 电路（积分器 / 微分器 / Sallen-Key）
 
-![[opamp_active_filter.svg]]
+![[opamp_rc_sallen_key_schematics.svg]]
 
-> **运放 RC 电路**：积分器（C 反馈）/ 微分器（C 输入）/ Sallen-Key LP / Sallen-Key HP
+> **运放 RC 电路**：左上为电容反馈的理想积分器，右上为电容输入的理想微分器；下排为单位增益（$K=1$）的 Sallen–Key 低通与高通。实心圆点表示电气连接；各图省略了运放供电脚，电压均以图中地为参考。
 
 ### 4.1 积分器（Op-Amp Integrator）
 
@@ -217,6 +217,13 @@ $$\boxed{H(s) = \frac{v_{\text{out}}}{v_{\text{in}}}(s) = -sRC}$$
 $$\boxed{H_{\text{LP}}(s)=\frac{K\omega_0^2}{s^2+s(\omega_0/Q)+\omega_0^2},\qquad \omega_0=\frac{1}{\sqrt{R_1R_2C_1C_2}}.}$$
 
 其中 $K$ 为通带增益，$Q$ 由电容接法、阻值比和 $K$ 共同决定；必须先固定具体电路拓扑及元件标号再写 $Q$ 的元件公式。原先笔记中的 $Q$ 表达式量纲不为 1，不能使用。
+
+对于上图所画的**单位增益**版本，低通的 $C_1$ 从两只串联电阻的中点接到输出，$C_2$ 从同相输入节点接地；高通的 $R_1$ 从两只串联电容的中点接到输出，$R_2$ 从同相输入节点接地。按图中标号，理想运放模型给出
+
+$$H_{\mathrm{LP}}(s)=\frac{1}{1+sC_2(R_1+R_2)+s^2R_1R_2C_1C_2},\qquad
+H_{\mathrm{HP}}(s)=\frac{s^2R_1R_2C_1C_2}{1+sR_1(C_1+C_2)+s^2R_1R_2C_1C_2}.$$
+
+当 $R_1=R_2=R$ 且 $C_1=C_2=C$ 时，两者分母都化为 $1+2sRC+s^2R^2C^2$，因此 $\omega_0=1/(RC)$、$Q=1/2$；不能把旧图中的 $1+sRC+s^2R^2C^2$ 当作等值元件、单位增益电路的结果。图中的积分器、微分器接法参照 [Texas Instruments, *Handbook of Operational Amplifier Applications*, Rev. B, Fig. 21–22](https://www.ti.com/lit/an/sboa092b/sboa092b.pdf)；Sallen–Key 拓扑参照 [Analog Devices, *Phase Relations in Active Filters*, Fig. 10–11](https://www.analog.com/en/resources/analog-dialogue/articles/phase-relations-in-active-filters.html)，元件标号与公式按本图定义。
 
 > [!NOTE] Sallen-Key 的优势
 > - **有源滤波**（比无源 RLC 少电感）：易于集成、阻抗匹配好

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="610" height="430" viewBox="20 20 610 430" role="img" aria-label="Non-inverting amplifier">
+  <title>Non-inverting amplifier</title>
+  <g transform="translate(20 20)">
+    <rect x="0" y="0" width="610" height="430" rx="14" fill="white" stroke="#cbd5e1" stroke-width="1.5" />
+    <text x="305.0" y="42" text-anchor="middle" font-size="23" font-weight="bold" fill="#2563eb" font-family="Arial, DejaVu Sans, sans-serif">同相 / Non-inverting</text>
+    <polygon points="300,135 450,210 300,285" fill="#eff6ff" stroke="#2563eb" stroke-width="3" stroke-linejoin="round" />
+    <text x="316" y="183" text-anchor="start" font-size="25" font-weight="bold" fill="#2563eb" font-family="Arial, DejaVu Sans, sans-serif">−</text>
+    <text x="316" y="253" text-anchor="start" font-size="25" font-weight="bold" fill="#2563eb" font-family="Arial, DejaVu Sans, sans-serif">+</text>
+    <line x1="70" y1="245" x2="300" y2="245" stroke="#263445" stroke-width="2.6" stroke-linecap="round" />
+    <circle cx="70" cy="245" r="4.5" fill="white" stroke="#263445" stroke-width="2" />
+    <text x="70" y="230" text-anchor="start" font-size="18" font-weight="normal" fill="#263445" font-family="Arial, DejaVu Sans, sans-serif">v_in</text>
+    <line x1="255" y1="175" x2="300" y2="175" stroke="#263445" stroke-width="2.6" stroke-linecap="round" />
+    <polyline points="255,175 255,105 350,105" fill="none" stroke="#263445" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+    <line x1="350" y1="105" x2="363" y2="105" stroke="#263445" stroke-width="2.6" stroke-linecap="round" />
+    <rect x="363" y="95" width="54" height="20" fill="white" stroke="#263445" stroke-width="2.4" />
+    <line x1="417" y1="105" x2="430" y2="105" stroke="#263445" stroke-width="2.6" stroke-linecap="round" />
+    <text x="390.0" y="88" text-anchor="middle" font-size="17" font-weight="normal" fill="#263445" font-family="Arial, DejaVu Sans, sans-serif">R_f</text>
+    <polyline points="430,105 500,105 500,210" fill="none" stroke="#263445" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+    <line x1="255" y1="175" x2="255" y2="235" stroke="#263445" stroke-width="2.6" stroke-linecap="round" />
+    <path d="M 255,235 C 269,235 269,255 255,255" fill="none" stroke="white" stroke-width="9" stroke-linecap="round" />
+    <path d="M 255,235 C 269,235 269,255 255,255" fill="none" stroke="#263445" stroke-width="2.6" stroke-linecap="round" />
+    <line x1="255" y1="255" x2="255" y2="265" stroke="#263445" stroke-width="2.6" stroke-linecap="round" />
+    <line x1="255" y1="265" x2="255" y2="278" stroke="#263445" stroke-width="2.6" stroke-linecap="round" />
+    <rect x="245" y="278" width="20" height="24" fill="white" stroke="#263445" stroke-width="2.4" />
+    <line x1="255" y1="302" x2="255" y2="315" stroke="#263445" stroke-width="2.6" stroke-linecap="round" />
+    <text x="233" y="296.0" text-anchor="end" font-size="17" font-weight="normal" fill="#263445" font-family="Arial, DejaVu Sans, sans-serif">R_1</text>
+    <line x1="255" y1="315" x2="255" y2="338" stroke="#263445" stroke-width="2.6" stroke-linecap="round" />
+    <line x1="255" y1="338" x2="255" y2="350" stroke="#263445" stroke-width="2.6" stroke-linecap="round" />
+    <line x1="238" y1="350" x2="272" y2="350" stroke="#263445" stroke-width="2.6" stroke-linecap="round" />
+    <line x1="244" y1="356" x2="266" y2="356" stroke="#263445" stroke-width="2.6" stroke-linecap="round" />
+    <line x1="250" y1="362" x2="260" y2="362" stroke="#263445" stroke-width="2.6" stroke-linecap="round" />
+    <line x1="450" y1="210" x2="545" y2="210" stroke="#263445" stroke-width="2.6" stroke-linecap="round" />
+    <circle cx="255" cy="175" r="4" fill="#263445" />
+    <circle cx="500" cy="210" r="4" fill="#263445" />
+    <circle cx="545" cy="210" r="4.5" fill="white" stroke="#263445" stroke-width="2" />
+    <text x="550" y="217" text-anchor="start" font-size="18" font-weight="normal" fill="#263445" font-family="Arial, DejaVu Sans, sans-serif">v_out</text>
+    <text x="310" y="399" text-anchor="middle" font-size="19" font-weight="normal" fill="#263445" font-family="Arial, DejaVu Sans, sans-serif">v_out / v_in = 1 + R_f / R_1</text>
+  </g>
+</svg>

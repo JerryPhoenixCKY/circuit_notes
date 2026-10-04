@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="470" viewBox="740 20 700 470" role="img" aria-label="Op amp differentiator">
+  <title>Op amp differentiator</title>
+  <g transform="translate(740 20)">
+    <rect x="0" y="0" width="700" height="470" rx="14" fill="white" stroke="#cbd5e1" stroke-width="1.5" />
+    <text x="350.0" y="42" text-anchor="middle" font-size="23" font-weight="bold" fill="#2563eb" font-family="Arial, DejaVu Sans, sans-serif">微分器 / Differentiator</text>
+    <polygon points="385,150 535,225 385,300" fill="#eff6ff" stroke="#2563eb" stroke-width="3" stroke-linejoin="round" />
+    <text x="401" y="198" text-anchor="start" font-size="25" font-weight="bold" fill="#2563eb" font-family="Arial, DejaVu Sans, sans-serif">−</text>
+    <text x="401" y="268" text-anchor="start" font-size="25" font-weight="bold" fill="#2563eb" font-family="Arial, DejaVu Sans, sans-serif">+</text>
+    <circle cx="45" cy="190" r="4.5" fill="white" stroke="#263445" stroke-width="2" />
+    <text x="45" y="173" text-anchor="start" font-size="18" font-weight="normal" fill="#263445" font-family="Arial, DejaVu Sans, sans-serif">v_in</text>
+    <line x1="45" y1="190" x2="145" y2="190" stroke="#263445" stroke-width="2.6" stroke-linecap="round" />
+    <line x1="145" y1="190" x2="176.0" y2="190" stroke="#263445" stroke-width="2.6" stroke-linecap="round" />
+    <line x1="194.0" y1="190" x2="225" y2="190" stroke="#263445" stroke-width="2.6" stroke-linecap="round" />
+    <line x1="176.0" y1="174" x2="176.0" y2="206" stroke="#263445" stroke-width="3" stroke-linecap="round" />
+    <line x1="194.0" y1="174" x2="194.0" y2="206" stroke="#263445" stroke-width="3" stroke-linecap="round" />
+    <text x="185.0" y="166" text-anchor="middle" font-size="17" font-weight="normal" fill="#263445" font-family="Arial, DejaVu Sans, sans-serif">C</text>
+    <line x1="225" y1="190" x2="385" y2="190" stroke="#263445" stroke-width="2.6" stroke-linecap="round" />
+    <polyline points="335,190 335,100 430,100" fill="none" stroke="#263445" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+    <line x1="430" y1="100" x2="443" y2="100" stroke="#263445" stroke-width="2.6" stroke-linecap="round" />
+    <rect x="443" y="90" width="54" height="20" fill="white" stroke="#263445" stroke-width="2.4" />
+    <line x1="497" y1="100" x2="510" y2="100" stroke="#263445" stroke-width="2.6" stroke-linecap="round" />
+    <text x="470.0" y="83" text-anchor="middle" font-size="17" font-weight="normal" fill="#263445" font-family="Arial, DejaVu Sans, sans-serif">R</text>
+    <polyline points="510,100 590,100 590,225" fill="none" stroke="#263445" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+    <polyline points="385,260 360,260 360,323" fill="none" stroke="#263445" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+    <line x1="360" y1="323" x2="360" y2="335" stroke="#263445" stroke-width="2.6" stroke-linecap="round" />
+    <line x1="343" y1="335" x2="377" y2="335" stroke="#263445" stroke-width="2.6" stroke-linecap="round" />
+    <line x1="349" y1="341" x2="371" y2="341" stroke="#263445" stroke-width="2.6" stroke-linecap="round" />
+    <line x1="355" y1="347" x2="365" y2="347" stroke="#263445" stroke-width="2.6" stroke-linecap="round" />
+    <line x1="535" y1="225" x2="640" y2="225" stroke="#263445" stroke-width="2.6" stroke-linecap="round" />
+    <circle cx="335" cy="190" r="4" fill="#263445" />
+    <circle cx="590" cy="225" r="4" fill="#263445" />
+    <circle cx="640" cy="225" r="4.5" fill="white" stroke="#263445" stroke-width="2" />
+    <text x="645" y="232" text-anchor="start" font-size="18" font-weight="normal" fill="#263445" font-family="Arial, DejaVu Sans, sans-serif">v_out</text>
+    <text x="350" y="401" text-anchor="middle" font-size="20" font-weight="normal" fill="#263445" font-family="Arial, DejaVu Sans, sans-serif">H(s) = −sRC</text>
+    <text x="350" y="435" text-anchor="middle" font-size="15" font-weight="normal" fill="#64748b" font-family="Arial, DejaVu Sans, sans-serif">Ideal op amp; linear negative feedback</text>
+  </g>
+</svg>

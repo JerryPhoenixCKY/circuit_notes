@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="535" viewBox="0 0 920 535" role="img" aria-label="Three-input inverting summing amplifier with labeled current paths, feedback resistor, and grounded noninverting input">
+  <title>反相加法器 / Inverting summing amplifier</title>
+  <rect width="920" height="535" fill="white"/>
+  <rect x="12" y="12" width="896" height="511" rx="14" fill="white" stroke="#cbd5e1" stroke-width="1.5"/>
+  <g font-family="Arial, DejaVu Sans, sans-serif" fill="#263445">
+    <text x="460" y="53" text-anchor="middle" font-size="27" font-weight="bold" fill="#2563eb">反相加法器 / Inverting summing amplifier</text>
+
+    <!-- Feedback and output path. -->
+    <g fill="none" stroke="#263445" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M430 320 V110 H540 M620 110 H720 V355"/>
+      <path d="M650 355 H798"/>
+    </g>
+    <rect x="540" y="100" width="80" height="20" fill="white" stroke="#263445" stroke-width="2.6"/>
+    <text x="580" y="91" text-anchor="middle" font-size="20">R_f</text>
+    <circle cx="720" cy="355" r="4.5"/>
+    <circle cx="798" cy="355" r="5" fill="white" stroke="#263445" stroke-width="2.2"/>
+    <text x="809" y="362" font-size="22">v_out</text>
+
+    <!-- Three separately weighted inputs meet at node N. -->
+    <g fill="none" stroke="#263445" stroke-width="2.8" stroke-linecap="round">
+      <path d="M70 160 H170 M230 160 H430"/>
+      <path d="M70 225 H170 M230 225 H430"/>
+      <path d="M70 290 H170 M230 290 H430"/>
+      <path d="M430 320 H490"/>
+    </g>
+    <g fill="white" stroke="#263445" stroke-width="2.6">
+      <rect x="170" y="150" width="60" height="20"/>
+      <rect x="170" y="215" width="60" height="20"/>
+      <rect x="170" y="280" width="60" height="20"/>
+    </g>
+    <g font-size="20" text-anchor="middle">
+      <text x="200" y="141">R_1</text>
+      <text x="200" y="206">R_2</text>
+      <text x="200" y="271">R_3</text>
+    </g>
+    <g fill="white" stroke="#263445" stroke-width="2.2">
+      <circle cx="70" cy="160" r="5"/>
+      <circle cx="70" cy="225" r="5"/>
+      <circle cx="70" cy="290" r="5"/>
+    </g>
+    <g font-size="20">
+      <text x="65" y="145">v_1</text>
+      <text x="65" y="210">v_2</text>
+      <text x="65" y="275">v_3</text>
+    </g>
+    <g fill="#263445">
+      <circle cx="430" cy="160" r="4.5"/>
+      <circle cx="430" cy="225" r="4.5"/>
+      <circle cx="430" cy="290" r="4.5"/>
+      <circle cx="430" cy="320" r="4.5"/>
+    </g>
+    <text x="443" y="307" font-size="20">N</text>
+
+    <!-- Op-amp; supply pins are intentionally omitted in this signal schematic. -->
+    <polygon points="490,280 650,355 490,430" fill="#eff6ff" stroke="#2563eb" stroke-width="3.3" stroke-linejoin="round"/>
+    <text x="506" y="329" font-size="29" font-weight="bold" fill="#2563eb">−</text>
+    <text x="506" y="398" font-size="29" font-weight="bold" fill="#2563eb">+</text>
+    <path d="M490 390 H464 V450" fill="none" stroke="#263445" stroke-width="2.8" stroke-linejoin="round"/>
+    <g fill="none" stroke="#263445" stroke-width="2.8" stroke-linecap="round">
+      <path d="M447 450 H481 M453 457 H475 M459 464 H469"/>
+    </g>
+
+    <text x="460" y="495" text-anchor="middle" font-size="21">v_out = −R_f (v_1/R_1 + v_2/R_2 + v_3/R_3)</text>
+    <text x="460" y="516" text-anchor="middle" font-size="14" fill="#64748b">Ideal op amp · stable negative feedback · output within linear swing</text>
+  </g>
+</svg>

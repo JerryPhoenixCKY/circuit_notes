@@ -78,7 +78,7 @@
         "ch": 111
       }
     },
-    "scroll": 99.16589147286821
+    "scroll": 120.9712847838958
   },
   "circuitry/Kirchhoff's Laws.md": {
     "expandedKeys": [
@@ -552,30 +552,56 @@
   "circuitry/Hardware Communication Interfaces.md": {
     "cursor": {
       "from": {
-        "line": 432,
-        "ch": 0
+        "line": 383,
+        "ch": 23
       },
       "to": {
-        "line": 432,
-        "ch": 0
+        "line": 383,
+        "ch": 23
       }
     },
-    "scroll": 599.2845294809729
+    "scroll": 368.74807578448787
   },
   "L4 Op-amp 20260928.pdf.md": {
     "scroll": 0
   },
   "circuitry/Operational Amplifier.md": {
-    "scroll": 68.43695746527777,
+    "scroll": 31.96857097642032,
     "cursor": {
       "from": {
-        "line": 91,
+        "line": 189,
         "ch": 0
       },
       "to": {
-        "line": 91,
+        "line": 189,
         "ch": 0
       }
     }
+  },
+  "circuitry/Instrumentation Amplifier.md": {
+    "cursor": {
+      "from": {
+        "line": 12,
+        "ch": 0
+      },
+      "to": {
+        "line": 12,
+        "ch": 0
+      }
+    },
+    "scroll": 13.977893368010402
+  },
+  "circuitry/Resistor-Weighted Digital-to-Analog Converter.md": {
+    "cursor": {
+      "from": {
+        "line": 13,
+        "ch": 0
+      },
+      "to": {
+        "line": 13,
+        "ch": 0
+      }
+    },
+    "scroll": 0
   }
 }

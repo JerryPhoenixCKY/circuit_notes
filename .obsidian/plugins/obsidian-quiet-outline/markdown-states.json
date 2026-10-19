@@ -78,7 +78,7 @@
         "ch": 0
       }
     },
-    "scroll": 49.03049141503848
+    "scroll": 37.034931912374184
   },
   "circuitry/Kirchhoff's Laws.md": {
     "expandedKeys": [
@@ -180,28 +180,28 @@
   "circuitry/Complex Numbers and Euler's Formula.md": {
     "cursor": {
       "from": {
-        "line": 22,
-        "ch": 0
+        "line": 168,
+        "ch": 2
       },
       "to": {
-        "line": 22,
-        "ch": 0
+        "line": 168,
+        "ch": 2
       }
     },
-    "scroll": 151.72200520833334
+    "scroll": 153.27594866071428
   },
   "circuitry/Circuit Theory Glossary.md": {
     "cursor": {
       "from": {
-        "line": 241,
-        "ch": 2
+        "line": 263,
+        "ch": 54
       },
       "to": {
-        "line": 241,
-        "ch": 2
+        "line": 263,
+        "ch": 54
       }
     },
-    "scroll": 225.13671035331927,
+    "scroll": 129.80102395001737,
     "expandedKeys": [
       "item-1-0"
     ]
@@ -466,15 +466,15 @@
   "circuitry/Circuit Analysis Methods in Practice.md": {
     "cursor": {
       "from": {
-        "line": 293,
+        "line": 213,
         "ch": 0
       },
       "to": {
-        "line": 293,
+        "line": 213,
         "ch": 0
       }
     },
-    "scroll": 282.91648929510455,
+    "scroll": 198.36133717290596,
     "expandedKeys": [
       "item-1-0"
     ]
@@ -487,15 +487,15 @@
     ],
     "cursor": {
       "from": {
-        "line": 88,
-        "ch": 14
+        "line": 71,
+        "ch": 119
       },
       "to": {
-        "line": 88,
-        "ch": 14
+        "line": 71,
+        "ch": 119
       }
     },
-    "scroll": 77.417687531465
+    "scroll": 60.2841796875
   },
   "circuitry/Wheatstone Bridge and Wye-Delta Transformation.md": {
     "cursor": {
@@ -566,15 +566,15 @@
     "scroll": 0
   },
   "circuitry/Operational Amplifier.md": {
-    "scroll": 31.96857097642032,
+    "scroll": 293.1483549390468,
     "cursor": {
       "from": {
-        "line": 189,
-        "ch": 0
+        "line": 343,
+        "ch": 9
       },
       "to": {
-        "line": 189,
-        "ch": 0
+        "line": 343,
+        "ch": 9
       }
     }
   },
@@ -603,5 +603,31 @@
       }
     },
     "scroll": 0
+  },
+  "ECE2001/L6 Second-order Circuits 20261018.pdf.md": {
+    "cursor": {
+      "from": {
+        "line": 0,
+        "ch": 0
+      },
+      "to": {
+        "line": 0,
+        "ch": 0
+      }
+    },
+    "scroll": 0
+  },
+  "circuitry/Second-Order Circuit Worked Examples.md": {
+    "cursor": {
+      "from": {
+        "line": 19,
+        "ch": 111
+      },
+      "to": {
+        "line": 19,
+        "ch": 111
+      }
+    },
+    "scroll": 8.780701754385966
   }
 }

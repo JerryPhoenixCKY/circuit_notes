@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "bea683bfd59163e4",
+        "id": "947fa582e03082b8",
         "type": "tabs",
         "children": [
           {
-            "id": "158b647b5065867d",
+            "id": "19e7c100a2fc3a27",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "circuitry/cs6.002x.1.md",
+                "file": "circuitry/Circuit Analysis Methods in Practice.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "cs6.002x.1"
+              "title": "Circuit Analysis Methods in Practice"
             }
           }
         ]
@@ -127,7 +127,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "circuitry/Hardware Communication Interfaces.md",
+                "file": "circuitry/Circuit Analysis Methods in Practice.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -142,8 +142,8 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "circuitry/Hardware Communication Interfaces.md",
-                "collapseAll": false,
+                "file": "circuitry/Circuit Analysis Methods in Practice.md",
+                "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
@@ -226,8 +226,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 329.5,
-    "collapsed": true
+    "width": 329.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -244,13 +243,19 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "158b647b5065867d",
+  "active": "09cc0095fc8be172",
   "lastOpenFiles": [
-    "L4 Op-amp 20260928.pdf.md",
     "circuitry/cs6.002x.1.md",
+    "circuitry/Operational Amplifier.md",
+    "circuitry/Amplifiers and Feedback.md",
+    "ECE2001/L6 Second-order Circuits 20261018.pdf.md",
+    "circuitry/Second-Order Circuit Worked Examples.md",
+    "circuitry/Circuit Theory Glossary.md",
+    "circuitry/Complex Numbers and Euler's Formula.md",
+    "ECE2001",
+    "L4 Op-amp 20260928.pdf.md",
     "ECE2001/L6 Second-order Circuits 20261018.pdf",
     "circuitry/Hardware Communication Interfaces.md",
-    "circuitry/Second-Order Circuit Worked Examples.md",
     "circuitry/assets/l6-opamp.png",
     "circuitry/assets/l6-example-7.png",
     "circuitry/assets/l6-example-6.png",
@@ -261,12 +266,9 @@
     "circuitry/assets/l6-example-1.png",
     "circuitry/assets/l6-parallel-rlc.png",
     "circuitry/assets/l6-series-rlc.png",
-    "ECE2001",
-    "circuitry/Operational Amplifier.md",
     "circuitry/Instrumentation Amplifier.md",
     "circuitry/Resistor-Weighted Digital-to-Analog Converter.md",
     "circuitry/First-Order Transients.md",
-    "circuitry/Amplifiers and Feedback.md",
     "circuitry/Circuit Analysis Methods in Practice.md",
     "ECE2001/L4 Op-amp 20260928.pdf",
     "circuitry/Norton's Theorem.md",
@@ -284,13 +286,11 @@
     "circuitry/Small Signal Analysis.md",
     "circuitry/Analysis of Nonlinear Circuits.md",
     "屏幕截图 2026-09-16 154322.png.md",
-    "circuitry/Circuit Theory Glossary.md",
     "markdown速查手册.md",
     "circuitry/Basic Circuit Analysis Method.md",
     "circuitry/Current Sources and Mirrors.md",
     "circuitry/Wheatstone Bridge and Wye-Delta Transformation.md",
     "circuitry/Capacitor.md",
-    "circuitry/Inductor.md",
     "未命名.canvas"
   ]
 }

@@ -70,15 +70,15 @@
     ],
     "cursor": {
       "from": {
-        "line": 111,
-        "ch": 111
+        "line": 150,
+        "ch": 0
       },
       "to": {
-        "line": 111,
-        "ch": 111
+        "line": 150,
+        "ch": 0
       }
     },
-    "scroll": 120.9712847838958
+    "scroll": 49.03049141503848
   },
   "circuitry/Kirchhoff's Laws.md": {
     "expandedKeys": [
@@ -552,15 +552,15 @@
   "circuitry/Hardware Communication Interfaces.md": {
     "cursor": {
       "from": {
-        "line": 383,
-        "ch": 23
+        "line": 369,
+        "ch": 34
       },
       "to": {
-        "line": 383,
-        "ch": 23
+        "line": 369,
+        "ch": 34
       }
     },
-    "scroll": 368.74807578448787
+    "scroll": 355.677366850529
   },
   "L4 Op-amp 20260928.pdf.md": {
     "scroll": 0

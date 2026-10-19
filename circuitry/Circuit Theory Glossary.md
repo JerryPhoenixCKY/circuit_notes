@@ -4,6 +4,7 @@ tags:
   - 术语表
   - 课程笔记
 date: 2026-08-15
+updated: 2026-10-19
 aliases:
   - 电路理论术语表
   - 电路术语表
@@ -336,7 +337,8 @@ aliases:
 | State Variables ✅                          | 状态变量        | Ch.10：$v_C$ / $i_L$，编码储能元件的全部历史（归入 [[First-Order Transients]] §二） |
 | Propagation Delay ✅                        | 传播延迟        | Ch.10：$t_{pd}\approx 0.69\,R_{ON}C_L$，数字门翻转延迟（归入 [[First-Order Transients]] §七） |
 | [[Energy and Power in Digital Circuits]] ✅  | 数字电路的能量与功率  | Ch.11：理想阶跃 RC 充电耗能、$P_{dyn}=\alpha CV^2f$、NMOS 静态功耗、CMOS 漏电与动态功耗、DVFS |
-| [[Second-Order Transients]] ✅               | 二阶暂态电路      | Ch.12：LC 无阻尼振荡、串联/并联 RLC 欠/过/临界阻尼、$\zeta$/$\omega_0$、状态变量法 |
+| [[Second-Order Transients]] ✅ | 二阶暂态电路 | Ch.12 / ECE 2001 L6：初态与导数、串并联自然/阶跃响应、$\alpha/\zeta/\omega_0$、重根、状态变量法 |
+| [[Second-Order Circuit Worked Examples]] ✅ | 二阶电路例题 | ECE 2001 L6：7 道例题、二阶运放、原图、公式检查与讲义勘误 |
 | [[Sinusoidal Steady State]] ✅                | 正弦稳态        | Ch.13：复指数激励、齐次/特解、完整解           |
 | [[Impedance]] ✅                              | 阻抗          | Ch.13：$Z_R=R,\ Z_C=1/j\omega C,\ Z_L=j\omega L$、分压/分流、功率因数 |
 | [[Frequency Response]] ✅                    | 频率响应        | Ch.13：传递函数 $H(j\omega)$、Bode 图、$-3$ dB、极点/零点、带宽 $BW$ |
@@ -351,29 +353,35 @@ aliases:
 
 | English | 中文 | 解释 |
 | :--- | :--- | :--- |
-| [[First-Order Transients|Transient Response]] | 暂态响应 | 电路从初始状态过渡到稳态期间的响应，由储能元件的"记忆"引起 |
-| [[First-Order Transients|Steady State]] | 稳态 | $t\to\infty$ 后电路达到的稳定状态（直流稳态下电容开路、电感短路） |
-| [[First-Order Transients|Switching Theorem]] | 换路定则 | 换路瞬间状态变量不变：$v_C(0^+)=v_C(0^-)$、$i_L(0^+)=i_L(0^-)$ |
-| [[First-Order Transients|Time Constant]] | 时间常数 $\tau$ | 一阶电路响应的特征时间：$\tau=RC$（RC）或 $\tau=L/R$（RL）；$t=\tau$ 时到达终值 63.2% |
-| [[First-Order Transients|Zero-Input Response]] | 零输入响应 | 无外加激励、仅由初始储能引起的响应（自然衰减） |
-| [[First-Order Transients|Zero-State Response]] | 零状态响应 | 初始储能为零、仅由外加激励引起的响应 |
-| [[First-Order Transients|Step Response]] | 阶跃响应 | 电路对单位阶跃输入的响应 |
-| [[First-Order Transients|Intuitive Analysis]] | 直觉分析 | 三步法求一阶全响应：$x(t)=x(\infty)+[x(0)-x(\infty)]e^{-t/\tau}$ |
-| [[First-Order Transients|Propagation Delay]] | 传播延迟 $t_{pd}$ | 数字门输出越过判定阈值的时间，$\sim 0.69\,R_{ON}C_L$ |
-| [[Energy and Power in Digital Circuits|Dynamic Power]] | 动态功耗 $P_{dyn}$ | 充放电负载电容引起的功耗：$P_{dyn}=\alpha C V_{DD}^2 f$ |
-| [[Energy and Power in Digital Circuits|Static Power]] | 静态功耗 $P_{static}$ | 不翻转时的功耗：NMOS 为 $V^2/(R_L+R_{ON})$，CMOS 为泄漏电流 $V_{DD}I_{leak}$ |
-| [[Energy and Power in Digital Circuits|Activity Factor]] | 活动因子 $\alpha$ | 每时钟周期内实际发生翻转的节点比例（典型 0.1–0.5） |
-| [[Energy and Power in Digital Circuits|Power-Delay Product]] | 功耗延迟积 PDP | $P\times t_{pd}$，衡量开关一次的能效 |
-| [[Energy and Power in Digital Circuits|DVFS]] | 动态电压频率调节 | 降低 $V_{DD}$ 和 $f$ 以减少功耗（$P\propto V^2$） |
-| [[Second-Order Transients|Natural Frequency]] | 自然频率 $\omega_0$ | 二阶电路的固有振荡频率：$\omega_0=1/\sqrt{LC}$ |
-| [[Second-Order Transients|Damping Ratio]] | 阻尼比 $\zeta$ | 表征阻尼强弱的无量纲量：$\zeta>1$ 过阻尼、$=1$ 临界、$<1$ 欠阻尼 |
-| [[Second-Order Transients|Damped Natural Frequency]] | 阻尼自然频率 $\omega_d$ | 欠阻尼下的实际振荡频率：$\omega_d=\omega_0\sqrt{1-\zeta^2}$ |
-| [[Second-Order Transients|Overdamped]] | 过阻尼 | $\zeta>1$，两个负实根，单调衰减无振荡 |
-| [[Second-Order Transients|Critically Damped]] | 临界阻尼 | $\zeta=1$，重根，最快无振荡衰减 |
-| [[Second-Order Transients|Underdamped]] | 欠阻尼 | $\zeta<1$，共轭复根，衰减振荡 |
-| [[Second-Order Transients|Characteristic Impedance]] | 特征阻抗 $Z_0$ | LC 回路的阻抗参数：$Z_0=\sqrt{L/C}$，决定振荡电流幅度 |
-| [[Second-Order Transients|State Variable Method]] | 状态变量法 | 用 $n$ 个状态变量的一阶 ODE 组替代 $n$ 阶 ODE 的系统化方法 |
-| [[Second-Order Transients|Envelope]] | 包络线 | 衰减振荡的幅值上界 $e^{-\zeta\omega_0 t}$ |
+| [[First-Order Transients\|Transient Response]] | 暂态响应 | 电路从初始状态过渡到稳态期间的响应，由储能元件的"记忆"引起 |
+| [[First-Order Transients\|Steady State]] | 稳态 | $t\to\infty$ 后电路达到的稳定状态（直流稳态下电容开路、电感短路） |
+| [[First-Order Transients\|Switching Theorem]] | 换路定则 | 无冲激电容电流/电感电压时，$v_C$、$i_L$ 连续；导数通常不连续，须按 $0^+$ 新拓扑计算 |
+| [[First-Order Transients\|Time Constant]] | 时间常数 $\tau$ | 一阶电路响应的特征时间：$\tau=RC$（RC）或 $\tau=L/R$（RL）；$t=\tau$ 时到达终值 63.2% |
+| [[First-Order Transients\|Zero-Input Response]] | 零输入响应 | 无外加激励、仅由初始储能引起的响应（自然衰减） |
+| [[First-Order Transients\|Zero-State Response]] | 零状态响应 | 初始储能为零、仅由外加激励引起的响应 |
+| [[First-Order Transients\|Step Response]] | 阶跃响应 | 电路对单位阶跃输入的响应 |
+| [[First-Order Transients\|Intuitive Analysis]] | 直觉分析 | 三步法求一阶全响应：$x(t)=x(\infty)+[x(0)-x(\infty)]e^{-t/\tau}$ |
+| [[First-Order Transients\|Propagation Delay]] | 传播延迟 $t_{pd}$ | 数字门输出越过判定阈值的时间，$\sim 0.69\,R_{ON}C_L$ |
+| [[Energy and Power in Digital Circuits\|Dynamic Power]] | 动态功耗 $P_{dyn}$ | 充放电负载电容引起的功耗：$P_{dyn}=\alpha C V_{DD}^2 f$ |
+| [[Energy and Power in Digital Circuits\|Static Power]] | 静态功耗 $P_{static}$ | 不翻转时的功耗：NMOS 为 $V^2/(R_L+R_{ON})$，CMOS 为泄漏电流 $V_{DD}I_{leak}$ |
+| [[Energy and Power in Digital Circuits\|Activity Factor]] | 活动因子 $\alpha$ | 每时钟周期内实际发生翻转的节点比例（典型 0.1–0.5） |
+| [[Energy and Power in Digital Circuits\|Power-Delay Product]] | 功耗延迟积 PDP | $P\times t_{pd}$，衡量开关一次的能效 |
+| [[Energy and Power in Digital Circuits\|DVFS]] | 动态电压频率调节 | 降低 $V_{DD}$ 和 $f$ 以减少功耗（$P\propto V^2$） |
+| [[Second-Order Transients\|Undamped Natural Frequency]] | 无阻尼自然角频率 $\omega_0$ | 标准 RLC 为 $1/\sqrt{LC}$，单位 rad/s；一般二阶电路从 ODE 的常数项系数识别 |
+| [[Second-Order Transients\|Damping Ratio]] | 阻尼比 $\zeta$ | 无量纲，$\zeta=\alpha/\omega_0$；$>1$ 过阻尼、$=1$ 临界、$0<\zeta<1$ 欠阻尼、$=0$ 无阻尼 |
+| [[Second-Order Transients\|Damped Natural Frequency]] | 阻尼自然角频率 $\omega_d$ | 欠阻尼自由振铃角频率，$\omega_d=\sqrt{\omega_0^2-\alpha^2}$；Hz 数值为 $\omega_d/(2\pi)$ |
+| [[Second-Order Transients\|Overdamped]] | 过阻尼 | $\zeta>1$，两个不同负实根；无正弦自然模态，但任意初态下的输出不保证单调 |
+| [[Second-Order Transients\|Critically Damped]] | 临界阻尼 | $\zeta=1$，自然响应为 $(A+Bt)e^{-\alpha t}$；相同 $\omega_0$、零初态标准低通阶跃下最快单调趋近 |
+| [[Second-Order Transients\|Underdamped]] | 欠阻尼 | $0<\zeta<1$，特征根 $-\alpha\pm j\omega_d$，衰减振铃 |
+| [[Second-Order Transients\|Characteristic Impedance]] | 特征阻抗 $Z_0$ | LC 回路的阻抗参数：$Z_0=\sqrt{L/C}$，决定振荡电流幅度 |
+| [[Second-Order Transients\|State Variable Method]] | 状态变量法 | 用 $n$ 个状态变量的一阶 ODE 组替代 $n$ 阶 ODE 的系统化方法 |
+| [[Second-Order Transients\|Envelope]] | 包络线 | 对 $x-x_\infty=Ae^{-\alpha t}\cos(\omega_dt+\phi)$，幅度包络为 $\lvert A\rvert e^{-\alpha t}$，时间常数 $1/\alpha$ |
+| [[Second-Order Transients\|Damping Factor]] | 衰减系数 $\alpha$ | 单位 $\mathrm{s}^{-1}$；串联 $R/(2L)$，并联 $1/(2RC)$，与阻尼比的关系为 $\alpha=\zeta\omega_0$ |
+| [[Second-Order Transients#1.1 初值、初始导数与终值 (Initial and Final Conditions)\|Initial Slope]] | 初始斜率 | 由 $0^+$ 的 KCL/KVL 求 $i_C/C$、$v_L/L$；与初始状态不能任意独立指定 |
+| [[Second-Order Transients#5.1 两种分解不能混淆\|Complete Response]] | 全响应 | 齐次响应加特解；恒定激励且渐近稳定时可写为终值加暂态，不能与零输入/零状态分解混为一谈 |
+| [[Second-Order Transients#3.5 为什么重根要乘 $t$？(Repeated Root)\|Repeated Root]] | 重根 | 二阶临界阻尼需两个独立解 $e^{-\alpha t}$、$te^{-\alpha t}$ |
+| [[Second-Order Transients\|Logarithmic Decrement]] | 对数衰减率 $\delta$ | 同号、扣除终值的相邻峰比对数，$\delta=2\pi\alpha/\omega_d$ |
+| [[Second-Order Circuit Worked Examples\|Second-Order Circuit Worked Examples]] | 二阶电路例题 | L6 的换路初态、串并联、双电感与运放例子；含频率与小数点勘误 |
 
 ---
 

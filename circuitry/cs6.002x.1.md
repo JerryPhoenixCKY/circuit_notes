@@ -5,6 +5,7 @@ tags:
   - 电磁学
   - 知识树
 date: 2026-08-15
+updated: 2026-10-19
 aliases:
   - 电路原理
   - 电路与电子学
@@ -94,7 +95,8 @@ aliases:
 - **数字电路的能耗与功率 (Energy & Power) — Ch.11**
     - [[Energy and Power in Digital Circuits|数字电路的能量与功率]] ✅ （RC 充电 50% 损耗、$P_{dyn}=\alpha CV^2f$、NMOS 静态功耗、CMOS 零静态、DVFS）
 - **二阶暂态 (Second-Order Circuits) — Ch.12**
-    - [[Second-Order Transients|二阶暂态电路]] ✅ （LC 无阻尼振荡、串联/并联 RLC 欠/过/临界阻尼、$\zeta$/$\omega_0$、状态变量法、双电容/双电感）
+    - [[Second-Order Transients|二阶暂态电路 (Second-Order Transients)]] ✅ ❗（初值/初始导数/终值、串并联 RLC 自然与阶跃响应、$\alpha/\zeta/\omega_0$、重根推导、通用系数表、状态变量法、双电容/双电感）
+    - [[Second-Order Circuit Worked Examples|二阶电路例题 (Second-Order Circuit Worked Examples)]] ✅（ECE 2001 L6：7 道例题、二阶运放、原图与频率/系数勘误）
 
 ### Part 5 · 正弦稳态与频域
 - **正弦稳态：阻抗与频率响应 (Impedance) — Ch.13**
@@ -107,7 +109,7 @@ aliases:
 
 ### Part 6 · 有源器件与整流
 - **运算放大器抽象 (Operational Amplifier) — Ch.15**
-    - [[Operational Amplifier|运算放大器 (Operational Amplifier)]] ✅（受控源等效、线性区与饱和、虚短虚断、反相/同相/差分、级联）
+    - [[Operational Amplifier|运算放大器 (Operational Amplifier)]] ✅（受控源等效、线性区与饱和、虚短虚断、反相/同相/差分、级联；L6 二阶 RC 时域方程与初态）
     - [[Instrumentation Amplifier|仪表放大器 (Instrumentation Amplifier)]] ✅（三运放拓扑、差分增益、共模抑制）
     - [[Resistor-Weighted Digital-to-Analog Converter|电阻加权数模转换器 (Resistor-Weighted DAC)]] ✅（加权求和、4 bit 例题、位权误差）
 
@@ -146,29 +148,5 @@ aliases:
 > 已建 ✅ 的笔记可立即复习；⚠️ 为待建框架占位，学到对应章再填充正文。
 > **Part 7 是工程扩展分支**，与教材章节并行推进：学到差分与频域后即可读通信接口笔记（它把 LMD 失效判据、二阶阻尼、RC 时间常数都用上了）。
 
-## MIT 6.002 课件索引
-
-课件的 Lecture 编号按 PDF 首页标注；与上方教材章节编号不是同一套序列。每行右侧给出便于复习的主题笔记。
-
-| 课件 | 首页主题 | 对应笔记 |
-| :--- | :--- | :--- |
-| [[05fef0ad87134781c8f285e47973023b_6002_l8.pdf\|Lecture 8]] | 受控源与放大器 | [[Dependent Sources]]、[[The MOSFET Amplifier]] |
-| [[5d9288b54aceb1737d8f831d3c66739b_6002_l9.pdf\|Lecture 9]] | MOSFET 放大器大信号分析 | [[The MOSFET Amplifier]]、[[Large-Signal Model]] |
-| [[3fd86dd2d2f64b08e2484dbb73a68b7b_6002_l10.pdf\|Lecture 10]] | 放大器小信号模型 | [[Small Signal Analysis]] |
-| [[223a71c6e0b77090a6bdfd3b28aa1d5f_6002_l11.pdf\|Lecture 11]] | 小信号电路 | [[Small Signal Circuit Representation]] |
-| [[84f4b553fc6a1ddd7007465041c4e213_6002_l12.pdf\|Lecture 12]] | 电容与一阶系统 | [[Capacitor]]、[[First-Order Transients]] |
-| [[93f7f25de3c5baf4c514b8add531fa3f_6002_l13.pdf\|Lecture 13]] | 数字电路 | [[The Digital Abstraction]]、[[Static Discipline]] |
-| [[b703ee58f9dd8239b823eb6a4d20de0e_6002_l14.pdf\|Lecture 14]] | 状态与存储 | [[Sequential Logic]] |
-| [[34dd2fd3821b725a8b2191558673296b_6002_l15.pdf\|Lecture 15]] | 二阶系统 | [[Second-Order Transients]] |
-| [[c794c9c9e067b6c16274ed844894ace7_6002_l15b.pdf\|Lecture 15b]] | 有阻尼二阶系统 | [[Second-Order Transients]]、[[Resonance]] |
-| [[fed27650027942843313fd984a133e64_6002_l16.pdf\|Lecture 16]] | 正弦稳态 | [[Sinusoidal Steady State]] |
-| [[66adf4d4611a57b949efa1b00a842a46_6002_l17.pdf\|Lecture 17]] | 阻抗模型 | [[Impedance]] |
-| [[d4e136975654a01f7fc2c9b49196d376_6002_l18.pdf\|Lecture 18]] | 滤波器 | [[Filters]]、[[Frequency Response]] |
-| [[8dcd447b7211b053e4dac01d80555d89_6002_l19.pdf\|Lecture 19]] | 运放抽象 | [[Operational Amplifier]] |
-| [[e7d4a7f9d1caee6423433e898bd940cc_6002_l20.pdf\|Lecture 20]] | 运放电路 | [[Operational Amplifier]] |
-| [[27776d035c056201a47d86d6d44f361a_6002_l21.pdf\|Lecture 21]] | 运放正反馈 | [[Amplifiers and Feedback]]、[[Operational Amplifier]] |
-| [[62cc78db14ad37dede55c361711ba2ae_6002_l22.pdf\|Lecture 22]] | 能量与功率 | [[Energy and Power in Digital Circuits]] |
-| [[e91dbb295f31c6d799483e77c6b35cbe_6002_l23.pdf\|Lecture 23]] | 能量与 CMOS | [[Energy and Power in Digital Circuits]]、[[Static Discipline]] |
-| [[656bfb530a818da1593fdbf57f997d49_6002_l25.pdf\|Lecture 25]] | 抽象边界失效 | [[The Circuit Abstraction]]、[[Hardware Communication Interfaces]] |
 
 另见 [[Basic Circuit Analysis Method (KVL and KCL method).pdf\|KVL/KCL 基础分析课件]]、[[Basic Circuit Analysis Method]] 与 [[Circuit Theory Glossary\|电路理论术语表]]。

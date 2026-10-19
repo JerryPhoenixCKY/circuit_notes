@@ -5,6 +5,7 @@ tags:
   - 暂态分析
   - 课程笔记
 date: 2026-09-08
+updated: 2026-10-19
 aliases:
   - 一阶暂态
   - 一阶暂态电路
@@ -61,7 +62,8 @@ graph LR
 | 电感 Inductor | $i_L$ | $i_L(0^+)=i_L(0^-)$ | $v = L\,\frac{di}{dt}$ |
 
 > [!TIP] 换路定则 (Switching Theorem)
-> 换路瞬间（$t=0$），**状态变量不变**——这就是求解一阶暂态初始条件的核心法则。物理上，能量不能突变（$E_C=\frac{1}{2}Cv^2$、$E_L=\frac{1}{2}Li^2$ 是连续函数），否则功率趋于无穷大。
+> 在电容电流无冲激、电感电压无冲激的普通换路条件下，**状态变量连续**：$v_C(0^+)=v_C(0^-)$、$i_L(0^+)=i_L(0^-)$。这直接来自 $\Delta v_C=\frac1C\int i_C\,dt$ 与 $\Delta i_L=\frac1L\int v_L\,dt$；有限的电流/电压在无限短区间内积分为零。
+> 电容电流、电感电压及状态的导数可以跳变。用 $0^+$ 的新拓扑求导数，不能沿用 $0^-$ 稳态的零导数。两状态电路的完整步骤见 [[Second-Order Transients#1.1 初值、初始导数与终值 (Initial and Final Conditions)|初值、初始导数与终值]]，练习见 [[Second-Order Circuit Worked Examples|二阶电路例题 1–2]]。强制不相容初态的理想连接须另作冲激分析。
 
 ### 2.1 为什么是"一阶"？
 

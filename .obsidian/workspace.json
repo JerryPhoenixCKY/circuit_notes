@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "circuitry/Hardware Communication Interfaces.md",
+                "file": "circuitry/cs6.002x.1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Hardware Communication Interfaces"
+              "title": "cs6.002x.1"
             }
           }
         ]
@@ -127,7 +127,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "circuitry/Operational Amplifier.md",
+                "file": "circuitry/Hardware Communication Interfaces.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -161,7 +161,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "circuitry/Thevenin's Theorem.md",
+                "file": "circuitry/Hardware Communication Interfaces.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -206,7 +206,7 @@
               "state": {
                 "url": "http://127.0.0.1:3080/",
                 "title": "127.0.0.1:3080",
-                "mode": "webview"
+                "mode": "error"
               },
               "icon": "globe-2",
               "title": "127.0.0.1:3080"
@@ -246,26 +246,29 @@
   },
   "active": "158b647b5065867d",
   "lastOpenFiles": [
+    "L4 Op-amp 20260928.pdf.md",
     "circuitry/cs6.002x.1.md",
+    "ECE2001/L6 Second-order Circuits 20261018.pdf",
+    "circuitry/Hardware Communication Interfaces.md",
+    "circuitry/Second-Order Circuit Worked Examples.md",
+    "circuitry/assets/l6-opamp.png",
+    "circuitry/assets/l6-example-7.png",
+    "circuitry/assets/l6-example-6.png",
+    "circuitry/assets/l6-example-5.png",
+    "circuitry/assets/l6-example-4.png",
+    "circuitry/assets/l6-example-3.png",
+    "circuitry/assets/l6-example-2.png",
+    "circuitry/assets/l6-example-1.png",
+    "circuitry/assets/l6-parallel-rlc.png",
+    "circuitry/assets/l6-series-rlc.png",
+    "ECE2001",
     "circuitry/Operational Amplifier.md",
     "circuitry/Instrumentation Amplifier.md",
     "circuitry/Resistor-Weighted Digital-to-Analog Converter.md",
     "circuitry/First-Order Transients.md",
-    "circuitry/assets/opamp_differentiator_basic.svg",
-    "circuitry/assets/opamp_integrator_basic.svg",
-    "circuitry/assets/opamp_difference_amplifier.svg",
-    "circuitry/assets/opamp_voltage_follower.svg",
-    "circuitry/assets/opamp_inverting_amplifier.svg",
-    "circuitry/assets/opamp_non_inverting_amplifier.svg",
-    "circuitry/assets/opamp_summing_amplifier.svg",
-    "circuitry/assets/opamp_rc_sallen_key_schematics.svg",
-    "circuitry/assets/opamp_four_basic_schematics.svg",
-    "circuitry/assets/opamp_generic_symbol.svg",
-    "L4 Op-amp 20260928.pdf.md",
     "circuitry/Amplifiers and Feedback.md",
     "circuitry/Circuit Analysis Methods in Practice.md",
     "ECE2001/L4 Op-amp 20260928.pdf",
-    "ECE2001",
     "circuitry/Norton's Theorem.md",
     "circuitry/Dependent Sources.md",
     "MIT_cs6.002x/Superposition, Thévenin and Norton.pdf",
@@ -275,9 +278,7 @@
     "MIT_cs6.002x/Nonlinear Analysis.pdf",
     "MIT_cs6.002x/Incremental Analysis.pdf",
     "MIT_cs6.002x/artifact-delivery-contract.json",
-    "MIT_cs6.002x/05fef0ad87134781c8f285e47973023b_6002_l8.pdf",
     "circuitry/Thevenin's Theorem.md",
-    "circuitry/Hardware Communication Interfaces.md",
     "circuitry/Source Transformation.md",
     "circuitry/Superposition Theorem.md",
     "circuitry/Small Signal Analysis.md",
@@ -290,8 +291,6 @@
     "circuitry/Wheatstone Bridge and Wye-Delta Transformation.md",
     "circuitry/Capacitor.md",
     "circuitry/Inductor.md",
-    "circuitry/The Circuit Abstraction.md",
-    "circuitry/Practical Two-Terminal Elements.md",
     "未命名.canvas"
   ]
 }

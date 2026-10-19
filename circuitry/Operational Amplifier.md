@@ -5,6 +5,7 @@ tags:
   - 运算放大器
   - 课程笔记
 date: 2026-09-08
+updated: 2026-10-19
 aliases:
   - Operational Amplifier
   - Op Amp
@@ -338,6 +339,44 @@ H_{\mathrm{HP}}(s)=\frac{s^2R_1R_2C_1C_2}{1+sR_1(C_1+C_2)+s^2R_1R_2C_1C_2}.$$
 
 ---
 
+### 4.4 二阶运放电路的时域方程 (Second-Order Op-Amp Dynamics)
+
+ECE 2001 [[ECE2001/L6 Second-order Circuits 20261018.pdf#page=62|L6，PDF pp.62–63]] 的单位增益 Sallen-Key 例子使用下图标号：**$C_1$ 接地，$C_2$ 从两电阻中点接输出**，与 §4.3 图中的两个电容标号互换。分析采用理想运放、稳定线性负反馈、零输入电流模型。
+
+![[l6-opamp.png|580]]
+
+令 $v_1$ 为 $R_1,R_2$ 中点对地电压，$v_o$ 为输出电压。讲义标出的 $v_2=v_1-v_o$ 是 $C_2$ 两端电压；标号“2”的节点电压则是 $v_o$。两节点 KCL 为
+
+$$\frac{v_s-v_1}{R_1}=C_2\frac{d(v_1-v_o)}{dt}+\frac{v_1-v_o}{R_2},\qquad
+\frac{v_1-v_o}{R_2}=C_1\dot v_o.$$
+
+由第二式得 $v_1=v_o+R_2C_1\dot v_o$，代入第一式并整理：
+
+$$\boxed{R_1R_2C_1C_2\ddot v_o+(R_1+R_2)C_1\dot v_o+v_o=v_s.}$$
+
+与 [[Second-Order Transients|二阶暂态]] 的标准形式比较：
+
+$$\omega_0=\frac1{\sqrt{R_1R_2C_1C_2}},\qquad
+\alpha=\frac12\left(\frac1{R_1C_2}+\frac1{R_2C_2}\right),$$
+
+$$\boxed{\zeta=\frac{\alpha}{\omega_0}
+=\frac{R_1+R_2}{2\sqrt{R_1R_2}}\sqrt{\frac{C_1}{C_2}}.}$$
+
+其中 $R_1,R_2>0$，单位为 $\Omega$；$C_1,C_2>0$，单位为 F；$\alpha$ 单位为 $\mathrm{s}^{-1}$、$\omega_0$ 单位为 rad/s、$\zeta$ 无量纲。若 $R_1=R_2$，则 $\zeta=\sqrt{C_1/C_2}$；等值电容给出临界阻尼，并非任意 $Q$。
+
+零初态、输入 $v_s=V_Su(t)$（$u$ 为单位阶跃）时，两电容电压连续，所以 $v_o(0^+)=0$、$v_1(0^+)-v_o(0^+)=0$，进而 $\dot v_o(0^+)=0$；稳定终值为 $V_S$。因此可按二阶系数表求全响应。
+
+**数值例（基于理想模型推导）**：$R_1=R_2=10\,\mathrm{k}\Omega$、$C_1=10\,\mathrm{nF}$、$C_2=20\,\mathrm{nF}$，输入为 1 V 阶跃，则
+
+$$\omega_0=7071.07\ \mathrm{rad/s},\quad\alpha=5000\ \mathrm{s}^{-1},\quad
+\zeta=1/\sqrt2,\quad\omega_d=5000\ \mathrm{rad/s},$$
+
+$$v_o(t)=\left[1-e^{-5000t}(\cos5000t+\sin5000t)\right]\ \mathrm V,\quad t\ge0.$$
+
+这里 $t$ 以 s 计。检查：初值与初始斜率均为零，终值为 1 V，且 $R_1R_2C_1C_2$ 的量纲为 $\mathrm{s}^2$。实际运放的有限带宽、压摆率和输出范围可能改变理想响应，不能把理想二阶方程当作任意器件的保证。更多换路例子见 [[Second-Order Circuit Worked Examples]]。
+
+---
+
 ## 五、饱和、正反馈与振荡器
 
 ### 5.1 开环比较器与饱和
@@ -411,6 +450,7 @@ $$\boxed{|A(j2\pi f)|\,f\approx\mathrm{GBW}.}$$
 - [[Impedance]] —— 运放的输入阻抗（虚断）与输出阻抗（负反馈降低）
 - [[Frequency Response]] —— 运放 GBW / 带宽限制 / 相位补偿
 - [[Filters]] —— Sallen-Key 有源滤波器；区分实际低通与理想积分器
+- [[Second-Order Transients]] / [[Second-Order Circuit Worked Examples]] —— 两个独立电容的二阶动态、初态与阶跃响应
 - [[Diode]] —— 运放饱和时的削波（与二极管削波的联系）
 - [[Large-Signal Model]] —— 运放的饱和模型（非线性特性）
 - [[Amplifiers and Feedback]] —— 负反馈理论 / 振荡器（Barkhausen 条件）
